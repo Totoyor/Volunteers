@@ -1,0 +1,19 @@
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.content-blog {
+    margin-top: 50px !important;
+}
+
+.card-title > a {
+    color: #1565c0;
+}
+
+.card-action > span > a {
+    color: #4db6ac !important;
+}
+
+footer.page-footer {
+    padding-top: 0px !important;
+}
