@@ -5,25 +5,10 @@ class SearchController extends AppController
 
     public function __construct()
     {
+
+        require 'app/model/PostModel.php';
+        $this->model = new PostModel();
         parent::__construct();
-
-        $this->model = new AppModel();
-
-        if(!isset($_GET['action']) || $_GET["action"] == "home")
-        {
-            // Appelle la page Search du blog
-            $this->home();
-        }
-        elseif (isset($_GET['action']) == 'search')
-        {
-            // Si une recherche est lancée
-            $this->search($_POST['search']);
-        }
-        else
-        {
-            define("TITLE_HEAD", "ERROR 404");
-            $this->load->view('404.php');
-        }
 
     }
 
@@ -33,24 +18,26 @@ class SearchController extends AppController
         $this->load->view('search.php');
     }
 
-    public function search($search)
+    public function find()
     {
-
-        $data = $this->model->searchArticle(array(
-            "search" => $search
-        ));
-
-        if(!$data)
+        if(isset($_POST['find']))
         {
-            // Si pas d'ID on apelle la page d'erreur
-            define("TITLE_HEAD", "Erreur technique !");
-            $this->load->view('view_error.php');
-        }
-        else
-        {
-            // Sinon on appelle l'article
+            $keyword = $_POST['find'];
+
+            $data = $this->model->searchArticle(array(
+                "keyword" => $keyword
+            ));
+
+            // On affiche le résultat de la recherche
             define("TITLE_HEAD", "Recherche !");
             $this->load->view('search.php', $data);
         }
+        else
+        {
+            // Si pas de $_POST alors on apelle une page d'erreur
+            define("TITLE_HEAD", "Erreur technique !");
+            $this->load->view('view_error.php');
+        }
+
     }
 }

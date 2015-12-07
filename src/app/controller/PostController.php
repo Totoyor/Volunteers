@@ -2,61 +2,35 @@
 
 class PostController extends AppController
 {
-    
     public function __construct()
     {
-        parent::__construct();
-
+        require 'app/model/PostModel.php';
         $this->model = new PostModel();
-        
-        if(!isset($_GET['action']) || $_GET["action"] == "home")
+        parent::__construct();
+    }
+    
+    public function home()
+    {
+        // Vérifier la page actuelle
+        if(isset($_GET['page']))
         {
-            // Si une page du blog est demandé
-            if(isset($_GET['page']))
-            {
-                if ($_GET['page'] == 1)
-                {
-                    $this->home(OFFSET, LIMITE);
-                }
-                else
-                {
-                    $offset = LIMITE * $_GET['page'];
-                    $limite = LIMITE;
-                    $this->home($offset, $limite);
-                    echo $offset.'<br/>';
-                    echo $limite;
-                }
-            }
-            else
-            {
-                // Appelle la page accueil du blog
-                $this->home(OFFSET, LIMITE);
-            }
-        }
-        else if ($_GET["action"] == "post")
-        {
-            // Ou l'action correspondante
-            $this->post();
+            $page = $_GET['page'];
         }
         else
         {
-            // Sinon appelle la page 404
-            define("TITLE_HEAD", "ERROR 404");
-            $this->load->view('404.php');
+            $page = 1;
         }
-        
-    }
-    
-    public function home($offset, $limite)
-    {
-        // Charger les articles du blog
-        //$data = $this->model->read_articles($offset, $limite);
 
+        // Calcul de l'offset
+        $offset = ($page - 1) * LIMITE;
+
+        // Charger les articles du blog
         $data = $this->model->readAll(array(
                 "table" => "posts",
                 // "columns" => "col1, col2",
-                "orderBy" => "post_date",
-                "limite" => $limite,
+                "orderBy" => "post_ID",
+                "sort" => "DESC",
+                "limite" => LIMITE,
                 "offset" => $offset,
         ));
 
@@ -64,44 +38,53 @@ class PostController extends AppController
         {
             // Si pas de DATA alors on apelle une page d'erreur
             define("TITLE_HEAD", "Erreur technique !");
-            $this->load->view('view_error.php');    // si pas de données afficher une page erreur
+            $this->load->view('view_error.php');
         }
         else
         {
             // Sinon on apelle les articles du blog
             define("TITLE_HEAD", "Les derniers articles du blog");
-            $this->load->view('view_articles.php', $data);
-
             // Test toto pagination
             $table = 'blog_posts';
             $count = $this->model->countArticles($table);
-            echo $count[0];
+            $nbrPage = ceil($count[0] / MAX_ARTICLE);
+            // Chargement de la vue
+            $this->load->view('view_articles.php', $data, $nbrPage);
         }
     }
     
     public function post()
     {
-        // Charger un article
-        //$data = $this->model->read_article($_GET["id"]);
-
-        $data = $this->model->readOne(array(
-                    "table" => "posts",
-                    // "columns" => "col1, col2",
-                    "column_id" => "post_id",
-                    "id" => $_GET['id']
-        ));
-
-        if(!$data)
+        if(isset($_GET['id']))
         {
-            // Si pas d'ID on apelle la page d'erreur
+            // Charger un article
+            $data = $this->model->readOne(array(
+                "table" => "posts",
+                // "columns" => "col1, col2",
+                "column_id" => "post_id",
+                "id" => $_GET['id']
+            ));
+
+            $comments = $this->model->getComments($_GET['id']);
+
+            if(!$data)
+            {
+                // Si pas de data on apelle la page d'erreur
+                define("TITLE_HEAD", "Erreur technique !");
+                $this->load->view('view_error.php');
+            }
+            else
+            {
+                // Sinon on appelle la vue de l'article
+                define("TITLE_HEAD", "Article !");
+                $this->load->view('view_article.php', $data, $comments);
+                var_dump($comments);
+            }
+        }
+        else {
+            // Si pas de data on apelle la page d'erreur
             define("TITLE_HEAD", "Erreur technique !");
             $this->load->view('view_error.php');
-        }
-        else 
-        {
-            // Sinon on appelle l'article
-            define("TITLE_HEAD", "Article !");
-            $this->load->view('view_article.php', $data);
         }
     }
 }

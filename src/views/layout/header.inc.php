@@ -22,9 +22,9 @@
             </a>
         </div>
         <ul class="right hide-on-med-and-down">
-            <form action="?module=search&action=search" method="post">
+            <form action="?module=search&action=find" method="post">
                 <div class="input-field">
-                    <input id="search" type="search" placeholder="Rechercher" name="search" required>
+                    <input id="search" type="search" placeholder="Rechercher" name="find" required>
                     <label for="search"><i class="material-icons">search</i></label>
                     <i class="material-icons">close</i>
                 </div>
@@ -32,7 +32,8 @@
         </ul>
         <ul class="right hide-on-med-and-down">
             <li>
-                <a href="?module=user" class="color-link white-text">Mon Compte</a>
+<!--                <a href="?module=user" class="color-link white-text"><i class="material-icons">person_pin</i></a>-->
+                <a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons">person_pin</i></a>
             </li>
         </ul>
         <ul id="nav-mobile" class="side-nav">
@@ -41,3 +42,17 @@
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
 </nav>
+<!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content">
+    <?php
+    if(!isset($_SESSION['user_email'])) { ?>
+        <li><a href="?module=user">Connexion </a></li>
+        <li class="divider"></li>
+        <li><a href="?module=user&action=signin">Inscription </a></li>
+    <?php }
+     else { ?>
+        <li><a href="?module=user">Mon Compte </a></li>
+        <li class="divider"></li>
+        <li><a href="?module=user&action=disconnect">Déconnexion </a></li>
+    <?php } ?>
+</ul>

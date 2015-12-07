@@ -8,22 +8,15 @@ class CoreModel extends Core
     {
         try
         {
-            $dns = DB_DNS;
-            $utilisateur = DB_USERNAME;
-            $motDePasse = DB_PASSWORD;
-
             $options = array(
-                PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
+                PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES ".DB_CHARSET,
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
 
-            $this->connexion = new PDO ($dns, $utilisateur, $motDePasse, $options);
-
+            $this->connexion = new PDO (DB_DNS, DB_USERNAME, DB_PASSWORD, $options);
         }
         catch (Exception $e)
         {
-            define('TITLE_HEAD', 'Erreur de connexion BDD');
-            include('views/view_error.php');
-            die();
+            $this->coreDbError($e);
         }
     }
 
@@ -47,9 +40,14 @@ class CoreModel extends Core
             // Traitement des options
             if (isset($options['orderBy'])) {
                 $query .= " ORDER BY " . $options['orderBy'];
+                // Si DESC
+                if(isset($options['sort'])) {
+                    $query .= " ".$options['sort'];
+                }
             }
+
             if (isset($options['limite']) && isset($options['offset'])) {
-                $query .= " LIMIT " . $options['offset'] . "," . $options['limite'];
+                $query .= " LIMIT " . $options['offset'] . ", " . $options['limite'];
             }
 
             // Traitement de la requete
@@ -61,7 +59,7 @@ class CoreModel extends Core
         }
         catch (Exception $e)
         {
-            die($e->getMessage());
+            $this->coreDbError($e);
         }
     }
 
@@ -94,7 +92,7 @@ class CoreModel extends Core
         }
         catch (Exception $e)
         {
-            die($e->getMessage());
+            $this->coreDbError($e);
         }
     }
 
@@ -123,6 +121,7 @@ class CoreModel extends Core
         }
         catch (Exception $e)
         {
+            $this->coreDbError($e);
             return false;
         }
     }
@@ -131,10 +130,10 @@ class CoreModel extends Core
     {
         try
         {
-            $requete = htmlspecialchars($options['search']);
+            $requete = htmlspecialchars($options['keyword']);
 
             // Requête SQL
-            $query = "SELECT * FROM blog_posts
+            $query = "SELECT * FROM ".DB_PREFIX."posts
                                         WHERE post_content LIKE '%$requete%'
                                         OR post_title LIKE '%$requete%'
                                         ORDER BY post_ID DESC";
@@ -147,6 +146,7 @@ class CoreModel extends Core
         }
         catch (Exception $e)
         {
+            $this->coreDbError($e);
             return false;
         }
     }

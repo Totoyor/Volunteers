@@ -1,13 +1,24 @@
 <?php // Controleur principal
 
-// Affichage des erreurs
-ini_set('display_errors', 1);
-
 // Constantes
-include_once('config/constant.php');
+include_once 'config/constant.php';
 
-// Connexion PDO
-//include_once('config/pdo.php');
+// Démarage de la session
+require_once 'config/secure_session.php';
+TOTO_session_start(SESSION_NAME);
+
+// Gestion des erreurs
+if(defined('DEBUG') && DEBUG) {
+
+    // En mode DEBUG on affiche toutes les erreurs & warnings
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL);
+}
+else {
+    // On affiche aucune erreur
+    ini_set('display_errors', 0);
+    error_reporting(0);
+}
 
 // Inclusion du Core (Controller/Model/View)
 require_once 'core/Core.php';

@@ -17,3 +17,7 @@
 footer.page-footer {
     padding-top: 0px !important;
 }
+
+.modal-debug {
+    display: inline-block;
+}
