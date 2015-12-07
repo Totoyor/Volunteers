@@ -27,9 +27,9 @@ else if(SERVER === 'PROD') {
 }
 
 // Constantes de Base de Données
-define('DB_DNS',      'mysql:host=localhost;dbname=la_mantia');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', 'root');
+define('DB_DNS',      'mysql:host=ns366377.ovh.net;dbname=la_mantia');
+define('DB_USERNAME', 'la_mantia');
+define('DB_PASSWORD', '669763');
 define('DB_CHARSET', 'utf8');
 define('DB_PREFIX', "blog_");
 
