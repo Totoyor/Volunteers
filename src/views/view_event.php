@@ -12,40 +12,40 @@
                         <div class="card-content">
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input id="event_name" type="text" class="validate" name="event_name">
+                                    <input id="event_name" type="text" class="validate" name="event_name" required>
                                     <label for="email">Event name</label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input id="event_location" type="text" class="validate" name="event_location">
+                                    <input id="event_location" type="text" class="validate" name="event_location" required>
                                     <label for="email">Location</label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s6">
-                                    <input id="event_start" type="date" class="datepicker" name="event_start">
+                                    <input id="event_start" type="date" class="datepicker" name="event_start" required>
                                     <label for="email">Start</label>
                                 </div>
                                 <div class="input-field col s6">
-                                    <input id="event_hour_start" type="time" class="validate" name="event_hour_start">
+                                    <input id="event_hour_start" type="time" class="validate" name="event_hour_start" required>
 <!--                                    <label for="email">Hour</label>-->
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s6">
-                                    <input id="event_end" type="date" class="datepicker" name="event_end">
+                                    <input id="event_end" type="date" class="datepicker" name="event_end" required>
                                     <label for="email">End</label>
                                 </div>
                                 <div class="input-field col s6">
-                                    <input id="event_hour_end" type="time" class="validate" name="event_hour_end">
+                                    <input id="event_hour_end" type="time" class="validate" name="event_hour_end" required>
 <!--                                    <label for="email">Hour</label>-->
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <select name="event_categories[]" multiple>
-                                        <option value="" disabled selected>Choose your categories</option>
+                                    <select name="event_categories[]" required multiple>
+                                        <option disabled selected>Choose your categories</option>
                                         <option value="techno">Techno</option>
                                         <option value="house">House</option>
                                         <option value="festival">Festival</option>
@@ -55,7 +55,7 @@
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <textarea id="event_description" name="event_description" class="materialize-textarea"></textarea>
+                                    <textarea id="event_description" name="event_description" class="materialize-textarea" required></textarea>
                                     <label for="textarea1">Description</label>
                                 </div>
                             </div>

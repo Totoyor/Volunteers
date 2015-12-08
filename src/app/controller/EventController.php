@@ -39,6 +39,7 @@ Class EventController extends AppController
 
         }
 
+        var_dump($_POST);
         die();
     }
 }
