@@ -1,7 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fa06812d-9c05-4909-9d99-8c7b0e6c395c" name="Default" comment="" />
+    <list default="true" id="fa06812d-9c05-4909-9d99-8c7b0e6c395c" name="Default" comment="">
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/.idea/.name" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/.idea/dictionaries/ThomasVanwelden.xml" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/.idea/encodings.xml" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/.idea/misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/.idea/modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/.idea/src.iml" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/.idea/workspace.xml" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/app/AppController.php" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/app/AppModel.php" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/app/app.php" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/app/controller/PostController.php" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/app/controller/SearchController.php" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/app/controller/UserController.php" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/app/model/PostModel.php" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/app/model/UserModel.php" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/assets/css/materialize.css" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/assets/css/materialize.min.css" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/assets/css/style.css" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/assets/font/material-design-icons/LICENSE.txt" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/assets/font/material-design-icons/Material-Design-Icons.eot" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/assets/font/material-design-icons/Material-Design-Icons.svg" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/assets/font/material-design-icons/Material-Design-Icons.ttf" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/assets/font/material-design-icons/Material-Design-Icons.woff" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/assets/font/material-design-icons/Material-Design-Icons.woff2" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/assets/font/roboto/Roboto-Bold.ttf" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/assets/font/roboto/Roboto-Bold.woff" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/assets/font/roboto/Roboto-Bold.woff2" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/assets/font/roboto/Roboto-Light.ttf" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/assets/font/roboto/Roboto-Light.woff" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/assets/font/roboto/Roboto-Light.woff2" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/assets/font/roboto/Roboto-Medium.ttf" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/assets/font/roboto/Roboto-Medium.woff" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/assets/font/roboto/Roboto-Medium.woff2" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/assets/font/roboto/Roboto-Regular.ttf" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/assets/font/roboto/Roboto-Regular.woff" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/assets/font/roboto/Roboto-Regular.woff2" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/assets/font/roboto/Roboto-Thin.ttf" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/assets/font/roboto/Roboto-Thin.woff" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/assets/font/roboto/Roboto-Thin.woff2" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/assets/img/avatar.png" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/assets/img/fond.jpg" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/assets/js/front.js" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/assets/js/materialize.js" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/assets/js/materialize.min.js" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/config/constant.php" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/config/secure_session.php" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/core/Core.php" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/core/CoreController.php" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/core/CoreModel.php" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/core/CoreView.php" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/index.php" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/views/404.php" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/views/layout/footer.inc.php" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/views/layout/header.inc.php" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/views/search.php" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/views/view_article.php" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/views/view_articles.php" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/views/view_error.php" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/views/view_signin.php" afterPath="" />
+      <change type="DELETED" beforePath="/Applications/MAMP/htdocs/Volunteers/src/views/view_users.php" afterPath="" />
+    </list>
     <ignored path="src.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -23,11 +84,20 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="/Applications/MAMP/htdocs/Volunteers" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/core/CoreModel.php" />
-        <option value="$PROJECT_DIR$/config/constant.php" />
+        <option value="/Applications/MAMP/htdocs/Volunteers/src/core/CoreModel.php" />
+        <option value="/Applications/MAMP/htdocs/Volunteers/src/config/constant.php" />
+        <option value="/Applications/MAMP/htdocs/Volunteers/src/app/controller/PostController.php" />
+        <option value="/Applications/MAMP/htdocs/Volunteers/src/views/view_article.php" />
+        <option value="/Applications/MAMP/htdocs/Volunteers/src/core/CoreView.php" />
+        <option value="/Applications/MAMP/htdocs/Volunteers/src/.htaccess" />
+        <option value="/Applications/MAMP/htdocs/Volunteers/src/views/layout/header.inc.php" />
+        <option value="/Applications/MAMP/htdocs/Volunteers/src/.gitignore" />
       </list>
     </option>
   </component>
@@ -43,7 +113,7 @@
     <option name="width" value="1276" />
     <option name="height" value="777" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />
     <OptionsSetting value="true" id="Checkout" />
@@ -69,48 +139,48 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane />
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.PHP" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="/Applications/MAMP/htdocs/Volunteers/src" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <envs />
+      <method />
+    </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="TaskManager">
@@ -153,17 +223,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/model/PostModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1448620607000" expanded="true" signature="1320:1341" placeholder="SELECT COUNT..${$table}..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/Core.php">
+    <entry file="file:///Applications/MAMP/htdocs/Volunteers/src/app/app.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -171,7 +231,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/CoreController.php">
+    <entry file="file:///Applications/MAMP/htdocs/Volunteers/src/app/controller/PostController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -179,25 +239,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/CoreModel.php">
+    <entry file="file:///Applications/MAMP/htdocs/Volunteers/src/core/CoreView.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1448895111000" expanded="true" signature="3427:3662" placeholder="SELECT * FRO..blog_posts..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/constant.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14285715">
-          <caret line="6" column="29" selection-start-line="6" selection-start-column="29" selection-end-line="6" selection-end-column="29" />
+          <caret line="4" column="32" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/pdo.php">
+    <entry file="file:///Applications/MAMP/htdocs/Volunteers/src/views/view_article.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="10" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/MAMP/htdocs/Volunteers/src/views/view_articles.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/MAMP/htdocs/Volunteers/src/app/model/PostModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/MAMP/htdocs/Volunteers/src/app/app.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -205,17 +279,86 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/CoreModel.php">
+    <entry file="file:///Applications/MAMP/htdocs/Volunteers/src/app/controller/PostController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/MAMP/htdocs/Volunteers/src/core/CoreView.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="32" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/MAMP/htdocs/Volunteers/src/views/view_article.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/MAMP/htdocs/Volunteers/src/views/view_articles.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/MAMP/htdocs/Volunteers/src/app/model/PostModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/MAMP/htdocs/Volunteers/src/app/model/PostModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/MAMP/htdocs/Volunteers/src/core/Core.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/MAMP/htdocs/Volunteers/src/core/CoreController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/MAMP/htdocs/Volunteers/src/core/CoreModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/MAMP/htdocs/Volunteers/src/core/CoreModel.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.21428572">
           <caret line="9" column="9" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
-          <folding>
-            <marker date="1448895111000" expanded="true" signature="3427:3662" placeholder="SELECT * FRO..blog_posts..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/CoreController.php">
+    <entry file="file:///Applications/MAMP/htdocs/Volunteers/src/core/CoreController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -223,21 +366,103 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/Core.php">
+    <entry file="file:///Applications/MAMP/htdocs/Volunteers/src/core/Core.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/MAMP/htdocs/Volunteers/src/app/model/PostModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/model/PostModel.php">
+    <entry file="file:///Applications/MAMP/htdocs/Volunteers/src/views/view_articles.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/MAMP/htdocs/Volunteers/src/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.3846154">
+          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/MAMP/htdocs/Volunteers/src/config/constant.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1910828">
+          <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/MAMP/htdocs/Volunteers/src/config/secure_session.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.85987264">
+          <caret line="27" column="18" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/MAMP/htdocs/Volunteers/src/views/view_article.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="10" selection-start-line="18" selection-start-column="10" selection-end-line="18" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/MAMP/htdocs/Volunteers/src/app/controller/PostController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-61.53846">
+          <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/MAMP/htdocs/Volunteers/src/views/layout/header.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-39.23077">
+          <caret line="51" column="56" selection-start-line="51" selection-start-column="56" selection-end-line="51" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/MAMP/htdocs/Volunteers/src/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.038314175">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/MAMP/htdocs/Volunteers/src/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3058104">
+          <caret line="10" column="41" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/MAMP/htdocs/Volunteers/src/core/CoreView.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.3057325">
+          <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/MAMP/htdocs/Volunteers/src/app/app.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1448620607000" expanded="true" signature="1320:1341" placeholder="SELECT COUNT..${$table}..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>

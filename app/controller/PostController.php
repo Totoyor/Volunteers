@@ -77,8 +77,7 @@ class PostController extends AppController
             {
                 // Sinon on appelle la vue de l'article
                 define("TITLE_HEAD", "Article !");
-                $this->load->view('view_article.php', $data, $comments);
-                var_dump($comments);
+                $this->load->view('view_article.php', $data, $nbrPage = null, $comments);
             }
         }
         else {

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr-fr">
 <head>
+    <base href="http://localhost/Volunteers/">
     <title><?php echo TITLE_HEAD; ?></title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -46,13 +47,13 @@
 <ul id="dropdown1" class="dropdown-content">
     <?php
     if(!isset($_SESSION['user_email'])) { ?>
-        <li><a href="?module=user">Connexion </a></li>
+        <li><a href="?module=user">Sign In</a></li>
         <li class="divider"></li>
-        <li><a href="?module=user&action=signin">Inscription </a></li>
+        <li><a href="?module=user&action=signin">Sign Up</a></li>
     <?php }
      else { ?>
-        <li><a href="?module=user">Mon Compte </a></li>
+        <li><a href="?module=user">Profile </a></li>
         <li class="divider"></li>
-        <li><a href="?module=user&action=disconnect">Déconnexion </a></li>
+        <li><a href="?module=user&action=disconnect">Sign Out </a></li>
     <?php } ?>
 </ul>
