@@ -8,6 +8,7 @@
                         <div class="card-image col s3 push-s4">
 <!--                            <img src="assets/img/avatar.png" class="responsive-img circle">-->
                             <h5 class="card-title center-align">Créer un event</h5>
+                            <?php //var_dump($data); ?>
                         </div>
                         <div class="card-content">
                             <div class="row">
@@ -46,9 +47,12 @@
                                 <div class="input-field col s12">
                                     <select name="event_categories[]" required multiple>
                                         <option disabled selected>Choose your categories</option>
-                                        <option value="techno">Techno</option>
-                                        <option value="house">House</option>
-                                        <option value="festival">Festival</option>
+                                        <?php foreach ($data as $category) {
+                                            ?>
+                                            <option value="<?= $category['idCategorie']; ?>"><?= $category['nameCategorie']; ?></option>
+                                        <?php
+                                        } ?>
+
                                     </select>
                                     <label>Catégories</label>
                                 </div>
