@@ -5,7 +5,7 @@
         <div class="col s12 m12">
             <div class="card">
                 <div class="card-image">
-                    <img src="assets/img/fond.jpg">
+                    <img src="assets/img/blog/fond.jpg">
                     <span class="card-title"><?php echo $data['post_title']; ?></span>
                 </div>
                 <div class="card-content">

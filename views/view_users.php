@@ -6,7 +6,7 @@
             <div class="card-panel">
                 <form action="?module=user&action=connect" method="post">
                     <div class="card-image col s3 push-s4">
-                        <img src="assets/img/avatar.png" class="responsive-img circle">
+                        <img src="assets/img/blog/avatar.png" class="responsive-img circle">
                         <h5 class="card-title center-align">Connexion</h5>
                     </div>
                     <div class="card-content">

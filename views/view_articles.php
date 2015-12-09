@@ -10,15 +10,25 @@
                     <div class="card grey lighten-4">
                         <div class="card-content black-text">
                         <span class="card-title">
-                            <a href="?module=post&action=post&id=<?php echo $article['post_ID'] ?>">
-                                <?php echo $article['post_title']; ?>
-                            </a>
+                            <?php $this->helperLinkRewrite(array(
+                                'class' => '',
+                                'module' => 'blog',
+                                'action' => 'post',
+                                'id' => $article['post_ID'],
+                                'text' => $article['post_title']
+                            )) ?>
                         </span>
                             <p><?php echo substr($article['post_content'], 0, 600); ?>...</p>
                         </div>
                         <div class="card-action">
                             <span>Date de publication : <?php echo $article['post_date']; ?></span>
-                            <span class="right"><a href="?module=post&action=post&id=<?php echo $article['post_ID'] ?>">Lire la suite</a></span>
+                            <span class="right"><?php $this->helperLinkRewrite(array(
+                                    'class' => 'black-text',
+                                    'module' => 'blog',
+                                    'action' => 'post',
+                                    'id' => $article['post_ID'],
+                                    'text' => 'Lire la suite'
+                                )) ?></span>
                         </div>
                     </div>
                 </div>

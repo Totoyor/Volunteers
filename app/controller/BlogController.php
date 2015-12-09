@@ -1,10 +1,10 @@
 <?php 
 
-class PostController extends AppController
+class BlogController extends AppController
 {
     public function __construct()
     {
-        require 'app/model/PostModel.php';
+        require 'app/model/BlogModel.php';
         $this->model = new PostModel();
         parent::__construct();
     }

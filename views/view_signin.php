@@ -5,7 +5,7 @@
             <form class="col s12" method="post" action="?module=user&action=signin">
                 <div class="row">
                     <div class="card-image col s3 push-s4">
-                        <img src="assets/img/avatar.png" class="responsive-img circle">
+                        <img src="assets/img/blog/avatar.png" class="responsive-img circle">
                         <h5 class="card-title center-align">Inscription</h5>
                     </div>
                 </div>

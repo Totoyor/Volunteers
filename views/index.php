@@ -1,0 +1,1 @@
+<a href="?module=blog&action=home">Blog</a>

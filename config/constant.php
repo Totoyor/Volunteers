@@ -26,6 +26,10 @@ else if(SERVER === 'PROD') {
     define('DEBUG', false);
 }
 
+// Constantes générales de controller
+define('PAGE_HOME', '');
+define('PAGE_HOME2', '');
+
 // Constantes de Base de Données
 define('DB_DNS',      'mysql:host=localhost;dbname=vanwelde');
 define('DB_USERNAME', 'root');
