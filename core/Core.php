@@ -17,4 +17,15 @@ class Core
             exit();
         }
     }
+
+    protected function coreRedirect()
+    {
+        // header('Location:?');
+        // $redirection = 'Header'
+    }
+
+    protected function coreAlertMessage()
+    {
+
+    }
 }

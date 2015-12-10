@@ -25,7 +25,7 @@
                 <li><a onClick="ga('send', 'clic', 'Help');" href="#">Help</a></li>
               </ul>
             <ul id="slide-out" class="side-nav">
-                <li><a href="?module=event&action=create">Create event</a></li>
+                <li><a href="event/create">Create event</a></li>
                 <li><a class="modal-trigger" href="#login">Log In</a></li>
                 <li><a class="modal-trigger" href="#signup">Sign Up</a></li>
                 <li><a href="#">Help</a></li>
