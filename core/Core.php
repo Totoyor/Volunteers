@@ -17,4 +17,14 @@ class Core
             exit();
         }
     }
+
+    protected function coreredirect()
+    {
+
+    }
+
+    protected function coreAlertMessage()
+    {
+
+    }
 }
