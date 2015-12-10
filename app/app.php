@@ -4,9 +4,12 @@ require_once 'app/AppController.php';
 require_once 'app/AppModel.php';
 
 // Récupération du module ou du module par défaut
-if (!isset($_GET['module'])) {
-    $module = "Event";
-} else {
+if(!isset($_GET['module']))
+{
+    $module = MODULE_DEFAUT;
+}
+else 
+{
     $module = $_GET['module'];
 }
 

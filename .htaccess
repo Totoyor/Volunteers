@@ -1,0 +1,12 @@
+# Options liens sémantique
+Options +FollowSymlinks
+
+# Enclancher la réecriture d'url
+RewriteEngine on
+
+# Exclure les adresses d'accès direct a des fichiers
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# Enclancher une réecriture d'url
+RewriteRule ^([a-z]+)/([a-z]+)$ ?module=$1&action=$2 [L]
+RewriteRule ^([a-z]+)/([a-z]+)/([0-9]+)$ ?module=$1&action=$2&id=$3 [L]

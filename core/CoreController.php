@@ -16,7 +16,7 @@ class CoreController extends Core
         }
         else
         {
-            $action = "home";
+            $action = ACTION_DEFAUT;
         }
 
         // Appel de la méthode ou de la vue 404

@@ -72,7 +72,6 @@ class UserController extends AppController
             define("TITLE_HEAD", "Inscription");
             $this->load->view('view_signin.php');
         }
-
     }
 
     public function disconnect()

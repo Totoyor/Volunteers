@@ -1,11 +1,11 @@
-<?php include_once('views/layout/header.inc.php'); ?>
+<?php include_once('views/layout/header.blog.inc.php'); ?>
 
     <div class="container content-blog">
         <div class="row">
             <form class="col s12" method="post" action="?module=user&action=signin">
                 <div class="row">
                     <div class="card-image col s3 push-s4">
-                        <img src="assets/img/avatar.png" class="responsive-img circle">
+                        <img src="assets/img/blog/avatar.png" class="responsive-img circle">
                         <h5 class="card-title center-align">Inscription</h5>
                     </div>
                 </div>
@@ -36,4 +36,4 @@
         </div>
     </div>
 
-<?php include_once('views/layout/footer.inc.php'); ?>
+<?php include_once('views/layout/footer.blog.inc.php'); ?>

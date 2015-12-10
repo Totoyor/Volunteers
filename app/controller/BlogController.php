@@ -1,11 +1,11 @@
 <?php 
 
-class PostController extends AppController
+class BlogController extends AppController
 {
     public function __construct()
     {
-        require 'app/model/PostModel.php';
-        $this->model = new PostModel();
+        require 'app/model/BlogModel.php';
+        $this->model = new BlogModel();
         parent::__construct();
     }
     
@@ -43,7 +43,7 @@ class PostController extends AppController
         else
         {
             // Sinon on apelle les articles du blog
-            define("TITLE_HEAD", "Les derniers articles du blog");
+            define("TITLE_HEAD", "Blog | Volunteers");
             // Test toto pagination
             $table = 'blog_posts';
             $count = $this->model->countArticles($table);
@@ -76,9 +76,8 @@ class PostController extends AppController
             else
             {
                 // Sinon on appelle la vue de l'article
-                define("TITLE_HEAD", "Article !");
-                $this->load->view('view_article.php', $data, $comments);
-                var_dump($comments);
+                define("TITLE_HEAD", "Article | Volunteers");
+                $this->load->view('view_article.php', $data, $nbrPage = null, $comments);
             }
         }
         else {

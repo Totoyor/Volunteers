@@ -1,6 +1,6 @@
 <?php
 
-class PostModel extends AppModel
+class BlogModel extends AppModel
 {
 
     public function countArticles($table)

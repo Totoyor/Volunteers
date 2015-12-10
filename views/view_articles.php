@@ -1,4 +1,4 @@
-<?php include_once('views/layout/header.inc.php'); ?>
+<?php include_once('views/layout/header.blog.inc.php'); ?>
 
     <div class="container content-blog">
         <!-- Page Content goes here -->
@@ -10,15 +10,25 @@
                     <div class="card grey lighten-4">
                         <div class="card-content black-text">
                         <span class="card-title">
-                            <a href="?module=post&action=post&id=<?php echo $article['post_ID'] ?>">
-                                <?php echo $article['post_title']; ?>
-                            </a>
+                            <?php $this->helperLinkRewrite(array(
+                                'class' => '',
+                                'module' => 'blog',
+                                'action' => 'post',
+                                'id' => $article['post_ID'],
+                                'text' => $article['post_title']
+                            )) ?>
                         </span>
                             <p><?php echo substr($article['post_content'], 0, 600); ?>...</p>
                         </div>
                         <div class="card-action">
                             <span>Date de publication : <?php echo $article['post_date']; ?></span>
-                            <span class="right"><a href="?module=post&action=post&id=<?php echo $article['post_ID'] ?>">Lire la suite</a></span>
+                            <span class="right"><?php $this->helperLinkRewrite(array(
+                                    'class' => 'black-text',
+                                    'module' => 'blog',
+                                    'action' => 'post',
+                                    'id' => $article['post_ID'],
+                                    'text' => 'Lire la suite'
+                                )) ?></span>
                         </div>
                     </div>
                 </div>
@@ -31,7 +41,7 @@
                 <ul class="pagination center-align">
                     <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
                     <?php for($i=1; $i<=$nbrPage; $i++) { ?>
-                        <li class="waves-effect"><a href="?page=<?php echo $i ?>"><?php echo $i ?></a></li>
+                        <li class="waves-effect"><a href="?module=blog&action=home&page=<?php echo $i ?>"><?php echo $i ?></a></li>
                     <?php } ?>
                     <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
                 </ul>
@@ -39,4 +49,4 @@
         </div>
     </div>
 
-<?php include_once('views/layout/footer.inc.php'); ?>
+<?php include_once('views/layout/footer.blog.inc.php'); ?>
