@@ -18,8 +18,10 @@ class Core
         }
     }
 
-    protected function coreredirect()
+    protected function coreRedirect()
     {
+        // header('Location:?');
+        // $redirection = 'Header'
 
     }
 
