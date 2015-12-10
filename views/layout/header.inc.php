@@ -19,13 +19,13 @@
         <div class="nav-wrapper">
               <a href="?" class="brand-logo"><img src="assets/img/logov1.png" alt="logo"></a>
               <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a class="btn btn-menu" href="event/create">Create event</a></li>
+                <li><a class="btn btn-menu" href="event/home">Create event</a></li>
                 <li><a onClick="ga('send', 'clic', 'Log In');" class="modal-trigger" href="#login">Log In</a></li>
                 <li><a onClick="ga('send', 'clic', 'Sign Up');" class="modal-trigger" href="#signup">Sign Up</a></li>
                 <li><a onClick="ga('send', 'clic', 'Help');" href="#">Help</a></li>
               </ul>
             <ul id="slide-out" class="side-nav">
-                <li><a href="event/create">Create event</a></li>
+                <li><a href="event/home">Create event</a></li>
                 <li><a class="modal-trigger" href="#login">Log In</a></li>
                 <li><a class="modal-trigger" href="#signup">Sign Up</a></li>
                 <li><a href="#">Help</a></li>

@@ -2,11 +2,11 @@
 
 Class EventModel extends AppModel
 {
-    public function create_event($event_name, $event_location, $event_start, $event_hour_start, $event_end,
+    public function createEvent($event_name, $event_location, $event_start, $event_hour_start, $event_end,
                                  $event_hour_end, $event_description, $status)
     {
-        try {
-
+        try
+        {
             $query = $this->connexion->prepare("INSERT INTO vol_events
                                         (nameEvent, startEvent, hourStartEvent, endEvent, hourEndEvent,
                                         locationEvent, descriptionEvent, statusEvent)
@@ -21,8 +21,8 @@ Class EventModel extends AppModel
             $query->bindValue(':hourEnd', $event_hour_end, PDO::PARAM_STR);
             $query->bindValue(':description', $event_description, PDO::PARAM_STR);
             $query->bindValue(':status', $status, PDO::PARAM_STR);
-
             $query->execute();
+            $query->closeCursor();
 
             $lastId = $this->connexion->lastInsertId();
 
@@ -34,28 +34,28 @@ Class EventModel extends AppModel
         }
     }
 
-    public function get_categories()
+    public function getCategories()
     {
-        try {
-
+        try
+        {
             $query = $this->connexion->prepare("SELECT * FROM vol_events_categories");
-
             $query->execute();
 
             $data = $query->fetchAll();
-
             $query->closeCursor();
-
             return $data;
 
-        } catch (Exception $e) {
+        }
+        catch (Exception $e)
+        {
             return false;
         }
     }
 
-    public function insert_categories($idCategory, $idEvent)
+    public function insertCategories($idCategory, $idEvent)
     {
-        try {
+        try
+        {
             $query = $this->connexion->prepare("INSERT INTO vol_events_categories_has_vol_events
             (vol_events_categories_idCategorie, vol_events_idEvent) VALUES
             (:idCategory, :idEvent)");
@@ -67,7 +67,9 @@ Class EventModel extends AppModel
 
             return true;
 
-        } catch (Exception $e) {
+        }
+        catch (Exception $e)
+        {
             return false;
         }
     }
