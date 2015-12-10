@@ -1,4 +1,4 @@
-<?php include_once('views/layout/header.inc.php'); ?>
+<?php include_once('views/layout/header.blog.inc.php'); ?>
 
     <div class="container content-blog">
         <h4>Résultats de votre recherche :</h4>
@@ -36,4 +36,4 @@
         ?>
     </div>
 
-<?php include_once('views/layout/footer.inc.php'); ?>
+<?php include_once('views/layout/footer.blog.inc.php'); ?>

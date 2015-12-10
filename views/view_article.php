@@ -1,4 +1,4 @@
-<?php include_once('views/layout/header.inc.php'); ?>
+<?php include_once('views/layout/header.blog.inc.php'); ?>
 
 <div class="container content-blog">
     <div class="row">
@@ -40,6 +40,6 @@
     <?php } ?>
 </div>
 
-<?php include_once('views/layout/footer.inc.php'); ?>
+<?php include_once('views/layout/footer.blog.inc.php'); ?>
 
 

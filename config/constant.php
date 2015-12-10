@@ -27,8 +27,9 @@ else if(SERVER === 'PROD') {
 }
 
 // Constantes générales de controller
-define('PAGE_HOME', '');
-define('PAGE_HOME2', '');
+define('BASE_HOME', '<base href="http://localhost/Volunteers/">');
+define('MODULE_DEFAUT', 'Home');
+define('ACTION_DEFAUT', 'home');
 
 // Constantes de Base de Données
 define('DB_DNS',      'mysql:host=localhost;dbname=vanwelde');
@@ -46,4 +47,3 @@ define('OFFSET', 0);
 define('LIMITE', 5);
 define('MAX_CHAR', 50);
 define('MAX_ARTICLE', 5);
-

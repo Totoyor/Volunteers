@@ -5,7 +5,7 @@ class BlogController extends AppController
     public function __construct()
     {
         require 'app/model/BlogModel.php';
-        $this->model = new PostModel();
+        $this->model = new BlogModel();
         parent::__construct();
     }
     

@@ -6,7 +6,7 @@ require_once 'app/AppModel.php';
 // Récupération du module ou du module par défaut
 if(!isset($_GET['module']))
 {
-    $module = "Home";
+    $module = MODULE_DEFAUT;
 }
 else 
 {
