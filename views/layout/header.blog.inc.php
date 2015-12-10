@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="fr-fr">
 <head>
-    <base href="http://localhost/Volunteers/">
+    <?php echo BASE_HOME ?>
     <title><?php echo TITLE_HEAD; ?></title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <!--Website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <!--Import Google Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import CSS -->
     <link type="text/css" rel="stylesheet" href="assets/css/style.css"/>
     <link type="text/css" rel="stylesheet" href="assets/css/materialize.min.css"/>
-
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
 <nav class="blue-grey darken-4" role="navigation">

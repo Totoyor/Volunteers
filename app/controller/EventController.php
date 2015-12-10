@@ -11,7 +11,6 @@ class EventController extends AppController
 
     public function create()
     {
-        // Sinon on apelle les articles du blog
         define("TITLE_HEAD", "Créer un évenement | Volunteers");
         // Chargement de la vue
         $this->load->view('creation_event.php');

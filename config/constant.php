@@ -1,7 +1,7 @@
 <?php
 
 // Nom de la session
-define("SESSION_NAME", "SESSION_BLOG");
+define("SESSION_NAME", "SESSION_VOLUNTEERS");
 
 // Choix du serveur DEV/TEST/PROD
 define('SERVER', 'DEV');
@@ -26,7 +26,7 @@ else if(SERVER === 'PROD') {
     define('DEBUG', false);
 }
 
-// Constantes générales de controller
+// Constantes générales d'URL
 define('BASE_HOME', '<base href="http://localhost/Volunteers/">');
 define('MODULE_DEFAUT', 'Home');
 define('ACTION_DEFAUT', 'home');
@@ -36,7 +36,7 @@ define('DB_DNS',      'mysql:host=localhost;dbname=vanwelde');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', 'root');
 define('DB_CHARSET', 'utf8');
-define('DB_PREFIX', "blog_");
+define('DB_PREFIX', 'blog_');
 
 // PATH (Chemins)
 define('PATH_1', 'path/');

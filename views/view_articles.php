@@ -41,7 +41,7 @@
                 <ul class="pagination center-align">
                     <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
                     <?php for($i=1; $i<=$nbrPage; $i++) { ?>
-                        <li class="waves-effect"><a href="?page=<?php echo $i ?>"><?php echo $i ?></a></li>
+                        <li class="waves-effect"><a href="?module=blog&action=home&page=<?php echo $i ?>"><?php echo $i ?></a></li>
                     <?php } ?>
                     <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
                 </ul>

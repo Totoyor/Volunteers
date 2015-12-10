@@ -43,7 +43,7 @@ class BlogController extends AppController
         else
         {
             // Sinon on apelle les articles du blog
-            define("TITLE_HEAD", "Les derniers articles du blog");
+            define("TITLE_HEAD", "Blog | Volunteers");
             // Test toto pagination
             $table = 'blog_posts';
             $count = $this->model->countArticles($table);
@@ -76,7 +76,7 @@ class BlogController extends AppController
             else
             {
                 // Sinon on appelle la vue de l'article
-                define("TITLE_HEAD", "Article !");
+                define("TITLE_HEAD", "Article | Volunteers");
                 $this->load->view('view_article.php', $data, $nbrPage = null, $comments);
             }
         }

@@ -59,17 +59,16 @@
                       <img src="assets/img/event2.png" class="responsive-img" alt="image-event">
                     </div>
                     <div class="card-content">
-                      <h4 class="titre-cards">Woodfloor: La Mamie’s</h4>
-                    <h6>Concrete, Paris - 21 Nov</h6>
+                        <h4 class="titre-cards">Woodfloor: La Mamie’s</h4>
+                        <h6>Concrete, Paris - 21 Nov</h6>
                     </div>
                     <div class="card-action">
-                      <a href="#">Party</a>
-                      <a class="viewmore btn btn-vue" href="#">See more</a>
+                        <a href="#">Party</a>
+                        <a class="viewmore btn btn-vue" href="#">See more</a>
                     </div>
                 </div>
             </div>
         </div><!-- fin row-->
-
 
         <div class="row">
             <div class="col s12 m6 l4">
@@ -78,12 +77,12 @@
                       <img class="responsive-img" src="assets/img/event3.png" alt="image-event">
                     </div>
                     <div class="card-content">
-                      <h4 class="titre-cards">Blocaus</h4>
-                    <h6>La Machine du Moulin Rouge, Paris - 21 Nov</h6>
+                        <h4 class="titre-cards">Blocaus</h4>
+                        <h6>La Machine du Moulin Rouge, Paris - 21 Nov</h6>
                     </div>
                     <div class="card-action">
-                      <a href="#">Party</a>
-                      <a class="viewmore btn btn-vue" href="#">See more</a>
+                        <a href="#">Party</a>
+                        <a class="viewmore btn btn-vue" href="#">See more</a>
                     </div>
                 </div>
             </div>
@@ -94,12 +93,12 @@
                       <img class="responsive-img" alt="image-event" src="assets/img/event4.png">
                     </div>
                     <div class="card-content">
-                      <h4 class="titre-cards">Château Perché</h4>
-                    <h6>Le Petit Bain, Paris - 21 Nov</h6>
+                        <h4 class="titre-cards">Château Perché</h4>
+                        <h6>Le Petit Bain, Paris - 21 Nov</h6>
                     </div>
                     <div class="card-action">
-                      <a href="#">Techno</a>
-                      <a class="viewmore btn btn-vue" href="#">See more</a>
+                        <a href="#">Techno</a>
+                        <a class="viewmore btn btn-vue" href="#">See more</a>
                     </div>
                 </div>
             </div>
@@ -110,12 +109,12 @@
                       <img class="responsive-img" alt="image-event" src="assets/img/event5.png">
                     </div>
                     <div class="card-content">
-                      <h4 class="titre-cards">Lunar II</h4>
-                    <h6>Le Gibus, Paris - 21 Nov</h6>
+                        <h4 class="titre-cards">Lunar II</h4>
+                        <h6>Le Gibus, Paris - 21 Nov</h6>
                     </div>
                     <div class="card-action">
-                      <a href="#">Techno</a>
-                      <a class="viewmore btn btn-vue" href="#">See more</a>
+                        <a href="#">Techno</a>
+                        <a class="viewmore btn btn-vue" href="#">See more</a>
                     </div>
                 </div>
             </div>
@@ -125,12 +124,12 @@
                       <img class="responsive-img" alt="image-event" src="assets/img/event6.png">
                     </div>
                     <div class="card-content">
-                      <h4 class="titre-cards">Propice</h4>
-                    <h6>Le Glazart, Paris - 21 Nov</h6>
+                        <h4 class="titre-cards">Propice</h4>
+                        <h6>Le Glazart, Paris - 21 Nov</h6>
                     </div>
                     <div class="card-action">
-                      <a href="#">Techno</a>
-                      <a class="viewmore btn btn-vue" href="#">See more</a>
+                        <a href="#">Techno</a>
+                        <a class="viewmore btn btn-vue" href="#">See more</a>
                     </div>
                 </div>
             </div>
@@ -141,8 +140,8 @@
                       <img class="responsive-img" alt="image-event" src="assets/img/event7.png">
                     </div>
                     <div class="card-content">
-                      <h4 class="titre-cards">Macki Paradise</h4>
-                    <h6>La Machine du Moulin Rouge, Paris - 21 Nov</h6>
+                        <h4 class="titre-cards">Macki Paradise</h4>
+                        <h6>La Machine du Moulin Rouge, Paris - 21 Nov</h6>
                     </div>
                     <div class="card-action">
                       <a href="#">Techno</a>
@@ -157,12 +156,12 @@
                       <img class="responsive-img" alt="image-event" src="assets/img/event8.png">
                     </div>
                     <div class="card-content">
-                      <h4 class="titre-cards">Dixon Ame All Night</h4>
-                    <h6>La Fabric, Paris - 21 Nov</h6>
+                        <h4 class="titre-cards">Dixon Ame All Night</h4>
+                        <h6>La Fabric, Paris - 21 Nov</h6>
                     </div>
                     <div class="card-action">
-                      <a href="#">Techno</a>
-                      <a class="viewmore btn btn-vue" href="#">See more</a>
+                        <a href="#">Techno</a>
+                        <a class="viewmore btn btn-vue" href="#">See more</a>
                     </div>
                 </div>
             </div>
@@ -170,7 +169,7 @@
 
         <div class="row">
             <div class="col s12 center">
-            <a href="#" class="btn btn-blue">more exciting events</a>
+                <a href="#" class="btn btn-blue">more exciting events</a>
             </div>
         </div>
 
@@ -214,10 +213,10 @@
             <a href="#">
                 <div class="card margin-cat-top">
                     <div class="card-image item">
-                    <img class="responsive-img" alt="hiphop-concert" src="assets/img/hiphop.png">
-                    <div class="text-wrapper">
-                    <h6>Hip-Hop</h6>
-                    </div>
+                        <img class="responsive-img" alt="hiphop-concert" src="assets/img/hiphop.png">
+                        <div class="text-wrapper">
+                            <h6>Hip-Hop</h6>
+                        </div>
                     </div>
                 </div>
                 </a>
@@ -227,10 +226,10 @@
                 <a href="#">
                 <div class="card margin-cat-top">
                     <div class="card-image item">
-                    <img class="responsive-img" alt="rock-concert" src="assets/img/rock.png">
-                    <div class="text-wrapper">
-                    <h6>Rock</h6>
-                    </div>
+                        <img class="responsive-img" alt="rock-concert" src="assets/img/rock.png">
+                        <div class="text-wrapper">
+                            <h6>Rock</h6>
+                        </div>
                     </div>
                 </div>
                 </a>
@@ -240,10 +239,10 @@
                 <div class="card margin-cat-top">
                     <a href="#">
                     <div class="card-image item">
-                    <img class="responsive-img" alt="techno" src="assets/img/techno.png">
-                    <div class="text-wrapper">
-                    <h6>Techno</h6>
-                    </div>
+                        <img class="responsive-img" alt="techno" src="assets/img/techno.png">
+                        <div class="text-wrapper">
+                            <h6>Techno</h6>
+                        </div>
                     </div>
                 </div>
                     </a>

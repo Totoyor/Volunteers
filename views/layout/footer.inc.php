@@ -6,7 +6,7 @@
                 <ul>
                     <li><a class="grey-text text-lighten-3" href="#!">About us</a></li>
                     <li><a class="grey-text text-lighten-3" href="#!">Contact</a></li>
-                    <li><a class="grey-text text-lighten-3" href="?module=blog">Blog</a></li>
+                    <li><a class="grey-text text-lighten-3" href="blog/home">Blog</a></li>
                     <li><a class="grey-text text-lighten-3" href="#!">Terms and privacy</a></li>
                 </ul>
             </div>
@@ -15,8 +15,8 @@
                 <h5 class="title-list">Menu</h5>
                 <ul>
                     <li><a class="grey-text text-lighten-3" href="#!">Find volunteers</a></li>
-                    <li><a class="grey-text text-lighten-3" class="modal-trigger" href="#modal1">Log in</a></li>
-                    <li><a class="grey-text text-lighten-3" class="modal-trigger" href="#modal2">Sign in</a></li>
+                    <li><a class="grey-text text-lighten-3" class="modal-trigger" href="#login">Log In</a></li>
+                    <li><a class="grey-text text-lighten-3" class="modal-trigger" href="#signup">Sign Up</a></li>
                     <li><a class="grey-text text-lighten-3" href="#!">Help</a></li>
                 </ul>
             </div>
@@ -26,8 +26,8 @@
                 <ul class="social-list">
                     <li>
                         <a class="grey-text text-lighten-3"
-                           href="https://www.facebook.com/Volunteers-EEMI-1618903831716708/?fref=ts"><img
-                                class="icon-social" src="assets/img/fb.png">
+                           href="https://www.facebook.com/Volunteers-EEMI-1618903831716708/?fref=ts">
+                            <img class="icon-social" src="assets/img/fb.png">
                         </a>
                     </li>
                     <li>
@@ -73,11 +73,12 @@
     </div>
     <div class="footer-copyright">
         <div class="container footer-wrapper footer-bas center">
-            © 2015 Volunteers all right reserved
+            © 2015 Volunteers - All right reserved
         </div>
     </div>
 </footer>
 
+<!--Google Analytics-->
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -89,10 +90,10 @@
 
     window.ga_debug = {trace: true};
 </script>
-<script type="text/javascript" src="assets/js/jquery.js"></script>
-<script type="text/javascript" src="assets/js/monjs.js"></script>
-<script type="text/javascript" src="assets/js/front.js"></script>
+<!--Import jQuery before materialize.js-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="assets/js/materialize.min.js"></script>
+<script type="text/javascript" src="assets/js/monjs.js"></script>
 
 </body>
 </html>

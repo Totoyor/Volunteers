@@ -1,7 +1,7 @@
 @font-face {
     font-family: "Roboto Light";
-    src: url('../../assets/font/roboto-light.eot');
-    src: local('☺'), url('../../assets/font/roboto-light.woff') format('woff'), url('../../assets/font/roboto-light.ttf') format('truetype');
+    src: url('../../assets/font/roboto/roboto-light.eot');
+    src: local('☺'), url('../../assets/font/roboto/roboto-light.woff') format('woff'), url('../../assets/font/roboto/roboto-light.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
