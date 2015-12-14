@@ -9,6 +9,7 @@
     <title><?php echo TITLE_HEAD ?></title>
     <!--Import CSS -->
     <link href="assets/css/materialize.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
     <link href="assets/css/custom.css" rel="stylesheet" type="text/css">
     <!--Import Google Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -20,14 +21,24 @@
               <a href="?" class="brand-logo"><img src="assets/img/logov1.png" alt="logo"></a>
               <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a class="btn btn-menu" href="event/home">Create event</a></li>
+                  <?php if(!isset($_SESSION['user_email'])) { ?>
                 <li><a onClick="ga('send', 'clic', 'Log In');" class="modal-trigger" href="#login">Log In</a></li>
                 <li><a onClick="ga('send', 'clic', 'Sign Up');" class="modal-trigger" href="#signup">Sign Up</a></li>
+                  <?php } else { ?>
+                  <li><a onClick="ga('send', 'clic', 'Profile');" href="?module=profile"> My Profile</a></li>
+                  <li><a onClick="ga('send', 'clic', 'Disconnect');" href="?module=user&action=disconnect">Disconnect</a></li>
+                  <?php } ?>
                 <li><a onClick="ga('send', 'clic', 'Help');" href="#">Help</a></li>
               </ul>
             <ul id="slide-out" class="side-nav">
                 <li><a href="event/home">Create event</a></li>
+                <?php if(!isset($_SESSION['user_email'])) { ?>
                 <li><a class="modal-trigger" href="#login">Log In</a></li>
                 <li><a class="modal-trigger" href="#signup">Sign Up</a></li>
+                <?php } else { ?>
+                <li><a href="#">My Profile</a></li>
+                <li><a href="?module=user&action=disconnect">Disconnect</a></li>
+                <?php } ?>
                 <li><a href="#">Help</a></li>
             </ul>
             <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
@@ -40,26 +51,17 @@
         <h4 class="titre-login">Log In</h4>
         </div>
         <div class="modal-content">
-            <form class="login-form">
-                <div class="row">
-                    <div class="col s12 m6">
-                        <a class="btn btn-fb"><img class="sociallog" src="assets/img/fbmini.png" alt="facebook"></a>
-                    </div>
-                    <div class="col s12 m6">
-                        <a class="btn btn-tw"><img class="sociallog" src="assets/img/twmini.png" alt="twitter"></a>
-                    </div>
-                </div>
-
+            <form class="login-form" action="?module=user&action=connect" method="post">
                 <div class="row">
                   <div class="input-field col s12">
-                      <input placeholder="Email" id="email" type="text" class="validate">
+                      <input placeholder="Email" id="email" type="email" class="validate" name="email" required="required">
                       <label for="email" class="center-align"></label>
                   </div>
                 </div>
 
                 <div class="row">
                   <div class="input-field col s12">
-                      <input placeholder="Password" id="password" type="password">
+                      <input placeholder="Password" id="password" type="password" name="password" required="required">
                       <label for="password" class="center-align"></label>
                   </div>
                 </div>
@@ -73,13 +75,13 @@
 
                 <div class="row">
                   <div class="input-field col s12">
-                    <a href="index.html" class="btn btn-orange col s12">Login</a>
+                      <button class="btn waves-effect waves-light" type="submit" name="action">Log In</button>
                   </div>
                 </div>
 
                 <div class="row space-bot">
                   <div class="input-field col s6 m6 l6">
-                      <p class="medium-small"><a class="modal-trigger" href="#modal2">Register now!</a></p>
+                      <p class="medium-small"><a class="modal-trigger" href="#signup">Register now!</a></p>
                   </div>
                   <div class="input-field col s6 m6 l6">
                       <p class="margin right-align medium-small"><a href="page-forgot-password.html">Forgot password ?</a></p>
@@ -95,31 +97,39 @@
         <h4 class="titre-login">Join us now !</h4>
         </div>
         <div class="modal-content">
-            <form class="login-form">
+            <form class="login-form" action="?module=user&action=signup" method="post">
+                <div class="row">
+                    <div class="col s12 m6">
+                        <a class="btn btn-fb"><img class="sociallog" src="assets/img/fbmini.png" alt="facebook"></a>
+                    </div>
+                    <div class="col s12 m6">
+                        <a class="btn btn-tw"><img class="sociallog" src="assets/img/twmini.png" alt="twitter"></a>
+                    </div>
+                </div>
 
                 <div class="row">
                   <div class="input-field col s12">
-                    <input placeholder="Email" id="email" type="text" class="validate">
+                    <input placeholder="Your Email" id="email" type="email" class="validate" name="email" required="required">
                     <label for="email" class="center-align"></label>
                   </div>
                 </div>
 
                 <div class="row">
                   <div class="input-field col s12">
-                      <input placeholder="Password" id="password" type="password">
+                      <input placeholder="Your Password" id="password" type="password" name="password" required="required">
                       <label for="password" class="center-align"></label>
                   </div>
                 </div>
 
                 <div class="row">
                   <div class="input-field col s12">
-                    <a href="index.html" class="btn btn-orange col s12">Sign Up</a>
+                      <button class="btn waves-effect waves-light" type="submit" name="action">Sign Up</button>
                   </div>
                 </div>
 
                 <div class="row space-bot">
                   <div class="input-field col s12 center">
-                    <p class="medium-small center"><a class="modal-trigger" href="#modal1">Already got an account ? Log in now !</a></p>
+                    <p class="medium-small center"><a class="modal-trigger" href="#login">Already got an account ? Log in now !</a></p>
                   </div>
                 </div>
           </form>

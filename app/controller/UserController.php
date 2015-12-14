@@ -17,7 +17,7 @@ class UserController extends AppController
     public function home()
     {
         define("TITLE_HEAD", "Les utilisateurs du blog");
-        $this->load->view('view_users.php');
+        $this->load->view('index.php');
     }
 
     public function connect()
@@ -30,47 +30,44 @@ class UserController extends AppController
             if($this->model->connexionUser($this->_login, $this->_password))
             {
                 // Si ok (true) alors on renvoi sur la page d'accueil
-                header('Location:?');
+                header('Location:?login=ok');
             }
             else
             {
                 // Si false on renvoi sur une page erreur
-                define("TITLE_HEAD", "Erreur de connexion");
-                $this->load->view('view_users.php');
+                define("TITLE_HEAD", "Erreur de connexion !");
+                $this->load->view('index.php');
             }
         }
         else
         {
             define("TITLE_HEAD", "Connexion");
-            $this->load->view('view_users.php');
+            $this->load->view('index.php');
         }
     }
 
-    public function signin()
+    public function signup()
     {
-        if(isset($_POST['nom']) && $_POST['prenom'] && $_POST['email'] && $_POST['password'])
+        if(isset($_POST['email']) && $_POST['password'])
         {
-            $this->_nom = $_POST['nom'];
-            $this->_prenom = $_POST['prenom'];
+            // TODO
+            // Vérifier l'email et le mdp
             $this->_login = $_POST['email'];
             $this->_password = $_POST['password'];
 
-            if($this->model->inscriptionUser($this->_nom, $this->_prenom, $this->_login, $this->_password))
+            if($this->model->inscriptionUser($this->_login, $this->_password))
             {
                 // Si ok (true) alors on renvoi sur la page d'accueil
-                header('Location:?');
+                header('Location:?signup=ok');
             }
             else
             {
-                // Si false on renvoi sur une page erreur
-                define("TITLE_HEAD", "Erreur Inscription");
-                $this->load->view('view_signin.php');
+                header('Location:?signup=nok');
             }
         }
         else
         {
-            define("TITLE_HEAD", "Inscription");
-            $this->load->view('view_signin.php');
+            header('Location:?signup=nok');
         }
     }
 

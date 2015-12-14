@@ -6,9 +6,9 @@ class UserModel extends AppModel
     {
         try
         {
-            $query = $this->connexion->prepare('SELECT * FROM blog_users
-                                                WHERE user_email = :email
-                                                 AND user_pass = :password');
+            $query = $this->connexion->prepare('SELECT * FROM vol_users
+                                                WHERE Email = :email
+                                                 AND Password = :password');
 
             $query->bindParam(':email', $email, PDO::PARAM_STR);
             $query->bindParam(':password', $password, PDO::PARAM_STR);
@@ -18,9 +18,7 @@ class UserModel extends AppModel
             $nbrRow = $query->rowCount();
             if ($nbrRow === 1)
             {
-                $_SESSION["user_login"] = $user["user_login"];
-                $_SESSION['user_id'] = $user['ID'];
-                $_SESSION['user_email'] = $user['user_email'];
+                $_SESSION['user_email'] = $user['Email'];
                 return true;
             }
             else
@@ -35,15 +33,13 @@ class UserModel extends AppModel
         }
     }
 
-    public function inscriptionUser($nom, $prenom, $email, $password)
+    public function inscriptionUser($email, $password)
     {
         try
         {
-            $query = $this->connexion->prepare('INSERT INTO blog_users (user_pass, user_email, display_name, user_login)
-                                                VALUES (:password, :email, :prenom, :nom)');
+            $query = $this->connexion->prepare('INSERT INTO vol_users (Password, Email)
+                                                VALUES (:password, :email)');
 
-            $query->bindParam(':nom', $nom, PDO::PARAM_STR);
-            $query->bindParam(':prenom', $prenom, PDO::PARAM_STR);
             $query->bindParam(':email', $email, PDO::PARAM_STR);
             $query->bindParam(':password', $password, PDO::PARAM_STR);
             $query->execute();

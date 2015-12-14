@@ -32,9 +32,9 @@ define('MODULE_DEFAUT', 'Home');
 define('ACTION_DEFAUT', 'home');
 
 // Constantes de Base de Données
-define('DB_DNS',      'mysql:host=ns366377.ovh.net;dbname=vanwelde');
-define('DB_USERNAME', 'vanwelde');
-define('DB_PASSWORD', '282814');
+define('DB_DNS',      'mysql:host=localhost;dbname=la_mantia');
+define('DB_USERNAME', 'root');
+define('DB_PASSWORD', 'root');
 define('DB_CHARSET', 'utf8');
 define('DB_PREFIX', 'blog_');
 
