@@ -7,7 +7,7 @@ class CoreView extends Core
         include_once 'views/'.$file_name;
     }
 
-    function helperLinkRewrite($options)
+    function helperLinkRewrite($options = [])
     {
         // Ouverture de la balise et Class du lien
         $lien = "<a class='".$options['class']."'";

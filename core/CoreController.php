@@ -31,4 +31,15 @@ class CoreController extends Core
             $this->load->view('404.php');
         }
     }
+
+    public function coreSetError()
+    {
+
+    }
+
+    public function coreGetError($param)
+    {
+        //include_once('lib/messages_error.php');
+
+    }
 }

@@ -1,4 +1,5 @@
 <?php include_once('views/layout/header.inc.php'); ?>
+
 <div class="big-img">
     <div class="row">
         <div class="col s6 blocprincipal bgblue valign-wrapper">

@@ -51,7 +51,12 @@ class UserController extends AppController
         if(isset($_POST['email']) && $_POST['password'])
         {
             // TODO
+            // Vérifier que mdp et email n'est pas empty
             // Vérifier l'email et le mdp
+            // Transformer le pass en MD5
+            // notification user Ok ou NOK
+            // envoi de l'email de confirmation
+            // AJAX
             $this->_login = $_POST['email'];
             $this->_password = $_POST['password'];
 

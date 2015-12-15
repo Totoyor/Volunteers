@@ -75,7 +75,7 @@
 
                 <div class="row">
                   <div class="input-field col s12">
-                      <button class="btn waves-effect waves-light" type="submit" name="action">Log In</button>
+                      <button id="submit" class="btn waves-effect waves-light" type="submit" name="action">Log In</button>
                   </div>
                 </div>
 
@@ -123,7 +123,7 @@
 
                 <div class="row">
                   <div class="input-field col s12">
-                      <button class="btn waves-effect waves-light" type="submit" name="action">Sign Up</button>
+                      <button id="submit" class="btn waves-effect waves-light" type="submit" name="action">Sign Up</button>
                   </div>
                 </div>
 
