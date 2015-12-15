@@ -774,3 +774,7 @@ p {
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+
+.title_404 {
+    margin-top:80px;
+}

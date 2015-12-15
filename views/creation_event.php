@@ -116,7 +116,6 @@
                                 <option value="45">45</option>
                                 <option value="50">50</option>
                                 <option value="55">55</option>
-                                <option value="60">60</option>
                             </select>
                             <label></label>
                         </div>
@@ -156,7 +155,6 @@
                                 <option value="45">45</option>
                                 <option value="50">50</option>
                                 <option value="55">55</option>
-                                <option value="60">60</option>
                             </select>
                             <label></label>
                         </div>
