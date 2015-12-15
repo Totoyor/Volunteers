@@ -3,10 +3,9 @@
 Class EventModel extends AppModel
 {
     public function createEvent($event_name, $event_location, $event_start, $event_hour_start, $event_end,
-                                 $event_hour_end, $event_description, $status)
+                                $event_hour_end, $event_description, $status)
     {
-        try
-        {
+        try {
             $query = $this->connexion->prepare("INSERT INTO vol_events
                                         (nameEvent, startEvent, hourStartEvent, endEvent, hourEndEvent,
                                         locationEvent, descriptionEvent, statusEvent)
@@ -36,8 +35,7 @@ Class EventModel extends AppModel
 
     public function getCategories()
     {
-        try
-        {
+        try {
             $query = $this->connexion->prepare("SELECT * FROM vol_events_categories");
             $query->execute();
 
@@ -45,17 +43,14 @@ Class EventModel extends AppModel
             $query->closeCursor();
             return $data;
 
-        }
-        catch (Exception $e)
-        {
+        } catch (Exception $e) {
             return false;
         }
     }
 
     public function insertCategories($idCategory, $idEvent)
     {
-        try
-        {
+        try {
             $query = $this->connexion->prepare("INSERT INTO vol_events_categories_has_vol_events
             (vol_events_categories_idCategorie, vol_events_idEvent) VALUES
             (:idCategory, :idEvent)");
@@ -67,9 +62,27 @@ Class EventModel extends AppModel
 
             return true;
 
+        } catch (Exception $e) {
+            return false;
         }
-        catch (Exception $e)
-        {
+    }
+
+    public function insertMissions($idEvent, $missions, $nbVolunteer)
+    {
+        try {
+            $query = $this->connexion->prepare("INSERT INTO vol_event_missions
+            (missionName, nbVolunteer, vol_events_idEvent) VALUES
+            (:mission, :nbVol, :idEvent)");
+
+            $query->bindValue(':mission', $missions, PDO::PARAM_STR);
+            $query->bindValue(':nbVol', $nbVolunteer, PDO::PARAM_INT);
+            $query->bindValue(':idEvent', $idEvent, PDO::PARAM_INT);
+
+            $query->execute();
+
+            return true;
+
+        } catch (Exception $e) {
             return false;
         }
     }

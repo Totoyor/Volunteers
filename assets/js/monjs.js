@@ -54,9 +54,10 @@ $(document).ready(function () {
     $(".saveyour").hide();
     $(".saveyour").show("slow");
 
-    $(".addmiss").click(function () {
-        $(".newmiss").fadeIn("100");
-    })
+    /*$(".addmiss").click(function () {
+     $(".newmiss").fadeIn("100");
+     })*/
+
     $(".showend").click(function () {
         $(".newdate").fadeIn("100");
         $(".showend").hide("slow");
@@ -74,4 +75,30 @@ $(document).ready(function () {
         }, {queue: true, duration: 500}
     );
 
+    /*$(".addmiss").click(function (){
+
+     var div2 = $('<div>');
+     div2.attr('class', 'input-field col s8 secure-mission offset-m1');
+
+     var label = $('<label>Mission</label>');
+     label.appendTo('.mission');
+
+     var input = $('<input>');
+     input.attr('type', 'text');
+     input.attr('id', 'icon_prefix');
+     input.attr('class', 'validate');
+     input.attr('name', 'missions[]');
+     input.appendTo('.mission');
+
+     div2 += $('</div>');
+     div2.appendTo('.mission');
+     });*/
+
+    var i = 0;
+
+    $(".addmiss").click(function () {
+        i++;
+        $("#first-mission-field").clone().attr('id', 'first-mission-field' + i).appendTo("#new-mission");
+        $("#mission-field").clone().attr('id', 'mission-field' + i).appendTo("#new-mission");
+    });
 });

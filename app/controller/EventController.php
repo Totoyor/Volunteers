@@ -13,8 +13,7 @@ class EventController extends AppController
 
     public function create()
     {
-        if (isset($_POST))
-        {
+        if (isset($_POST)) {
             $event_name = $_POST['event_name'];
             $event_location = $_POST['event_location'];
             $event_start = $_POST['event_start'];
@@ -24,29 +23,22 @@ class EventController extends AppController
             $event_categories = $_POST['event_categories'];
             $event_description = $_POST['event_description'];
 
-            if (isset($_POST['save']))
-            {
+            if (isset($_POST['save'])) {
                 $status = 0;
-            }
-            elseif (isset($_POST['submit']))
-            {
+            } elseif (isset($_POST['submit'])) {
                 $status = 1;
             }
 
             $lastId = $this->model->createEvent($event_name, $event_location, $event_start, $event_hour_start, $event_end,
                 $event_hour_end, $event_description, $status);
 
-            if ($lastId !== null)
-            {
-                for ($i=0; $i < count($event_categories); $i++)
-                {
+            if ($lastId !== null) {
+                for ($i = 0; $i < count($event_categories); $i++) {
                     $idEvent = $lastId;
                     $idCategory = $event_categories[$i];
                     $this->model->insertCategories($idCategory, $idEvent);
                 }
-            }
-            else
-            {
+            } else {
                 var_dump($_POST);
                 die('nok');
             }
@@ -55,8 +47,17 @@ class EventController extends AppController
 
     public function home()
     {
-        define("TITLE_HEAD", "Créer un évenement | Volunteers");
-        // Chargement de la vue
-        $this->load->view('creation_event.php');
+        $data = $this->model->getCategories();
+
+        if ($data !== null) {
+            define("TITLE_HEAD", "Créer un évenement | Volunteers");
+            // Chargement de la vue
+            $this->load->view('creation_event.php', $data);
+        } else {
+            define("TITLE_HEAD", "Erreur | Volunteers");
+            // Chargement de la vue
+            $this->load->view('view_error.php');
+        }
+
     }
 }

@@ -323,7 +323,8 @@ footer.page-footer {
     background-color: #272727;
     margin-left: 0 !important;
     margin-right: 0 !important;
-    margin-bottom: 0; !important;
+    margin-bottom: 0;
+!important;
     color: #fff;
 }
 
@@ -374,10 +375,13 @@ footer.page-footer {
 
 .404
 {
-    /*background-color: #FFF;*/
-    box-shadow: none;
-    position: absolute;
-    top: 0;
+/*background-color: #FFF;*/
+    box-shadow: none
+;
+    position: absolute
+;
+    top: 0
+;
 }
 
 .nav-wrapper {
