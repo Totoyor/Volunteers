@@ -109,7 +109,7 @@ class CoreModel extends Core
             // Close WHERE
             $query .= " WHERE ".$options['column_id']." = ".$options['id'];
 
-            var_dump($query);
+            //var_dump($query);
             die();
 
             // Traitement de la requete

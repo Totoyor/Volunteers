@@ -1,13 +1,9 @@
 /******STYLE DU BLOG**********/
-* {
-    font-family: 'Open Sans', sans-serif;
-}
-
 .content-blog {
     margin-top: 50px !important;
 }
 
-.card-title > a {
+/*.card-title > a {
     color: #1565c0;
 }
 
@@ -17,7 +13,7 @@
 
 footer.page-footer {
     padding-top: 0px !important;
-}
+}*/
 
 .modal-debug {
     display: inline-block;
