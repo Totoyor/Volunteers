@@ -25,6 +25,7 @@ Temporary Items
 .apdisk
 src/
 config/constant.php
+composer.phar
 
 ### Example user template
 

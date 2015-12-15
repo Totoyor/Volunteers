@@ -7,12 +7,29 @@
     <!--Website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title><?php echo TITLE_HEAD ?></title>
+    <link href="assets/img/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <!--Import CSS -->
-    <link href="assets/css/materialize.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/materialize.min.css" rel="stylesheet" type="text/css">
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/custom.css" rel="stylesheet" type="text/css">
     <!--Import Google Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--[if lt IE 8]>
+      <div id="update-browser" class="error">
+        <div class="ub-container">
+          <div class="ub-warning-img">&nbsp;</div>
+          <div class="ub-warning-txt">
+            <p class="ub-title">Vous utilisez un navigateur web obsol&egrave;te : Internet Explorer 6/7</p>
+            <p>Il contient des <span class="bold">failles de s&eacute;curit&eacute;</span> et n&#039;est <span class="bold">pas compatible</span> avec ce site Internet.</p>
+            <p><a class="ub-link" href="http://browser-update.org/fr/update.html" target="_blank" title="D&eacute;couvrez comment mettre &agrave; jour votre navigateur">Mettez &agrave; jour votre navigateur web ou installez un navigateur web moderne</a></p>
+          </div>
+          <a class="ub-icon firefox" href="http://www.firefox.com" target="_blank" title="Installer Firefox">&nbsp;</a>
+          <a class="ub-icon ie" href="http://www.browserforthebetter.com/download.html" target="_blank" title="Installer Internet Explorer">&nbsp;</a>
+          <a class="ub-icon chrome" href="http://www.google.com/chrome" target="_blank" title="Installer Google Chrome">&nbsp;</a>
+          <a class="ub-icon safari" href="http://www.apple.com/safari/download/" target="_blank" title="Installer Safari">&nbsp;</a>
+          <a class="ub-icon opera" href="http://www.opera.com/download/" target="_blank" title="Installer Opera">&nbsp;</a>
+        </div>
+      </div>
+    <![endif]-->
 </head>
 <body class="grey lighten-4">
 <header>

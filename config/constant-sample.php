@@ -4,7 +4,7 @@
 define("SESSION_NAME", "SESSION_VOLUNTEERS");
 
 // Choix du serveur DEV/TEST/PROD
-define('SERVER', 'TEST');
+define('SERVER', 'YOUR_ENVIRONNEMENT');
 
 // Gestion de l'environnement du serveur
 if(SERVER === 'DEV') {
@@ -27,14 +27,14 @@ else if(SERVER === 'PROD') {
 }
 
 // Constantes générales d'URL
-define('BASE_HOME', '<base href="http://localhost/Volunteers/">');
+define('BASE_HOME', '<base href="YOUR_LOCALHOST_OR_SERVER">');
 define('MODULE_DEFAUT', 'Home');
 define('ACTION_DEFAUT', 'home');
 
 // Constantes de Base de Données
-define('DB_DNS',      'mysql:host=localhost;dbname=la_mantia');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', 'root');
+define('DB_DNS',      'YOUR_DNS');
+define('DB_USERNAME', 'YOUR_USERNAME');
+define('DB_PASSWORD', 'YOUR_PASSWORD');
 define('DB_CHARSET', 'utf8');
 define('DB_PREFIX', 'vol_');
 

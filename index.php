@@ -4,7 +4,7 @@
 include_once 'config/constant.php';
 
 // Démarage de la session
-require_once 'config/secure_session.php';
+require_once 'lib/secure_session.php';
 VOLUNTEERS_session_start(SESSION_NAME);
 
 // Gestion des erreurs
