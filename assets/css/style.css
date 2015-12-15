@@ -774,3 +774,9 @@ p {
 .title_404 {
     margin-top:80px;
 }
+.content-blog {
+    margin-top: 50px !important;
+}
+.modal-debug {
+    display: inline-block;
+}
