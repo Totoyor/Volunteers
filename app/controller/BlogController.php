@@ -46,10 +46,10 @@ class BlogController extends AppController
             define("TITLE_HEAD", "Blog | Volunteers");
             // Test toto pagination
             $table = 'blog_posts';
-            $count = $this->model->countArticles($table);
+            $count = $this->model->countRow($table);
             $nbrPage = ceil($count[0] / MAX_ARTICLE);
             // Chargement de la vue
-            $this->load->view('view_articles.php', $data, $nbrPage);
+            $this->load->view('blog/view_articles.php', $data, $nbrPage);
         }
     }
     
@@ -77,13 +77,13 @@ class BlogController extends AppController
             {
                 // Sinon on appelle la vue de l'article
                 define("TITLE_HEAD", "Article | Volunteers");
-                $this->load->view('view_article.php', $data, $nbrPage = null, $comments);
+                $this->load->view('blog/view_article.php', $data, $nbrPage = null, $comments);
             }
         }
         else {
             // Si pas de data on apelle la page d'erreur
             define("TITLE_HEAD", "Erreur technique !");
-            $this->load->view('view_error.php');
+            $this->load->view('blog/view_error.php');
         }
     }
 }

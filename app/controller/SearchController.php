@@ -15,7 +15,7 @@ class SearchController extends AppController
     public function home()
     {
         define("TITLE_HEAD", "Recherche d'articles");
-        $this->load->view('search.php');
+        $this->load->view('blog/search.php');
     }
 
     public function find()
@@ -30,7 +30,7 @@ class SearchController extends AppController
 
             // On affiche le résultat de la recherche
             define("TITLE_HEAD", "Recherche !");
-            $this->load->view('search.php', $data);
+            $this->load->view('blog/search.php', $data);
         }
         else
         {

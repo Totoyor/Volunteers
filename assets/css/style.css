@@ -470,6 +470,13 @@ nav ul li:hover {
     max-height: none;
 }
 
+/* Debug Tool */
+.modal_var {
+    width: 80%;
+    text-align: left;
+    top: 5% !important;
+}
+
 .login-form .space-bot {
     margin-bottom: 20px !important;
 }

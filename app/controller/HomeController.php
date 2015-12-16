@@ -13,6 +13,6 @@ class HomeController extends AppController
     {
         // Chargement de la home
         define("TITLE_HEAD", "Volunteers | Home");
-        $this->load->view('index.php');
+        $this->load->view('page/index.php');
     }
 }

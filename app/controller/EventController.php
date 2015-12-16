@@ -57,6 +57,6 @@ class EventController extends AppController
     {
         define("TITLE_HEAD", "Créer un évenement | Volunteers");
         // Chargement de la vue
-        $this->load->view('creation_event.php');
+        $this->load->view('event/creation_event.php');
     }
 }

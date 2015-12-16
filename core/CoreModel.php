@@ -150,4 +150,21 @@ class CoreModel extends Core
             return false;
         }
     }
+
+    public function countRow($table)
+    {
+        try
+        {
+            $query = $this->connexion->prepare('SELECT COUNT(*) FROM '.$table);
+            $query->execute();
+            $nbrArt = $query->fetch();
+            $query->closeCursor();
+
+            return $nbrArt;
+        }
+        catch (Exception $e)
+        {
+            return false;
+        }
+    }
 }

@@ -13,6 +13,6 @@ class ProfileController extends AppController
     {
         // Chargement de la vue du profil
         define("TITLE_HEAD", "Volunteers | Profile");
-        $this->load->view('profile.php');
+        $this->load->view('user/profile.php');
     }
 }

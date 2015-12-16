@@ -4,39 +4,75 @@
 define("SESSION_NAME", "SESSION_VOLUNTEERS");
 
 // Choix du serveur DEV/TEST/PROD
-define('SERVER', 'YOUR_ENVIRONNEMENT');
+define('SERVER', 'LOCAL');
 
 // Gestion de l'environnement du serveur
-if(SERVER === 'DEV') {
+if(SERVER === 'LOCAL') {
     /**
      * Constantes spécifiques pour config serveur de dev
      */
     define('DEBUG', true);
+    define('BASE_HOME', '<base href="http://localhost/Volunteers/">');
+    /**
+     * Constantes de Base de Données
+     */
+    define('DB_DNS',      'YOUR_DNS');
+    define('DB_USERNAME', 'YOUR_USERNAME');
+    define('DB_PASSWORD', 'YOUR_PASSWORD');
+    define('DB_CHARSET', 'utf8');
+    define('DB_PREFIX', 'vol_');
+
+}
+else if(SERVER === 'DEV') {
+    /**
+     * Constantes spécifiques pour config serveur de dev
+     */
+    define('DEBUG', true);
+    define('BASE_HOME', '<base href="http://sabates.etudiant-eemi.com/perso/volunteers/dev/">');
+    /**
+     * Constantes de Base de Données
+     */
+    define('DB_DNS',      'YOUR_DNS');
+    define('DB_USERNAME', 'YOUR_USERNAME');
+    define('DB_PASSWORD', 'YOUR_PASSWORD');
+    define('DB_CHARSET', 'utf8');
+    define('DB_PREFIX', 'vol_');
+
 }
 else if(SERVER === 'TEST') {
     /**
      * Constantes spécifiques pour config serveur de test
      */
     define('DEBUG', true);
+    define('BASE_HOME', '<base href="http://sabates.etudiant-eemi.com/perso/volunteers/test/">');
+    /**
+     * Constantes de Base de Données
+     */
+    define('DB_DNS',      'YOUR_DNS');
+    define('DB_USERNAME', 'YOUR_USERNAME');
+    define('DB_PASSWORD', 'YOUR_PASSWORD');
+    define('DB_CHARSET', 'utf8');
+    define('DB_PREFIX', 'vol_');
 }
 else if(SERVER === 'PROD') {
     /**
      * Constantes spécifiques pour config serveur de prod
      */
     define('DEBUG', false);
+    define('BASE_HOME', '<base href="http://sabates.etudiant-eemi.com/perso/volunteers/prod/">');
+    /**
+     * Constantes de Base de Données
+     */
+    define('DB_DNS',      'YOUR_DNS');
+    define('DB_USERNAME', 'YOUR_USERNAME');
+    define('DB_PASSWORD', 'YOUR_PASSWORD');
+    define('DB_CHARSET', 'utf8');
+    define('DB_PREFIX', 'vol_');
 }
 
 // Constantes générales d'URL
-define('BASE_HOME', '<base href="YOUR_LOCALHOST_OR_SERVER">');
 define('MODULE_DEFAUT', 'Home');
 define('ACTION_DEFAUT', 'home');
-
-// Constantes de Base de Données
-define('DB_DNS',      'YOUR_DNS');
-define('DB_USERNAME', 'YOUR_USERNAME');
-define('DB_PASSWORD', 'YOUR_PASSWORD');
-define('DB_CHARSET', 'utf8');
-define('DB_PREFIX', 'vol_');
 
 // PATH (Chemins)
 define('PATH_1', 'path/');

@@ -17,7 +17,7 @@ class UserController extends AppController
     public function home()
     {
         define("TITLE_HEAD", "Les utilisateurs du blog");
-        $this->load->view('index.php');
+        $this->load->view('page/index.php');
     }
 
     public function connect()
@@ -36,13 +36,13 @@ class UserController extends AppController
             {
                 // Si false on renvoi sur une page erreur
                 define("TITLE_HEAD", "Erreur de connexion !");
-                $this->load->view('index.php');
+                header('Location:?login=nok');
             }
         }
         else
         {
             define("TITLE_HEAD", "Connexion");
-            $this->load->view('index.php');
+            header('Location:?login=nok');
         }
     }
 
@@ -63,16 +63,22 @@ class UserController extends AppController
             if($this->model->inscriptionUser($this->_login, $this->_password))
             {
                 // Si ok (true) alors on renvoi sur la page d'accueil
-                header('Location:?signup=ok');
+                header('Location:?sign=ok');
             }
             else
             {
-                header('Location:?signup=nok');
+                header('Location:?sign=nok');
+                /*
+                 $this->coreRedirect(array(
+                    'param' => 'sign',
+                    'value' => 'nok',
+                ));
+                */
             }
         }
         else
         {
-            header('Location:?signup=nok');
+            header('Location:?sign=nok');
         }
     }
 

@@ -2,24 +2,6 @@
 
 class BlogModel extends AppModel
 {
-
-    public function countArticles($table)
-    {
-        try
-        {
-            $query = $this->connexion->prepare('SELECT COUNT(*) FROM '.$table);
-            $query->execute();
-            $nbrArt = $query->fetch();
-            $query->closeCursor();
-
-            return $nbrArt;
-        }
-        catch (Exception $e)
-        {
-            return false;
-        }
-    }
-
     public function getComments($id)
     {
         try
