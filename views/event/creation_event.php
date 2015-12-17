@@ -235,13 +235,10 @@
 
                     <div class="row btn_crea1">
                         <div class="offset-m7 offset-s6 col m1 s2 center">
-                            <!--<a href="#" class="btn btn-menu" onclick="Materialize.toast('Saved', 4000)">Save</a>-->
                             <button name="save" onclick="Materialize.toast('Saved', 4000)" type="submit" class="btn btn-menu">Save
                             </button>
                         </div>
                         <div class="col s3 m3 l2 center offset-s1 offset-m1 offset-l1">
-                            <!--<a href="#" class="btn btn-orange"
-                               onclick="Materialize.toast('Published', 4000)">Publish</a>-->
                             <button name="submit" onclick="Materialize.toast('Published', 4000)" type="submit" class="btn btn-orange">
                                 Publish
                             </button>

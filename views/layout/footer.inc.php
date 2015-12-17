@@ -100,7 +100,7 @@
     <div class="container footer-wrapper">
         <div class="row">
             <div class="col s12 m3 footer-elements">
-                <h5 class="title-list">Company</h5>
+                <h5 class="title-list white-text">Company</h5>
                 <ul>
                     <li><a class="grey-text text-lighten-3" href="#!">About us</a></li>
                     <li><a class="grey-text text-lighten-3" href="#!">Contact</a></li>
@@ -110,7 +110,7 @@
             </div>
 
             <div class="col s12 m3">
-                <h5 class="title-list">Menu</h5>
+                <h5 class="title-list white-text">Menu</h5>
                 <ul>
                     <li><a class="grey-text text-lighten-3" href="event/create">Find volunteers</a></li>
                     <li><a class="grey-text text-lighten-3" class="modal-trigger" href="#login">Log In</a></li>
@@ -120,7 +120,7 @@
             </div>
 
             <div class="col s12 m3">
-                <h5 class="title-list">Follow us</h5>
+                <h5 class="title-list white-text">Follow us</h5>
                 <ul class="social-list">
                     <li>
                         <a class="grey-text text-lighten-3"
@@ -148,7 +148,7 @@
 
             <div class="col s12 m3">
                 <ul>
-                    <h5 class="title-list">Subscribe to our newsletter</h5>
+                    <h5 class="title-list white-text">Subscribe to our newsletter</h5>
                     <div id="mc_embed_signup">
                         <form
                             action="//volunteers.us12.list-manage.com/subscribe/post?u=2fb275a6dc11af1ee664e7ea2&amp;id=f47de3f760"

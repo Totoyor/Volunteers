@@ -70,7 +70,7 @@ class EventController extends AppController
         if ($data !== null) {
             define("TITLE_HEAD", "Créer un évenement | Volunteers");
             // Chargement de la vue
-            $this->load->view('creation_event.php', $data);
+            $this->load->view('event/creation_event.php', $data);
         } else {
             define("TITLE_HEAD", "Erreur | Volunteers");
             // Chargement de la vue

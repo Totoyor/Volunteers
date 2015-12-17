@@ -65,7 +65,7 @@
     <!-- MODAL LOGIN (SIGN IN)-->
     <div id="login" class="modal login-card">
         <div class="row col s12">
-        <h4 class="titre-login">Log In</h4>
+        <h4 class="titre-login white-text">Log In</h4>
         </div>
         <div class="modal-content">
             <form class="login-form" action="?module=user&action=connect" method="post">
@@ -111,7 +111,7 @@
     <!-- MODAL REGISTER (SIGN UP)-->
     <div id="signup" class="modal login-card">
         <div class="row col s12">
-        <h4 class="titre-login">Join us now !</h4>
+        <h4 class="titre-login white-text">Join us now !</h4>
         </div>
         <div class="modal-content">
             <form class="login-form" action="?module=user&action=signup" method="post">
