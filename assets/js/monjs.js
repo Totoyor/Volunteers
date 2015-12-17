@@ -98,7 +98,7 @@ $(document).ready(function () {
 
     $(".addmiss").click(function () {
         i++;
-        $("#first-mission-field").clone().attr('id', 'first-mission-field' + i).appendTo("#new-mission");
-        $("#mission-field").clone().attr('id', 'mission-field' + i).appendTo("#new-mission");
+        //$("#first-mission-field").clone().attr('id', 'first-mission-field' + i).appendTo("#new-mission");
+        $("#mission-field").clone().attr('id', 'mission-field' + i).removeClass("hide").appendTo("#new-mission");
     });
 });

@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col s12">
                 <div class="card grey lighten-2">
-                    <div class="card-content white-text">
+                    <div class="card-content white-text center">
                         <div class="card-title black-text">Debug Tool</div>
                         <div class="modal-debug">
                             <!-- Modal Trigger $_POST -->

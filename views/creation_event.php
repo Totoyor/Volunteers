@@ -44,7 +44,7 @@
                     </div>
 
                     <div class="input-field col s11 offset-m1 offset-l1 col l10 m10">
-                        <input class="tooltipped validate" data-position="right" data-delay="50"
+                        <input name="event_name" class="tooltipped validate" data-position="right" data-delay="50"
                                data-tooltip="Show me what you've got !" id="icon_prefix" type="text" required>
                         <label for="icon_prefix">Event Name</label>
                     </div>
@@ -52,7 +52,7 @@
                     <div class="row">
                         <div class="input-field col s11 offset-m1 offset-l1 col l10 m10">
                             <i class="material-icons prefix">location_on</i>
-                            <input id="icon_prefix" type="text" class="tooltipped validate" data-position="right"
+                            <input name="event_location" id="icon_prefix" type="text" class="tooltipped validate" data-position="right"
                                    data-delay="50" data-tooltip="Where is your event ?" required>
                             <label for="icon_prefix">Location</label>
                         </div>
@@ -61,7 +61,7 @@
                     <div class="row tooltipped" data-position="right" data-delay="50" data-tooltip="What day is it?">
                         <div class="input-field col s8 offset-m1 offset-l1 col l6 m6">
                             <i class="material-icons prefix">today</i>
-                            <input id="icon_prefix" type="date" placeholder="Click here to choose the begining"
+                            <input name="event_start" id="icon_prefix" type="date" placeholder="Click here to choose the begining"
                                    class="validate datepicker" required>
                             <label for="icon_prefix"></label>
                         </div>
@@ -73,7 +73,7 @@
                     <div class="row">
                         <div class="input-field col s8 offset-m1 offset-l1 col l6 m6 newdate">
                             <i class="material-icons prefix">today</i>
-                            <input id="icon_prefix" type="date" placeholder="Click here to choose the ending"
+                            <input name="event_end" id="icon_prefix" type="date" placeholder="Click here to choose the ending"
                                    class="datepicker" required>
                             <label for="icon_prefix"></label>
                         </div>
@@ -82,7 +82,7 @@
 
                     <div class="row tooltipped" data-position="right" data-delay="50" data-tooltip="When?">
                         <div class="input-field col s6 m2 offset-m1">
-                            <select>
+                            <select name="event_hour_start">
                                 <option value="" disabled selected>Hours</option>
                                 <option value="0">00</option>
                                 <option value="1">01</option>
@@ -102,7 +102,7 @@
                         </div>
 
                         <div class="input-field col s6 m2">
-                            <select>
+                            <select name="event_min_start">
                                 <option value="" disabled selected>Minutes</option>
                                 <option value="00">00</option>
                                 <option value="05">05</option>
@@ -121,7 +121,7 @@
                         </div>
 
                         <div class="input-field col s6 m2 offset-m2">
-                            <select>
+                            <select name="event_hour_end">
                                 <option value="" disabled selected>Hours</option>
                                 <option value="0">00</option>
                                 <option value="1">01</option>
@@ -141,7 +141,7 @@
                         </div>
 
                         <div class="input-field col s6 m2">
-                            <select>
+                            <select name="event_min_end">
                                 <option value="" disabled selected>Minutes</option>
                                 <option value="00">00</option>
                                 <option value="05">05</option>
@@ -163,7 +163,7 @@
                     <div class="row tooltipped" data-position="right" data-delay="50"
                          data-tooltip="How awesome is your event ?">
                         <div class="input-field col s10 offset-m1 offset-l1 col l10 m10">
-                            <textarea id="textarea1 icon_prefix" class="materialize-textarea"></textarea>
+                            <textarea name="event_description" id="textarea1 icon_prefix" class="materialize-textarea"></textarea>
                             <label for="textarea1 icon_prefix">Description</label>
                         </div>
                     </div>
@@ -206,7 +206,7 @@
                         </div>
                         <div class="input-field col s2 secure_nb_vol">
                             <div class="input-field col s8 secure-mission offset-m1">
-                                <input placeholder="1" type="number" class="validate">
+                                <input name="nbVolunteer[]" placeholder="1" type="number" class="validate">
                                 <label>Number</label>
                             </div>
                         </div>
@@ -220,7 +220,7 @@
                         </div>
                         <div class="input-field col s2 secure_nb_vol">
                             <div class="input-field col s8 secure-mission offset-m1">
-                                <input placeholder="1" type="number" class="validate">
+                                <input name="nbVolunteer[]" placeholder="1" type="number" class="validate">
                                 <label>Number</label>
                             </div>
                         </div>
@@ -236,13 +236,13 @@
                     <div class="row btn_crea1">
                         <div class="offset-m7 offset-s6 col m1 s2 center">
                             <!--<a href="#" class="btn btn-menu" onclick="Materialize.toast('Saved', 4000)">Save</a>-->
-                            <button onclick="Materialize.toast('Saved', 4000)" type="submit" class="btn btn-menu">Save
+                            <button name="save" onclick="Materialize.toast('Saved', 4000)" type="submit" class="btn btn-menu">Save
                             </button>
                         </div>
                         <div class="col s3 m3 l2 center offset-s1 offset-m1 offset-l1">
                             <!--<a href="#" class="btn btn-orange"
                                onclick="Materialize.toast('Published', 4000)">Publish</a>-->
-                            <button onclick="Materialize.toast('Published', 4000)" type="submit" class="btn btn-orange">
+                            <button name="submit" onclick="Materialize.toast('Published', 4000)" type="submit" class="btn btn-orange">
                                 Publish
                             </button>
                         </div>
