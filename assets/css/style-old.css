@@ -51,10 +51,13 @@ nav ul li a:hover {
     height: 100vh;
     z-index: 2;
     width: 50%;
+    color: #fff;
 }
 
 .content-bloc {
+    box-sizing: border-box;
     padding: 60px;
+    position: relative;
 }
 
 .big-title {
@@ -105,8 +108,14 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, btn-blue:focus {
 }
 
 .btn-vue:hover {
+    border: 2px solid #5498d4;
     background: #5498d4;
-    color: #fff;
+}
+
+.btn-vue:hover {
+    border: 2px solid #5498d4;
+    background: #5498d4;
+    color: white;
 }
 
 .btn-orange {
@@ -147,6 +156,7 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, btn-blue:focus {
 
 .popevent {
     width: 100%;
+    float: left;
 }
 
 .fancy-hr {
@@ -172,6 +182,7 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, btn-blue:focus {
 
 .item img {
     max-width: 100%;
+
     -moz-transition: all 0.3s;
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
@@ -193,6 +204,7 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, btn-blue:focus {
 
 .text-wrapper h6 {
     font-size: 2.5em;
+    color: #fff;
 }
 
 .margin-cat-bottom {
@@ -231,6 +243,7 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, btn-blue:focus {
 }
 
 a.viewmore.btn-vue {
+    color: #fff;
     box-shadow: none;
 }
 
@@ -241,59 +254,24 @@ a.viewmore.btn-vue {
     height: 270px;
     margin-left: 0 !important;
     margin-right: 0 !important;
-    margin-bottom: 0!important;
+    margin-bottom: 0;
+!important;
+    color: #fff;
+    float: left;
 }
 
 .bgleft {
     background-color: #5498d4;
-
 }
 
 .bgright {
     background-color: #ff8b02;
 }
-
-/*.bgleft {
-    background: #00d2ff;
-    background: -webkit-linear-gradient(to left, #00d2ff , #3a7bd5);  Chrome 10-25, Safari 5.1-6
-    background: linear-gradient(to left, #00d2ff , #3a7bd5);
-}
-
-.bgright {
-    background-color: #ff8b02;
-    background: -webkit-linear-gradient(to right, #FFC800 , #D53A3A);
-    background: linear-gradient(to right, #FFC800 , #D53A3A);
-}
-
-
-/*Home Gradient*/
-
-/*.bgorange {
-    background: linear-gradient(to left, rgba(240, 152, 25, 0.4), rgba(193, 152, 206, 0.4));
-    transition: 0.3s;
-}
-
-.bgorange:hover {
-    background: linear-gradient(to left, rgba(255, 81, 47, 0.9), rgba(240, 152, 25, 0.9));
-    transition: 0.3s;
-}
-
-.bgblue {
-    background: linear-gradient(to left, rgba(193, 152, 206, 0.4), rgba(157,80,187,0.4));
-    transition: 0.3s;
-}
-
-.bgblue:hover; {
-    background: linear-gradient(to left, rgba(157,80,187,0.9) , rgba(110,72,170,0.9));
-    transition: 0.3s;
-}*/
-
 
 .bgorange {
     background-color: rgba(255, 158, 2, 0.4);
     transition: 0.3s;
 }
-
 
 .bgorange:hover {
     background-color: rgba(255, 158, 2, 0.9);
@@ -306,6 +284,19 @@ a.viewmore.btn-vue {
 
 .bgblue:hover {
     background-color: rgba(84, 152, 212, 0.9);
+}
+
+.title-white {
+    color: #fff;
+}
+
+.createevent p {
+    color: #fff;
+    font-size: 1.2em;
+}
+
+.double-txt {
+    color: #fff;
 }
 
 /*** FOOTER ***/
@@ -327,9 +318,19 @@ footer.page-footer {
     padding-top: 30px;
 }
 
+.footer-bas {
+    width: 100%;
+    background-color: #272727;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-bottom: 0; !important;
+    color: #fff;
+}
+
 .title-list {
     font-size: 1.4em;
     padding-bottom: 20px;
+    color: #fff;
 }
 
 .social-list li {
@@ -351,6 +352,7 @@ footer.page-footer {
 
 .side-nav li a:hover {
     background-color: orange;
+    color: #fff;
 }
 
 .button-collapse {
@@ -389,28 +391,6 @@ footer.page-footer {
     color: #4a4a4a;
     text-transform: none;
 }
-
-/*Bouton menu avec gradient
-.btn-menu {
-    position: relative;
-    background: white;
-    border-radius: 0;
-    height: 32px;
-}
-
-.btn-menu::after {
-    position: absolute;
-    top: -2px;
-    bottom: -2px;
-    left: -2px;
-    right: -2px;
-    background: #FF512F;
-    background: -webkit-linear-gradient(to left, #FF512F , #F09819);
-    background: linear-gradient(to left, #FF512F , #F09819);
-    content: '';
-    z-index: -1;
-    border-radius: 2px;
-}*/
 
 .btn-menu:hover {
     background: #fb8c00;
@@ -459,6 +439,7 @@ nav ul li:hover {
 
 /************************/
 .page_event {
+
     background-color: #fff;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
     height: auto;
@@ -489,6 +470,13 @@ nav ul li:hover {
     max-height: none;
 }
 
+/* Debug Tool */
+.modal_var {
+    width: 80%;
+    text-align: left;
+    top: 5% !important;
+}
+
 .login-form .space-bot {
     margin-bottom: 20px !important;
 }
@@ -510,6 +498,7 @@ nav ul li:hover {
 }
 
 .titre-login {
+    color: #fff;
     background: #fb8c00;
     height: 80px;
     line-height: 80px;
@@ -627,6 +616,47 @@ p {
 
 }
 
+/**** !responsive ****/
+
+@media only screen and (min-width: 600px) and (max-width: 992px) {
+    .content-bloc {
+        padding: 60px 30px;
+    }
+
+    .content-bloc h1 {
+        font-size: 2.5em;
+    }
+
+    .text-wrapper h6 {
+        font-size: 2em;
+    }
+}
+
+/*** MOBILE ***/
+@media screen and (max-width: 600px) {
+
+    .blocprincipal {
+        width: 100% !important;
+        height: 50vh;
+    }
+
+    .bgblue, .bgorange {
+        height: 50vh;
+    }
+
+    .big-img {
+        height: 100vh;
+    }
+
+    .content-bloc h1 {
+        font-size: 2em;
+    }
+
+    .double-content {
+        width: 100%;
+    }
+}
+
 .secure_nb_vol {
     margin-top: 0px
 }
@@ -720,6 +750,22 @@ p {
     display: block;
 }
 
+@media screen and (min-width: 600px) and (max-width: 992px) {
+    .image_crea {
+        height: 900px;
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 600px) {
+    .image_crea {
+        display: none;
+    }
+
+    .btn_crea1 {
+        display: block;
+    }
+}
+
 .btn_crea_3 {
     margin-top: 520px;
 }
@@ -735,64 +781,9 @@ p {
 .title_404 {
     margin-top:80px;
 }
-
 .content-blog {
     margin-top: 50px !important;
 }
-
 .modal-debug {
     display: inline-block;
-}
-
-/**** !responsive ****/
-
-@media only screen and (min-width: 600px) and (max-width: 992px) {
-    .content-bloc {
-        padding: 60px 30px;
-    }
-
-    .content-bloc h1 {
-        font-size: 2.5em;
-    }
-
-    .text-wrapper h6 {
-        font-size: 2em;
-    }
-
-    .image_crea {
-        height: 900px;
-    }
-}
-
-/*** MOBILE ***/
-@media screen and (min-width: 0px) and (max-width: 600px) {
-
-    .blocprincipal {
-        width: 100% !important;
-        height: 50vh;
-    }
-
-    .bgblue, .bgorange {
-        height: 50vh;
-    }
-
-    .big-img {
-        height: 100vh;
-    }
-
-    .content-bloc h1 {
-        font-size: 2em;
-    }
-
-    .double-content {
-        width: 100%;
-    }
-
-    .image_crea {
-        display: none;
-    }
-
-    .btn_crea1 {
-        display: block;
-    }
 }

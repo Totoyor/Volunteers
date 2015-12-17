@@ -1,10 +1,9 @@
 <?php include_once('views/layout/header.inc.php'); ?>
-
 <div class="big-img">
     <div class="row">
-        <div class="col s6 blocprincipal bgblue valign-wrapper">
+        <div class="col s6 blocprincipal white-text bgblue valign-wrapper">
             <div class="content-bloc">
-                <h1>I want to volunteer at events</h1>
+                <h1 class="valign">I want to volunteer at events</h1>
                 <ul class="hidden-content-leftside">
                     <li><i class="material-icons">done</i>Participate at events for free</li>
                     <li><i class="material-icons">done</i>Live new work exepriences</li>
@@ -14,7 +13,7 @@
             </div>
         </div>
 
-        <div class="col s6 blocprincipal bgorange valign-wrapper">
+        <div class="col s6 blocprincipal white-text bgorange valign-wrapper">
             <div class="content-bloc">
                 <h1>I need volunteers for my event</h1>
                 <ul class="hidden-content-rightside">
@@ -39,23 +38,25 @@
 
         <div class="row">
             <div class="col s12 m6 l6">
-                <div class="card small event popevent">
-                    <div class="card-image">
-                      <img class="responsive-img" src="assets/img/event1.png" alt="image-event">
+                <a href="#">
+                    <div class="card small event popevent left z-depth-1">
+                        <div class="card-image">
+                          <img class="responsive-img" src="assets/img/event1.png" alt="image-event">
+                        </div>
+                        <div class="card-content">
+                            <h4 class="titre-cards black-text">La Dynamiterie</h4>
+                            <h6 class="black-text">Studio Albatros, Montreuil - 21 Nov</h6>
+                        </div>
+                        <div class="card-action">
+                          <a href="#">Techno</a>
+                          <a class="viewmore btn btn-vue" href="#">See more</a>
+                        </div>
                     </div>
-                    <div class="card-content">
-                        <h4 class="titre-cards">La Dynamiterie</h4>
-                        <h6>Studio Albatros, Montreuil - 21 Nov</h6>
-                    </div>
-                    <div class="card-action">
-                      <a href="#">Techno</a>
-                      <a class="viewmore btn btn-vue" href="#">See more</a>
-                    </div>
-                </div>
+                </a>
             </div>
 
             <div class="col s12 m6 l6">
-                <div class="card small event popevent">
+                <div class="card small event popevent left">
                     <div class="card-image">
                       <img src="assets/img/event2.png" class="responsive-img" alt="image-event">
                     </div>
@@ -73,7 +74,7 @@
 
         <div class="row">
             <div class="col s12 m6 l4">
-                <div class="card small event popevent">
+                <div class="card small event popevent left">
                     <div class="card-image">
                       <img class="responsive-img" src="assets/img/event3.png" alt="image-event">
                     </div>
@@ -89,7 +90,7 @@
             </div>
 
             <div class="col s12 m6 l4">
-                <div class="card small event popevent">
+                <div class="card small event popevent left">
                     <div class="card-image">
                       <img class="responsive-img" alt="image-event" src="assets/img/event4.png">
                     </div>
@@ -105,7 +106,7 @@
             </div>
 
             <div class="col s12 m6 l4">
-                <div class="card small event popevent">
+                <div class="card small event popevent left">
                     <div class="card-image">
                       <img class="responsive-img" alt="image-event" src="assets/img/event5.png">
                     </div>
@@ -120,7 +121,7 @@
                 </div>
             </div>
             <div class="col s12 m6 l4">
-                <div class="card small event popevent">
+                <div class="card small event popevent left">
                     <div class="card-image">
                       <img class="responsive-img" alt="image-event" src="assets/img/event6.png">
                     </div>
@@ -136,7 +137,7 @@
             </div>
 
             <div class="col s12 m6 l4">
-                <div class="card small event popevent">
+                <div class="card small event popevent left">
                     <div class="card-image">
                       <img class="responsive-img" alt="image-event" src="assets/img/event7.png">
                     </div>
@@ -152,7 +153,7 @@
             </div>
 
             <div class="col s12 m6 l4">
-                <div class="card small event popevent">
+                <div class="card small event popevent left">
                     <div class="card-image">
                       <img class="responsive-img" alt="image-event" src="assets/img/event8.png">
                     </div>
@@ -188,7 +189,7 @@
                     <div class="card-image item">
                         <img class="responsive-img" alt="festival" src="assets/img/festival1.jpg">
                         <div class="text-wrapper">
-                            <h6>Festival</h6>
+                            <h6 class="white-text">Festival</h6>
                         </div>
                     </div>
                 </div>
@@ -201,7 +202,7 @@
                     <div class="card-image item">
                         <img class="responsive-img" alt="party" src="assets/img/party.png">
                         <div class="text-wrapper">
-                            <h6>Party</h6>
+                            <h6 class="white-text">Party</h6>
                         </div>
                     </div>
                 </div>
@@ -216,7 +217,7 @@
                     <div class="card-image item">
                         <img class="responsive-img" alt="hiphop-concert" src="assets/img/hiphop.png">
                         <div class="text-wrapper">
-                            <h6>Hip-Hop</h6>
+                            <h6 class="white-text">Hip-Hop</h6>
                         </div>
                     </div>
                 </div>
@@ -229,7 +230,7 @@
                     <div class="card-image item">
                         <img class="responsive-img" alt="rock-concert" src="assets/img/rock.png">
                         <div class="text-wrapper">
-                            <h6>Rock</h6>
+                            <h6 class="white-text">Rock</h6>
                         </div>
                     </div>
                 </div>
@@ -242,7 +243,7 @@
                     <div class="card-image item">
                         <img class="responsive-img" alt="techno" src="assets/img/techno.png">
                         <div class="text-wrapper">
-                            <h6>Techno</h6>
+                            <h6 class="white-text">Techno</h6>
                         </div>
                     </div>
                 </div>
@@ -253,21 +254,21 @@
     </div> <!-- fin page content-->
 </div><!-- fin container-->
 
-<div class="row double-content bgleft">
+<div class="row double-content white-text left bgleft">
     <div class="col s12 center">
-        <h1 class="title-section title-white">Be helpful and party now</h1>
-        <p class="double-txt">Create your own event and join hundreds of thousands of event
+        <h1 class="title-section white-text">Be helpful and party now</h1>
+        <p class="white-text">Create your own event and join hundreds of thousands of event
             organizers</br>managing volunteers registrations</p>
         <a href="creation_event.php" class="btn btn-menu-bis btn-hoverbleu">I volunteer</a>
     </div>
 </div>
 
-<div class="row double-content bgright">
+<div class="row double-content white-text left bgright">
     <div class="col s12 center">
-        <h1 class="title-section title-white">ready to find volunteers ?</h1>
-        <p class="double-txt">Create your own event and join hundreds of thousands of event
+        <h1 class="title-section white-text">ready to find volunteers ?</h1>
+        <p class="white-text">Create your own event and join hundreds of thousands of event
             organizers</br>managing volunteers registrations </p>
-        <a href="creation_event.php" class="btn btn-menu-bis btn-hoveror top-space">Hire volunteers</a>
+        <a href="creation_event.php" class="btn btn-menu-bis btn-hoveror">Create an event</a>
     </div>
 </div>
 
