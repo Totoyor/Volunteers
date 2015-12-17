@@ -109,7 +109,7 @@ class CoreModel extends Core
             // Close WHERE
             $query .= " WHERE ".$options['column_id']." = ".$options['id'];
 
-            var_dump($query);
+            //var_dump($query);
             die();
 
             // Traitement de la requete
@@ -147,6 +147,23 @@ class CoreModel extends Core
         catch (Exception $e)
         {
             $this->coreDbError($e);
+            return false;
+        }
+    }
+
+    public function countRow($table)
+    {
+        try
+        {
+            $query = $this->connexion->prepare('SELECT COUNT(*) FROM '.$table);
+            $query->execute();
+            $nbrArt = $query->fetch();
+            $query->closeCursor();
+
+            return $nbrArt;
+        }
+        catch (Exception $e)
+        {
             return false;
         }
     }

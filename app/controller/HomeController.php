@@ -4,16 +4,15 @@ class HomeController extends AppController
 {
     public function __construct()
     {
-        require 'app/model/BlogModel.php';
-        $this->model = new BlogModel();
+        require 'app/model/UserModel.php';
+        $this->model = new UserModel();
         parent::__construct();
     }
 
     public function home()
     {
-        // Sinon on apelle les articles du blog
+        // Chargement de la home
         define("TITLE_HEAD", "Volunteers | Home");
-        // Chargement de la vue
-        $this->load->view('index.php');
+        $this->load->view('page/index.php');
     }
 }

@@ -17,7 +17,7 @@ class UserController extends AppController
     public function home()
     {
         define("TITLE_HEAD", "Les utilisateurs du blog");
-        $this->load->view('index.php');
+        $this->load->view('page/index.php');
     }
 
     public function connect()
@@ -36,13 +36,13 @@ class UserController extends AppController
             {
                 // Si false on renvoi sur une page erreur
                 define("TITLE_HEAD", "Erreur de connexion !");
-                $this->load->view('index.php');
+                header('Location:?login=nok');
             }
         }
         else
         {
             define("TITLE_HEAD", "Connexion");
-            $this->load->view('index.php');
+            header('Location:?login=nok');
         }
     }
 
@@ -51,23 +51,34 @@ class UserController extends AppController
         if(isset($_POST['email']) && $_POST['password'])
         {
             // TODO
+            // Vérifier que mdp et email n'est pas empty
             // Vérifier l'email et le mdp
+            // Transformer le pass en MD5
+            // notification user Ok ou NOK
+            // envoi de l'email de confirmation
+            // AJAX
             $this->_login = $_POST['email'];
             $this->_password = $_POST['password'];
 
             if($this->model->inscriptionUser($this->_login, $this->_password))
             {
                 // Si ok (true) alors on renvoi sur la page d'accueil
-                header('Location:?signup=ok');
+                header('Location:?sign=ok');
             }
             else
             {
-                header('Location:?signup=nok');
+                header('Location:?sign=nok');
+                /*
+                 $this->coreRedirect(array(
+                    'param' => 'sign',
+                    'value' => 'nok',
+                ));
+                */
             }
         }
         else
         {
-            header('Location:?signup=nok');
+            header('Location:?sign=nok');
         }
     }
 

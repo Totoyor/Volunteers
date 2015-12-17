@@ -76,6 +76,5 @@ class EventController extends AppController
             // Chargement de la vue
             $this->load->view('view_error.php');
         }
-
     }
 }

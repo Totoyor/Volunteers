@@ -9,7 +9,7 @@
                             <!-- Modal Trigger $_POST -->
                             <a class="waves-effect waves-light btn modal-trigger" href="#modal1">$_POST</a>
                             <!-- Modal Structure $_POST -->
-                            <div id="modal1" class="modal">
+                            <div id="modal1" class="modal modal_var">
                                 <div class="modal-content">
                                     <h4 class="black-text">$_POST</h4>
                                     <span class="black-text"><?php var_dump($_POST); ?></span>
@@ -23,7 +23,7 @@
                             <!-- Modal Trigger $_GET -->
                             <a class="waves-effect waves-light btn modal-trigger" href="#modal2">$_GET</a>
                             <!-- Modal Structure $_GET -->
-                            <div id="modal2" class="modal">
+                            <div id="modal2" class="modal modal_var">
                                 <div class="modal-content">
                                     <h4 class="black-text">$_GET</h4>
                                     <span class="black-text"><?php var_dump($_GET); ?></span>
@@ -37,7 +37,7 @@
                             <!-- Modal Trigger $_SESSION -->
                             <a class="waves-effect waves-light btn modal-trigger" href="#modal3">$_SESSION</a>
                             <!-- Modal Structure $_SESSION -->
-                            <div id="modal3" class="modal">
+                            <div id="modal3" class="modal modal_var">
                                 <div class="modal-content">
                                     <h4 class="black-text">$_SESSION</h4>
                                     <span class="black-text"><?php var_dump($_SESSION); ?></span>
@@ -51,7 +51,7 @@
                             <!-- Modal Trigger $_COOKIE -->
                             <a class="waves-effect waves-light btn modal-trigger" href="#modal4">$_COOKIE</a>
                             <!-- Modal Structure $_COOKIE -->
-                            <div id="modal4" class="modal">
+                            <div id="modal4" class="modal modal_var">
                                 <div class="modal-content">
                                     <h4 class="black-text">$_COOKIE</h4>
                                     <span class="black-text"><?php var_dump($_COOKIE); ?></span>
@@ -65,7 +65,7 @@
                             <!-- Modal Trigger $_FILES -->
                             <a class="waves-effect waves-light btn modal-trigger" href="#modal5">$_FILES</a>
                             <!-- Modal Structure $_FILES -->
-                            <div id="modal5" class="modal">
+                            <div id="modal5" class="modal modal_var">
                                 <div class="modal-content">
                                     <h4 class="black-text">$_FILES</h4>
                                     <span class="black-text"><?php var_dump($_FILES); ?></span>
@@ -79,7 +79,7 @@
                             <!-- Modal Trigger $_SERVER -->
                             <a class="waves-effect waves-light btn modal-trigger" href="#modal6">$_SERVER</a>
                             <!-- Modal Structure $_SERVER -->
-                            <div id="modal6" class="modal">
+                            <div id="modal6" class="modal modal_var">
                                 <div class="modal-content">
                                     <h4 class="black-text">$_SERVER</h4>
                                     <span class="black-text"><?php var_dump($_SERVER); ?></span>
@@ -177,7 +177,7 @@
 </footer>
 
 <!--Google Analytics-->
-<script>
+<script async>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -192,6 +192,26 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="assets/js/materialize.min.js"></script>
 <script type="text/javascript" src="assets/js/monjs.js"></script>
+<script type="text/javascript" src="assets/js/ajax.js"></script>
+
+<?php
+/*
+if((isset($_GET['signup']) == 'ok' || ($_GET['login']) == 'ok'))
+{
+    echo "<script type='text/javascript'  src='assets/js/notie.js'></script>";
+    echo  "<script type='text/javascript'>notie.alert(1, 'Success !', 2);</script>";
+}
+else if((isset($_GET['signup']) == 'nok' || (isset($_GET['login'])) == 'nok'))
+{
+    echo "<script type='text/javascript'  src='assets/js/notie.js'></script>";
+    echo  "<script type='text/javascript'>notie.alert(3, 'Error !', 2);</script>";
+}
+*/
+if (isset($_GET['sign']) == 'nok') {
+    echo "<script type='text/javascript'  src='assets/js/notie.js'></script>";
+    echo  "<script type='text/javascript'>notie.alert(3, 'Error !', 2);</script>";
+}
+?>
 
 </body>
 </html>

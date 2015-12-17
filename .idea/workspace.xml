@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="28b4380b-8077-4b3c-be2d-f311a53dcfd6" name="Default" comment="">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/EventController.php" afterPath="$PROJECT_DIR$/app/controller/EventController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/model/EventModel.php" afterPath="$PROJECT_DIR$/app/model/EventModel.php" />
@@ -41,16 +42,37 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/img/vol.jpg" afterPath="$PROJECT_DIR$/assets/img/vol.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/img/yt.png" afterPath="$PROJECT_DIR$/assets/img/yt.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+=======
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config/index.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/creation_event.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/index.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/profile.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/search.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/view_article.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/view_articles.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/view_event.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/view_signin.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/views/view_users.php" afterPath="" />
+>>>>>>> 69d3f3d77d22b828aa9ec4af8e822144d51458a2
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/BlogController.php" afterPath="$PROJECT_DIR$/app/controller/BlogController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/EventController.php" afterPath="$PROJECT_DIR$/app/controller/EventController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/HomeController.php" afterPath="$PROJECT_DIR$/app/controller/HomeController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/ProfileController.php" afterPath="$PROJECT_DIR$/app/controller/ProfileController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/SearchController.php" afterPath="$PROJECT_DIR$/app/controller/SearchController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controller/UserController.php" afterPath="$PROJECT_DIR$/app/controller/UserController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/model/UserModel.php" afterPath="$PROJECT_DIR$/app/model/UserModel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/css/custom.css" afterPath="$PROJECT_DIR$/assets/css/custom.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/model/BlogModel.php" afterPath="$PROJECT_DIR$/app/model/BlogModel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/css/style.css" afterPath="$PROJECT_DIR$/assets/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/constant-sample.php" afterPath="$PROJECT_DIR$/config/constant-sample.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/constant.php" afterPath="$PROJECT_DIR$/config/constant.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/404.php" afterPath="$PROJECT_DIR$/views/404.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/creation_event.php" afterPath="$PROJECT_DIR$/views/creation_event.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/Core.php" afterPath="$PROJECT_DIR$/core/Core.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/CoreModel.php" afterPath="$PROJECT_DIR$/core/CoreModel.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/layout/footer.inc.php" afterPath="$PROJECT_DIR$/views/layout/footer.inc.php" />
+<<<<<<< HEAD
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/layout/header.inc.php" afterPath="$PROJECT_DIR$/views/layout/header.inc.php" />
 >>>>>>> ef0c053669e7ee8c9cee0bad403dbb67da5d4aae
+=======
+>>>>>>> 69d3f3d77d22b828aa9ec4af8e822144d51458a2
     </list>
     <ignored path="Volunteers.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -71,6 +93,7 @@
     <favorites_list name="Volunteers" />
   </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
     <leaf>
       <file leaf-file-name="ProfileController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controller/ProfileController.php">
@@ -149,6 +172,9 @@
         </entry>
       </file>
     </leaf>
+=======
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+>>>>>>> 69d3f3d77d22b828aa9ec4af8e822144d51458a2
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -165,6 +191,7 @@
         <option value="$PROJECT_DIR$/src/views/view_event.php" />
         <option value="$PROJECT_DIR$/views/view_error.php" />
         <option value="$PROJECT_DIR$/app/app.php" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/core/Core.php" />
 <<<<<<< HEAD
         <option value="$PROJECT_DIR$/.gitignore" />
@@ -178,19 +205,38 @@
         <option value="$PROJECT_DIR$/app/controller/EventController.php" />
         <option value="$PROJECT_DIR$/assets/js/monjs.js" />
         <option value="$PROJECT_DIR$/core/CoreView.php" />
+=======
+>>>>>>> 69d3f3d77d22b828aa9ec4af8e822144d51458a2
         <option value="$PROJECT_DIR$/app/model/EventModel.php" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/config/constant.php" />
-        <option value="$PROJECT_DIR$/views/layout/footer.inc.php" />
         <option value="$PROJECT_DIR$/views/404.php" />
         <option value="$PROJECT_DIR$/assets/css/custom.css" />
-        <option value="$PROJECT_DIR$/app/model/UserModel.php" />
-        <option value="$PROJECT_DIR$/app/controller/UserController.php" />
         <option value="$PROJECT_DIR$/app/model/ProfileModel.php" />
-        <option value="$PROJECT_DIR$/app/controller/ProfileController.php" />
-        <option value="$PROJECT_DIR$/views/layout/header.inc.php" />
         <option value="$PROJECT_DIR$/views/creation_event.php" />
         <option value="$PROJECT_DIR$/views/profile.php" />
+        <option value="$PROJECT_DIR$/config/secure_session.php" />
+        <option value="$PROJECT_DIR$/core/CoreView.php" />
+        <option value="$PROJECT_DIR$/lib/messages_error.php" />
+        <option value="$PROJECT_DIR$/core/CoreController.php" />
+        <option value="$PROJECT_DIR$/app/model/UserModel.php" />
+        <option value="$PROJECT_DIR$/assets/js/ajax.js" />
+        <option value="$PROJECT_DIR$/views/index.php" />
+        <option value="$PROJECT_DIR$/views/layout/header.inc.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/core/Core.php" />
+        <option value="$PROJECT_DIR$/config/index.php" />
+        <option value="$PROJECT_DIR$/app/controller/EventController.php" />
+        <option value="$PROJECT_DIR$/app/controller/HomeController.php" />
+        <option value="$PROJECT_DIR$/app/controller/ProfileController.php" />
+        <option value="$PROJECT_DIR$/app/controller/SearchController.php" />
+        <option value="$PROJECT_DIR$/app/controller/UserController.php" />
+        <option value="$PROJECT_DIR$/app/model/BlogModel.php" />
+        <option value="$PROJECT_DIR$/core/CoreModel.php" />
+        <option value="$PROJECT_DIR$/app/controller/BlogController.php" />
+        <option value="$PROJECT_DIR$/config/constant.php" />
+        <option value="$PROJECT_DIR$/config/constant-sample.php" />
+        <option value="$PROJECT_DIR$/views/layout/footer.inc.php" />
+        <option value="$PROJECT_DIR$/assets/css/style.css" />
       </list>
     </option>
   </component>
@@ -234,6 +280,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Problems" />
+        <subPane subId="Changed Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -262,23 +319,10 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Volunteers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Volunteers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+<<<<<<< HEAD
             <PATH_ELEMENT>
               <option name="myItemId" value=".idea" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
@@ -327,6 +371,8 @@
 =======
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+=======
+>>>>>>> 69d3f3d77d22b828aa9ec4af8e822144d51458a2
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -359,6 +405,7 @@
           </PATH>
         </subPane>
       </pane>
+<<<<<<< HEAD
       <pane id="Scratches" />
       <pane id="Scope">
         <subPane subId="Problems" />
@@ -371,6 +418,8 @@
           </PATH>
         </subPane>
       </pane>
+=======
+>>>>>>> 69d3f3d77d22b828aa9ec4af8e822144d51458a2
       <pane id="Scratches" />
     </panes>
   </component>
@@ -396,6 +445,11 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="910" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/views/blog" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
@@ -450,6 +504,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
     <frame x="1" y="23" width="1276" height="732" extended-state="6" />
     <editor active="false" />
     <layout>
@@ -463,19 +518,29 @@
       <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3271028" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
 =======
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2706645" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+=======
+    <frame x="4" y="23" width="1276" height="777" extended-state="0" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2828201" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+>>>>>>> 69d3f3d77d22b828aa9ec4af8e822144d51458a2
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928678" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32880846" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928678" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32776934" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32829046" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
 >>>>>>> ef0c053669e7ee8c9cee0bad403dbb67da5d4aae
+=======
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20485584" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+>>>>>>> 69d3f3d77d22b828aa9ec4af8e822144d51458a2
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39908952" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -500,6 +565,7 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/controller/EventController.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -546,6 +612,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> 69d3f3d77d22b828aa9ec4af8e822144d51458a2
     <entry file="file://$PROJECT_DIR$/views/view_error.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -581,6 +649,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/views/creation_event.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -595,6 +664,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> 69d3f3d77d22b828aa9ec4af8e822144d51458a2
     <entry file="file://$PROJECT_DIR$/views/layout/header.blog.inc.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -647,22 +718,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/view_error.php">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.6153846">
-          <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/layout/footer.blog.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.8846154">
+          <caret line="97" column="0" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/view_articles.php">
+    <entry file="file://$PROJECT_DIR$/app/model/EventModel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.5384617">
-          <caret line="12" column="52" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/SearchController.php">
-      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
 <<<<<<< HEAD
@@ -675,44 +751,49 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
 =======
 >>>>>>> ef0c053669e7ee8c9cee0bad403dbb67da5d4aae
+=======
+        <state vertical-scroll-proportion="-46.346153">
+          <caret line="71" column="8" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="8" />
+>>>>>>> 69d3f3d77d22b828aa9ec4af8e822144d51458a2
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/app.php">
+    <entry file="file://$PROJECT_DIR$/assets/js/notie.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2692308">
-          <caret line="5" column="49" selection-start-line="5" selection-start-column="49" selection-end-line="5" selection-end-column="49" />
+        <state vertical-scroll-proportion="0.4437401">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/AppController.php">
+    <entry file="file://$PROJECT_DIR$/lib/messages_error.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0661157">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/AppModel.php">
+    <entry file="file://$PROJECT_DIR$/views/layout/header.blog.inc.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.48099172">
+          <caret line="46" column="9" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/Core.php">
+    <entry file="file://$PROJECT_DIR$/assets/js/ajax.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.653847">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.06339144">
+          <caret line="2" column="20" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/CoreController.php">
+    <entry file="file://$PROJECT_DIR$/app/model/ProfileModel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.16528925">
+          <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.0379242">
@@ -722,12 +803,16 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/layout/footer.blog.inc.php">
+=======
+    <entry file="file://$PROJECT_DIR$/app/model/HomeModel.php">
+>>>>>>> 69d3f3d77d22b828aa9ec4af8e822144d51458a2
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.16528925">
+          <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/views/view_article.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -746,35 +831,52 @@
     <entry file="file://$PROJECT_DIR$/views/layout/header.blog.inc.php">
 =======
           <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/secure_session.php">
+=======
+    <entry file="file://$PROJECT_DIR$/app/model/UserModel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39538714">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.661157">
+          <caret line="45" column="25" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
+>>>>>>> 69d3f3d77d22b828aa9ec4af8e822144d51458a2
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1983471">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/views/view_article.php">
 >>>>>>> ef0c053669e7ee8c9cee0bad403dbb67da5d4aae
+=======
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+>>>>>>> 69d3f3d77d22b828aa9ec4af8e822144d51458a2
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.5041322">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/views/layout/footer.inc.php">
 =======
     <entry file="file://$PROJECT_DIR$/views/search.php">
 >>>>>>> ef0c053669e7ee8c9cee0bad403dbb67da5d4aae
+=======
+    <entry file="file://$PROJECT_DIR$/config/index.php">
+>>>>>>> 69d3f3d77d22b828aa9ec4af8e822144d51458a2
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.03305785">
+          <caret line="1" column="68" selection-start-line="1" selection-start-column="68" selection-end-line="1" selection-end-column="68" />
+          <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/views/index.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -786,29 +888,40 @@
 =======
 >>>>>>> ef0c053669e7ee8c9cee0bad403dbb67da5d4aae
     <entry file="file://$PROJECT_DIR$/app/controller/BlogController.php">
+=======
+    <entry file="file://$PROJECT_DIR$/app/controller/UserController.php">
+>>>>>>> 69d3f3d77d22b828aa9ec4af8e822144d51458a2
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="-1.5454545">
+          <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/controller/HomeController.php">
 =======
     <entry file="file://$PROJECT_DIR$/.gitignore">
+=======
+    <entry file="file://$PROJECT_DIR$/app/controller/SearchController.php">
+>>>>>>> 69d3f3d77d22b828aa9ec4af8e822144d51458a2
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0778443">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        <state vertical-scroll-proportion="1.0578512">
+          <caret line="32" column="36" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/EventController.php">
+    <entry file="file://$PROJECT_DIR$/app/controller/ProfileController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.28500825">
-          <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.49586776">
+          <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
@@ -827,30 +940,42 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
 =======
     <entry file="file://$PROJECT_DIR$/views/layout/footer.blog.inc.php">
+=======
+    <entry file="file://$PROJECT_DIR$/app/controller/HomeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.8846154">
-          <caret line="97" column="0" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.49586776">
+          <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/custom.css">
+    <entry file="file://$PROJECT_DIR$/views/view_error.php">
+>>>>>>> 69d3f3d77d22b828aa9ec4af8e822144d51458a2
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8677686">
-          <caret line="773" column="12" selection-start-line="773" selection-start-column="12" selection-end-line="773" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.1322314">
+          <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/constant.php">
+    <entry file="file://$PROJECT_DIR$/views/404.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37190083">
-          <caret line="36" column="27" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="27" />
+        <state vertical-scroll-proportion="0.0661157">
+          <caret line="2" column="20" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/CoreView.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6942149">
+          <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
           <folding />
 >>>>>>> ef0c053669e7ee8c9cee0bad403dbb67da5d4aae
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/model/UserModel.php">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
@@ -863,10 +988,17 @@
 =======
         <state vertical-scroll-proportion="-10.192307">
           <caret line="46" column="9" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
+=======
+    <entry file="file://$PROJECT_DIR$/app/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16528925">
+          <caret line="5" column="49" selection-start-line="5" selection-start-column="49" selection-end-line="5" selection-end-column="49" />
+>>>>>>> 69d3f3d77d22b828aa9ec4af8e822144d51458a2
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/model/BlogModel.php">
 >>>>>>> ef0c053669e7ee8c9cee0bad403dbb67da5d4aae
       <provider selected="true" editor-type-id="text-editor">
@@ -920,27 +1052,45 @@
             <marker date="1450129557000" expanded="true" signature="171:337" placeholder="SELECT * FRO..vol_users..." />
             <marker date="1450129557000" expanded="true" signature="1077:1191" placeholder="INSERT INTO vol_users..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.1157024">
-          <caret line="64" column="44" selection-start-line="64" selection-start-column="44" selection-end-line="64" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/model/HomeModel.php">
+=======
+    <entry file="file://$PROJECT_DIR$/app/AppController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="1" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controller/HomeController.php">
+    <entry file="file://$PROJECT_DIR$/app/AppModel.php">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+>>>>>>> 69d3f3d77d22b828aa9ec4af8e822144d51458a2
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/CoreController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.70247936">
+          <caret line="41" column="10" selection-start-line="41" selection-start-column="10" selection-end-line="41" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/model/BlogModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.09917355">
+          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+          <folding>
+            <marker date="1450300117000" expanded="true" signature="155:258" placeholder="SELECT * FRO..blog_comments..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/CoreModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.3966942">
           <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
 >>>>>>> ef0c053669e7ee8c9cee0bad403dbb67da5d4aae
@@ -957,10 +1107,26 @@
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="27" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
 >>>>>>> ef0c053669e7ee8c9cee0bad403dbb67da5d4aae
+=======
+        <state vertical-scroll-proportion="-10.192307">
+          <caret line="153" column="24" selection-start-line="153" selection-start-column="24" selection-end-line="153" selection-end-column="24" />
+          <folding>
+            <marker date="1450300213000" expanded="true" signature="3424:3667" placeholder="SELECT * FRO..${DB_PREFIX}posts..." />
+            <marker date="1450300213000" expanded="true" signature="4077:4098" placeholder="SELECT COUNT..${$table}..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controller/BlogController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47768596">
+          <caret line="56" column="5" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
+>>>>>>> 69d3f3d77d22b828aa9ec4af8e822144d51458a2
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/config/secure_session.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -972,10 +1138,17 @@
         <state vertical-scroll-proportion="-1.5384616">
           <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="3" selection-end-column="33" />
 >>>>>>> ef0c053669e7ee8c9cee0bad403dbb67da5d4aae
+=======
+    <entry file="file://$PROJECT_DIR$/app/controller/EventController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47107437">
+          <caret line="51" column="13" selection-start-line="51" selection-start-column="13" selection-end-line="51" selection-end-column="13" />
+>>>>>>> 69d3f3d77d22b828aa9ec4af8e822144d51458a2
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -987,10 +1160,17 @@
         <state vertical-scroll-proportion="-1.5384616">
           <caret line="2" column="20" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="20" />
 >>>>>>> ef0c053669e7ee8c9cee0bad403dbb67da5d4aae
+=======
+    <entry file="file://$PROJECT_DIR$/core/Core.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47107437">
+          <caret line="43" column="33" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
+>>>>>>> 69d3f3d77d22b828aa9ec4af8e822144d51458a2
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/controller/EventController.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -1002,10 +1182,17 @@
         <state vertical-scroll-proportion="-8.653846">
           <caret line="27" column="87" selection-start-line="27" selection-start-column="87" selection-end-line="27" selection-end-column="87" />
 >>>>>>> ef0c053669e7ee8c9cee0bad403dbb67da5d4aae
+=======
+    <entry file="file://$PROJECT_DIR$/config/constant-sample.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.661157">
+          <caret line="55" column="1" selection-start-line="55" selection-start-column="1" selection-end-line="55" selection-end-column="1" />
+>>>>>>> 69d3f3d77d22b828aa9ec4af8e822144d51458a2
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/core/CoreView.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -1017,10 +1204,17 @@
         <state vertical-scroll-proportion="-3.8461537">
           <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
 >>>>>>> ef0c053669e7ee8c9cee0bad403dbb67da5d4aae
+=======
+    <entry file="file://$PROJECT_DIR$/config/constant.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.3471074">
+          <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+>>>>>>> 69d3f3d77d22b828aa9ec4af8e822144d51458a2
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/views/layout/header.inc.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -1032,10 +1226,17 @@
         <state vertical-scroll-proportion="-11.538462">
           <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
 >>>>>>> ef0c053669e7ee8c9cee0bad403dbb67da5d4aae
+=======
+    <entry file="file://$PROJECT_DIR$/assets/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="16.50519">
+          <caret line="477" column="0" selection-start-line="477" selection-start-column="0" selection-end-line="477" selection-end-column="0" />
+>>>>>>> 69d3f3d77d22b828aa9ec4af8e822144d51458a2
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/model/EventModel.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -1075,9 +1276,24 @@
           </folding>
 =======
     <entry file="file://$PROJECT_DIR$/views/profile.php">
+=======
+    <entry file="file://$PROJECT_DIR$/views/layout/header.inc.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.70247936">
-          <caret line="115" column="101" selection-start-line="115" selection-start-column="101" selection-end-line="115" selection-end-column="101" />
+        <state vertical-scroll-proportion="-0.78512394">
+          <caret line="108" column="7" selection-start-line="108" selection-start-column="7" selection-end-line="108" selection-end-column="7" />
+          <folding>
+            <marker date="1450206206000" expanded="true" signature="797:2165" placeholder="..." />
+            <marker date="1450206206000" expanded="true" signature="832:2152" placeholder="..." />
+            <marker date="1450206206000" expanded="true" signature="922:1478" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/layout/footer.inc.php">
+>>>>>>> 69d3f3d77d22b828aa9ec4af8e822144d51458a2
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.2975206">
+          <caret line="81" column="67" selection-start-line="81" selection-start-column="67" selection-end-line="81" selection-end-column="67" />
           <folding />
 >>>>>>> ef0c053669e7ee8c9cee0bad403dbb67da5d4aae
         </state>

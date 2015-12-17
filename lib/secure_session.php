@@ -1,7 +1,7 @@
 <?php
 
 // Fonction qui sécurise la session et contre le vol de session
-function TOTO_session_start($name ="") {
+function VOLUNTEERS_session_start($name ="") {
     session_name($name);
     session_start();
 

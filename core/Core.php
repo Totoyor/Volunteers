@@ -18,11 +18,33 @@ class Core
         }
     }
 
-    protected function coreRedirect()
+    protected function coreRedirect($options = [])
     {
-        // header('Location:?');
-        // $redirection = 'Header'
+        // début du header location
+        $header = 'header(\'Location:?';
+        // module de la redirection si passé en param
+        if(isset($options['module']))
+        {
+            $header .= 'module='.$options['module'];
+        }
+        // action de la redirection si passé en param
+        if(isset($options['action']))
+        {
+            $header .= '&action='.$options['action'];
+        }
+        // Paramètre et valeur facultative pour passer une donnée
+        if(isset($options['param']) && ($options['value']))
+        {
+            $header .= $options['param'].'='.$options['value'];
+        }
+        else
+        {
+            $header .= '&'.$options['param'].'='.$options['value'];
+        }
+        // fin du header location
+        $header .= '\');';
 
+        return $header;
     }
 
     protected function coreAlertMessage()
