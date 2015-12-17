@@ -21,11 +21,11 @@
                             <p class="right grisc saveyour">You can save your draft at anytime</p>
                         </div>
                         <div class="col m1 s2 center">
-                            <a href="#" class="btn btn-menu" onclick="Materialize.toast('Saved', 4000)">Save</a>
+                            <button class="btn btn-menu" onclick="Materialize.toast('Saved', 4000)">Save</button>
                         </div>
-                        <div class="col s3 m3 l2 center offset-s1 offset-m1 offset-l1">
-                            <a href="#" class="btn btn-orange"
-                               onclick="Materialize.toast('Published', 4000)">Publish</a>
+                        <div class="col s3 m3 l2 center offset-s1 offset-m1 publish-button">
+                            <button href="#" class="btn btn-orange"
+                               onclick="Materialize.toast('Published', 4000)">Publish</button>
                         </div>
                     </div>
 
@@ -193,7 +193,7 @@
                                 </p>
                             </div>
                             <div>
-                                <h2 class="text_separteur col m12 offset-m4">Volunteers needed<h2/>
+                                <h2 class="text_separteur col m12 offset-m4 offset-l4">Volunteers needed<h2/>
                             </div>
                         </div>
                     </div>
@@ -238,7 +238,7 @@
                             <button name="save" onclick="Materialize.toast('Saved', 4000)" type="submit" class="btn btn-menu">Save
                             </button>
                         </div>
-                        <div class="col s3 m3 l2 center offset-s1 offset-m1 offset-l1">
+                        <div class="col s3 m3 l2 center offset-s1 offset-m1 publish-button">
                             <button name="submit" onclick="Materialize.toast('Published', 4000)" type="submit" class="btn btn-orange">
                                 Publish
                             </button>

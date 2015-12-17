@@ -744,6 +744,10 @@ p {
     display: inline-block;
 }
 
+.publish-button{
+    margin-left: 50px!important;
+}
+
 /**** !responsive ****/
 
 @media only screen and (min-width: 600px) and (max-width: 992px) {
