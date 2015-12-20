@@ -148,6 +148,13 @@ class EventController extends AppController
     {
         define("TITLE_HEAD", "List of events | Volunteers");
         // Chargement de la vue
+        $this->load->view('event/view_events.php');
+    }
+
+    public function show()
+    {
+        define("TITLE_HEAD", "Event Name | Volunteers");
+        // Chargement de la vue
         $this->load->view('event/view_event.php');
     }
 }

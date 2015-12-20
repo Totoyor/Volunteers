@@ -34,6 +34,7 @@ composer.phar
 /.idea
 *.iml
 .idea/
+.idea/workspace.xml
 out
 gen
 # Created by .ignore support plugin (hsz.mobi)
