@@ -19,6 +19,7 @@ class UserModel extends AppModel
             if ($nbrRow === 1)
             {
                 $_SESSION['user_email'] = $user['Email'];
+                $_SESSION['user_id'] = $user['idUser'];
                 return true;
             }
             else
