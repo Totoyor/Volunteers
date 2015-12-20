@@ -32,6 +32,7 @@ composer.phar
 # IntelliJ project files
 /.idea
 *.iml
+.idea/
 out
 gen
 # Created by .ignore support plugin (hsz.mobi)

@@ -5,13 +5,13 @@
         <div class="col s12">
             <h1 class="title_404">Profile</h1>
             <h3>My profile</h3>
-            <form class="col s12">
+            <form class="col s12" action="" method="">
                 <div class="row">
                     <div class="col s12">
                         <img src="assets/img/blog/avatar.png" class="img-responsive col s2">
                         <div class="file-field input-field col s4">
                             <div class="btn">
-                                <span>Changer image</span>
+                                <span>Change Pic</span>
                                 <input type="file">
                             </div>
                             <div class="file-path-wrapper">
@@ -89,7 +89,7 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="email" type="email" class="validate">
+                        <input id="email" type="email" class="validate" value="<?php echo $data['Email']; ?>">
                         <label for="email">Email</label>
                     </div>
                 </div>
@@ -99,6 +99,20 @@
                         <label for="last_name">Location</label>
                     </div>
                 </div>
+
+                <div class="row">
+                    <div class=" col s6">
+                        <h3>Presentation</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">mode_edit</i>
+                        <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+                        <label for="icon_prefix2">A little text about you.</label>
+                    </div>
+                </div>
+
                 <div class="row">
                     <div class=" col s6">
                         <h3>My skills</h3>
@@ -108,7 +122,7 @@
                     <div class="input-field col s6">
                         <i class="material-icons prefix">mode_edit</i>
                         <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
-                        <label for="icon_prefix2">My skills</label>
+                        <label for="icon_prefix2">What's your skills ?</label>
                     </div>
                 </div>
                 <div class="row btn_crea1">
