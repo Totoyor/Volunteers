@@ -64,8 +64,8 @@ class EventController extends AppController
                     $event_description = NULL;
                 }
 
-                if (isset($_POST['event_missions'])) {
-                    $event_missions = $_POST['event_description'];
+                if (isset($_POST['missions'])) {
+                    $event_missions = $_POST['missions'];
                 } else {
                     $event_missions = NULL;
                 }
@@ -91,9 +91,9 @@ class EventController extends AppController
                         }
                     }
 
-                    if (isset($_POST['event_missions'])) {
+                    if (isset($_POST['missions'])) {
                         for ($i = 0; $i < count($event_missions); $i++) {
-                            if ($_POST['event_missions'] !== null) {
+                            if ($_POST['missions'] !== null) {
                                 $idEvent = $lastId;
                                 $missions = $event_missions[$i];
                                 $nbVolunteer = $nb_volunteer[$i];
@@ -156,10 +156,12 @@ class EventController extends AppController
                     }
 
                     for ($i = 0; $i < count($event_missions); $i++) {
-                        $idEvent = $lastId;
-                        $missions = $event_missions[$i];
-                        $nbVolunteer = $nb_volunteer[$i];
-                        $this->model->insertMissions($idEvent, $missions, $nbVolunteer);
+                        if ($_POST['missions'] !== null) {
+                            $idEvent = $lastId;
+                            $missions = $event_missions[$i];
+                            $nbVolunteer = $nb_volunteer[$i];
+                            $this->model->insertMissions($idEvent, $missions, $nbVolunteer);
+                        }
                     }
 
                     if (!empty($_FILES['coverPicture']['name'])) {

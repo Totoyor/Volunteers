@@ -223,7 +223,7 @@
                         </div>
                         <div class="input-field col s2 secure_nb_vol">
                             <div class="input-field col s8 secure-mission offset-m1">
-                                <input name="nbVolunteer[]" placeholder="1" type="number" class="validate">
+                                <input name="nbVolunteer[]" placeholder="1" type="number" min="0" class="validate">
                                 <label>Number</label>
                             </div>
                         </div>
@@ -237,7 +237,7 @@
                         </div>
                         <div class="input-field col s2 secure_nb_vol">
                             <div class="input-field col s8 secure-mission offset-m1">
-                                <input name="nbVolunteer[]" placeholder="1" type="number" class="validate">
+                                <input name="nbVolunteer[]" placeholder="1" type="number" min="0" class="validate">
                                 <label>Number</label>
                             </div>
                         </div>
