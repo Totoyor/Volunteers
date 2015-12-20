@@ -48,6 +48,23 @@ Class EventModel extends AppModel
         }
     }
 
+    public function getEvent($id)
+    {
+        try {
+            $query = $this->connexion->prepare("SELECT * FROM vol_events
+            WHERE idEvent = :id");
+            $query->bindValue(':id', $id, PDO::PARAM_INT);
+            $query->execute();
+
+            $data = $query->fetchAll();
+            $query->closeCursor();
+            return $data;
+
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
     public function insertCategories($idCategory, $idEvent)
     {
         try {

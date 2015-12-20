@@ -21,10 +21,10 @@
                             <p class="right grisc saveyour">You can save your draft at anytime</p>
                         </div>
                         <div class="col m1 s2 center">
-                            <button class="btn btn-menu" onclick="Materialize.toast('Saved', 4000)">Save</button>
+                            <button name="save" class="btn btn-menu" onclick="Materialize.toast('Saved', 4000)">Save</button>
                         </div>
                         <div class="col s3 m3 l2 center offset-s1 offset-m1 publish-button">
-                            <button href="#" class="btn btn-orange"
+                            <button name="submit" href="#" class="btn btn-orange"
                                     onclick="Materialize.toast('Published', 4000)">Publish
                             </button>
                         </div>
@@ -55,7 +55,7 @@
                             <i class="material-icons prefix">location_on</i>
                             <input name="event_location" id="icon_prefix" type="text" class="tooltipped validate"
                                    data-position="right"
-                                   data-delay="50" data-tooltip="Where is your event ?" required>
+                                   data-delay="50" data-tooltip="Where is your event ?">
                             <label for="icon_prefix">Location</label>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                             <input data-position="right" data-delay="50" data-tooltip="What day is it?"
                                    name="event_start" id="icon_prefix" type="date"
                                    placeholder="Click here to choose the begining"
-                                   class="validate datepicker tooltipped" required>
+                                   class="validate datepicker tooltipped">
                             <label for="icon_prefix"></label>
                         </div>
                         <div class="col s4 l4 m4">
@@ -79,14 +79,14 @@
                             <i class="material-icons prefix">today</i>
                             <input name="event_end" id="icon_prefix" type="date"
                                    placeholder="Click here to choose the ending"
-                                   class="datepicker" required>
+                                   class="datepicker">
                             <label for="icon_prefix"></label>
                         </div>
                     </div>
 
 
                     <div class="row" data-position="right" data-delay="50" data-tooltip="When?">
-                        <div class="input-field col s6 m2 offset-m1">
+                        <div class="input-field col s6 m2">
                             <select name="event_hour_start">
                                 <option value="" disabled selected>Hours</option>
                                 <option value="0">00</option>
@@ -125,7 +125,18 @@
                             <label></label>
                         </div>
 
-                        <div class="input-field col s6 m2 offset-m2">
+                        <div class="input-field col s6 m2">
+                            <select name="event_start_mode">
+                                <option value="" disabled selected>AM - PM</option>
+                                <option value="am">AM</option>
+                                <option value="pm">PM</option>
+                            </select>
+                            <label></label>
+                        </div>
+                    </div>
+
+                    <div class="row" data-position="right" data-delay="50">
+                        <div class="input-field col s6 m2 offset-m1">
                             <select name="event_hour_end">
                                 <option value="" disabled selected>Hours</option>
                                 <option value="0">00</option>
@@ -161,6 +172,15 @@
                                 <option value="45">45</option>
                                 <option value="50">50</option>
                                 <option value="55">55</option>
+                            </select>
+                            <label></label>
+                        </div>
+
+                        <div class="input-field col s6 m2">
+                            <select name="event_end_mode">
+                                <option value="" disabled selected>AM - PM</option>
+                                <option value="am">AM</option>
+                                <option value="pm">PM</option>
                             </select>
                             <label></label>
                         </div>

@@ -120,6 +120,10 @@ class EventController extends AppController
                         }
                     }
 
+                    //Chargement de la vue de l'évènement
+                    $data = $this->model->getEvent($lastId);
+                    define("TITLE_HEAD", "Event Save | Volunteers");
+                    $this->load->view('event/view_event.php', $data);
                     exit();
 
                 } else {
@@ -132,15 +136,70 @@ class EventController extends AppController
                 // Si l'utilisateur clique sur publier on vérifie que tout les champs sont bien remplis puis
                 // ont effectue l'insertion dans la base
 
-                $event_location = $_POST['event_location'];
-                $event_start = $_POST['event_start'];
-                $event_hour_start = $_POST['event_hour_start'] . " H " . $_POST['event_min_start'];
-                $event_end = $_POST['event_end'];
-                $event_hour_end = $_POST['event_hour_end'] . " H " . $_POST['event_min_end'];
-                $event_categories = $_POST['event_categories'];
-                $event_description = $_POST['event_description'];
-                $event_missions = $_POST['missions'];
-                $nb_volunteer = $_POST['nbVolunteer'];
+                $event_name = $_POST['event_name'];
+
+                if (!empty($_POST['event_location'])) {
+                    $event_location = $_POST['event_location'];
+                } else {
+                    header("location:home?create&event=locationNok");
+                    exit();
+                }
+
+                if (!empty($_POST['event_start'])) {
+                    $event_start = $_POST['event_start'];
+                } else {
+                    header("location:home?create&event=startNok");
+                    exit();
+                }
+
+                if (!empty($_POST['event_hour_start']) && !empty($_POST['event_min_start'])) {
+                    $event_hour_start = $_POST['event_hour_start'] . " H " . $_POST['event_min_start'];
+                } else {
+                    header("location:home?create&event=startTimeNok");
+                    exit();
+                }
+
+                if (!empty($_POST['event_end'])) {
+                    $event_end = $_POST['event_end'];
+                } else {
+                    header("location:home?create&event=endNok");
+                    exit();
+                }
+
+                if (!empty($_POST['event_hour_end']) && !empty($_POST['event_min_end'])) {
+                    $event_hour_end = $_POST['event_hour_end'] . " H " . $_POST['event_min_end'];
+                } else {
+                    header("location:home?create&event=endTimeNok");
+                    exit();
+                }
+
+                if (!empty($_POST['event_categories'])) {
+                    $event_categories = $_POST['event_categories'];
+                } else {
+                    header("location:home?create&event=catNok");
+                    exit();
+                }
+
+                if (!empty($_POST['event_description'])) {
+                    $event_description = $_POST['event_description'];
+                } else {
+                    $event_description = NULL;
+                }
+
+                if (!empty($_POST['missions'])) {
+                    $event_missions = $_POST['missions'];
+                } else {
+                    header("location:home?create&event=missionsNok");
+                    exit();
+                }
+
+                if (!empty($_POST['nbVolunteer'])) {
+                    $nb_volunteer = $_POST['nbVolunteer'];
+                } else {
+                    header("location:home?create&event=nbVolNok");
+                    exit();
+                }
+
 
                 $status = 1;
 
@@ -172,11 +231,9 @@ class EventController extends AppController
                                 if ($file->resizeFile()) {
                                     $coverPicture = $file->setNom();
                                     $this->model->insertCoverPicture($lastId, $coverPicture);
-                                    die('ok 1');
                                 } else {
                                     $coverPicture = $file->setNom();
                                     $this->model->insertCoverPicture($lastId, $coverPicture);
-                                    die('ok 2');
                                 }
                             }
                         }
@@ -187,6 +244,10 @@ class EventController extends AppController
                     die('nok');
                 }
 
+                //Chargement de la vue de l'évènement
+                $data = $this->model->getEvent($lastId);
+                define("TITLE_HEAD", "Event Name | Volunteers");
+                $this->load->view('event/view_event.php', $data);
                 exit();
 
             } else {
