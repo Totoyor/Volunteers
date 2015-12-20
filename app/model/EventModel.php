@@ -86,4 +86,23 @@ Class EventModel extends AppModel
             return false;
         }
     }
+
+    public function insertCoverPicture($idEvent, $coverPicture)
+    {
+        try {
+            $query = $this->connexion->prepare("INSERT INTO vol_event_pictures
+            (coverPicture, vol_events_idEvent) VALUES
+            (:cover, :idEvent)");
+
+            $query->bindValue(':cover', $coverPicture, PDO::PARAM_STR);
+            $query->bindValue(':idEvent', $idEvent, PDO::PARAM_INT);
+
+            $query->execute();
+
+            return true;
+
+        } catch (Exception $e) {
+            return false;
+        }
+    }
 }

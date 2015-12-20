@@ -17,8 +17,11 @@ class EventController extends AppController
 
             $event_name = $_POST['event_name'];
 
+            //Si l'utilisateur décide de sauvegarder son évènement sans le publier
             if (isset($_POST['save'])) {
 
+                /* On test donc chaque champs du formulaire pour récupérer les infos à sauvegarder,
+                 si un champs est remplis on récupère ça valeur sinon on le passe à NULL */
                 if (isset($_POST['event_location'])) {
                     $event_location = $_POST['event_location'];
                 } else {
@@ -30,7 +33,6 @@ class EventController extends AppController
                 } else {
                     $event_start = NULL;
                 }
-
 
                 if (isset($_POST['event_hour_start']) && isset($_POST['event_min_start'])) {
                     $event_hour_start = $_POST['event_hour_start'] . " H " . $_POST['event_min_start'];
@@ -75,13 +77,40 @@ class EventController extends AppController
                 }
 
                 $status = 0;
-                $redirect = "";
 
-            } elseif (isset($_POST['submit']) && isset($_POST['event_location']) && isset($_POST['event_start'])
-                && isset($_POST['event_hour_start']) && isset($_POST['event_min_start']) && isset($_POST['event_end'])
-                && isset($_POST['event_hour_end']) && isset($_POST['event_min_end']) && isset($_POST['event_categories'])
-                && isset($_POST['event_description']) && isset($_POST['event_missions']) && isset($_POST['nbVolunteer'])
-            ) {
+                $lastId = $this->model->createEvent($event_name, $event_location, $event_start, $event_hour_start, $event_end,
+                    $event_hour_end, $event_description, $status);
+
+                if ($lastId !== null) {
+
+                    if (isset($_POST['event_categories'])) {
+                        for ($i = 0; $i < count($event_categories); $i++) {
+                            $idEvent = $lastId;
+                            $idCategory = $event_categories[$i];
+                            $this->model->insertCategories($idCategory, $idEvent);
+                        }
+                    }
+
+                    if (isset($_POST['event_missions'])) {
+                        for ($i = 0; $i < count($event_missions); $i++) {
+                            $idEvent = $lastId;
+                            $missions = $event_missions[$i];
+                            $nbVolunteer = $nb_volunteer[$i];
+                            $this->model->insertMissions($idEvent, $missions, $nbVolunteer);
+                        }
+                    }
+
+                    exit();
+
+                } else {
+                    var_dump($_POST);
+                    die('nok');
+                }
+
+            } elseif (isset($_POST['submit'])) {
+
+                // Si l'utilisateur clique sur publier on vérifie que tout les champs sont bien remplis puis
+                // ont effectue l'insertion dans la base
 
                 $event_location = $_POST['event_location'];
                 $event_start = $_POST['event_start'];
@@ -92,8 +121,54 @@ class EventController extends AppController
                 $event_description = $_POST['event_description'];
                 $event_missions = $_POST['missions'];
                 $nb_volunteer = $_POST['nbVolunteer'];
+
                 $status = 1;
-                $redirect = "";
+
+                $lastId = $this->model->createEvent($event_name, $event_location, $event_start, $event_hour_start, $event_end,
+                    $event_hour_end, $event_description, $status);
+
+                if ($lastId !== null) {
+
+                    for ($i = 0; $i < count($event_categories); $i++) {
+                        $idEvent = $lastId;
+                        $idCategory = $event_categories[$i];
+                        $this->model->insertCategories($idCategory, $idEvent);
+                    }
+
+                    for ($i = 0; $i < count($event_missions); $i++) {
+                        $idEvent = $lastId;
+                        $missions = $event_missions[$i];
+                        $nbVolunteer = $nb_volunteer[$i];
+                        $this->model->insertMissions($idEvent, $missions, $nbVolunteer);
+                    }
+
+                    if (!empty($_FILES['coverPicture']['name']))
+                    {
+                        $file = new Upload($_FILES['coverPicture']['name'], $_FILES["coverPicture"]["tmp_name"],'assets/img/events/uploads/', '');
+
+                        if ($file->extControl())
+                        {
+                            if ($file->moveFile())
+                            {
+                                if ($file->resizeFile()){
+                                    $coverPicture = $file->setNom();
+                                    $this->model->insertCoverPicture($lastId, $coverPicture);
+                                    die('ok 1');
+                                } else {
+                                    $coverPicture = $file->setNom();
+                                    $this->model->insertCoverPicture($lastId, $coverPicture);
+                                    die('ok 2');
+                                }
+                            }
+                        }
+                    }
+
+                } else {
+                    var_dump($_POST);
+                    die('nok');
+                }
+
+                exit();
 
             } else {
                 define("TITLE_HEAD", "Erreur | Volunteers");
@@ -101,31 +176,6 @@ class EventController extends AppController
                 $this->load->view('view_error.php');
             }
 
-            $lastId = $this->model->createEvent($event_name, $event_location, $event_start, $event_hour_start, $event_end,
-                $event_hour_end, $event_description, $status);
-
-            if ($lastId !== null) {
-
-                for ($i = 0; $i < count($event_categories); $i++) {
-                    $idEvent = $lastId;
-                    $idCategory = $event_categories[$i];
-                    $this->model->insertCategories($idCategory, $idEvent);
-                }
-
-                for ($i = 0; $i < count($event_missions); $i++) {
-                    $idEvent = $lastId;
-                    $missions = $event_missions[$i];
-                    $nbVolunteer = $nb_volunteer[$i];
-                    $this->model->insertMissions($idEvent, $missions, $nbVolunteer);
-                }
-
-                header("location:" . $redirect);
-                exit();
-
-            } else {
-                var_dump($_POST);
-                die('nok');
-            }
         }
     }
 

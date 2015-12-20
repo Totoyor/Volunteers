@@ -11,6 +11,7 @@
     <!--Import CSS -->
     <link href="assets/css/materialize.min.css" rel="stylesheet" type="text/css">
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/dropify.css" rel="stylesheet" type="text/css">
     <!--Import Google Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--[if lt IE 8]>

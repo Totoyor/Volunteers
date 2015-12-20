@@ -14,7 +14,7 @@
                 </div>
 
                 <!-----/****FORMS****/---->
-                <form method="post" action="event/create" class="col s12">
+                <form method="post" action="event/create" class="col s12" enctype="multipart/form-data">
 
                     <div class="row btn_crea1">
                         <div class="col m6 s6 offset-m1">
@@ -25,7 +25,8 @@
                         </div>
                         <div class="col s3 m3 l2 center offset-s1 offset-m1 publish-button">
                             <button href="#" class="btn btn-orange"
-                               onclick="Materialize.toast('Published', 4000)">Publish</button>
+                                    onclick="Materialize.toast('Published', 4000)">Publish
+                            </button>
                         </div>
                     </div>
 
@@ -52,17 +53,20 @@
                     <div class="row">
                         <div class="input-field col s11 offset-m1 offset-l1 col l10 m10">
                             <i class="material-icons prefix">location_on</i>
-                            <input name="event_location" id="icon_prefix" type="text" class="tooltipped validate" data-position="right"
+                            <input name="event_location" id="icon_prefix" type="text" class="tooltipped validate"
+                                   data-position="right"
                                    data-delay="50" data-tooltip="Where is your event ?" required>
                             <label for="icon_prefix">Location</label>
                         </div>
                     </div>
 
-                    <div class="row tooltipped" data-position="right" data-delay="50" data-tooltip="What day is it?">
+                    <div class="row">
                         <div class="input-field col s8 offset-m1 offset-l1 col l6 m6">
                             <i class="material-icons prefix">today</i>
-                            <input name="event_start" id="icon_prefix" type="date" placeholder="Click here to choose the begining"
-                                   class="validate datepicker" required>
+                            <input data-position="right" data-delay="50" data-tooltip="What day is it?"
+                                   name="event_start" id="icon_prefix" type="date"
+                                   placeholder="Click here to choose the begining"
+                                   class="validate datepicker tooltipped" required>
                             <label for="icon_prefix"></label>
                         </div>
                         <div class="col s4 l4 m4">
@@ -73,14 +77,15 @@
                     <div class="row">
                         <div class="input-field col s8 offset-m1 offset-l1 col l6 m6 newdate">
                             <i class="material-icons prefix">today</i>
-                            <input name="event_end" id="icon_prefix" type="date" placeholder="Click here to choose the ending"
+                            <input name="event_end" id="icon_prefix" type="date"
+                                   placeholder="Click here to choose the ending"
                                    class="datepicker" required>
                             <label for="icon_prefix"></label>
                         </div>
                     </div>
 
 
-                    <div class="row tooltipped" data-position="right" data-delay="50" data-tooltip="When?">
+                    <div class="row" data-position="right" data-delay="50" data-tooltip="When?">
                         <div class="input-field col s6 m2 offset-m1">
                             <select name="event_hour_start">
                                 <option value="" disabled selected>Hours</option>
@@ -140,7 +145,8 @@
                             <label>Ending</label>
                         </div>
 
-                        <div class="input-field col s6 m2">
+                        <div class="input-field col s6 m2 tooltipped" data-position="right" data-delay="50"
+                             data-tooltip="When?">
                             <select name="event_min_end">
                                 <option value="" disabled selected>Minutes</option>
                                 <option value="00">00</option>
@@ -160,27 +166,38 @@
                         </div>
                     </div>
 
-                    <div class="row tooltipped" data-position="right" data-delay="50"
-                         data-tooltip="How awesome is your event ?">
-                        <div class="input-field col s10 offset-m1 offset-l1 col l10 m10">
-                            <textarea name="event_description" id="textarea1 icon_prefix" class="materialize-textarea"></textarea>
+                    <div class="row">
+                        <div class="input-field col s10 offset-m1 offset-l1 col l10 m10 tooltipped"
+                             data-tooltip="How awesome is your event ?"
+                             data-position="right" data-delay="50">
+                            <textarea name="event_description tooltipped" id="textarea1 icon_prefix"
+                                      class="materialize-textarea"></textarea>
                             <label for="textarea1 icon_prefix">Description</label>
                         </div>
                     </div>
 
-                    <div class="row tooltipped" data-position="right" data-delay="50"
-                         data-tooltip="What type of event is it?">
-                        <div class="input-field col s8 m6 l5 offset-m1 offset-l1">
+                    <div class="row ">
+                        <div class="input-field col s6 m6 l4 offset-m1 offset-l1 tooltipped" data-position="right"
+                             data-delay="50"
+                             data-tooltip="What type of event is it?">
                             <select name="event_categories[]" class="icons" multiple>
                                 <option value="" disabled selected>Categories</option>
                                 <?php foreach ($data as $category) {
                                     ?>
-                                    <option value="<?= $category['idCategorie']; ?>" data-icon="assets/img/hiphop.png"
+                                    <option value="<?= $category['idCategorie']; ?>"
                                             class="left circle"><?= $category['nameCategorie']; ?></option>
                                     <?php
                                 } ?>
                             </select>
                             <label>Choose your categories</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s11 offset-m1 offset-l1 col l10 m10">
+                            <input name="coverPicture" type="file" id="input-file-now" data-height="200" class="dropify tooltipped"
+                                   data-tooltip="What type of event is it?"
+                                   data-delay="50" data-position="right"/>
                         </div>
                     </div>
 
@@ -198,13 +215,14 @@
                         </div>
                     </div>
 
-                    <div id="first-mission-field" class="row tooltipped mission" data-position="right" data-delay="50"
-                         data-tooltip="What kind of missions for your volunteers?">
+                    <div id="first-mission-field" class="row mission top-space" >
                         <div class="input-field col s8 secure-mission offset-m1">
                             <input name="missions[]" id="icon_prefix" placeholder="Barman" type="text" class="validate">
                             <label for="icon_prefix">Mission</label>
                         </div>
-                        <div class="input-field col s2 secure_nb_vol">
+                        <div class="input-field col s2 secure_nb_vol tooltipped" data-position="right"
+                             data-delay="50"
+                             data-tooltip="What kind of missions for your volunteers?">
                             <div class="input-field col s8 secure-mission offset-m1">
                                 <input name="nbVolunteer[]" placeholder="1" type="number" class="validate">
                                 <label>Number</label>
@@ -235,11 +253,13 @@
 
                     <div class="row btn_crea1">
                         <div class="offset-m7 offset-s6 col m1 s2 center">
-                            <button name="save" onclick="Materialize.toast('Saved', 4000)" type="submit" class="btn btn-menu">Save
+                            <button name="save" onclick="Materialize.toast('Saved', 4000)" type="submit"
+                                    class="btn btn-menu">Save
                             </button>
                         </div>
                         <div class="col s3 m3 l2 center offset-s1 offset-m1 publish-button">
-                            <button name="submit" onclick="Materialize.toast('Published', 4000)" type="submit" class="btn btn-orange">
+                            <button name="submit" onclick="Materialize.toast('Published', 4000)" type="submit"
+                                    class="btn btn-orange">
                                 Publish
                             </button>
                         </div>

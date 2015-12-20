@@ -101,4 +101,6 @@ $(document).ready(function () {
         //$("#first-mission-field").clone().attr('id', 'first-mission-field' + i).appendTo("#new-mission");
         $("#mission-field").clone().attr('id', 'mission-field' + i).removeClass("hide").appendTo("#new-mission");
     });
+
+    $('.dropify').dropify();
 });
