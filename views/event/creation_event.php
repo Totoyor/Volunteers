@@ -167,11 +167,10 @@
                     </div>
 
                     <div class="row">
-                        <div class="input-field col s10 offset-m1 offset-l1 col l10 m10 tooltipped"
-                             data-tooltip="How awesome is your event ?"
-                             data-position="right" data-delay="50">
-                            <textarea name="event_description tooltipped" id="textarea1 icon_prefix"
-                                      class="materialize-textarea"></textarea>
+                        <div class="input-field col s10 offset-m1 offset-l1 col l10 m10">
+                            <textarea name="event_description" id="textarea1 icon_prefix"
+                                      class="materialize-textarea tooltipped" data-tooltip="How awesome is your event ?"
+                                      data-position="right" data-delay="50"></textarea>
                             <label for="textarea1 icon_prefix">Description</label>
                         </div>
                     </div>
@@ -196,7 +195,7 @@
                     <div class="row">
                         <div class="input-field col s11 offset-m1 offset-l1 col l10 m10">
                             <input name="coverPicture" type="file" id="input-file-now" data-height="200" class="dropify tooltipped"
-                                   data-tooltip="What type of event is it?"
+                                   data-tooltip="Choose a cover photo for your event"
                                    data-delay="50" data-position="right"/>
                         </div>
                     </div>
@@ -215,14 +214,14 @@
                         </div>
                     </div>
 
-                    <div id="first-mission-field" class="row mission top-space" >
+                    <div id="first-mission-field" class="row mission top-space tooltipped"
+                         data-delay="50" data-position="right"
+                         data-tooltip="What kind of missions for your volunteers?">
                         <div class="input-field col s8 secure-mission offset-m1">
                             <input name="missions[]" id="icon_prefix" placeholder="Barman" type="text" class="validate">
                             <label for="icon_prefix">Mission</label>
                         </div>
-                        <div class="input-field col s2 secure_nb_vol tooltipped" data-position="right"
-                             data-delay="50"
-                             data-tooltip="What kind of missions for your volunteers?">
+                        <div class="input-field col s2 secure_nb_vol">
                             <div class="input-field col s8 secure-mission offset-m1">
                                 <input name="nbVolunteer[]" placeholder="1" type="number" class="validate">
                                 <label>Number</label>

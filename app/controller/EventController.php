@@ -93,10 +93,30 @@ class EventController extends AppController
 
                     if (isset($_POST['event_missions'])) {
                         for ($i = 0; $i < count($event_missions); $i++) {
-                            $idEvent = $lastId;
-                            $missions = $event_missions[$i];
-                            $nbVolunteer = $nb_volunteer[$i];
-                            $this->model->insertMissions($idEvent, $missions, $nbVolunteer);
+                            if ($_POST['event_missions'] !== null) {
+                                $idEvent = $lastId;
+                                $missions = $event_missions[$i];
+                                $nbVolunteer = $nb_volunteer[$i];
+                                $this->model->insertMissions($idEvent, $missions, $nbVolunteer);
+                            }
+                        }
+                    }
+
+                    if (!empty($_FILES['coverPicture']['name'])) {
+                        $file = new Upload($_FILES['coverPicture']['name'], $_FILES["coverPicture"]["tmp_name"], 'assets/img/events/uploads/', '');
+
+                        if ($file->extControl()) {
+                            if ($file->moveFile()) {
+                                if ($file->resizeFile()) {
+                                    $coverPicture = $file->setNom();
+                                    $this->model->insertCoverPicture($lastId, $coverPicture);
+                                    die('ok 1');
+                                } else {
+                                    $coverPicture = $file->setNom();
+                                    $this->model->insertCoverPicture($lastId, $coverPicture);
+                                    die('ok 2');
+                                }
+                            }
                         }
                     }
 
@@ -142,15 +162,12 @@ class EventController extends AppController
                         $this->model->insertMissions($idEvent, $missions, $nbVolunteer);
                     }
 
-                    if (!empty($_FILES['coverPicture']['name']))
-                    {
-                        $file = new Upload($_FILES['coverPicture']['name'], $_FILES["coverPicture"]["tmp_name"],'assets/img/events/uploads/', '');
+                    if (!empty($_FILES['coverPicture']['name'])) {
+                        $file = new Upload($_FILES['coverPicture']['name'], $_FILES["coverPicture"]["tmp_name"], 'assets/img/events/uploads/', '');
 
-                        if ($file->extControl())
-                        {
-                            if ($file->moveFile())
-                            {
-                                if ($file->resizeFile()){
+                        if ($file->extControl()) {
+                            if ($file->moveFile()) {
+                                if ($file->resizeFile()) {
                                     $coverPicture = $file->setNom();
                                     $this->model->insertCoverPicture($lastId, $coverPicture);
                                     die('ok 1');
