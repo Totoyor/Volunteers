@@ -152,8 +152,8 @@ class EventController extends AppController
                     exit();
                 }
 
-                if (!empty($_POST['event_hour_start']) && !empty($_POST['event_min_start'])) {
-                    $event_hour_start = $_POST['event_hour_start'] . " H " . $_POST['event_min_start'];
+                if (!empty($_POST['event_hour_start']) && !empty($_POST['event_min_start']) && !empty($_POST['event_start_mode'])) {
+                    $event_hour_start = $_POST['event_hour_start'] . " H " . $_POST['event_min_start']. " " . $_POST['event_start_mode'];
                 } else {
                     header("location:home?create&event=startTimeNok");
                     exit();
@@ -162,12 +162,11 @@ class EventController extends AppController
                 if (!empty($_POST['event_end'])) {
                     $event_end = $_POST['event_end'];
                 } else {
-                    header("location:home?create&event=endNok");
-                    exit();
+                    $event_end = $_POST['event_start'];
                 }
 
-                if (!empty($_POST['event_hour_end']) && !empty($_POST['event_min_end'])) {
-                    $event_hour_end = $_POST['event_hour_end'] . " H " . $_POST['event_min_end'];
+                if (!empty($_POST['event_hour_end']) && !empty($_POST['event_min_end']) && !empty($_POST['event_end_mode'])) {
+                    $event_hour_end = $_POST['event_hour_end'] . " H " . $_POST['event_min_end']. " " . $_POST['event_end_mode'];
                 } else {
                     header("location:home?create&event=endTimeNok");
                     exit();

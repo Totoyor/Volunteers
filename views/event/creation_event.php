@@ -85,7 +85,7 @@
                     </div>
 
 
-                    <div class="row" data-position="right" data-delay="50" data-tooltip="When?">
+                    <div class="row">
                         <div class="input-field col s6 m2">
                             <select name="event_hour_start">
                                 <option value="" disabled selected>Hours</option>
@@ -125,7 +125,7 @@
                             <label></label>
                         </div>
 
-                        <div class="input-field col s6 m2">
+                        <div class="input-field col s6 m2 tooltipped" data-position="right" data-delay="50" data-tooltip="When?">
                             <select name="event_start_mode">
                                 <option value="" disabled selected>AM - PM</option>
                                 <option value="am">AM</option>
@@ -135,7 +135,7 @@
                         </div>
                     </div>
 
-                    <div class="row" data-position="right" data-delay="50">
+                    <div class="row">
                         <div class="input-field col s6 m2 offset-m1">
                             <select name="event_hour_end">
                                 <option value="" disabled selected>Hours</option>
@@ -156,8 +156,7 @@
                             <label>Ending</label>
                         </div>
 
-                        <div class="input-field col s6 m2 tooltipped" data-position="right" data-delay="50"
-                             data-tooltip="When?">
+                        <div class="input-field col s6 m2">
                             <select name="event_min_end">
                                 <option value="" disabled selected>Minutes</option>
                                 <option value="00">00</option>
@@ -176,7 +175,7 @@
                             <label></label>
                         </div>
 
-                        <div class="input-field col s6 m2">
+                        <div class="input-field col s6 m2 tooltipped" data-position="right" data-delay="50" data-tooltip="When?">
                             <select name="event_end_mode">
                                 <option value="" disabled selected>AM - PM</option>
                                 <option value="am">AM</option>
