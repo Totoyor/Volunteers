@@ -42,10 +42,11 @@
                 <li><a onClick="ga('send', 'clic', 'Log In');" class="modal-trigger" href="#login">Log In</a></li>
                 <li><a onClick="ga('send', 'clic', 'Sign Up');" class="modal-trigger" href="#signup">Sign Up</a></li>
                   <?php } else { ?>
-                  <li><a onClick="ga('send', 'clic', 'Profile');" href="?module=profile"> My Profile</a></li>
+                  <li><a onClick="ga('send', 'clic', 'Events');" href="?module=event&action=lists">Events</a></li>
+                  <li><a onClick="ga('send', 'clic', 'Profile');" href="?module=profile">My Profile</a></li>
                   <li><a onClick="ga('send', 'clic', 'Disconnect');" href="?module=user&action=disconnect">Disconnect</a></li>
                   <?php } ?>
-                <li><a onClick="ga('send', 'clic', 'Help');" href="#">Help</a></li>
+                <li><a onClick="ga('send', 'clic', 'Help');" href="?module=help">Help</a></li>
               </ul>
             <ul id="slide-out" class="side-nav">
                 <li><a href="event/home">Create event</a></li>
@@ -53,10 +54,11 @@
                 <li><a class="modal-trigger" href="#login">Log In</a></li>
                 <li><a class="modal-trigger" href="#signup">Sign Up</a></li>
                 <?php } else { ?>
-                <li><a href="#">My Profile</a></li>
+                <li><a href="?module=event&action=lists">Events</a></li>
+                <li><a href="?module=profile">My Profile</a></li>
                 <li><a href="?module=user&action=disconnect">Disconnect</a></li>
                 <?php } ?>
-                <li><a href="#">Help</a></li>
+                <li><a href="?module=help">Help</a></li>
             </ul>
             <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
         </div>

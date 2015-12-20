@@ -96,7 +96,7 @@ class EventController extends AppController
                 $redirect = "";
 
             } else {
-                define("TITLE_HEAD", "Erreur | Volunteers");
+                define("TITLE_HEAD", "Error | Volunteers");
                 // Chargement de la vue
                 $this->load->view('view_error.php');
             }
@@ -134,13 +134,20 @@ class EventController extends AppController
         $data = $this->model->getCategories();
 
         if ($data !== null) {
-            define("TITLE_HEAD", "Créer un évenement | Volunteers");
+            define("TITLE_HEAD", "Create an event | Volunteers");
             // Chargement de la vue
             $this->load->view('event/creation_event.php', $data);
         } else {
-            define("TITLE_HEAD", "Erreur | Volunteers");
+            define("TITLE_HEAD", "Error | Volunteers");
             // Chargement de la vue
             $this->load->view('view_error.php');
         }
+    }
+
+    public function lists()
+    {
+        define("TITLE_HEAD", "List of events | Volunteers");
+        // Chargement de la vue
+        $this->load->view('event/view_event.php');
     }
 }
