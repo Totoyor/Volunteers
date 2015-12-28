@@ -5,11 +5,14 @@
             <div class="col s12 m12">
                 <div class="card-panel">
                     <h1>Lists of events</h1>
-                    <p>
-                        <a href="?module=event&action=show">Event N°1</a><br/>
-                        <a href="?module=event&action=show">Event N°2</a><br/>
-                        <a href="?module=event&action=show">Event N°3</a>
-                    </p>
+
+                    <?php
+                    foreach ($data as $event) { ?>
+                        <p>
+                            <a href="event/show/<?= $event['idEvent']; ?>"><?= $event['nameEvent']; ?></a><br/>
+                        </p>
+                    <?php }
+                    ?>
                 </div>
             </div>
         </div>

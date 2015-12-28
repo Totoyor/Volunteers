@@ -93,7 +93,7 @@ class EventController extends AppController
 
                     if (isset($_POST['missions'])) {
                         for ($i = 0; $i < count($event_missions); $i++) {
-                            if ($_POST['missions'] !== null) {
+                            if ($_POST['missions'][$i] !== '') {
                                 $idEvent = $lastId;
                                 $missions = $event_missions[$i];
                                 $nbVolunteer = $nb_volunteer[$i];
@@ -110,11 +110,9 @@ class EventController extends AppController
                                 if ($file->resizeFile()) {
                                     $coverPicture = $file->setNom();
                                     $this->model->insertCoverPicture($lastId, $coverPicture);
-                                    die('ok 1');
                                 } else {
                                     $coverPicture = $file->setNom();
                                     $this->model->insertCoverPicture($lastId, $coverPicture);
-                                    die('ok 2');
                                 }
                             }
                         }
@@ -214,7 +212,7 @@ class EventController extends AppController
                     }
 
                     for ($i = 0; $i < count($event_missions); $i++) {
-                        if ($_POST['missions'] !== null) {
+                        if ($_POST['missions'][$i] !== '') {
                             $idEvent = $lastId;
                             $missions = $event_missions[$i];
                             $nbVolunteer = $nb_volunteer[$i];
@@ -277,13 +275,16 @@ class EventController extends AppController
     {
         define("TITLE_HEAD", "List of events | Volunteers");
         // Chargement de la vue
-        $this->load->view('event/view_events.php');
+        $data = $this->model->getEvents();
+        $this->load->view('event/view_events.php', $data);
     }
 
     public function show()
     {
         define("TITLE_HEAD", "Event Name | Volunteers");
         // Chargement de la vue
-        $this->load->view('event/view_event.php');
+        $id = $_GET['id'];
+        $data = $this->model->getEvent($id);
+        $this->load->view('event/view_event.php', $data);
     }
 }

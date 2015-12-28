@@ -51,8 +51,20 @@ Class EventModel extends AppModel
     public function getEvent($id)
     {
         try {
-            $query = $this->connexion->prepare("SELECT * FROM vol_events
-            WHERE idEvent = :id");
+            $query = $this->connexion->prepare("SELECT *
+            FROM vol_events
+            LEFT JOIN vol_event_pictures
+            ON vol_events.idEvent = vol_event_pictures.vol_events_idEvent
+            LEFT JOIN vol_event_missions
+            ON vol_events.idEvent = vol_event_missions.vol_events_idEvent
+            LEFT JOIN vol_events_categories_has_vol_events
+            ON vol_events.idEvent = vol_events_categories_has_vol_events.vol_events_idEvent
+            LEFT JOIN vol_event_questions
+            ON vol_events.idEvent = vol_event_questions.vol_events_idEvent
+            WHERE vol_events.idEvent = :id
+            GROUP BY idEvent
+            ");
+
             $query->bindValue(':id', $id, PDO::PARAM_INT);
             $query->execute();
 
@@ -60,7 +72,36 @@ Class EventModel extends AppModel
             $query->closeCursor();
             return $data;
 
+
         } catch (Exception $e) {
+            var_dump($e);
+            die();
+            return false;
+        }
+    }
+
+    public function getEvents()
+    {
+        try {
+            $query = $this->connexion->prepare("SELECT *
+            FROM vol_events
+            LEFT JOIN vol_event_pictures
+            ON vol_events.idEvent = vol_event_pictures.vol_events_idEvent
+            LEFT JOIN vol_event_missions
+            ON vol_events.idEvent = vol_event_missions.vol_events_idEvent
+            LEFT JOIN vol_events_categories_has_vol_events
+            ON vol_events.idEvent = vol_events_categories_has_vol_events.vol_events_idEvent
+            GROUP BY idEvent
+            ");
+            $query->execute();
+
+            $data = $query->fetchAll();
+            $query->closeCursor();
+            return $data;
+
+        } catch (Exception $e) {
+            echo $e;
+            die();
             return false;
         }
     }
