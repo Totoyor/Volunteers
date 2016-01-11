@@ -107,7 +107,6 @@
                         <a href="#">Techno</a>
                         <a class="viewmore btn btn-vue" href="#">See more</a>
                     </div>
->>>>>>> 0a52b01c51599a30fd02b1fc56eb553c3a6a6791
                 </div>
             </div>
             <div class="col s12 m6 l4">

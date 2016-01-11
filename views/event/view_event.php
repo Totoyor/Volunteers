@@ -28,11 +28,6 @@
 
                         <p class="read-more-wrap">Our annual SELL OUT New Years Eve party is back!
                             <br> London's ONLY Hard Dance and Hardcore event gives you 12 hours of raving to see in 2016 on a mad one !<span class="read-more-target"> Limited 4th release £20.00 tickets on sale now. Happy Hardcore / Old Skool / UK Hardcore Room SPECIAL GUEST TO BE ANNOUNCED</span></p>
-
-                        <p>
-                            <?php var_dump($data); ?>
-                        </p>
-
                         <label for="post-1" class="read-more-trigger"></label>
                     </div>
 

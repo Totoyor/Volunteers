@@ -45,13 +45,7 @@
                     </div>
 
                     <div class="input-field col s11 offset-m1 offset-l1 col l10 m10">
-                        
-                        
-                       
-            
-         
-                        <input name="event_name" class="" data-position="right" data-delay="50"
-                               data-tooltip="Show me what you've got !" id="location-search" type="text" required>
+                        <input name="event_name" class="validate" id="location-search" type="text" required>
                         <label for="icon_prefix">Event Name</label>
                     </div>
 
@@ -217,9 +211,26 @@
                     </div>
 
                     <div class="row">
-                        <div class="input-field col s11 offset-m1 offset-l1 col l10 m10">
+                        <div class="input-field col s12 col l12 m12">
                             <input name="coverPicture" type="file" id="input-file-now" data-height="200" class="dropify tooltipped"
-                                   data-tooltip="Choose a cover photo for your event"
+                                   data-tooltip="Choose a cover picture"
+                                   data-delay="50" data-position="right"/>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s3">
+                            <input name="media[]" type="file" id="input-file-now" data-height="90" class="dropify"/>
+                        </div>
+                        <div class="input-field col s3">
+                            <input name="media[]" type="file" id="input-file-now" data-height="90" class="dropify" />
+                        </div>
+                        <div class="input-field col s3">
+                            <input name="media[]" type="file" id="input-file-now" data-height="90" class="dropify" />
+                        </div>
+                        <div class="input-field col s3">
+                            <input name="media[]" type="file" id="input-file-now" data-height="90" class="dropify tooltipped"
+                                   data-tooltip="Choose media pictures"
                                    data-delay="50" data-position="right"/>
                         </div>
                     </div>

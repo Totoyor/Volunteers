@@ -149,11 +149,29 @@ Class EventModel extends AppModel
     public function insertCoverPicture($idEvent, $coverPicture)
     {
         try {
-            $query = $this->connexion->prepare("INSERT INTO vol_event_pictures
-            (coverPicture, vol_events_idEvent) VALUES
-            (:cover, :idEvent)");
+            $query = $this->connexion->prepare("UPDATE vol_events
+            SET coverPicture = :cover
+            WHERE idEvent = :idEvent");
 
             $query->bindValue(':cover', $coverPicture, PDO::PARAM_STR);
+            $query->bindValue(':idEvent', $idEvent, PDO::PARAM_INT);
+
+            $query->execute();
+
+            return true;
+
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
+    public function insertMediaPicture($idEvent, $media)
+    {
+        try {
+            $query = $this->connexion->prepare("INSERT INTO vol_event_pictures
+             (eventPicture, vol_events_idEvent) VALUES (:media, :idEvent)");
+
+            $query->bindValue(':media', $media, PDO::PARAM_INT);
             $query->bindValue(':idEvent', $idEvent, PDO::PARAM_INT);
 
             $query->execute();

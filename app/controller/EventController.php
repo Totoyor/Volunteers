@@ -43,7 +43,7 @@ class EventController extends AppController
                 if (isset($_POST['event_end'])) {
                     $event_end = $_POST['event_end'];
                 } else {
-                    $event_end = NULL;
+                    $event_end = $_POST['event_start'];
                 }
 
                 if (isset($_POST['event_hour_end']) && isset($_POST['event_min_end'])) {
@@ -113,6 +113,29 @@ class EventController extends AppController
                                 } else {
                                     $coverPicture = $file->setNom();
                                     $this->model->insertCoverPicture($lastId, $coverPicture);
+                                }
+                            }
+                        }
+                    }
+
+                    if (!empty($_FILES['media'])) {
+
+                        for ($i=0; $i < count($_FILES['media']['name']); $i++) {
+
+                            $name = $_FILES['media']['name'][$i];
+                            $tmp_name = $_FILES["media"]["tmp_name"][$i];
+
+                            $media = new Upload($name, $tmp_name, 'assets/img/events/uploads/', '');
+
+                            if ($media->extControl()) {
+                                if ($media->moveFile()) {
+                                    if ($media->resizeFile()) {
+                                        $picture = $media->setNom();
+                                        $this->model->insertMediaPicture($lastId, $picture);
+                                    } else {
+                                        $picture = $media->setNom();
+                                        $this->model->insertMediaPicture($lastId, $picture);
+                                    }
                                 }
                             }
                         }
@@ -232,6 +255,29 @@ class EventController extends AppController
                                 } else {
                                     $coverPicture = $file->setNom();
                                     $this->model->insertCoverPicture($lastId, $coverPicture);
+                                }
+                            }
+                        }
+                    }
+
+                    if (!empty($_FILES['media'])) {
+
+                        for ($i=0; $i < count($_FILES['media']['name']); $i++) {
+
+                            $name = $_FILES['media']['name'][$i];
+                            $tmp_name = $_FILES["media"]["tmp_name"][$i];
+
+                            $media = new Upload($name, $tmp_name, 'assets/img/events/uploads/', '');
+
+                            if ($media->extControl()) {
+                                if ($media->moveFile()) {
+                                    if ($media->resizeFile()) {
+                                        $picture = $media->setNom();
+                                        $this->model->insertMediaPicture($lastId, $picture);
+                                    } else {
+                                        $picture = $media->setNom();
+                                        $this->model->insertMediaPicture($lastId, $picture);
+                                    }
                                 }
                             }
                         }
