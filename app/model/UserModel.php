@@ -53,5 +53,4 @@ class UserModel extends AppModel
             return false;
         }
     }
-
 }

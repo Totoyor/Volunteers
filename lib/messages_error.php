@@ -1,6 +1,7 @@
 <?php
 
-$errors = array((
-    'SIGNUP_NOK' => 'Votre adresse email est déjà utilisée',
-    'SIGNUP_OK' => 'Merci pour votre inscription !'
-));
+$errors = array(
+    'SIGNUP_NOK' => 'Your Sign up Failed !',
+    'SIGNUP_OK' => 'Your Sign Up is complete !',
+    'EMAIL_NOK' => 'Your Email is invalid !',
+);
