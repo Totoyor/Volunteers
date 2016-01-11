@@ -21,7 +21,7 @@
                     <li><i class="material-icons">done</i>Save your time</li>
                     <li><i class="material-icons">done</i>Better visibility for your event</li>
                 </ul>
-                <a class="btn btn-menu-bis btn-hoveror txtshadow">Get Started</a>
+                <a href="event/home" class="btn btn-menu-bis btn-hoveror txtshadow">Get Started</a>
             </div><!-- content bloc-->
         </div><!-- bloc principal-->
     </div><!-- row-->
@@ -171,7 +171,7 @@
 
         <div class="row">
             <div class="col s12 center">
-                <a href="#" class="btn btn-blue">more exciting events</a>
+                <a href="event/lists" class="btn btn-blue">more exciting events</a>
             </div>
         </div>
 
@@ -268,7 +268,7 @@
         <h1 class="title-section white-text">ready to find volunteers ?</h1>
         <p class="white-text">Create your own event and join hundreds of thousands of event
             organizers</br>managing volunteers registrations </p>
-        <a href="creation_event.php" class="btn btn-menu-bis btn-hoveror">Create an event</a>
+        <a href="event/home" class="btn btn-menu-bis btn-hoveror">Create an event</a>
     </div>
 </div>
 

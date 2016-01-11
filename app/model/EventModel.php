@@ -23,6 +23,7 @@ Class EventModel extends AppModel
             $query->execute();
             $query->closeCursor();
 
+            //On récupère l'id de l'insertion
             $lastId = $this->connexion->lastInsertId();
 
             return $lastId;
