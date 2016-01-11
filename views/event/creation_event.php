@@ -1,7 +1,7 @@
 <?php include_once('views/layout/header.inc.php'); ?>
     <div class="row creabody">
         <div class="page_event col m10 s12 l7">
-            <div class="formulaire_crea col l10 offset-l1">
+            <div class="formulaire_crea col l10 offset-m3">
                 <div class="row">
                     <div class="col offset-m1 offset-l1 s12 m12 l12 center">
                         <h1 class="title-section left bleu">Ready to find volunteers ?</h1>
@@ -45,8 +45,13 @@
                     </div>
 
                     <div class="input-field col s11 offset-m1 offset-l1 col l10 m10">
-                        <input name="event_name" class="tooltipped validate" data-position="right" data-delay="50"
-                               data-tooltip="Show me what you've got !" id="icon_prefix" type="text" required>
+                        
+                        
+                       
+            
+         
+                        <input name="event_name" class="" data-position="right" data-delay="50"
+                               data-tooltip="Show me what you've got !" id="location-search" type="text" required>
                         <label for="icon_prefix">Event Name</label>
                     </div>
 
