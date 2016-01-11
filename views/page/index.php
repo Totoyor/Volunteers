@@ -171,7 +171,7 @@
 
         <div class="row">
             <div class="col s12 center">
-                <a href="#" class="btn btn-blue">more exciting events</a>
+                <a href="event/lists" class="btn btn-blue">more exciting events</a>
             </div>
         </div>
 

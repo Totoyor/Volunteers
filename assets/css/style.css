@@ -440,7 +440,6 @@ nav ul li:hover {
     position: relative;
 }
 
-
 /**** LOG IN ****/
 
 .bluebody {
@@ -762,6 +761,125 @@ p {
         display: block;
     }
 }
+
+/***page search events***/
+
+.filter {
+    margin-top: 10px
+}
+
+
+.decal {
+    padding:1rem 2rem;
+}
+
+#search {
+
+}
+
+#search input[type="text"] {
+    border: 1px solid #d1d1d1;
+    color: #bebebe;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-transition: all 0.7s ease 0s;
+    -moz-transition: all 0.7s ease 0s;
+    -o-transition: all 0.7s ease 0s;
+    transition: all 0.7s ease 0s;
+    padding-left: 50px;
+    box-sizing: border-box;
+    }
+#search input[type="text"]:focus {
+    border-color:#d1D1D1;
+
+}
+/* individual: webkit */
+
+
+
+#location-search {
+    background: white url(../img/location.png) left no-repeat;
+}
+
+#search-event input[type="text"] {
+    border: 1px solid #d1d1d1;
+    color: #bebebe;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-transition: all 0.7s ease 0s;
+    -moz-transition: all 0.7s ease 0s;
+    -o-transition: all 0.7s ease 0s;
+    transition: all 0.7s ease 0s;
+    padding-left: 60px;
+    box-sizing: border-box;
+    }
+#search-event input[type="text"]:focus {
+    border-color:#d1D1D1;
+
+}
+/* individual: webkit */
+
+
+#event-search {
+    background: white url(../img/search.png) left no-repeat;
+}
+
+.collapsible a {
+    color:#AAA;
+}
+
+.collapsible a:hover {
+    color: #ff8b02;
+}
+
+.margtop100 {
+   margin-top:100px;
+}
+
+a.btn.btn-vue-bis {
+    color: #FFF;
+    padding-top: 5px;
+}
+
+a.btn.btn-vue-bis:hover {
+    color: #5498d4;
+}
+
+a.viewmore.btn.btn-vue-bis:focus,
+a.card-action:focus, .grey-text.text-lighten-3:focus, btn-blue:focus {
+    box-shadow: 0px 0px 5px rgba(56, 169, 240, 0.75);
+}
+
+.btn-vue-bis {
+    border: 2px solid #5498d4;
+    background: #5498d4;
+    color: #fff;
+    height:3rem;
+
+}
+
+.btn-vue-bis:hover {
+    background: #FFF;
+    color: #5498d4;
+}
+
+#search input[type=text]:focus {
+     box-shadow: none;
+   }
+
+#search-event input[type=text]:focus {
+     box-shadow: none;
+   }
+
+
+   .card {
+    border: 1px solid;
+    border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+    border-radius: 3px;
+    box-shadow: none;
+   }
 
 
 /*******************************/
@@ -1090,6 +1208,7 @@ p {
         width: 100px!important;
     }
     
+
     .event_secure_btn2 {
         width: 150px!important
     }
