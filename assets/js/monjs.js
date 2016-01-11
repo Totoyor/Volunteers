@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    
+
 
     $(".hidden-content-rightside").hide();
     $(".hidden-content-leftside").hide();
@@ -103,4 +105,5 @@ $(document).ready(function () {
     });
 
     $('.dropify').dropify();
+
 });
