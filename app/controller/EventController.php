@@ -110,11 +110,9 @@ class EventController extends AppController
                                 if ($file->resizeFile()) {
                                     $coverPicture = $file->setNom();
                                     $this->model->insertCoverPicture($lastId, $coverPicture);
-                                    die('ok 1');
                                 } else {
                                     $coverPicture = $file->setNom();
                                     $this->model->insertCoverPicture($lastId, $coverPicture);
-                                    die('ok 2');
                                 }
                             }
                         }
@@ -127,8 +125,9 @@ class EventController extends AppController
                     exit();
 
                 } else {
-                    var_dump($_POST);
-                    die('nok');
+                    define("TITLE_HEAD", "Erreur | Volunteers");
+                    // Chargement de la vue
+                    $this->load->view('view_error.php');
                 }
 
             } elseif (isset($_POST['submit'])) {
@@ -239,8 +238,9 @@ class EventController extends AppController
                     }
 
                 } else {
-                    var_dump($_POST);
-                    die('nok');
+                    define("TITLE_HEAD", "Erreur | Volunteers");
+                    // Chargement de la vue
+                    $this->load->view('view_error.php');
                 }
 
                 //Chargement de la vue de l'évènement

@@ -47,8 +47,27 @@ class Core
         return $header;
     }
 
-    protected function coreAlertMessage()
+    protected function coreCheckEmail($email)
     {
+        if (preg_match("^([a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,3})$^", $email))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
+    protected function coreAlertMessage($error)
+    {
+        if(isset($_SESSION['error']))
+        {
+            // TODO
+            // fonction array_truc_machin_chose pour choper le bon message
+            // return <script>notie.js</script> + message alert
+            // Unset $_Session['error']
+            var_dump($error);
+        }
     }
 }

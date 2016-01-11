@@ -5,7 +5,7 @@
         <div class="col s12">
             <h1 class="title_404">Profile</h1>
             <h3>My profile</h3>
-            <form class="col s12" action="" method="">
+            <form class="col s12" action="?module=profile&action=edit" method="post">
                 <div class="row">
                     <div class="col s12">
                         <img src="assets/img/blog/avatar.png" class="img-responsive col s2">
@@ -22,80 +22,57 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="first_name" type="text" class="validate">
+                        <input id="first_name" type="text" class="validate" name="first_name" value="<?php echo $data['FirstName']; ?>">
                         <label for="first_name">First Name</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="last_name" type="text" class="validate">
+                        <input id="last_name" type="text" class="validate" name="last_name" value="<?php echo $data['LastName']; ?>">
                         <label for="last_name">Last Name</label>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s1" >
-                        <select>
+                    <div class="input-field col s1">
+                        <select name="birth_day">
                             <option value="" disabled selected>Day</option>
-                            <option value="0">00</option>
-                            <option value="1">01</option>
-                            <option value="2">02</option>
-                            <option value="3">03</option>
-                            <option value="4">04</option>
-                            <option value="5">05</option>
-                            <option value="6">06</option>
-                            <option value="7">07</option>
-                            <option value="8">08</option>
-                            <option value="9">09</option>
-                            <option value="10">10</option>
-                            <option value="11">11</option>
-                            <option value="12">12</option>
+                            <?php for ($d = 0; $d <= 31; $d++) { ?>
+                                <option value="<?php echo $d; ?>"><?php echo $d; ?></option>
+                            <?php  } ?>
                         </select>
                         <label>Birth Date</label>
                     </div>
                     <div class="input-field col s1">
-                        <select>
+                        <select name="birth_month">
                             <option value="" disabled selected>Month</option>
-                            <option value="00">00</option>
-                            <option value="05">05</option>
-                            <option value="10">10</option>
-                            <option value="15">15</option>
-                            <option value="20">20</option>
-                            <option value="25">25</option>
-                            <option value="30">30</option>
-                            <option value="35">35</option>
-                            <option value="40">40</option>
-                            <option value="45">45</option>
-                            <option value="50">50</option>
-                            <option value="55">55</option>
+                            <?php for ($m = 0; $m <= 12; $m++) { ?>
+                                <option value="<?php echo $m; ?>"><?php echo $m; ?></option>
+                            <?php  } ?>
                         </select>
                         <label></label>
                     </div>
                     <div class="input-field col s1">
-                        <select>
+                        <select name="birth_year">
                             <option value="" disabled selected>Year</option>
-                            <option value="00">00</option>
-                            <option value="05">05</option>
-                            <option value="10">10</option>
-                            <option value="15">15</option>
-                            <option value="20">20</option>
-                            <option value="25">25</option>
-                            <option value="30">30</option>
-                            <option value="35">35</option>
-                            <option value="40">40</option>
-                            <option value="45">45</option>
-                            <option value="50">50</option>
-                            <option value="55">55</option>
+                            <?php for ($m = 1950; $m <= 2015; $m++) { ?>
+                                <option value="<?php echo $m; ?>"><?php echo $m; ?></option>
+                            <?php  } ?>
                         </select>
                         <label></label>
+                    </div>
+                    <div class="input-field col s1">
+                        <p>
+                        <?php echo $data['BirthDate']; ?>
+                        </p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="email" type="email" class="validate" value="<?php echo $data['Email']; ?>">
+                        <input id="email" type="email" class="validate" value="<?php echo $data['Email']; ?>" name="email">
                         <label for="email">Email</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="location" type="text" class="validate">
+                        <input id="location" type="text" class="validate" name="location" value="<?php echo $data['Location']; ?>">
                         <label for="last_name">Location</label>
                     </div>
                 </div>
@@ -108,7 +85,7 @@
                 <div class="row">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">mode_edit</i>
-                        <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+                        <textarea id="icon_prefix2" class="materialize-textarea" name="presentation"></textarea>
                         <label for="icon_prefix2">A little text about you.</label>
                     </div>
                 </div>
@@ -121,7 +98,7 @@
                 <div class="row">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">mode_edit</i>
-                        <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+                        <textarea id="icon_prefix2" class="materialize-textarea" name="skills"></textarea>
                         <label for="icon_prefix2">What's your skills ?</label>
                     </div>
                 </div>
