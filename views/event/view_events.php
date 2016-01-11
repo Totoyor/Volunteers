@@ -2,7 +2,7 @@
 
   <body class="grey lighten-4">
         
-    <div class="container">
+    <div class="page-content">
         <div class="row margtop100">
             <div class="col s9 right">
               <div class="row">
