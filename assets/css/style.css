@@ -885,7 +885,7 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, btn-blue:focus {
 /*******************************/
 
 .event_couv {
-    height: 325px;
+    height: 350px;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5) inset;
     width: 100%;
     margin-bottom: -6px!important;

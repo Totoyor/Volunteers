@@ -120,7 +120,7 @@ class EventController extends AppController
 
                     if (!empty($_FILES['media'])) {
 
-                        for ($i=0; $i < count($_FILES['media']['name']); $i++) {
+                        for ($i = 0; $i < count($_FILES['media']['name']); $i++) {
 
                             $name = $_FILES['media']['name'][$i];
                             $tmp_name = $_FILES["media"]["tmp_name"][$i];
@@ -175,7 +175,7 @@ class EventController extends AppController
                 }
 
                 if (!empty($_POST['event_hour_start']) && !empty($_POST['event_min_start']) && !empty($_POST['event_start_mode'])) {
-                    $event_hour_start = $_POST['event_hour_start'] . " H " . $_POST['event_min_start']. " " . $_POST['event_start_mode'];
+                    $event_hour_start = $_POST['event_hour_start'] . " H " . $_POST['event_min_start'] . " " . $_POST['event_start_mode'];
                 } else {
                     header("location:home?create&event=startTimeNok");
                     exit();
@@ -188,7 +188,7 @@ class EventController extends AppController
                 }
 
                 if (!empty($_POST['event_hour_end']) && !empty($_POST['event_min_end']) && !empty($_POST['event_end_mode'])) {
-                    $event_hour_end = $_POST['event_hour_end'] . " H " . $_POST['event_min_end']. " " . $_POST['event_end_mode'];
+                    $event_hour_end = $_POST['event_hour_end'] . " H " . $_POST['event_min_end'] . " " . $_POST['event_end_mode'];
                 } else {
                     header("location:home?create&event=endTimeNok");
                     exit();
@@ -262,7 +262,7 @@ class EventController extends AppController
 
                     if (!empty($_FILES['media'])) {
 
-                        for ($i=0; $i < count($_FILES['media']['name']); $i++) {
+                        for ($i = 0; $i < count($_FILES['media']['name']); $i++) {
 
                             $name = $_FILES['media']['name'][$i];
                             $tmp_name = $_FILES["media"]["tmp_name"][$i];
@@ -323,7 +323,12 @@ class EventController extends AppController
     {
         define("TITLE_HEAD", "List of events | Volunteers");
         // Chargement de la vue
-        $data = $this->model->getEvents();
+        //$data = $this->model->getEvents();
+        //$categories = $this->model->getCategories();
+        $data = array(
+            'events' => $this->model->getEvents(),
+            'categories' => $this->model->getCategories()
+        );
         $this->load->view('event/view_events.php', $data);
     }
 
@@ -332,7 +337,12 @@ class EventController extends AppController
         define("TITLE_HEAD", "Event Name | Volunteers");
         // Chargement de la vue
         $id = $_GET['id'];
-        $data = $this->model->getEvent($id);
+        //$data = $this->model->getEvent($id);
+        $data = array(
+            'event' => $this->model->getEvent($id),
+            'missions' => $this->model->getMissions($id),
+            'nbVolunteer' => $this->model->getNbVolunteers($id)
+        );
         $this->load->view('event/view_event.php', $data);
     }
 }

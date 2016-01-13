@@ -203,6 +203,7 @@
                                     ?>
                                     <option value="<?= $category['idCategorie']; ?>"
                                             class="left circle"><?= $category['nameCategorie']; ?></option>
+                                    <!--<input type="hidden" name="nameCategorie" value="">-->
                                     <?php
                                 } ?>
                             </select>

@@ -1,7 +1,6 @@
-  <?php include_once('views/layout/header.inc.php'); ?>
-
+<?php include_once('views/layout/header.inc.php'); ?>
   <body class="grey lighten-4">
-        
+
     <div class="page-content">
         <div class="row margtop100">
             <div class="col s9 right">
@@ -34,11 +33,11 @@
               <div class="collapsible-header active"><i class="material-icons">label</i>Category</div>
               <div class="collapsible-body decal">
                 <ul>
-                  <li><a href="">Hip-Hop</a></li>
-                  <li><a href="">Techno</a></li>
-                  <li><a href="">Pop/Rock</a></li>
-                  <li><a href="">Festival</a></li>
-                  <li><a href="">Party</a></li>
+                    <?php
+                    foreach ($data['categories'] as $category) { ?>
+                        <li><a href=""><?= $category['nameCategorie']; ?></a></li>
+                    <?php }
+                    ?>
                 </ul>
               </div>
             </li>
@@ -59,110 +58,37 @@
 
       </div>
       <div class="col s12 m9 l9 right">
-        
-
-        <div class="row">
-            <div class="col s12 m6 l4">
-                <div class="card small event popevent left">
-                    <div class="card-image">
-                      <img class="responsive-img" src="assets/img/event3.png" alt="image-event">
-                    </div>
-                    <div class="card-content">
-                        <h4 class="titre-cards truncate">Blocaus</h4>
-                        <h6 class="truncate">La Machine du Moulin Rouge, Paris - 21 Nov</h6>
-                    </div>
-                    <div class="card-action">
-                        <a href="#">Party</a>
-                        <a class="viewmore btn btn-vue" href="#">See more</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col s12 m6 l4">
-                <div class="card small event popevent left">
-                    <div class="card-image">
-                      <img class="responsive-img" alt="image-event" src="assets/img/event4.png">
-                    </div>
-                    <div class="card-content">
-                        <h4 class="titre-cards">Château Perché</h4>
-                        <h6 class="truncate">Le Petit Bain, Paris - 21 Nov</h6>
-                    </div>
-                    <div class="card-action">
-                        <a href="#">Techno</a>
-                        <a class="viewmore btn btn-vue" href="#">See more</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col s12 m6 l4">
-                <div class="card small event popevent left">
-                    <div class="card-image">
-                      <img class="responsive-img" alt="image-event" src="assets/img/event5.png">
-                    </div>
-                    <div class="card-content">
-                        <h4 class="titre-cards">Lunar II</h4>
-                        <h6 class="truncate">Le Gibus, Paris - 21 Nov</h6>
-                    </div>
-                    <div class="card-action">
-                        <a href="#">Techno</a>
-                        <a class="viewmore btn btn-vue" href="#">See more</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col s12 m6 l4">
-                <div class="card small event popevent left">
-                    <div class="card-image">
-                      <img class="responsive-img" alt="image-event" src="assets/img/event6.png">
-                    </div>
-                    <div class="card-content">
-                        <h4 class="titre-cards">Propice</h4>
-                        <h6 class="truncate">Le Glazart, Paris - 21 Nov</h6>
-                    </div>
-                    <div class="card-action">
-                        <a href="#">Techno</a>
-                        <a class="viewmore btn btn-vue" href="#">See more</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col s12 m6 l4">
-                <div class="card small event popevent left">
-                    <div class="card-image">
-                      <img class="responsive-img" alt="image-event" src="assets/img/event7.png">
-                    </div>
-                    <div class="card-content">
-                        <h4 class="titre-cards">Macki Paradise</h4>
-                        <h6 class="truncate">La Machine du Moulin Rouge, Paris - 21 Nov</h6>
-                    </div>
-                    <div class="card-action">
-                      <a href="#">Techno</a>
-                      <a class="viewmore btn btn-vue" href="#">See more</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col s12 m6 l4">
-                <div class="card small event popevent left">
-                    <div class="card-image">
-                      <img class="responsive-img" alt="image-event" src="assets/img/event8.png">
-                    </div>
-                    <div class="card-content">
-                        <h4 class="titre-cards truncate">Dixon Ame All Night</h4>
-                        <h6 class="truncate">La Fabric, Paris - 21 Nov</h6>
-                    </div>
-                    <div class="card-action">
-                        <a href="#">Techno</a>
-                        <a class="viewmore btn btn-vue" href="#">See more</a>
-                    </div>
-                </div>
-            </div>
-        </div><!-- fin row--> 
-
-        
+        <?php
+        foreach ($data['events'] as $event) { ?>
+          <div class="row">
+              <div class="col s12 m6 l4">
+                  <div class="card small event popevent left">
+                      <div class="card-image">
+                          <img class="responsive-img" src="assets/img/events/uploads/<?= $event['coverPicture']; ?>" alt="image-event">
+                      </div>
+                      <div class="card-content">
+                          <h4 class="titre-cards truncate"><?= $event['nameEvent']; ?></h4>
+                          <h6 class="truncate"><?= ucfirst($event['locationEvent']); ?>, <?= $event['startEvent']; ?></h6>
+                      </div>
+                      <div class="card-action">
+                          <a href="#"><?= $event['nameCategorie']; ?></a>
+                          <!--<a class="viewmore btn btn-vue" href="">See more</a>-->
+                          <?php $this->helperLinkRewrite(array(
+                                  'class' => 'viewmore btn btn-vue',
+                                  'module' => 'event',
+                                  'action' => 'show',
+                                  'id' => $event['idEvent'],
+                                  'text' => 'See more'
+                              )) ?>
+                      </div>
+                  </div>
+              </div>
+        <?php }
+        ?>
         </div>
-    </div>        
+    </div>
 
-       
+
     </div> <!-- fin page content-->
 </div><!-- fin container-->
 

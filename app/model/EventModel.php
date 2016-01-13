@@ -69,7 +69,7 @@ Class EventModel extends AppModel
             $query->bindValue(':id', $id, PDO::PARAM_INT);
             $query->execute();
 
-            $data = $query->fetchAll();
+            $data = $query->fetch();
             $query->closeCursor();
             return $data;
 
@@ -92,17 +92,20 @@ Class EventModel extends AppModel
             ON vol_events.idEvent = vol_event_missions.vol_events_idEvent
             LEFT JOIN vol_events_categories_has_vol_events
             ON vol_events.idEvent = vol_events_categories_has_vol_events.vol_events_idEvent
+            LEFT JOIN vol_events_categories
+            ON vol_events_categories_has_vol_events.vol_events_categories_idCategorie = vol_events_categories.idCategorie
+            WHERE vol_events.statusEvent = :status
             GROUP BY idEvent
             ");
-            $query->execute();
 
+            $query->bindValue(':status', 1, PDO::PARAM_INT);
+            $query->execute();
             $data = $query->fetchAll();
             $query->closeCursor();
+
             return $data;
 
         } catch (Exception $e) {
-            echo $e;
-            die();
             return false;
         }
     }
@@ -142,6 +145,49 @@ Class EventModel extends AppModel
             return true;
 
         } catch (Exception $e) {
+            return false;
+        }
+    }
+
+    public function getMissions($idEvent)
+    {
+        try {
+            $query = $this->connexion->prepare("SELECT * FROM vol_event_missions
+            WHERE vol_events_idEvent = :id");
+
+            $query->bindValue(':id', $idEvent, PDO::PARAM_INT);
+            $query->execute();
+
+            $data = $query->fetchAll();
+            $query->closeCursor();
+
+            return $data;
+
+        } catch (Exception $e) {
+            echo $e;
+            die();
+            return false;
+        }
+    }
+
+    public function getNbVolunteers($idEvent)
+    {
+        try {
+            $query = $this->connexion->prepare("SELECT SUM(nbVolunteer)
+            FROM vol_event_missions
+            WHERE vol_events_idEvent = :id");
+
+            $query->bindValue(':id', $idEvent, PDO::PARAM_INT);
+            $query->execute();
+
+            $data = $query->fetchAll();
+            $query->closeCursor();
+
+            return $data;
+
+        } catch (Exception $e) {
+            echo $e;
+            die();
             return false;
         }
     }
