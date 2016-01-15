@@ -63,10 +63,9 @@
 
                 <div class="clear event_apog">
                     <h5 class="blued ">Medias</h5>
-                    <img class="event_media materialboxed" src="assets/img/party.png" alt=""/>
-                    <img class="event_media materialboxed" src="assets/img/party.png" alt=""/>
-                    <img class="event_media materialboxed" src="assets/img/party.png" alt=""/>
-                    <img class="event_media materialboxed" src="assets/img/party.png" alt=""/>
+                    <?php foreach ($data['medias'] as $media) { ?>
+                        <img class="event_media materialboxed" src="assets/img/events/uploads/<?= $media['eventPicture']; ?>" alt=""/>
+                    <?php } ?>
                 </div>
 
                 <div class="clear more_margin"></div>

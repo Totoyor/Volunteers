@@ -1,6 +1,4 @@
 <?php
-
-
 class EventController extends AppController
 
 {
@@ -341,7 +339,8 @@ class EventController extends AppController
         $data = array(
             'event' => $this->model->getEvent($id),
             'missions' => $this->model->getMissions($id),
-            'nbVolunteer' => $this->model->getNbVolunteers($id)
+            'nbVolunteer' => $this->model->getNbVolunteers($id),
+            'medias' => $this->model->getMedias($id)
         );
         $this->load->view('event/view_event.php', $data);
     }

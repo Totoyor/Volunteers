@@ -164,8 +164,6 @@ Class EventModel extends AppModel
             return $data;
 
         } catch (Exception $e) {
-            echo $e;
-            die();
             return false;
         }
     }
@@ -186,8 +184,25 @@ Class EventModel extends AppModel
             return $data;
 
         } catch (Exception $e) {
-            echo $e;
-            die();
+            return false;
+        }
+    }
+
+    public function getMedias($idEvent) {
+        try {
+            $query = $this->connexion->prepare("SELECT *
+            FROM vol_event_pictures
+            WHERE vol_events_idEvent = :id");
+
+            $query->bindValue(':id', $idEvent, PDO::PARAM_INT);
+            $query->execute();
+
+            $data = $query->fetchAll();
+            $query->closeCursor();
+
+            return $data;
+
+        } catch (Exception $e) {
             return false;
         }
     }
