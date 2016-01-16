@@ -207,6 +207,30 @@ Class EventModel extends AppModel
         }
     }
 
+    public function getVolunteers($idEvent) {
+        try {
+
+            $query = $this->connexion->prepare("SELECT *
+            FROM event_has_volunteers
+            LEFT JOIN vol_users
+            ON event_has_volunteers.vol_event_volunteers_idEventVolunteer = vol_users.idUser
+            WHERE event_has_volunteers.vol_events_idEvent = :idEvent
+            GROUP BY idUser
+            ");
+
+            $query->bindValue(':idEvent', $idEvent, PDO::PARAM_INT);
+            $query->execute();
+            $data = $query->fetchAll();
+
+            $query->closeCursor();
+
+            return $data;
+
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
     public function insertCoverPicture($idEvent, $coverPicture)
     {
         try {

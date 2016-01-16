@@ -53,4 +53,24 @@ class UserModel extends AppModel
             return false;
         }
     }
+
+    public function join($idEvent, $idUser)
+    {
+        try
+        {
+            $query = $this->connexion->prepare('INSERT INTO event_has_volunteers (vol_events_idEvent, vol_event_volunteers_idEventVolunteer)
+                                                VALUES (:idEvent, :idUser)');
+
+            $query->bindParam(':idEvent', $idEvent, PDO::PARAM_STR);
+            $query->bindParam(':idUser', $idUser, PDO::PARAM_STR);
+            $query->execute();
+            $query->closeCursor();
+
+            return true;
+        }
+        catch (Exception $e)
+        {
+            return false;
+        }
+    }
 }

@@ -11,10 +11,10 @@
                     <div class="collection-item1"><i
                             class="material-icons left">schedule</i><?= $data['event']['startEvent'] . '  -  ' . $data['event']['endEvent']; ?>
                     </div>
-                    <a href="#!" class="collection-item"><i class="material-icons left">location_on</i>
+                    <a class="collection-item"><i class="material-icons left">location_on</i>
                         <?= $data['event']['locationEvent']; ?><span class="badge">View map</span>
                     </a>
-                    <a href="#!" class="collection-item"><i class="material-icons left">assignment_ind</i>
+                    <a class="collection-item"><i class="material-icons left">assignment_ind</i>
                         <?php foreach ($data['nbVolunteer'] as $nbVolunteer) { ?>
                             <?= $nbVolunteer['SUM(nbVolunteer)'] ?> volunteers needed
                         <?php } ?>
@@ -64,7 +64,8 @@
                 <div class="clear event_apog">
                     <h5 class="blued ">Medias</h5>
                     <?php foreach ($data['medias'] as $media) { ?>
-                        <img class="event_media materialboxed" src="assets/img/events/uploads/<?= $media['eventPicture']; ?>" alt=""/>
+                        <img class="event_media materialboxed"
+                             src="assets/img/events/uploads/<?= $media['eventPicture']; ?>" alt=""/>
                     <?php } ?>
                 </div>
 
@@ -139,44 +140,40 @@
 
                 <div class="event_volunteers">
                     <div class="clear event_vol_faces">
-                        <a href="#">
-                            <img class="event_picto_face" src="assets/img/square_face.png" alt=""/>
-                        </a>
-                        <a href="#">
-                            <img class="event_picto_face" src="assets/img/square_face.png" alt=""/>
-                        </a>
-                        <a href="#">
-                            <img class="event_picto_face" src="assets/img/square_face.png" alt=""/>
-                        </a>
-                        <a href="#">
-                            <img class="event_picto_face" src="assets/img/square_face.png" alt=""/>
-                        </a>
-                        <a href="#">
-                            <img class="event_picto_face" src="assets/img/square_face.png" alt=""/>
-                        </a>
-                        <a href="#">
-                            <img class="event_picto_face" src="assets/img/square_face.png" alt=""/>
-                        </a>
-                        <a href="#">
-                            <img class="event_picto_face" src="assets/img/square_face.png" alt=""/>
-                        </a>
-                        <a href="#">
-                            <img class="event_picto_face" src="assets/img/square_face.png" alt=""/>
-                        </a>
-                        <a href="#">
-                            <img class="event_picto_face event_faces_responsive" src="assets/img/square_face.png"
-                                 alt="" id="event_faces_responsive1"/>
-                        </a>
-                        <a href="#">
-                            <img class="event_picto_face event_faces_responsive" src="assets/img/square_face.png"
-                                 alt=""/>
-                        </a>
+                        <?php foreach ($data['volunteers'] as $volunteer) { ?>
+                            <a>
+                                <img class="event_picto_face event_faces_responsive" src="assets/img/square_face.png"
+                                     alt=""/>
+                            </a>
+                            <?php
+                            if (isset($_SESSION['user_id'])) {
+                                if ($_SESSION['user_id'] == $volunteer['idUser']) {
+                                    $_SESSION['user_join_event'] = true;
+                                }
+                            }
+                            ?>
+                        <?php } ?>
                     </div>
-
                     <div class="clear">
-                        <button name="submit" type="submit" class="btn btn-orange event_secure_bouton">
-                            Join them now
-                        </button>
+                        <form action="user/join" method="post">
+                            <input type="hidden" name="idEvent" value="<?= $data['event']['idEvent']; ?>">
+                            <?php if (isset($_SESSION['user_email'])) { ?>
+                                <?php if (isset($_SESSION['user_join_event']) && $_SESSION['user_join_event'] == true) { ?>
+                                    <button name="submit" type="submit" class="btn btn-orange event_secure_bouton"
+                                            disabled>
+                                        You already had join the team
+                                    </button>
+                                <?php } else { ?>
+                                    <button name="submit" type="submit" class="btn btn-orange event_secure_bouton">
+                                        Join them now
+                                    </button>
+                                <?php } ?>
+                            <?php } else { ?>
+                                <button name="submit" type="submit" class="btn btn-orange event_secure_bouton" disabled>
+                                    Log in for join them
+                                </button>
+                            <?php } ?>
+                        </form>
                     </div>
                 </div>
                 <div>

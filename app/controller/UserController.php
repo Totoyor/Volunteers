@@ -142,4 +142,23 @@ class UserController extends AppController
         session_destroy();
         header('Location:?');
     }
+
+    public function join()
+    {
+        if (isset($_SESSION['user_id'])) {
+
+            $idEvent = $_POST['idEvent'];
+            $idUser = $_SESSION['user_id'];
+
+            if ($this->model->join($idEvent, $idUser)) {
+                header("location:/3ADEV/Volunteers/event/show/".$idEvent);
+            } else {
+                header("location:/3ADEV/Volunteers/event/show/".$idEvent."?join=nok");
+            }
+
+
+        } else {
+            die('please log in');
+        }
+    }
 }
