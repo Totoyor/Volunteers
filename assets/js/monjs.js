@@ -105,5 +105,12 @@ $(document).ready(function () {
     });
 
     $('.dropify').dropify();
+    
+     $('.nav-profil a').click(function(e) {
+        e.preventDefault();
+        $('a').removeClass('nav-profil-active');
+        $(this).addClass('nav-profil-active');
+    });
+
 
 });
