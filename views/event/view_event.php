@@ -9,7 +9,7 @@
 
                 <div class="collection event_apog">
                     <div class="collection-item1"><i
-                            class="material-icons left">schedule</i><?= $data['event']['startEvent'] . '  -  ' . $data['event']['endEvent']; ?>
+                            class="material-icons left">schedule</i><?= $data['event']['startEvent'] . '<em> ' . $data['event']['hourStartEvent'] . '</em>  -  ' . $data['event']['endEvent'] . '<em> ' . $data['event']['hourEndEvent'] . '</em>'; ?>
                     </div>
                     <a class="collection-item"><i class="material-icons left">location_on</i>
                         <?= $data['event']['locationEvent']; ?><span class="badge">View map</span>
