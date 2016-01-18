@@ -97,6 +97,35 @@ $(document).ready(function () {
     });
 
     $('.dropify').dropify();
+    
+     $('.nav-profil a').click(function(e) {
+        e.preventDefault();
+        $('a').removeClass('nav-profil-active');
+        $(this).addClass('nav-profil-active');
+    });
+
+
+
+    $('#genre-categories .categories').click(function () {
+
+        var str = $(this).find('li').text();
+        
+        $('.categories').append('.chip');
+        console.log("je passe ici");
+         
+
+
+    });
+
+
+
+
+
+
+
+
+
+
 
     
     
