@@ -143,7 +143,14 @@ class EventController extends AppController
                         }
 
                         //Chargement de la vue de l'évènement
-                        $data = $this->model->getEvent($lastId);
+                        //$data = $this->model->getEvent($lastId);
+                        $data = array(
+                            'event' => $this->model->getEvent($lastId),
+                            'missions' => $this->model->getMissions($lastId),
+                            'nbVolunteer' => $this->model->getNbVolunteers($lastId),
+                            'medias' => $this->model->getMedias($lastId),
+                            'volunteers' => $this->model->getVolunteers($lastId)
+                        );
                         define("TITLE_HEAD", "Event Save | Volunteers");
                         $this->load->view('event/view_event.php', $data);
                         exit();
@@ -291,7 +298,14 @@ class EventController extends AppController
                     }
 
                     //Chargement de la vue de l'évènement
-                    $data = $this->model->getEvent($lastId);
+                    //$data = $this->model->getEvent($lastId);
+                    $data = array(
+                        'event' => $this->model->getEvent($lastId),
+                        'missions' => $this->model->getMissions($lastId),
+                        'nbVolunteer' => $this->model->getNbVolunteers($lastId),
+                        'medias' => $this->model->getMedias($lastId),
+                        'volunteers' => $this->model->getVolunteers($lastId)
+                    );
                     define("TITLE_HEAD", "Event Name | Volunteers");
                     $this->load->view('event/view_event.php', $data);
                     exit();

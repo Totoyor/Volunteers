@@ -161,7 +161,7 @@
                                 <?php if (isset($_SESSION['user_join_event']) && $_SESSION['user_join_event'] == true) { ?>
                                     <button name="submit" type="submit" class="btn btn-orange event_secure_bouton"
                                             disabled>
-                                        You already had join the team
+                                        You have already join the team
                                     </button>
                                 <?php } else { ?>
                                     <button name="submit" type="submit" class="btn btn-orange event_secure_bouton">
