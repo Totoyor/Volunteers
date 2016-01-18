@@ -212,12 +212,11 @@ elseif(isset($_GET['email']) == 'NOK') {
     echo "<script type='text/javascript'>notie.alert(3, 'Email adress invalid !', 2);</script>";
 }
 */
+/*
 if(isset($_SESSION['error'])) {
     $this->coreAlertMessage($_SESSION['error']);
-}
+}*/
 ?>
-
-<?php  ?>
 
 </body>
 </html>
