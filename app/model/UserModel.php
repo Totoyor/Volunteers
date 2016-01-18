@@ -18,9 +18,17 @@ class UserModel extends AppModel
             $nbrRow = $query->rowCount();
             if ($nbrRow === 1)
             {
-                $_SESSION['user_email'] = $user['Email'];
-                $_SESSION['user_id'] = $user['idUser'];
-                return true;
+                if($user['Active'] == 1)
+                {
+                    $_SESSION['user_email'] = $user['Email'];
+                    $_SESSION['user_id'] = $user['idUser'];
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
             }
             else
             {
@@ -34,15 +42,17 @@ class UserModel extends AppModel
         }
     }
 
-    public function inscriptionUser($email, $password)
+    public function inscriptionUser($email, $password, $status, $key)
     {
         try
         {
-            $query = $this->connexion->prepare('INSERT INTO vol_users (Password, Email)
-                                                VALUES (:password, :email)');
+            $query = $this->connexion->prepare('INSERT INTO vol_users (Password, Email, Status, UserKey)
+                                                VALUES (:password, :email, :status, :key)');
 
             $query->bindParam(':email', $email, PDO::PARAM_STR);
             $query->bindParam(':password', $password, PDO::PARAM_STR);
+            $query->bindParam(':status', $status, PDO::PARAM_INT);
+            $query->bindParam(':key', $key, PDO::PARAM_INT);
             $query->execute();
             $query->closeCursor();
 
@@ -51,6 +61,59 @@ class UserModel extends AppModel
         catch (Exception $e)
         {
             return false;
+        }
+    }
+
+    public function checkEmail($key)
+    {
+        try
+        {
+            $query = $this->connexion->prepare('SELECT * FROM vol_users
+                                                WHERE UserKey = :key');
+
+            $query->bindParam(':key', $key, PDO::PARAM_INT);
+            $query->execute();
+            $user = $query->fetch();
+
+            if($user['Active'] == 1)
+            {
+                return false;
+            }
+            else
+            {
+                $nbrRow = $query->rowCount();
+                if ($nbrRow === 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+        catch (Exception $e)
+        {
+            return false;
+        }
+    }
+
+    public function validateUser($key, $active)
+    {
+        try {
+            $query = $this->connexion->prepare("UPDATE vol_users SET Active = :active WHERE UserKey = :key");
+
+            $query->bindValue(':key', $key, PDO::PARAM_STR);
+            $query->bindValue(':active', $active, PDO::PARAM_INT);
+
+            $query->execute();
+            $query->closeCursor();
+
+            return true;
+
+        }
+        catch (Exception $e) {
+            echo "Erreur MYSQL, impossible : ".$e->getMessage();
         }
     }
 }

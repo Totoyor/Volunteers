@@ -4,6 +4,9 @@ class UserController extends AppController
 {
     private $_login;
     private $_password;
+    private $_status;
+    private $_userKey;
+    private $_active;
     private $_nom;
     private $_prenom;
     
@@ -38,8 +41,7 @@ class UserController extends AppController
                 {
                     // Si false on renvoi sur une page erreur
                     define("TITLE_HEAD", "Erreur de connexion !");
-                    $_SESSION['error'] = 'EMAIL_NOK';
-                    header('Location:?login=nok');
+                    header('Location:?log=nok');
                     exit();
                 }
             }
@@ -47,14 +49,14 @@ class UserController extends AppController
             {
                 // Si false on renvoi sur une page erreur
                 define("TITLE_HEAD", "Erreur de connexion !");
-                header('Location:?signup=nok');
+                header('Location:?log=nok');
                 exit();
             }
         }
         else
         {
-            define("TITLE_HEAD", "Connexion");
-            header('Location:?login=nok');
+            define("TITLE_HEAD", "Erreur de connexion !");
+            header('Location:?log=nok');
             exit();
         }
     }
@@ -74,15 +76,15 @@ class UserController extends AppController
                 {
                     $this->_login = $_POST['email'];
                     $this->_password = md5($_POST['password']);
+                    $this->_status = 1;
+                    $this->_userKey = mt_rand();
 
                     // TODO
-                    // Ajout du statut du user !
                     // notification user Ok ou NOK
-                    // envoi de l'email de confirmation avec token
                     // AJAX
                     // Twitter Facebook
 
-                    if($this->model->inscriptionUser($this->_login, $this->_password))
+                    if($this->model->inscriptionUser($this->_login, $this->_password, $this->_status, $this->_userKey))
                     {
                         // Envoi du mail de confirmation
                         include_once('lib/class/mail.class.php');
@@ -96,7 +98,10 @@ class UserController extends AppController
 
                             // Ajout du contenu
                             $objet_mail = 'Volunteers Account';
-                            $message_mail = 'Hello, we confirm you that your account has been created ! Thanks !';
+                            $message_mail = 'Hello,
+                             We confirm you that your account has been created !
+                             Please confirm your email by cliking on this link : '.PATH_HOME.'?module=validate&key='.urlencode($this->_userKey).'
+                             Thanks !';
                             $mail->contenuMail($objet_mail, $message_mail);
 
                             // Envoi du mail
@@ -112,7 +117,7 @@ class UserController extends AppController
                     }
                     else
                     {
-                        header('Location:?sign=nok');
+                        header('Location:?signup=nok');
                         /*
                          $this->coreRedirect(array(
                             'param' => 'sign',
@@ -132,7 +137,7 @@ class UserController extends AppController
         }
         else
         {
-            header('Location:?sign=nok');
+            header('Location:?signup=nok');
         }
     }
 

@@ -196,14 +196,12 @@
 <script type="text/javascript" src="assets/js/dropify.js"></script>
 
 <?php
-/*
-if((isset($_GET['sign']) == 'ok') || (isset($_GET['login']) == 'ok'))
-{
+
+if((isset($_GET['sign']) == 'ok') || (isset($_GET['login']) == 'ok')) {
     echo "<script type='text/javascript'  src='assets/js/notie.js'></script>";
     echo "<script type='text/javascript'>notie.alert(1, 'Success !', 2);</script>";
 }
-elseif((isset($_GET['sign']) == 'nok') || (isset($_GET['login']) == 'nok'))
-{
+elseif((isset($_GET['signup']) == 'nok') || (isset($_GET['log']) == 'nok')) {
     echo "<script type='text/javascript'  src='assets/js/notie.js'></script>";
     echo "<script type='text/javascript'>notie.alert(3, 'Error !', 2);</script>";
 }
@@ -211,13 +209,12 @@ elseif(isset($_GET['email']) == 'NOK') {
     echo "<script type='text/javascript'  src='assets/js/notie.js'></script>";
     echo "<script type='text/javascript'>notie.alert(3, 'Email adress invalid !', 2);</script>";
 }
-*/
+/*
 if(isset($_SESSION['error'])) {
     $this->coreAlertMessage($_SESSION['error']);
 }
+*/
 ?>
-
-<?php  ?>
 
 </body>
 </html>
