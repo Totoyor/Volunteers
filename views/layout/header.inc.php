@@ -36,7 +36,7 @@
 <header>
     <nav>
         <div class="nav-wrapper">
-              <a href="?" class="brand-logo"><img src="assets/img/logov1.png" alt="logo"></a>
+              <a href="?" class="brand-logo"><img src="assets/img/logov3.svg" style="height:60px;"alt="logo"></a>
               <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a class="btn btn-menu" href="event/home">Create event</a></li>
                   <?php if(!isset($_SESSION['user_email'])) { ?>

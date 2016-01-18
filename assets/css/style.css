@@ -69,13 +69,11 @@ nav ul li a:hover {
 .btn {
     background-color: #5498d4;
     box-shadow: none;
-    border-bottom: 1px solid #3b80bd;
     -webkit-transition: 0.2s ease-out;
     -moz-transition: 0.2s ease-out;
     -o-transition: 0.2s ease-out;
     -ms-transition: 0.2s ease-out;
     transition: 0.2s ease-out;
-    line-height: 33px;
     padding: 0 1.5rem;
 }
 
@@ -87,6 +85,11 @@ nav ul li a:hover {
 
 a.viewmore.btn.btn-vue {
     color: #5498d4;
+}
+
+a.viewmore.btn.btn-blue {
+    color: #FFF;
+    border:1px solid #5498D4;
 }
 
 a.viewmore.btn.btn-vue:hover {
@@ -115,8 +118,14 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, btn-blue:focus {
 }
 
 .btn-blue:hover {
-    background-color: #77a5cd;
+    background-color: #FFF;
     box-shadow: none;
+    border:1px solid #5498D4;
+    color:#5498D4;
+}
+
+a.viewmore.btn.btn-blue:hover {
+    color:#5498D4;
 }
 
 .btn-orange:hover {
@@ -355,6 +364,10 @@ footer.page-footer {
 
 .button-collapse {
     color: #4a4a4a;
+}
+
+.newsletter-home {
+    color: #FFF;
 }
 
 /*** PAGE EN CONSTRUCTION ***/
@@ -883,11 +896,11 @@ a.btn.btn-vue-bis {
 }
 
 a.btn.btn-vue-bis:hover {
-    color: #5498d4;
+    color: #FFF;
 }
 
 a.viewmore.btn.btn-vue-bis:focus,
-a.card-action:focus, .grey-text.text-lighten-3:focus, btn-blue:focus {
+a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
     box-shadow: 0px 0px 5px rgba(56, 169, 240, 0.75);
 }
 
@@ -900,9 +913,8 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, btn-blue:focus {
 }
 
 .btn-vue-bis:hover {
-    background: #FFF;
-    color: #5498d4;
-}
+    background: #5498d4;
+}    
 
 #search input[type=text]:focus {
      box-shadow: none;
@@ -944,9 +956,6 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, btn-blue:focus {
     float: left;
     height: auto;
 }
-
-
-
 
 .event_media {
     background-color: #ccc;
@@ -1133,8 +1142,7 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, btn-blue:focus {
   
 }
     #event_faces_responsive1 {display: block!important;}
-    
-    
+        
 }
 
 
@@ -1304,4 +1312,5 @@ padding: 0px!important;
 .event_secure_btn2 {width: 150px!important}
 
 }
+/*****************ABOUT US**************/
 

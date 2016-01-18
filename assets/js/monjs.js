@@ -106,4 +106,26 @@ $(document).ready(function () {
 
     $('.dropify').dropify();
 
+
+    $('#genre-categories .categories').click(function () {
+
+        var str = $(this).find('li').text();
+        
+        $('.categories').append('.chip');
+        console.log("je passe ici");
+         
+
+
+    });
+
+
+
+
+
+
+
+
+
+
+
 });
