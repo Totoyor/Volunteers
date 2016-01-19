@@ -58,24 +58,4 @@ class Core
             return false;
         }
     }
-
-    protected function coreAlertMessage()
-    {
-        if(isset($_GET['email']) == 'NOK')
-        {
-            //$error = 'EMAIL_NOK';
-            //include_once 'lib/messages_error.php';
-
-            //$message = array_search($error, $errors);
-
-            //echo $message;
-
-            // TODO
-            // fonction array_truc_machin_chose pour choper le bon message
-            // return <script>notie.js</script> + message alert
-            // Unset $_Session['error']
-            //var_dump($error);
-            //var_dump($message);
-        }
-    }
 }

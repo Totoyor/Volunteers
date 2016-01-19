@@ -17,11 +17,11 @@ class UserController extends AppController
         parent::__construct();
     }
     
-    public function home()
+    /*public function home()
     {
         define("TITLE_HEAD", "Les utilisateurs du blog");
         $this->load->view('page/index.php');
-    }
+    }*/
 
     public function connect()
     {
@@ -32,15 +32,37 @@ class UserController extends AppController
                 $this->_login = $_POST['email'];
                 $this->_password = md5($_POST['password']);
 
-                if($this->model->connexionUser($this->_login, $this->_password))
+                if($user = $this->model->connexionUser($this->_login, $this->_password))
                 {
-                    // Si ok (true) alors on renvoi sur la page d'accueil
-                    header('Location:?login=ok');
+                    if($user['Active'] == 1)
+                    {
+                        // on set les infos dans la session
+                        $_SESSION['user_email'] = $user['Email'];
+                        $_SESSION['user_id'] = $user['idUser'];
+
+                        // on set le message de confirmation
+                        $messageFlash = 'Well done ! You are now logged in !';
+                        $this->coreSetFlashMessage('sucess', $messageFlash, 3);
+                        // et on renvoi sur la page d'accueil
+                        header('Location:?login=ok');
+                        exit();
+                    }
+                    else
+                    {
+                        // Si ok (true) alors on set le message d'erreur
+                        $messageFlash = 'Please confirm your email :)';
+                        $this->coreSetFlashMessage('warning', $messageFlash, 4);
+                        // et on renvoi sur la page d'accueil
+                        header('Location:?login=nok');
+                        exit();
+                    }
                 }
                 else
                 {
                     // Si false on renvoi sur une page erreur
-                    define("TITLE_HEAD", "Erreur de connexion !");
+                    define("TITLE_HEAD", "An error occur.");
+                    $messageFlash = 'Wrong email or wrong password. Please try again.';
+                    $this->coreSetFlashMessage('error', $messageFlash, 3);
                     header('Location:?log=nok');
                     exit();
                 }
@@ -48,14 +70,18 @@ class UserController extends AppController
             else
             {
                 // Si false on renvoi sur une page erreur
-                define("TITLE_HEAD", "Erreur de connexion !");
+                define("TITLE_HEAD", "An error occur.");
+                $messageFlash = 'An error occur. Please try again.';
+                $this->coreSetFlashMessage('error', $messageFlash, 3);
                 header('Location:?log=nok');
                 exit();
             }
         }
         else
         {
-            define("TITLE_HEAD", "Erreur de connexion !");
+            define("TITLE_HEAD", "An error occur.");
+            $messageFlash = 'An error occur. Please try again.';
+            $this->coreSetFlashMessage('error', $messageFlash, 3);
             header('Location:?log=nok');
             exit();
         }
@@ -69,6 +95,9 @@ class UserController extends AppController
             {
                 if(!$this->coreCheckEmail($_POST['email']))
                 {
+                    define("TITLE_HEAD", "An error occur.");
+                    $messageFlash = 'Your email is wrong. Please try again.';
+                    $this->coreSetFlashMessage('error', $messageFlash, 3);
                     header('Location:?email=NOK');
                     exit();
                 }
@@ -80,7 +109,6 @@ class UserController extends AppController
                     $this->_userKey = mt_rand();
 
                     // TODO
-                    // notification user Ok ou NOK
                     // AJAX
                     // Twitter Facebook
 
@@ -113,11 +141,18 @@ class UserController extends AppController
                         }
 
                         // Si ok (true) alors on renvoi sur la page d'accueil
+                        $messageFlash = 'Your account has been created. Please confirm your email trought the one we sent you.';
+                        $this->coreSetFlashMessage('sucess', $messageFlash, 6);
                         header('Location:?sign=ok');
+                        exit();
                     }
                     else
                     {
+                        define("TITLE_HEAD", "An error occur.");
+                        $messageFlash = 'An error occur. Please try again.';
+                        $this->coreSetFlashMessage('error', $messageFlash, 3);
                         header('Location:?signup=nok');
+                        exit();
                         /*
                          $this->coreRedirect(array(
                             'param' => 'sign',
@@ -130,14 +165,20 @@ class UserController extends AppController
             else
             {
                 // Si false on renvoi sur une page erreur
-                define("TITLE_HEAD", "Erreur de connexion !");
+                define("TITLE_HEAD", "An error occur.");
+                $messageFlash = 'An error occur. Please try again.';
+                $this->coreSetFlashMessage('error', $messageFlash, 3);
                 header('Location:?signup=nok');
                 exit();
             }
         }
         else
         {
+            define("TITLE_HEAD", "An error occur.");
+            $messageFlash = 'An error occur. Please try again.';
+            $this->coreSetFlashMessage('error', $messageFlash, 3);
             header('Location:?signup=nok');
+            exit();
         }
     }
 
@@ -146,5 +187,6 @@ class UserController extends AppController
         session_unset();
         session_destroy();
         header('Location:?');
+        exit();
     }
 }

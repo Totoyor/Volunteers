@@ -14,6 +14,8 @@
     <link href="assets/css/dropify.css" rel="stylesheet" type="text/css">
     <!--Import Google Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Scripts-->
+    <script type="text/javascript" src="assets/js/fb_login.js"></script>
     <!--[if lt IE 8]>
       <div id="update-browser" class="error">
         <div class="ub-container">
@@ -39,13 +41,13 @@
               <a href="?" class="brand-logo"><img src="assets/img/logov1.png" alt="logo"></a>
               <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a class="btn btn-menu" href="event/home">Create event</a></li>
-                  <?php if(!isset($_SESSION['user_email'])) { ?>
-                <li><a onClick="ga('send', 'clic', 'Log In');" class="modal-trigger" href="#login">Log In</a></li>
-                <li><a onClick="ga('send', 'clic', 'Sign Up');" class="modal-trigger" href="#signup">Sign Up</a></li>
+                  <?php if(isset($_SESSION['user_email']) || isset($_COOKIE['fbsr_941553679268599'])) { ?>
+                      <li><a onClick="ga('send', 'clic', 'Events');" href="?module=event&action=lists">Events</a></li>
+                      <li><a onClick="ga('send', 'clic', 'Profile');" href="?module=profile">My Profile</a></li>
+                      <li><a onClick="ga('send', 'clic', 'Disconnect');" href="?module=user&action=disconnect">Disconnect</a></li>
                   <?php } else { ?>
-                  <li><a onClick="ga('send', 'clic', 'Events');" href="?module=event&action=lists">Events</a></li>
-                  <li><a onClick="ga('send', 'clic', 'Profile');" href="?module=profile">My Profile</a></li>
-                  <li><a onClick="ga('send', 'clic', 'Disconnect');" href="?module=user&action=disconnect">Disconnect</a></li>
+                      <li><a onClick="ga('send', 'clic', 'Log In');" class="modal-trigger" href="#login">Log In</a></li>
+                      <li><a onClick="ga('send', 'clic', 'Sign Up');" class="modal-trigger" href="#signup">Sign Up</a></li>
                   <?php } ?>
                 <li><a onClick="ga('send', 'clic', 'Help');" href="?module=help">Help</a></li>
               </ul>
@@ -71,6 +73,11 @@
         <h4 class="titre-login white-text">Log In</h4>
         </div>
         <div class="modal-content">
+            <div class="login_facebook">
+                <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true"></div>
+                <div id="status">
+                </div>
+            </div>
             <form class="login-form" action="?module=user&action=connect" method="post">
                 <div class="row">
                   <div class="input-field col s12">
@@ -143,7 +150,7 @@
 
                 <div class="row">
                   <div class="input-field col s12">
-                      <button id="submit" class="btn waves-effect waves-light" type="submit" name="action">Sign Up</button>
+                      <button id="bt-signup" class="btn waves-effect waves-light" type="submit" name="action">Sign Up</button>
                   </div>
                 </div>
 

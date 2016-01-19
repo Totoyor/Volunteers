@@ -32,14 +32,10 @@ class CoreController extends Core
         }
     }
 
-    public function coreSetError()
+    public function coreSetFlashMessage($type, $message, $duration)
     {
-
-    }
-
-    public function coreGetError($param)
-    {
-        //include_once('lib/messages_error.php');
-
+        $_SESSION['FlashMessage'] = array('type' => $type,
+                                            'message' => $message,
+                                            'duration' => $duration);
     }
 }

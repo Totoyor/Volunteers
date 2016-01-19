@@ -18,21 +18,10 @@ class UserModel extends AppModel
             $nbrRow = $query->rowCount();
             if ($nbrRow === 1)
             {
-                if($user['Active'] == 1)
-                {
-                    $_SESSION['user_email'] = $user['Email'];
-                    $_SESSION['user_id'] = $user['idUser'];
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-
+                return $user;
             }
             else
             {
-                $_SESSION["login"] = false;
                 return false;
             }
         }

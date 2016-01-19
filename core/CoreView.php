@@ -37,4 +37,43 @@ class CoreView extends Core
 
         echo $lien;
     }
+
+    function helperGetFlashMessage($options = []) {
+
+        $notification = '<script>notie.alert(';
+
+        if(isset($options['type'])) {
+            if(!empty($options['type'])) {
+                switch($options['type']) {
+                    case 'sucess':
+                        $notification .= 1;
+                        break;
+                    case 'warning':
+                        $notification .= 2;
+                        break;
+                    case 'error':
+                        $notification .= 3;
+                        break;
+                }
+            }
+        }
+
+        $notification .= ", '";
+
+        if(isset($options['message'])) {
+            if(!empty($options['message'])) {
+                $notification .= $options['message']."', ";
+            }
+        }
+
+        if(isset($options['duration'])) {
+            if(!empty($options['duration'])) {
+                    $notification .=  $options['duration'];
+            }
+        }
+
+        $notification .= ');</script>';
+
+        echo $notification;
+    }
 }
