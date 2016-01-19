@@ -36,7 +36,7 @@ class EventController extends AppController
                     }
 
                     if (isset($_POST['event_hour_start']) && isset($_POST['event_min_start'])) {
-                        $event_hour_start = $_POST['event_hour_start'] . " H " . $_POST['event_min_start'];
+                        $event_hour_start = $_POST['event_hour_start'] . ":" . $_POST['event_min_start'];
                     } else {
                         $event_hour_start = NULL;
                     }
@@ -48,7 +48,7 @@ class EventController extends AppController
                     }
 
                     if (isset($_POST['event_hour_end']) && isset($_POST['event_min_end'])) {
-                        $event_hour_end = $_POST['event_hour_end'] . " H " . $_POST['event_min_end'];
+                        $event_hour_end = $_POST['event_hour_end'] . ":" . $_POST['event_min_end'];
                     } else {
                         $event_hour_end = NULL;
                     }
@@ -183,7 +183,7 @@ class EventController extends AppController
                     }
 
                     if (!empty($_POST['event_hour_start']) && !empty($_POST['event_min_start']) && !empty($_POST['event_start_mode'])) {
-                        $event_hour_start = $_POST['event_hour_start'] . " H " . $_POST['event_min_start'] . " " . $_POST['event_start_mode'];
+                        $event_hour_start = $_POST['event_hour_start'] . ":" . $_POST['event_min_start'] . " " . $_POST['event_start_mode'];
                     } else {
                         header("location:home?create&event=startTimeNok");
                         exit();
@@ -196,7 +196,7 @@ class EventController extends AppController
                     }
 
                     if (!empty($_POST['event_hour_end']) && !empty($_POST['event_min_end']) && !empty($_POST['event_end_mode'])) {
-                        $event_hour_end = $_POST['event_hour_end'] . " H " . $_POST['event_min_end'] . " " . $_POST['event_end_mode'];
+                        $event_hour_end = $_POST['event_hour_end'] . ":" . $_POST['event_min_end'] . " " . $_POST['event_end_mode'];
                     } else {
                         header("location:home?create&event=endTimeNok");
                         exit();

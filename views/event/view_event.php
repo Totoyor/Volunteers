@@ -7,18 +7,36 @@
             <div class="col s12 m8 event_maincontent">
                 <h3 class="center event_title"><?= $data['event']['nameEvent']; ?></h3>
 
-                <div class="collection event_apog">
-                    <div class="collection-item1"><i
-                            class="material-icons left">schedule</i><?= $data['event']['startEvent'] . '<em> ' . $data['event']['hourStartEvent'] . '</em>  -  ' . $data['event']['endEvent'] . '<em> ' . $data['event']['hourEndEvent'] . '</em>'; ?>
-                    </div>
-                    <a class="collection-item"><i class="material-icons left">location_on</i>
-                        <?= $data['event']['locationEvent']; ?><span class="badge">View map</span>
-                    </a>
-                    <a class="collection-item"><i class="material-icons left">assignment_ind</i>
-                        <?php foreach ($data['nbVolunteer'] as $nbVolunteer) { ?>
-                            <?= $nbVolunteer['SUM(nbVolunteer)'] ?> volunteers needed
-                        <?php } ?>
-                    </a>
+                <!--<div class="collection event_apog">
+                    <ul>
+                        <div class="collection-item1"><i
+                                class="material-icons left">schedule</i><?= $data['event']['startEvent'] . '<em> ' . $data['event']['hourStartEvent'] . '</em>  -  ' . $data['event']['endEvent'] . '<em> ' . $data['event']['hourEndEvent'] . '</em>'; ?>
+                        </div>-->
+                        <!--<a class="collapsible-body collection-item"><i class="material-icons left">location_on</i>
+                            <span class="badge">View map</span>
+                        </a>-->
+                        <!--<a class="collection-item"><i class="material-icons left">assignment_ind</i>
+
+                        </a>
+                    </ul>
+                </div>-->
+
+                <div class="col s12 m12">
+                    <ul class="collapsible" data-collapsible="accordion">
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons left">schedule</i><?= $data['event']['startEvent'] . '<em> ' . $data['event']['hourStartEvent'] . '</em>  -  ' . $data['event']['endEvent'] . '<em> ' . $data['event']['hourEndEvent'] . '</em>'; ?></div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons left">location_on</i><?= $data['event']['locationEvent']; ?></div>
+                            <div class="collapsible-body"><p>GOOGLE MAP</p></div>
+                        </li>
+                        <li>
+                            <div class="collapsible-header"><i class="material-icons left">assignment_ind</i>
+                                <?php foreach ($data['nbVolunteer'] as $nbVolunteer) { ?>
+                                    <?= $nbVolunteer['SUM(nbVolunteer)'] ?> volunteers needed
+                                <?php } ?></div>
+                        </li>
+                    </ul>
                 </div>
 
                 <div class="more_margin"></div>
@@ -127,9 +145,11 @@
                                         arbitrantur o ad aliqua commodo incurreret ab noster incididunt. Commodo hic
                                         sunt, legam e laboris ea se summis noster quid quibusdam et nisi in probant
                                     </p>
-
                                 </div>
                             </div>
+                        </li>
+                        <li>
+
                         </li>
                     </ul>
                 </div>
@@ -148,7 +168,7 @@
                             <?php
                             if (isset($_SESSION['user_id'])) {
                                 if ($_SESSION['user_id'] == $volunteer['idUser']) {
-                                    $_SESSION['user_join_event'] = true;
+                                    $userJoinEvent = true;
                                 }
                             }
                             ?>
@@ -158,7 +178,7 @@
                         <form action="user/join" method="post">
                             <input type="hidden" name="idEvent" value="<?= $data['event']['idEvent']; ?>">
                             <?php if (isset($_SESSION['user_email'])) { ?>
-                                <?php if (isset($_SESSION['user_join_event']) && $_SESSION['user_join_event'] == true) { ?>
+                                <?php if (isset($userJoinEvent) && $userJoinEvent == true) { ?>
                                     <button name="submit" type="submit" class="btn btn-orange event_secure_bouton"
                                             disabled>
                                         You have already join the team

@@ -140,7 +140,8 @@ class UserController extends AppController
     {
         session_unset();
         session_destroy();
-        header('Location:?');
+        //header('Location:?');
+        header("location:/3ADEV/Volunteers/");
     }
 
     public function join()

@@ -102,7 +102,7 @@
             <div class="col s12 m3 footer-elements">
                 <h5 class="title-list white-text">Company</h5>
                 <ul>
-                    <li><a class="grey-text text-lighten-3" href="#!">About us</a></li>
+                    <li><a class="grey-text text-lighten-3" href="page/aboutus">About us</a></li>
                     <li><a class="grey-text text-lighten-3" href="#!">Contact</a></li>
                     <li><a class="grey-text text-lighten-3" href="blog/home">Blog</a></li>
                     <li><a class="grey-text text-lighten-3" href="#!">Terms and privacy</a></li>
@@ -125,22 +125,22 @@
                     <li>
                         <a class="grey-text text-lighten-3"
                            href="https://www.facebook.com/Volunteers-EEMI-1618903831716708/?fref=ts">
-                            <img class="icon-social" src="assets/img/fb.png">
+                            <img class="icon-social" src="assets/img/fb.svg">
                         </a>
                     </li>
                     <li>
                         <a class="grey-text text-lighten-3" href="#!">
-                            <img class="icon-social" src="assets/img/tw.png">
+                            <img class="icon-social" src="assets/img/tw.svg">
                         </a>
                     </li>
                     <li>
                         <a class="grey-text text-lighten-3" href="#!">
-                            <img class="icon-social" src="assets/img/ig.png">
+                            <img class="icon-social" src="assets/img/ig.svg">
                         </a>
                     </li>
                     <li>
                         <a class="grey-text text-lighten-3" href="#!">
-                            <img class="icon-social" src="assets/img/yt.png">
+                            <img class="icon-social" src="assets/img/yt.svg">
                         </a>
                     </li>
                 </ul>
@@ -155,8 +155,8 @@
                             method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
                             class="validate" target="_blank" novalidate>
                             <div id="mc_embed_signup_scroll">
-                                <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL"
-                                       placeholder="email address" required>
+                                <input type="email" value="" name="EMAIL" class="email newsletter-home" id="mce-EMAIL"
+                                       placeholder="Enter your e-mail" required>
                                 <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                                 <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_2fb275a6dc11af1ee664e7ea2_f47de3f760" tabindex="-1" value="">
                                 </div>
@@ -212,12 +212,11 @@ elseif(isset($_GET['email']) == 'NOK') {
     echo "<script type='text/javascript'>notie.alert(3, 'Email adress invalid !', 2);</script>";
 }
 */
+/*
 if(isset($_SESSION['error'])) {
     $this->coreAlertMessage($_SESSION['error']);
-}
+}*/
 ?>
-
-<?php  ?>
 
 </body>
 </html>

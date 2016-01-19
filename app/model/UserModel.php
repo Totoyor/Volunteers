@@ -45,7 +45,7 @@ class UserModel extends AppModel
             $query->bindParam(':password', $password, PDO::PARAM_STR);
             $query->execute();
             $query->closeCursor();
-
+            
             return true;
         }
         catch (Exception $e)

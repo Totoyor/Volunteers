@@ -1,12 +1,12 @@
 <?php include_once('views/layout/header.inc.php'); ?>
     <div class="row creabody">
-        <div class="page_event col m10 s12 l7">
-            <div class="formulaire_crea col l10 offset-m3">
+        <div class="page_event col m10 s12 l8">
+            <div class="formulaire_crea col l12">
                 <div class="row">
-                    <div class="col offset-m1 offset-l1 s12 m12 l12 center">
-                        <h1 class="title-section left bleu">Ready to find volunteers ?</h1>
+                    <div class="center">
+                        <h1 class="title-section center bleu">Ready to find volunteers ?</h1>
                     </div>
-                    <p class="col m10 offset-m1">
+                    <p class="">
                         Aliqua instituendarum appellat elit singulis. Officia ipsum voluptate a
                         excepteur a proident, si malis malis varias mandaremus, minim iis admodum ut
                         esse, admodum enim ubi nostrud comprehenderit.
@@ -14,19 +14,22 @@
                 </div>
 
                 <!-----/****FORMS****/---->
-                <form method="post" action="event/create" class="col s12" enctype="multipart/form-data">
+                <form method="post" action="event/create" class="" enctype="multipart/form-data">
 
                     <div class="row btn_crea1">
-                        <div class="col m6 s6 offset-m1">
-                            <p class="right grisc saveyour">You can save your draft at anytime</p>
-                        </div>
-                        <div class="col m1 s2 center">
-                            <button name="save" class="btn btn-menu" onclick="Materialize.toast('Saved', 4000)">Save</button>
-                        </div>
-                        <div class="col s3 m3 l2 center offset-s1 offset-m1 publish-button">
-                            <button name="submit" href="#" class="btn btn-orange"
-                                    onclick="Materialize.toast('Published', 4000)">Publish
-                            </button>
+                        <div class="right">
+                            <?php if(isset($_SESSION['user_id'])){ ?>
+                                <button name="save" class="btn btn-menu">Save</button>
+
+                                <button name="submit" href="#" class="btn btn-orange"
+                                        onclick="Materialize.toast('Published', 4000)">Publish
+                                </button>
+                            <?php } else { ?>
+                                <a name="save" class="btn btn-menu modal-trigger" href="#login">Save</a>
+
+                                <a name="submit" href="#login" class="btn btn-orange modal-trigger">Publish
+                                </a>
+                            <?php } ?>
                         </div>
                     </div>
 
@@ -34,8 +37,8 @@
 
                     <!----I-1----->
                     <div class="row">
-                        <div class="separateur_form valign-wrapper offset-m1 offset-l1 col l10 m10 s12">
-                            <div class="bullet_point offset-m1 offset-l1">
+                        <div class="separateur_form valign-wrapper col l12 m12 s12">
+                            <div class="bullet_point">
                                 <p class="num_bullet_point">1</p>
                             </div>
                             <div>
@@ -44,14 +47,15 @@
                         </div>
                     </div>
 
-                    <div class="input-field col s11 offset-m1 offset-l1 col l10 m10">
-                        <input name="event_name" class="validate" id="location-search" type="text" required>
+                    <div class="input-field col s12 l12 m12">
+                        <input name="event_name" class="" name="event_name" data-position="right" data-delay="50"
+                               data-tooltip="Show me what you've got !" id="" type="text" required>
                         <label for="icon_prefix">Event Name</label>
                     </div>
 
                     <div class="row">
-                        <div class="input-field col s11 offset-m1 offset-l1 col l10 m10">
-                            <i class="material-icons prefix">location_on</i>
+                        <div class="input-field col s12 col l12 m12">
+                            
                             <input name="event_location" id="icon_prefix" type="text" class="tooltipped validate"
                                    data-position="right"
                                    data-delay="50" data-tooltip="Where is your event ?">
@@ -60,7 +64,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="input-field col s8 offset-m1 offset-l1 col l6 m6">
+                        <div class="input-field col s9 l10 m9">
                             <i class="material-icons prefix">today</i>
                             <input data-position="right" data-delay="50" data-tooltip="What day is it?"
                                    name="event_start" id="icon_prefix" type="date"
@@ -68,13 +72,13 @@
                                    class="validate datepicker tooltipped">
                             <label for="icon_prefix"></label>
                         </div>
-                        <div class="col s4 l4 m4">
+                        <div class="col s3 l2 m3">
                             <p><a class="showend">+ End time</a></p>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="input-field col s8 offset-m1 offset-l1 col l6 m6 newdate">
+                        <div class="input-field col s10 l10 m10 newdate">
                             <i class="material-icons prefix">today</i>
                             <input name="event_end" id="icon_prefix" type="date"
                                    placeholder="Click here to choose the ending"
@@ -85,7 +89,7 @@
 
 
                     <div class="row">
-                        <div class="input-field col s6 m2">
+                        <div class="input-field col s6 m3">
                             <select name="event_hour_start">
                                 <option value="" disabled selected>Hours</option>
                                 <option value="0">00</option>
@@ -105,7 +109,7 @@
                             <label>Starting</label>
                         </div>
 
-                        <div class="input-field col s6 m2">
+                        <div class="input-field col s6 m3">
                             <select name="event_min_start">
                                 <option value="" disabled selected>Minutes</option>
                                 <option value="00">00</option>
@@ -124,7 +128,7 @@
                             <label></label>
                         </div>
 
-                        <div class="input-field col s6 m2 tooltipped" data-position="right" data-delay="50" data-tooltip="When?">
+                        <div class="input-field col s6 m3 tooltipped" data-position="right" data-delay="50" data-tooltip="When?">
                             <select name="event_start_mode">
                                 <option value="" disabled selected>AM - PM</option>
                                 <option value="am">AM</option>
@@ -135,7 +139,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="input-field col s6 m2 offset-m1">
+                        <div class="input-field col s6 m3 offset-m1">
                             <select name="event_hour_end">
                                 <option value="" disabled selected>Hours</option>
                                 <option value="0">00</option>
@@ -155,7 +159,7 @@
                             <label>Ending</label>
                         </div>
 
-                        <div class="input-field col s6 m2">
+                        <div class="input-field col s6 m3">
                             <select name="event_min_end">
                                 <option value="" disabled selected>Minutes</option>
                                 <option value="00">00</option>
@@ -174,7 +178,7 @@
                             <label></label>
                         </div>
 
-                        <div class="input-field col s6 m2 tooltipped" data-position="right" data-delay="50" data-tooltip="When?">
+                        <div class="input-field col s6 m3 tooltipped" data-position="right" data-delay="50" data-tooltip="When?">
                             <select name="event_end_mode">
                                 <option value="" disabled selected>AM - PM</option>
                                 <option value="am">AM</option>
@@ -185,7 +189,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="input-field col s10 offset-m1 offset-l1 col l10 m10">
+                        <div class="input-field col s12 l12 m12">
                             <textarea name="event_description" id="textarea1 icon_prefix"
                                       class="materialize-textarea tooltipped" data-tooltip="How awesome is your event ?"
                                       data-position="right" data-delay="50"></textarea>
@@ -203,7 +207,6 @@
                                     ?>
                                     <option value="<?= $category['idCategorie']; ?>"
                                             class="left circle"><?= $category['nameCategorie']; ?></option>
-                                    <!--<input type="hidden" name="nameCategorie" value="">-->
                                     <?php
                                 } ?>
                             </select>
@@ -212,7 +215,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="input-field col s12 col l12 m12">
+                        <div class="input-field col s12 l12 m12">
                             <input name="coverPicture" type="file" id="input-file-now" data-height="200" class="dropify tooltipped"
                                    data-tooltip="Choose a cover picture"
                                    data-delay="50" data-position="right"/>
@@ -238,66 +241,72 @@
 
                     <!----II-2----->
                     <div class="row">
-                        <div class="separateur_form valign-wrapper offset-m1 offset-l1 col l10 m10 s12">
+                        <div class="separateur_form valign-wrapper col l12 m12 s12">
                             <div class="bullet_point">
-                                <p class="num_bullet_point">
-                                    2
-                                </p>
+                                <p class="num_bullet_point">2</p>
                             </div>
                             <div>
-                                <h2 class="text_separteur col m12 offset-m4 offset-l4">Volunteers needed<h2/>
+                                <h3 class="text_separteur">Volunteers needed !</h3>
                             </div>
                         </div>
                     </div>
 
-                    <div id="first-mission-field" class="row mission top-space tooltipped"
+                    <div id="first-mission-field" class="top-space tooltipped"
                          data-delay="50" data-position="right"
                          data-tooltip="What kind of missions for your volunteers?">
-                        <div class="input-field col s8 secure-mission offset-m1">
+                        <div class="input-field col s9 secure-mission">
                             <input name="missions[]" id="icon_prefix" placeholder="Barman" type="text" class="validate">
                             <label for="icon_prefix">Mission</label>
                         </div>
-                        <div class="input-field col s2 secure_nb_vol">
-                            <div class="input-field col s8 secure-mission offset-m1">
+                        <div class="input-field col s3 secure_nb_vol">
+                            <div class="input-field col secure-mission">
                                 <input name="nbVolunteer[]" placeholder="1" type="number" min="0" class="validate">
                                 <label>Number</label>
                             </div>
                         </div>
                     </div>
 
-                    <div id="mission-field" class="row tooltipped mission hide" data-position="right" data-delay="50"
+                    <div id="mission-field" class="tooltipped mission hide" data-position="right" data-delay="50"
                          data-tooltip="What kind of missions for your volunteers?">
-                        <div class="input-field col s8 secure-mission offset-m1">
+                        <div class="input-field col s9 secure-mission">
                             <input name="missions[]" id="icon_prefix" placeholder="Barman" type="text" class="validate">
                             <label for="icon_prefix">Mission</label>
                         </div>
-                        <div class="input-field col s2 secure_nb_vol">
-                            <div class="input-field col s8 secure-mission offset-m1">
+                        <div class="input-field col s3 secure_nb_vol">
+                            <div class="input-field col secure-mission">
                                 <input name="nbVolunteer[]" placeholder="1" type="number" min="0" class="validate">
                                 <label>Number</label>
                             </div>
                         </div>
                     </div>
+                    
                     <div id="new-mission"></div>
 
                     <div class="row">
-                        <div class="offset-l1 offset-m1 col m3  center">
+                        <div class="left col">
                             <a class="btn btn-bleu addmiss">+ Add </a>
                         </div>
                     </div>
 
-                    <div class="row btn_crea1">
-                        <div class="offset-m7 offset-s6 col m1 s2 center">
-                            <button name="save" onclick="Materialize.toast('Saved', 4000)" type="submit"
-                                    class="btn btn-menu">Save
-                            </button>
+                    <div class="row btn_crea2">
+                        
+                        
+                        
+                        <div class="right">
+                            <?php if(isset($_SESSION['user_id'])){ ?>
+                                <button name="save" class="btn btn-menu">Save</button>
+
+                                <button name="submit" href="#" class="btn btn-orange"
+                                        onclick="Materialize.toast('Published', 4000)">Publish
+                                </button>
+                            <?php } else { ?>
+                                <a name="save" class="btn btn-menu modal-trigger" href="#login">Save</a>
+
+                                <a name="submit" href="#login" class="btn btn-orange modal-trigger">Publish
+                                </a>
+                            <?php } ?>
                         </div>
-                        <div class="col s3 m3 l2 center offset-s1 offset-m1 publish-button">
-                            <button name="submit" onclick="Materialize.toast('Published', 4000)" type="submit"
-                                    class="btn btn-orange">
-                                Publish
-                            </button>
-                        </div>
+                       
                     </div>
 
                 </form><!--//// END FOM ****/////--->

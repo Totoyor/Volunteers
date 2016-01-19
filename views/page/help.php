@@ -2,8 +2,8 @@
     <div class="container content-blog">
         <div class="row">
             <div class="col s12 m12">
-                <div class="card-panel">
-                    <h1>How can we help you ?</h1>
+                <div class="card-panel center">
+                    <h1>You don't need help</h1>
                 </div>
             </div>
         </div>
