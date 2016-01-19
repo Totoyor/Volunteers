@@ -4,15 +4,7 @@ $(document).ready(function () {
 
     $(".hidden-content-rightside").hide();
     $(".hidden-content-leftside").hide();
-    $(".bgorange").css("background-color", "rgba(255,158,2,0.9)");
-
-    $(".bgorange").mouseleave(function () {
-        $(".bgorange").css("background-color", "rgba(255,158,2,0.4)");
-    })
-
-    $(".bgorange").mouseenter(function () {
-        $(".bgorange").css("background-color", "rgba(255,158,2,0.9)");
-    })
+   
 
     $(".bgorange").mouseover(function () {
         $(".hidden-content-rightside").show("slow");
@@ -105,5 +97,39 @@ $(document).ready(function () {
     });
 
     $('.dropify').dropify();
+    
+     $('.nav-profil a').click(function(e) {
+        e.preventDefault();
+        $('a').removeClass('nav-profil-active');
+        $(this).addClass('nav-profil-active');
+    });
 
+
+
+    $('#genre-categories .categories').click(function () {
+
+        var str = $(this).find('li').text();
+        
+        $('.categories').append('.chip');
+        console.log("je passe ici");
+         
+
+
+    });
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+
+    
 });

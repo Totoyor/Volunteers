@@ -44,7 +44,7 @@ class UserModel extends AppModel
             $query->bindParam(':key', $key, PDO::PARAM_INT);
             $query->execute();
             $query->closeCursor();
-
+            
             return true;
         }
         catch (Exception $e)
