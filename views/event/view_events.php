@@ -4,14 +4,14 @@
     <div class="row margtop100">
         <div class="col s12 m9 l9 right">
             <div class="row">
-                <div class="col s10">
-                    <form method="get" action="/search" id="search-event">
-                        <input type="text" placeholder="Search for events.." id="event-search"/>
-                    </form>
-                </div>
-                <div class="col s2">
-                    <a class="btn btn-vue-bis" href="#">Search</a>
-                </div>
+                <form method="get" name="search-event" action="#" id="search-event">
+                    <div class="col s12">
+                        <input type="text" name="input-search" placeholder="Search for events.." id="input-search"/>
+                    </div>
+                    <!--<div class="col s2">
+                        <button type="submit" class="btn btn-vue-bis">Search</button>
+                    </div>-->
+                </form>
             </div>
             <hr class="fancy-hr">
         </div>
@@ -56,29 +56,45 @@
 
         </div>
         <div class="col s12 m9 l9 right">
-            <div class="row">
+            <div class="div_results row">
                 <?php foreach ($data['events'] as $event) : ?>
-                    <div class="col s12 m6 l4">
+                    <div id="divList" class="col s12 m6 l4">
                         <div class="card small event popevent left">
                             <div class="card-image">
                                 <img class="responsive-img" src="assets/img/events/uploads/<?= $event['coverPicture']; ?>" alt="image-event">
                             </div>
                             <div class="card-content">
                                 <h4 class="titre-cards truncate"><?= $event['nameEvent']; ?></h4>
-                                <h6 class="truncate"><?= $event['locationEvent']; ?>, <?= $event['startEvent']; ?></h6>
+                                <h6 class="truncate location-cards"><?= $event['locationEvent']; ?>, <?= $event['startEvent']; ?></h6>
                             </div>
                             <div class="card-action">
-                                <a href="#"><?= $event['nameCategorie']; ?></a>
+                                <a class="card-categorie" href="#"><?= $event['nameCategorie']; ?></a>
                                 <a class="viewmore btn btn-blue" href="event/show/<?= $event['idEvent']; ?>">See more</a>
                             </div>
                         </div>
                     </div>
                 <?php endforeach; ?>
-                <!--<hr class="fancy-hr">-->
             </div>
         </div>
     </div>
 </div><!-- fin container-->
 
+<div class="bloc_search col s12 m6 l4">
+    <div class="card small event popevent left">
+        <div class="card-image">
+            <img class="responsive-img" src="assets/img/events/uploads/<?= $event['coverPicture']; ?>" alt="image-event">
+        </div>
+        <div class="card-content">
+            <h4 class="titre-cards truncate"><?= $event['nameEvent']; ?></h4>
+            <h6 class="truncate location-cards"><?= $event['locationEvent']; ?>, <?= $event['startEvent']; ?></h6>
+        </div>
+        <div class="card-action">
+            <a class="card-categorie" href="#"><?= $event['nameCategorie']; ?></a>
+            <a class="viewmore btn btn-blue" href="event/show/<?= $event['idEvent']; ?>">See more</a>
+        </div>
+    </div>
+</div>
+
 <?php include_once('views/layout/footer.inc.php'); ?>
+<script type="text/javascript" src="assets/js/ajax.search.js"></script>
 

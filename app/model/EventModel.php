@@ -267,4 +267,38 @@ Class EventModel extends AppModel
             return false;
         }
     }
+
+    public function search($recherche)
+    {
+        try
+        {
+
+            $query = $this->connexion->prepare("SELECT * FROM vol_events
+                                                LEFT JOIN vol_event_pictures
+                                                ON vol_events.idEvent = vol_event_pictures.vol_events_idEvent
+                                                LEFT JOIN vol_event_missions
+                                                ON vol_events.idEvent = vol_event_missions.vol_events_idEvent
+                                                LEFT JOIN vol_events_categories_has_vol_events
+                                                ON vol_events.idEvent = vol_events_categories_has_vol_events.vol_events_idEvent
+                                                LEFT JOIN vol_events_categories
+                                                ON vol_events_categories_has_vol_events.vol_events_categories_idCategorie = vol_events_categories.idCategorie
+                                                WHERE vol_events.nameEvent LIKE '%$recherche%'
+                                                OR vol_events.locationEvent LIKE '%$recherche%'
+                                                AND vol_events.statusEvent = :status
+                                                GROUP BY idEvent ");
+
+            $query->bindValue(':status', 1, PDO::PARAM_INT);
+            $query->execute();
+            $data = $query->fetchAll(PDO::FETCH_ASSOC);
+            $query->closeCursor();
+
+            return $data;
+
+        }
+        catch (Exception $e)
+        {
+            return false;
+        }
+
+    }
 }

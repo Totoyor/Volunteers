@@ -364,4 +364,14 @@ class EventController extends AppController
         );
         $this->load->view('event/view_event.php', $data);
     }
+
+    public function search()
+    {
+
+        $recherche = $_GET['input-search'];
+        //header('Content-type: application/json');
+        //echo(json_encode($recherche));
+        echo(json_encode($this->model->search($recherche)));
+        //echo(json_encode($this->model->search($recherche)));
+    }
 }
