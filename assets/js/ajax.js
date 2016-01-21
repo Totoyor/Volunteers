@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    $("#bt-a-choisir").click(function(){
+    /*$("#bt-a-choisir").click(function(){
 
         $.post(
             '?module=home&action=signup', // Lien du script
@@ -26,5 +26,21 @@ $(document).ready(function(){
 
     };
 
+    });*/
+
+    $('#login-form').on('submit', function(){
+
+        var login = $('#email').val();
+        var password = $('#password').val();
+
+        $.ajax({
+
+            url     :   '?module=user&action=connet',
+            type    :   'post',
+
+
+        });
     });
+
+
 })

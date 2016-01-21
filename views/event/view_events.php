@@ -17,16 +17,15 @@
         </div>
     </div>
 
-
     <div class="row">
         <div class="col s0 m3 l3">
             <div class="filter hide-on-small-only">
-                <form method="get" action="/search" id="search">
+                <!--<form method="get" action="/search" id="search">
                     <input type="text" placeholder="Location" id="location-search" class="no-border-input"/>
-                </form>
+                </form>-->
                 <div class="chip">
-
                     <i class="material-icons">close</i>
+                    Techno
                 </div>
                 <ul class="collapsible" data-collapsible="expandable">
                     <li>
@@ -96,5 +95,4 @@
 </div>
 
 <?php include_once('views/layout/footer.inc.php'); ?>
-<script type="text/javascript" src="assets/js/ajax.search.js"></script>
 

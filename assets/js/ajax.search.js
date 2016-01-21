@@ -10,7 +10,7 @@ $(document).ready(function(){
 
         var recherche = $(this).val();
 
-        if (recherche.length > 2) {
+        if (recherche.length >= 1) {
 
             $.ajax({
 

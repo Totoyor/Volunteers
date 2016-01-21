@@ -966,6 +966,10 @@ textarea
     background: white url(../img/location.png) left no-repeat;
 }
 
+#input-search {
+    background: white url(../img/search.png) left no-repeat; !important
+}
+
 #search-event input[type="text"] {
     border: 1px solid #d1d1d1;
     color: #bebebe;
