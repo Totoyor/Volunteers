@@ -25,4 +25,26 @@ $(document).ready(function(){
     };
 
     });
+
+    // à tester
+    /*
+    $(function(){
+        alert('test');
+        $('a.delete').click(function(){
+            $.ajax({
+                type:"POST",
+                url:'controleur/admin/interview/list/index.php',
+                data: 'del='+$(this).attr('id'),
+                success: function(retour){
+                    alert(retour);
+                },
+                error:function(XMLHttpRequest,textStatus,errorThrown){
+                    alert(textStatus);
+                }
+            });
+            return false;
+        });
+    });
+    */
 })
+

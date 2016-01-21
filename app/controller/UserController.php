@@ -186,6 +186,7 @@ class UserController extends AppController
     {
         session_unset();
         session_destroy();
+        unset($_COOKIE['fbsr_941553679268599']);
         header('Location:?');
         exit();
     }
