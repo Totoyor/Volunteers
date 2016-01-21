@@ -8,7 +8,7 @@ Class EventModel extends AppModel
         try {
             $query = $this->connexion->prepare("INSERT INTO vol_events
                                         (nameEvent, startEvent, hourStartEvent, endEvent, hourEndEvent,
-                                        locationEvent, descriptionEvent, statusEvent)
+                                        locationEvent, descriptionEvent, vol_event_status_idEventStatus)
                                         VALUES (:name, :start, :hourStart, :end, :hourEnd,
                                         :location, :description, :status)");
 
@@ -62,7 +62,7 @@ Class EventModel extends AppModel
             ON vol_events.idEvent = vol_events_categories_has_vol_events.vol_events_idEvent
             LEFT JOIN vol_event_questions
             ON vol_events.idEvent = vol_event_questions.vol_events_idEvent
-            WHERE vol_events.idEvent = :id
+            WHERE vol_events.vol_event_status_idEventStatus = :id
             GROUP BY idEvent
             ");
 
@@ -94,7 +94,7 @@ Class EventModel extends AppModel
             ON vol_events.idEvent = vol_events_categories_has_vol_events.vol_events_idEvent
             LEFT JOIN vol_events_categories
             ON vol_events_categories_has_vol_events.vol_events_categories_idCategorie = vol_events_categories.idCategorie
-            WHERE vol_events.statusEvent = :status
+            WHERE vol_events.vol_event_status_idEventStatus = :status
             GROUP BY idEvent
             ");
 
@@ -281,7 +281,7 @@ Class EventModel extends AppModel
                                                 ON vol_events.idEvent = vol_events_categories_has_vol_events.vol_events_idEvent
                                                 LEFT JOIN vol_events_categories
                                                 ON vol_events_categories_has_vol_events.vol_events_categories_idCategorie = vol_events_categories.idCategorie
-                                                WHERE vol_events.statusEvent = :status
+                                                WHERE vol_events.vol_event_status_idEventStatus = :status
                                                 AND vol_events.nameEvent LIKE '%$recherche%'
                                                 OR vol_events.locationEvent LIKE '%$recherche%'
                                                 GROUP BY idEvent ");

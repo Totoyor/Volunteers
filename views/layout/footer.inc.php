@@ -195,28 +195,15 @@
 <script type="text/javascript" src="assets/js/ajax.js"></script>
 <script type="text/javascript" src="assets/js/ajax.search.js"></script>
 <script type="text/javascript" src="assets/js/dropify.js"></script>
-
+<script type='text/javascript' src='assets/js/notie.js'></script>
 <?php
-/*
-if((isset($_GET['sign']) == 'ok') || (isset($_GET['login']) == 'ok'))
-{
-    echo "<script type='text/javascript'  src='assets/js/notie.js'></script>";
-    echo "<script type='text/javascript'>notie.alert(1, 'Success !', 2);</script>";
+// Affichage de la notification
+if(isset($_SESSION['FlashMessage'])) {
+    $this->helperGetFlashMessage(array('type' => $_SESSION['FlashMessage']['type'],
+                                        'message' => $_SESSION['FlashMessage']['message'],
+                                        'duration' => $_SESSION['FlashMessage']['duration']));
+    unset($_SESSION['FlashMessage']);
 }
-elseif((isset($_GET['sign']) == 'nok') || (isset($_GET['login']) == 'nok'))
-{
-    echo "<script type='text/javascript'  src='assets/js/notie.js'></script>";
-    echo "<script type='text/javascript'>notie.alert(3, 'Error !', 2);</script>";
-}
-elseif(isset($_GET['email']) == 'NOK') {
-    echo "<script type='text/javascript'  src='assets/js/notie.js'></script>";
-    echo "<script type='text/javascript'>notie.alert(3, 'Email adress invalid !', 2);</script>";
-}
-*/
-/*
-if(isset($_SESSION['error'])) {
-    $this->coreAlertMessage($_SESSION['error']);
-}*/
 ?>
 
 </body>
