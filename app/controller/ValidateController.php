@@ -13,8 +13,6 @@ class ValidateController extends AppController
     }
 
     // TODO :
-    // Checker les redirections et les else
-    // Afficher les messages d'erreurs et/ou validation
     // Styliser les pages
 
     public function home()
@@ -22,34 +20,50 @@ class ValidateController extends AppController
         if(isset($_GET['key']))
         {
             $this->_key = $_GET['key'];
-            if($this->model->checkEmail($this->_key))
+            if($user = $this->model->checkEmail($this->_key))
             {
-                $this->_active = 1;
-                if($this->model->validateUser($this->_key, $this->_active))
+                if($user['Active'] == 1)
                 {
-                    // Chargement de la home
-                    define("TITLE_HEAD", "Volunteers | Home");
-                    $this->load->view('page/validate.php');
+                    // User déjà validé
+                    define("TITLE_HEAD", "Account already confirm.");
+                    $messageFlash = 'Your account is already confirm. Please log in.';
+                    $this->coreSetFlashMessage('error', $messageFlash, 5);
+                    $this->load->view('view_error.php');
                 }
                 else
                 {
-                    // Erreur
-                    define("TITLE_HEAD", "Volunteers | Erreur");
-                    $this->load->view('view_error.php');
+                    $this->_active = 1;
+                    if($this->model->validateUser($this->_key, $this->_active))
+                    {
+                        // Page de validation du compte
+                        define("TITLE_HEAD", "Volunteers | Account validated");
+                        $this->load->view('page/validate.php');
+                    }
+                    else
+                    {
+                        define("TITLE_HEAD", "An error occur.");
+                        $messageFlash = 'An error occur. Please try again.';
+                        $this->coreSetFlashMessage('error', $messageFlash, 3);
+                        $this->load->view('view_error.php');
 
+                    }
                 }
             }
             else
             {
-                // Erreur
-                define("TITLE_HEAD", "Erreur, déjà validé");
+                // Erreur mauvaise 'key'
+                define("TITLE_HEAD", "An error occur.");
+                $messageFlash = 'An error occur. You enter a wrong key.';
+                $this->coreSetFlashMessage('error', $messageFlash, 3);
                 $this->load->view('view_error.php');
             }
         }
         else
         {
-            // Erreur
-            define("TITLE_HEAD", "Volunteers | Erreur");
+            // Pas de 'key' définie dans l'url
+            define("TITLE_HEAD", "An error occur.");
+            $messageFlash = 'An error occur. Please get the correct link from your email.';
+            $this->coreSetFlashMessage('error', $messageFlash, 5);
             $this->load->view('view_error.php');
         }
     }

@@ -9,7 +9,7 @@
                         <li><i class="material-icons">done</i>Live new work exepriences</li>
                         <li><i class="material-icons">done</i>Meet awesome people</li>
                     </ul>
-                    <a href="‪#signup‬" class="btn">Get Started</a>
+                    <a href="event/lists" class="btn">Get Started</a>
                 </div>
             </div>
             <div class="col s6 blocprincipal white-text bgorange valign-wrapper">
@@ -20,7 +20,7 @@
                         <li><i class="material-icons">done</i>Save your time</li>
                         <li><i class="material-icons">done</i>Better visibility for your event</li>
                     </ul>
-                    <a href="http://sabates.etudiant-eemi.com/…/volunteers/dev/event/home" class="btn btn-orange">Get Started</a>
+                    <a href="event/home" class="btn btn-orange">Get Started</a>
                 </div>
                 <!-- content bloc-->
             </div>
@@ -273,7 +273,6 @@
         <a href="event/lists" class="btn btn-menu-bis btn-hoverbleu">I volunteer</a>
     </div>
 </div>
-
 
 <div class="row double-content white-text left bgright">
     <div class="col s12 center">

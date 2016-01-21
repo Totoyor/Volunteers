@@ -35,7 +35,7 @@ class UserModel extends AppModel
     {
         try
         {
-            $query = $this->connexion->prepare('INSERT INTO vol_users (Password, Email, Status, UserKey)
+            $query = $this->connexion->prepare('INSERT INTO vol_users (Password, Email, vol_user_status_idStatus, UserKey)
                                                 VALUES (:password, :email, :status, :key)');
 
             $query->bindParam(':email', $email, PDO::PARAM_STR);
@@ -83,21 +83,14 @@ class UserModel extends AppModel
             $query->execute();
             $user = $query->fetch();
 
-            if($user['Active'] == 1)
+            $nbrRow = $query->rowCount();
+            if ($nbrRow === 1)
             {
-                return false;
+                return $user;
             }
             else
             {
-                $nbrRow = $query->rowCount();
-                if ($nbrRow === 1)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                return false;
             }
 
         }

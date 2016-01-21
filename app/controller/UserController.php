@@ -186,8 +186,9 @@ class UserController extends AppController
     {
         session_unset();
         session_destroy();
-        //header('Location:?');
-        header("location:/3ADEV/Volunteers/");
+        unset($_COOKIE['fbsr_941553679268599']);
+        header('Location:?');
+        exit();
     }
 
     public function join()
@@ -198,15 +199,14 @@ class UserController extends AppController
             $idUser = $_SESSION['user_id'];
 
             if ($this->model->join($idEvent, $idUser)) {
-                header("location:/3ADEV/Volunteers/event/show/".$idEvent);
+                header("location:/3ADEV/Volunteers/event/show/" . $idEvent);
             } else {
-                header("location:/3ADEV/Volunteers/event/show/".$idEvent."?join=nok");
+                header("location:/3ADEV/Volunteers/event/show/" . $idEvent . "?join=nok");
             }
-
 
         } else {
             die('please log in');
         }
-
     }
+
 }

@@ -51,20 +51,16 @@
             <a href="?" class="brand-logo"><img src="assets/img/logo_volonteers3.svg" alt="logo" class="logo_svg"></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a class="btn btn-menu" href="event/home">Create event</a></li>
-
-                <?php if (!isset($_SESSION['user_email'])) { ?>
-                    <li><a onClick="ga('send', 'clic', 'Events');" href="?module=event&action=lists">Events</a></li>
-                    <li><a id="logInModal" onClick="ga('send', 'clic', 'Log In');" class="modal-trigger" href="#login">Log
-                            In</a></li>
-                    <li><a onClick="ga('send', 'clic', 'Sign Up');" class="modal-trigger" href="#signup">Sign Up</a>
-                    </li>
-                <?php } else { ?>
-                    <li><a onClick="ga('send', 'clic', 'Events');" href="?module=event&action=lists">Events</a></li>
-                    <li><a onClick="ga('send', 'clic', 'Profile');" href="profile/home">My Profile</a></li>
-                    <li><a onClick="ga('send', 'clic', 'Disconnect');" href="user/disconnect">Disconnect</a></li>
-                <?php } ?>
-                <li><a onClick="ga('send', 'clic', 'Help');" href="?module=help">Help</a></li>
-            </ul>
+                  <?php if(isset($_SESSION['user_email']) || isset($_COOKIE['fbsr_941553679268599'])) { ?>
+                      <li><a href="event/lists">Events</a></li>
+                      <li><a href="?module=profile">My Profile</a></li>
+                      <li><a href="?module=user&action=disconnect">Disconnect</a></li>
+                  <?php } else { ?>
+                      <li><a class="modal-trigger" href="#login">Log In</a></li>
+                      <li><a class="modal-trigger" href="#signup">Sign Up</a></li>
+                  <?php } ?>
+                <li><a href="?module=help">Help</a></li>
+              </ul>
             <ul id="slide-out" class="side-nav">
                 <li><a href="event/home">Create event</a></li>
                 <?php if (!isset($_SESSION['user_email'])) { ?>

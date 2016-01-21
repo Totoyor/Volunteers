@@ -112,10 +112,10 @@
             <div class="col s12 m3">
                 <h5 class="title-list white-text">Menu</h5>
                 <ul>
-                    <li><a class="grey-text text-lighten-3" href="event/create">Find volunteers</a></li>
+                    <li><a class="grey-text text-lighten-3" href="event/home">Find volunteers</a></li>
                     <li><a class="grey-text text-lighten-3" class="modal-trigger" href="#login">Log In</a></li>
                     <li><a class="grey-text text-lighten-3" class="modal-trigger" href="#signup">Sign Up</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Help</a></li>
+                    <li><a class="grey-text text-lighten-3" href="?module=help">Help</a></li>
                 </ul>
             </div>
 
