@@ -8,7 +8,7 @@ Class EventModel extends AppModel
         try {
             $query = $this->connexion->prepare("INSERT INTO vol_events
                                         (nameEvent, startEvent, hourStartEvent, endEvent, hourEndEvent,
-                                        locationEvent, descriptionEvent, statusEvent)
+                                        locationEvent, descriptionEvent, vol_event_status_idEventStatus)
                                         VALUES (:name, :start, :hourStart, :end, :hourEnd,
                                         :location, :description, :status)");
 
@@ -23,6 +23,7 @@ Class EventModel extends AppModel
             $query->execute();
             $query->closeCursor();
 
+            //On récupère l'id de l'insertion
             $lastId = $this->connexion->lastInsertId();
 
             return $lastId;
@@ -51,13 +52,57 @@ Class EventModel extends AppModel
     public function getEvent($id)
     {
         try {
-            $query = $this->connexion->prepare("SELECT * FROM vol_events
-            WHERE idEvent = :id");
+            $query = $this->connexion->prepare("SELECT *
+            FROM vol_events
+            LEFT JOIN vol_event_pictures
+            ON vol_events.idEvent = vol_event_pictures.vol_events_idEvent
+            LEFT JOIN vol_event_missions
+            ON vol_events.idEvent = vol_event_missions.vol_events_idEvent
+            LEFT JOIN vol_events_categories_has_vol_events
+            ON vol_events.idEvent = vol_events_categories_has_vol_events.vol_events_idEvent
+            LEFT JOIN vol_event_questions
+            ON vol_events.idEvent = vol_event_questions.vol_events_idEvent
+            WHERE vol_events.vol_event_status_idEventStatus = :id
+            GROUP BY idEvent
+            ");
+
             $query->bindValue(':id', $id, PDO::PARAM_INT);
             $query->execute();
 
+            $data = $query->fetch();
+            $query->closeCursor();
+            return $data;
+
+
+        } catch (Exception $e) {
+            var_dump($e);
+            die();
+            return false;
+        }
+    }
+
+    public function getEvents()
+    {
+        try {
+            $query = $this->connexion->prepare("SELECT *
+            FROM vol_events
+            LEFT JOIN vol_event_pictures
+            ON vol_events.idEvent = vol_event_pictures.vol_events_idEvent
+            LEFT JOIN vol_event_missions
+            ON vol_events.idEvent = vol_event_missions.vol_events_idEvent
+            LEFT JOIN vol_events_categories_has_vol_events
+            ON vol_events.idEvent = vol_events_categories_has_vol_events.vol_events_idEvent
+            LEFT JOIN vol_events_categories
+            ON vol_events_categories_has_vol_events.vol_events_categories_idCategorie = vol_events_categories.idCategorie
+            WHERE vol_events.vol_event_status_idEventStatus = :status
+            GROUP BY idEvent
+            ");
+
+            $query->bindValue(':status', 1, PDO::PARAM_INT);
+            $query->execute();
             $data = $query->fetchAll();
             $query->closeCursor();
+
             return $data;
 
         } catch (Exception $e) {
@@ -104,12 +149,94 @@ Class EventModel extends AppModel
         }
     }
 
+    public function getMissions($idEvent)
+    {
+        try {
+            $query = $this->connexion->prepare("SELECT * FROM vol_event_missions
+            WHERE vol_events_idEvent = :id");
+
+            $query->bindValue(':id', $idEvent, PDO::PARAM_INT);
+            $query->execute();
+
+            $data = $query->fetchAll();
+            $query->closeCursor();
+
+            return $data;
+
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
+    public function getNbVolunteers($idEvent)
+    {
+        try {
+            $query = $this->connexion->prepare("SELECT SUM(nbVolunteer)
+            FROM vol_event_missions
+            WHERE vol_events_idEvent = :id");
+
+            $query->bindValue(':id', $idEvent, PDO::PARAM_INT);
+            $query->execute();
+
+            $data = $query->fetchAll();
+            $query->closeCursor();
+
+            return $data;
+
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
+    public function getMedias($idEvent) {
+        try {
+            $query = $this->connexion->prepare("SELECT *
+            FROM vol_event_pictures
+            WHERE vol_events_idEvent = :id");
+
+            $query->bindValue(':id', $idEvent, PDO::PARAM_INT);
+            $query->execute();
+
+            $data = $query->fetchAll();
+            $query->closeCursor();
+
+            return $data;
+
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
+    public function getVolunteers($idEvent) {
+        try {
+
+            $query = $this->connexion->prepare("SELECT *
+            FROM event_has_volunteers
+            LEFT JOIN vol_users
+            ON event_has_volunteers.vol_event_volunteers_idEventVolunteer = vol_users.idUser
+            WHERE event_has_volunteers.vol_events_idEvent = :idEvent
+            GROUP BY idUser
+            ");
+
+            $query->bindValue(':idEvent', $idEvent, PDO::PARAM_INT);
+            $query->execute();
+            $data = $query->fetchAll();
+
+            $query->closeCursor();
+
+            return $data;
+
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
     public function insertCoverPicture($idEvent, $coverPicture)
     {
         try {
-            $query = $this->connexion->prepare("INSERT INTO vol_event_pictures
-            (coverPicture, vol_events_idEvent) VALUES
-            (:cover, :idEvent)");
+            $query = $this->connexion->prepare("UPDATE vol_events
+            SET coverPicture = :cover
+            WHERE idEvent = :idEvent");
 
             $query->bindValue(':cover', $coverPicture, PDO::PARAM_STR);
             $query->bindValue(':idEvent', $idEvent, PDO::PARAM_INT);
@@ -119,6 +246,55 @@ Class EventModel extends AppModel
             return true;
 
         } catch (Exception $e) {
+            return false;
+        }
+    }
+
+    public function insertMediaPicture($idEvent, $media)
+    {
+        try {
+            $query = $this->connexion->prepare("INSERT INTO vol_event_pictures
+             (eventPicture, vol_events_idEvent) VALUES (:media, :idEvent)");
+
+            $query->bindValue(':media', $media, PDO::PARAM_INT);
+            $query->bindValue(':idEvent', $idEvent, PDO::PARAM_INT);
+
+            $query->execute();
+
+            return true;
+
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
+    public function search($recherche)
+    {
+        try
+        {
+            $query = $this->connexion->prepare("SELECT * FROM vol_events
+                                                LEFT JOIN vol_event_pictures
+                                                ON vol_events.idEvent = vol_event_pictures.vol_events_idEvent
+                                                LEFT JOIN vol_event_missions
+                                                ON vol_events.idEvent = vol_event_missions.vol_events_idEvent
+                                                LEFT JOIN vol_events_categories_has_vol_events
+                                                ON vol_events.idEvent = vol_events_categories_has_vol_events.vol_events_idEvent
+                                                LEFT JOIN vol_events_categories
+                                                ON vol_events_categories_has_vol_events.vol_events_categories_idCategorie = vol_events_categories.idCategorie
+                                                WHERE vol_events.vol_event_status_idEventStatus = :status
+                                                AND vol_events.nameEvent LIKE '%$recherche%'
+                                                OR vol_events.locationEvent LIKE '%$recherche%'
+                                                GROUP BY idEvent ");
+
+            $query->bindValue(':status', 1, PDO::PARAM_INT);
+            $query->execute();
+            $data = $query->fetchAll(PDO::FETCH_ASSOC);
+            $query->closeCursor();
+
+            return $data;
+        }
+        catch (Exception $e)
+        {
             return false;
         }
     }

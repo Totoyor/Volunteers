@@ -37,6 +37,7 @@
                     <h2 class="title-section"><strong>Popular events</strong></h2>
                     <hr class="fancy-hr">
                 </div>
+
             </div>
 
             <div class="row">
@@ -273,13 +274,13 @@
     </div>
 </div>
 
-    <div class="row double-content white-text left bgright">
-        <div class="col s12 center">
-            <h1 class="title-section white-text">ready to find volunteers ?</h1>
-            <p class="white-text">Create your own event and join hundreds of thousands of event organizers
-                </br>managing volunteers registrations </p>
-            <a href="event/home" class="btn btn-menu-bis btn-hoveror">Create an event</a>
-        </div>
+<div class="row double-content white-text left bgright">
+    <div class="col s12 center">
+        <h1 class="title-section white-text">ready to find volunteers ?</h1>
+        <p class="white-text">Create your own event and join hundreds of thousands of event
+            organizers</br>managing volunteers registrations </p>
+        <a href="event/home" class="btn btn-menu-bis btn-hoveror">Create an event</a>
     </div>
+</div>
 
-    <?php include_once('views/layout/footer.inc.php'); ?>
+<?php include_once('views/layout/footer.inc.php'); ?>

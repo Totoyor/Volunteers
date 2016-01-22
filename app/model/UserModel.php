@@ -53,6 +53,25 @@ class UserModel extends AppModel
         }
     }
 
+
+    public function join($idEvent, $idUser)
+    {
+        try {
+            $query = $this->connexion->prepare('INSERT INTO event_has_volunteers (vol_events_idEvent, vol_event_volunteers_idEventVolunteer)
+                                                VALUES (:idEvent, :idUser)');
+
+            $query->bindParam(':idEvent', $idEvent, PDO::PARAM_STR);
+            $query->bindParam(':idUser', $idUser, PDO::PARAM_STR);
+            $query->execute();
+            $query->closeCursor();
+
+            return true;
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
+
     public function checkEmail($key)
     {
         try
@@ -73,12 +92,14 @@ class UserModel extends AppModel
             {
                 return false;
             }
+
         }
         catch (Exception $e)
         {
             return false;
         }
     }
+
 
     public function validateUser($key, $active)
     {

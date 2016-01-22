@@ -193,6 +193,7 @@
 <script type="text/javascript" src="assets/js/materialize.min.js"></script>
 <script type="text/javascript" src="assets/js/monjs.js"></script>
 <script type="text/javascript" src="assets/js/ajax.js"></script>
+<script type="text/javascript" src="assets/js/ajax.search.js"></script>
 <script type="text/javascript" src="assets/js/dropify.js"></script>
 <script type='text/javascript' src='assets/js/notie.js'></script>
 <?php

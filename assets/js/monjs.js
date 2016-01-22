@@ -107,29 +107,10 @@ $(document).ready(function () {
 
 
     $('#genre-categories .categories').click(function () {
-
         var str = $(this).find('li').text();
         
         $('.categories').append('.chip');
         console.log("je passe ici");
-         
-
-
     });
 
-
-
-
-
-
-
-
-
-
-
-    
-    
-    
-
-    
 });
