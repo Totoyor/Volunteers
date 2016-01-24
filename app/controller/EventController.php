@@ -78,9 +78,10 @@ class EventController extends AppController
                     }
 
                     $status = 0;
+                    $user = $_SESSION['user_id'];
 
                     $lastId = $this->model->createEvent($event_name, $event_location, $event_start, $event_hour_start, $event_end,
-                        $event_hour_end, $event_description, $status);
+                        $event_hour_end, $event_description, $status, $user);
 
                     if ($lastId !== null) {
 
@@ -171,6 +172,8 @@ class EventController extends AppController
                     if (!empty($_POST['event_location'])) {
                         $event_location = $_POST['event_location'];
                     } else {
+                        $messageFlash = 'Please set up the location';
+                        $this->coreSetFlashMessage('error', $messageFlash, 3);
                         header("location:home?create&event=locationNok");
                         exit();
                     }
@@ -178,6 +181,8 @@ class EventController extends AppController
                     if (!empty($_POST['event_start'])) {
                         $event_start = $_POST['event_start'];
                     } else {
+                        $messageFlash = 'Please set up the beginning of the event';
+                        $this->coreSetFlashMessage('error', $messageFlash, 3);
                         header("location:home?create&event=startNok");
                         exit();
                     }
@@ -185,6 +190,8 @@ class EventController extends AppController
                     if (!empty($_POST['event_hour_start']) && !empty($_POST['event_min_start']) && !empty($_POST['event_start_mode'])) {
                         $event_hour_start = $_POST['event_hour_start'] . ":" . $_POST['event_min_start'] . " " . $_POST['event_start_mode'];
                     } else {
+                        $messageFlash = 'Please set up the start time of the event';
+                        $this->coreSetFlashMessage('error', $messageFlash, 3);
                         header("location:home?create&event=startTimeNok");
                         exit();
                     }
@@ -198,6 +205,8 @@ class EventController extends AppController
                     if (!empty($_POST['event_hour_end']) && !empty($_POST['event_min_end']) && !empty($_POST['event_end_mode'])) {
                         $event_hour_end = $_POST['event_hour_end'] . ":" . $_POST['event_min_end'] . " " . $_POST['event_end_mode'];
                     } else {
+                        $messageFlash = 'Please set up the end time of the event';
+                        $this->coreSetFlashMessage('error', $messageFlash, 3);
                         header("location:home?create&event=endTimeNok");
                         exit();
                     }
@@ -205,6 +214,8 @@ class EventController extends AppController
                     if (!empty($_POST['event_categories'])) {
                         $event_categories = $_POST['event_categories'];
                     } else {
+                        $messageFlash = 'Please set up the categori';
+                        $this->coreSetFlashMessage('error', $messageFlash, 3);
                         header("location:home?create&event=catNok");
                         exit();
                     }
@@ -212,12 +223,16 @@ class EventController extends AppController
                     if (!empty($_POST['event_description'])) {
                         $event_description = $_POST['event_description'];
                     } else {
+                        $messageFlash = 'Please describe your event';
+                        $this->coreSetFlashMessage('error', $messageFlash, 3);
                         $event_description = NULL;
                     }
 
                     if (!empty($_POST['missions'])) {
                         $event_missions = $_POST['missions'];
                     } else {
+                        $messageFlash = 'Please set up the different missions';
+                        $this->coreSetFlashMessage('error', $messageFlash, 3);
                         header("location:home?create&event=missionsNok");
                         exit();
                     }
@@ -225,15 +240,18 @@ class EventController extends AppController
                     if (!empty($_POST['nbVolunteer'])) {
                         $nb_volunteer = $_POST['nbVolunteer'];
                     } else {
+                        $messageFlash = 'Please set up the number of volunteers';
+                        $this->coreSetFlashMessage('error', $messageFlash, 3);
                         header("location:home?create&event=nbVolNok");
                         exit();
                     }
 
 
                     $status = 1;
+                    $user = $_SESSION['user_id'];
 
                     $lastId = $this->model->createEvent($event_name, $event_location, $event_start, $event_hour_start, $event_end,
-                        $event_hour_end, $event_description, $status);
+                        $event_hour_end, $event_description, $status, $user);
 
                     if ($lastId !== null) {
 
@@ -298,7 +316,8 @@ class EventController extends AppController
                     }
 
                     //Chargement de la vue de l'évènement
-                    //$data = $this->model->getEvent($lastId);
+                    $messageFlash = 'Publish success';
+                    $this->coreSetFlashMessage('success', $messageFlash, 3);
                     $data = array(
                         'event' => $this->model->getEvent($lastId),
                         'missions' => $this->model->getMissions($lastId),
@@ -373,5 +392,49 @@ class EventController extends AppController
         //echo(json_encode($recherche));
         echo(json_encode($this->model->search($recherche)));
         //echo(json_encode($this->model->search($recherche)));
+    }
+
+    public function question()
+    {
+
+        $event = $_POST['idEvent'];
+        $user = $_SESSION['user_id'];
+
+        if (isset($_SESSION['user_id'])) {
+            if (!empty($_POST['question'])) {
+                $question = $_POST['question'];
+                if ($this->model->insertQuestions($user, $event, $question)) {
+                    header("location:show/".$event."/questionOk");
+                } else {
+                    header("location:show/".$event."/questionNok");
+                }
+            }
+        } else {
+            header("location:show/".$event."/questionLoginNok");
+        }
+    }
+
+    public function answer()
+    {
+        $event = $_POST['idEvent'];
+        $user = $_SESSION['user_id'];
+        $creator = $_POST['eventCreator'];
+        $question = "ok";
+
+        if (isset($_SESSION['user_id'])) {
+            if ($user == $creator) {
+
+                $answer = $_POST['answer'];
+
+                if ($this->model->insertAnswer($user, $event, $question, $answer)) {
+
+                }
+
+            } else {
+                header("location:show/".$event."/notAllowed");
+            }
+        } else {
+            header("location:show/".$event."/questionLoginNok");
+        }
     }
 }

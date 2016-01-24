@@ -37,11 +37,8 @@
                     </li>
                 </ul>
 
-
                 <div class="event_apog encar">
                     <h5 class="event_sstitre">Description</h5>
-
-
                     <div>
                         <input type="checkbox" class="read-more-state" id="post-1"/>
 
@@ -53,10 +50,7 @@
                         </p>
                         <!--<label for="post-1" class="read-more-trigger reply"></label>-->
                     </div>
-
-
                 </div>
-
 
                 <div class="clear event_apog encar">
                     <h5 class="event_sstitre">Medias</h5>
@@ -72,107 +66,75 @@
 
 
                 <div class="event_apog ">
-
-
                     <div class="faq col s12 media dshadow">
                         <div class="more_margin"></div>
                         <h5 class="event_sstitre">Q & A</h5>
 
                         <p>Ask your question</p>
 
-                        <form>
-                            <input placeholder="example: How should i dress ?" type="text"
-                                   class="validate question_input">
-                            <label for="question" class="none">Question</label>
+                        <form method="post" action="event/question">
+                            <input name="question" placeholder="example: How should i dress ?" type="text"
+                                   class="validate question_input" required>
 
-                            <button name="submit" type="submit" class="btn btn-orange right bottom">Submit</button>
+                            <input type="hidden" name="idEvent" value="<?= $_GET['id']; ?>">
+
+                            <label for="question" class="none">Question</label>
+                            <?php if (isset($_SESSION['user_email'])) { ?>
+                                <button name="submit" type="submit" class="btn btn-orange right bottom" required>Submit</button>
+                            <?php } else { ?>
+                                <button name="submit" type="submit" class="btn btn-orange right bottom" disabled>Submit</button>
+                            <?php } ?>
                         </form>
                     </div>
-
-
                     <ul class="collapsible dshadow accordion_border radius" data-collapsible="accordion">
                         <li>
-
                             <div class="collapsible-header grey_diff clear upborder">
                                 <div class="chip event_secure_chip absolute">
                                     <img src="assets/img/square_face.png" alt="Contact Person"> Christine
                                 </div>
                                 <div>
-                                    <p class="nomargin">Where can we meet ?<span class="right reply">reply</span></p>
+                                    <p class="nomargin">Where can we meet ?
+                                        <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $data['event']['idUser']): ?>
+                                            <span class="right reply">reply</span>
+                                        <?php endif; ?>
+                                    </p>
                                 </div>
                             </div>
+                            <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $data['event']['idUser']): ?>
                             <div class="collapsible-body accordion_border">
-
-
                                 <div class="chip margin event_secure_chip">
                                     <img src="assets/img/square_face.png" alt="Contact Person"> Nicolas
                                 </div>
-                                <form>
-                                    <input placeholder="example: How should i dress ?" id="first_name" type="text"
-                                           class="validate event_secure_input">
+                                <form method="post" action="event/answer">
+                                    <input name="answer" placeholder="example: How should i dress ?" id="first_name" type="text"
+                                           class="validate event_secure_input" required>
 
-                                    <button name="submit" type="submit"
-                                            class="btn btn-blue right bottom margin event_secure_btn2"><i
-                                            class="material-icons">reply</i></button>
+                                    <input type="hidden" name="idEvent" value="<?= $_GET['id']; ?>">
+                                    <input type="hidden" name="idCreator" value="<?= $data['event']['vol_users_idUser']; ?>">
+
+                                    <?php if (isset($_SESSION['user_email'])) { ?>
+                                        <button name="submit" type="submit"
+                                                class="btn btn-blue right bottom margin event_secure_btn2">
+                                            <i class="material-icons">reply</i>
+                                        </button>
+                                    <?php } else { ?>
+                                        <button name="submit" type="submit"
+                                                class="btn btn-blue right bottom margin event_secure_btn2" disabled><i
+                                                class="material-icons">reply</i></button>
+                                    <?php } ?>
                                 </form>
                                 <p></p>
-
                             </div>
-
+                            <?php endif; ?>
                             <div class="reponse">
-
                                 <div class="chip margin event_secure_chip2">
                                     <img src="assets/img/square_face.png" alt="Contact Person"> Nicolas
                                 </div>
                                 <p class="secure_reponse">In front of the concert door at 9PM.</p>
-
                             </div>
                         </li>
-
-                        <li>
-
-                            <div class="collapsible-header grey_diff clear upborder">
-                                <div class="chip event_secure_chip absolute">
-                                    <img src="assets/img/square_face.png" alt="Contact Person"> Alphonse
-                                </div>
-                                <div>
-                                    <p class="nomargin">How should i dress? <span class="right reply">reply</span></p>
-                                </div>
-                            </div>
-                            <div class="collapsible-body">
-
-
-                                <div class="chip margin event_secure_chip">
-                                    <img src="assets/img/square_face.png" alt="Contact Person"> Nicolas
-                                </div>
-                                <form>
-                                    <input placeholder="example: How should i dress ?" id="first_name" type="text"
-                                           class="validate event_secure_input">
-
-                                    <button name="submit" type="submit"
-                                            class="btn btn-blue right bottom margin event_secure_btn2"><i
-                                            class="material-icons">reply</i></button>
-                                </form>
-                                <p></p>
-
-                            </div>
-
-                            <div class="reponse">
-
-                                <div class="chip margin event_secure_chip2">
-                                    <img src="assets/img/square_face.png" alt="Contact Person"> Nicolas
-                                </div>
-                                <p class="secure_reponse">Thanks to be smart to volunteer for my event.</p>
-
-                            </div>
-
-                        </li>
-
                     </ul>
-
                 </div>
-
-
             </div>
 
 

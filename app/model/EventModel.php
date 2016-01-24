@@ -3,14 +3,14 @@
 Class EventModel extends AppModel
 {
     public function createEvent($event_name, $event_location, $event_start, $event_hour_start, $event_end,
-                                $event_hour_end, $event_description, $status)
+                                $event_hour_end, $event_description, $status, $user)
     {
         try {
             $query = $this->connexion->prepare("INSERT INTO vol_events
                                         (nameEvent, startEvent, hourStartEvent, endEvent, hourEndEvent,
-                                        locationEvent, descriptionEvent, vol_event_status_idEventStatus)
+                                        locationEvent, descriptionEvent, vol_event_status_idEventStatus, vol_users_idUser)
                                         VALUES (:name, :start, :hourStart, :end, :hourEnd,
-                                        :location, :description, :status)");
+                                        :location, :description, :status, :user)");
 
             $query->bindValue(':name', $event_name, PDO::PARAM_STR);
             $query->bindValue(':location', $event_location, PDO::PARAM_STR);
@@ -20,6 +20,7 @@ Class EventModel extends AppModel
             $query->bindValue(':hourEnd', $event_hour_end, PDO::PARAM_STR);
             $query->bindValue(':description', $event_description, PDO::PARAM_STR);
             $query->bindValue(':status', $status, PDO::PARAM_STR);
+            $query->bindValue(':user', $user, PDO::PARAM_STR);
             $query->execute();
             $query->closeCursor();
 
@@ -40,7 +41,7 @@ Class EventModel extends AppModel
             $query = $this->connexion->prepare("SELECT * FROM vol_events_categories");
             $query->execute();
 
-            $data = $query->fetchAll();
+            $data = $query->fetchAll(PDO::FETCH_ASSOC);
             $query->closeCursor();
             return $data;
 
@@ -62,21 +63,24 @@ Class EventModel extends AppModel
             ON vol_events.idEvent = vol_events_categories_has_vol_events.vol_events_idEvent
             LEFT JOIN vol_event_questions
             ON vol_events.idEvent = vol_event_questions.vol_events_idEvent
-            WHERE vol_events.vol_event_status_idEventStatus = :id
+            LEFT JOIN vol_users
+            ON vol_events.vol_users_idUser = vol_users.idUser
+            WHERE vol_events.idEvent = :id
+            AND vol_events.vol_event_status_idEventStatus = :status
             GROUP BY idEvent
             ");
 
             $query->bindValue(':id', $id, PDO::PARAM_INT);
+            $query->bindValue(':status', 1, PDO::PARAM_INT);
             $query->execute();
 
-            $data = $query->fetch();
+            $data = $query->fetch(PDO::FETCH_ASSOC);
             $query->closeCursor();
             return $data;
 
-
         } catch (Exception $e) {
             var_dump($e);
-            die();
+            die($e);
             return false;
         }
     }
@@ -100,7 +104,7 @@ Class EventModel extends AppModel
 
             $query->bindValue(':status', 1, PDO::PARAM_INT);
             $query->execute();
-            $data = $query->fetchAll();
+            $data = $query->fetchAll(PDO::FETCH_ASSOC);
             $query->closeCursor();
 
             return $data;
@@ -158,7 +162,7 @@ Class EventModel extends AppModel
             $query->bindValue(':id', $idEvent, PDO::PARAM_INT);
             $query->execute();
 
-            $data = $query->fetchAll();
+            $data = $query->fetchAll(PDO::FETCH_ASSOC);
             $query->closeCursor();
 
             return $data;
@@ -178,7 +182,7 @@ Class EventModel extends AppModel
             $query->bindValue(':id', $idEvent, PDO::PARAM_INT);
             $query->execute();
 
-            $data = $query->fetchAll();
+            $data = $query->fetchAll(PDO::FETCH_ASSOC);
             $query->closeCursor();
 
             return $data;
@@ -197,7 +201,7 @@ Class EventModel extends AppModel
             $query->bindValue(':id', $idEvent, PDO::PARAM_INT);
             $query->execute();
 
-            $data = $query->fetchAll();
+            $data = $query->fetchAll(PDO::FETCH_ASSOC);
             $query->closeCursor();
 
             return $data;
@@ -220,7 +224,7 @@ Class EventModel extends AppModel
 
             $query->bindValue(':idEvent', $idEvent, PDO::PARAM_INT);
             $query->execute();
-            $data = $query->fetchAll();
+            $data = $query->fetchAll(PDO::FETCH_ASSOC);
 
             $query->closeCursor();
 
@@ -284,6 +288,8 @@ Class EventModel extends AppModel
                                                 WHERE vol_events.vol_event_status_idEventStatus = :status
                                                 AND vol_events.nameEvent LIKE '%$recherche%'
                                                 OR vol_events.locationEvent LIKE '%$recherche%'
+                                                OR vol_events.startEvent LIKE '%$recherche%'
+                                                OR vol_events_categories.nameCategorie LIKE '%$recherche%'
                                                 GROUP BY idEvent ");
 
             $query->bindValue(':status', 1, PDO::PARAM_INT);
@@ -295,6 +301,45 @@ Class EventModel extends AppModel
         }
         catch (Exception $e)
         {
+            return false;
+        }
+    }
+
+    public function insertQuestions($user, $event, $question) {
+        try {
+            $query = $this->connexion->prepare("INSERT INTO vol_event_questions
+                                                (eventQuestion, vol_events_idEvent, vol_users_idUser)
+                                                VALUES (:question, :event, :user)");
+
+            $query->bindValue(':question', $question, PDO::PARAM_STR);
+            $query->bindValue(':event', $event, PDO::PARAM_INT);
+            $query->bindValue(':user', $user, PDO::PARAM_INT);
+
+            $query->execute();
+            $query->closeCursor();
+
+            return true;
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
+    public function insertAnswer($user, $event, $question, $answer) {
+        try {
+            $query = $this->connexion->prepare("INSERT INTO vol_events_answers
+                                                (eventQuestion, vol_events_idEvent, vol_event_questions_idEventQuestions, vol_users_idUser)
+                                                VALUES (:question, :event, :answer, :user)");
+
+            $query->bindValue(':question', $question, PDO::PARAM_STR);
+            $query->bindValue(':event', $event, PDO::PARAM_INT);
+            $query->bindValue(':answer', $answer, PDO::PARAM_INT);
+            $query->bindValue(':user', $user, PDO::PARAM_INT);
+
+            $query->execute();
+            $query->closeCursor();
+
+            return true;
+        } catch (Exception $e) {
             return false;
         }
     }

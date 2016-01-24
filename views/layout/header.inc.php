@@ -56,6 +56,7 @@
                       <li><a href="?module=profile">My Profile</a></li>
                       <li><a href="?module=user&action=disconnect">Disconnect</a></li>
                   <?php } else { ?>
+                      <li><a href="event/lists">Events</a></li>
                       <li><a class="modal-trigger" href="#login">Log In</a></li>
                       <li><a class="modal-trigger" href="#signup">Sign Up</a></li>
                   <?php } ?>
