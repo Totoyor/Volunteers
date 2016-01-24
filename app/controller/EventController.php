@@ -379,7 +379,8 @@ class EventController extends AppController
             'missions' => $this->model->getMissions($id),
             'nbVolunteer' => $this->model->getNbVolunteers($id),
             'medias' => $this->model->getMedias($id),
-            'volunteers' => $this->model->getVolunteers($id)
+            'volunteers' => $this->model->getVolunteers($id),
+            'questions' => $this->model->getQuestions($id)
         );
         $this->load->view('event/view_event.php', $data);
     }
@@ -404,13 +405,13 @@ class EventController extends AppController
             if (!empty($_POST['question'])) {
                 $question = $_POST['question'];
                 if ($this->model->insertQuestions($user, $event, $question)) {
-                    header("location:show/".$event."/questionOk");
+                    header("location:show/".$event."/questionok");
                 } else {
-                    header("location:show/".$event."/questionNok");
+                    header("location:show/".$event."/questionnok");
                 }
             }
         } else {
-            header("location:show/".$event."/questionLoginNok");
+            header("location:show/".$event."/questionloginnok");
         }
     }
 
@@ -418,23 +419,25 @@ class EventController extends AppController
     {
         $event = $_POST['idEvent'];
         $user = $_SESSION['user_id'];
-        $creator = $_POST['eventCreator'];
-        $question = "ok";
+        $creator = $_POST['idCreator'];
+        $question = $_POST['idQuestion'];
 
         if (isset($_SESSION['user_id'])) {
             if ($user == $creator) {
 
                 $answer = $_POST['answer'];
 
-                if ($this->model->insertAnswer($user, $event, $question, $answer)) {
-
+                if ($this->model->insertAnswer($user, $question, $answer)) {
+                    header("location:show/".$event."/answerok");
+                } else {
+                    header("location:show/".$event."/answernok");
                 }
 
             } else {
-                header("location:show/".$event."/notAllowed");
+                header("location:show/".$event."/notallowed");
             }
         } else {
-            header("location:show/".$event."/questionLoginNok");
+            header("location:show/".$event."/answerloginok");
         }
     }
 }

@@ -22,9 +22,11 @@
                 <!--<form method="get" action="/search" id="search">
                     <input type="text" placeholder="Location" id="location-search" class="no-border-input"/>
                 </form>-->
-                <div class="chip">
-                    <i class="material-icons">close</i>
-                    Techno
+                <div id="div-cat-chip" >
+                    <div id="chip-bulle" class="chip">
+                        <i id="cat-chip" class="material-icons categories">close</i>
+                        Techno
+                    </div>
                 </div>
                 <ul class="collapsible" data-collapsible="expandable">
                     <li>

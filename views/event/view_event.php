@@ -3,6 +3,7 @@
         <div class="row" id="secure_row">
             <img src="assets/img/events/uploads/<?= $data['event']['coverPicture']; ?>" class="event_couv"/>
         </div>
+        <div><?= var_dump($data); ?></div>
         <div class="row" id="secure_row">
             <div class="col s12 m8 event_maincontent">
                 <h1 class="center event_title left event_apog"><?= $data['event']['nameEvent']; ?></h1>
@@ -88,56 +89,70 @@
                     </div>
                     <ul class="collapsible dshadow accordion_border radius" data-collapsible="accordion">
                         <li>
-                            <div class="collapsible-header grey_diff clear upborder">
-                                <div class="chip event_secure_chip absolute">
-                                    <img src="assets/img/square_face.png" alt="Contact Person"> Christine
+                            <?php foreach($data['questions'] as $question): ?>
+                                <!-- QUESTION -->
+                                <div class="collapsible-header grey_diff clear upborder">
+                                    <div class="chip event_secure_chip absolute">
+                                        <img src="assets/img/square_face.png" alt="Contact Person">
+                                        <?php if(isset($question['FirstName']) && $question['FirstName'] !== null){
+                                            echo $question['FirstName'];
+                                        } else {
+                                            echo 'Volunteer';
+                                        } ?>
+                                    </div>
+                                    <div>
+                                        <p class="nomargin"><?= $question['eventQuestion']; ?>
+                                            <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $data['event']['idUser']): ?>
+                                                <span class="right reply">reply</span>
+                                            <?php endif; ?>
+                                        </p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <p class="nomargin">Where can we meet ?
-                                        <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $data['event']['idUser']): ?>
-                                            <span class="right reply">reply</span>
-                                        <?php endif; ?>
-                                    </p>
-                                </div>
-                            </div>
-                            <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $data['event']['idUser']): ?>
-                            <div class="collapsible-body accordion_border">
-                                <div class="chip margin event_secure_chip">
-                                    <img src="assets/img/square_face.png" alt="Contact Person"> Nicolas
-                                </div>
-                                <form method="post" action="event/answer">
-                                    <input name="answer" placeholder="example: How should i dress ?" id="first_name" type="text"
-                                           class="validate event_secure_input" required>
+                                <!-- FIN QUESTION -->
+                                <!-- FORMULAIRE DE REPONSE -->
+                                <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $data['event']['idUser']): ?>
+                                <div class="collapsible-body accordion_border">
+                                    <div class="chip margin event_secure_chip">
+                                        <img src="assets/img/square_face.png" alt="Contact Person"> Organizer
+                                    </div>
+                                    <form method="post" action="event/answer">
+                                        <input name="answer" placeholder="example: How should i dress ?" id="first_name" type="text"
+                                               class="validate event_secure_input" required>
 
-                                    <input type="hidden" name="idEvent" value="<?= $_GET['id']; ?>">
-                                    <input type="hidden" name="idCreator" value="<?= $data['event']['vol_users_idUser']; ?>">
+                                        <input type="hidden" name="idQuestion" value="<?= $question['idEventQuestions']; ?>">
+                                        <input type="hidden" name="idCreator" value="<?= $data['event']['idUser']; ?>">
+                                        <input type="hidden" name="idEvent" value="<?= $_GET['id']; ?>">
 
-                                    <?php if (isset($_SESSION['user_email'])) { ?>
-                                        <button name="submit" type="submit"
-                                                class="btn btn-blue right bottom margin event_secure_btn2">
-                                            <i class="material-icons">reply</i>
-                                        </button>
-                                    <?php } else { ?>
-                                        <button name="submit" type="submit"
-                                                class="btn btn-blue right bottom margin event_secure_btn2" disabled><i
-                                                class="material-icons">reply</i></button>
-                                    <?php } ?>
-                                </form>
-                                <p></p>
-                            </div>
-                            <?php endif; ?>
-                            <div class="reponse">
-                                <div class="chip margin event_secure_chip2">
-                                    <img src="assets/img/square_face.png" alt="Contact Person"> Nicolas
+                                        <?php if (isset($_SESSION['user_email'])) { ?>
+                                            <button name="submit" type="submit"
+                                                    class="btn btn-blue right bottom margin event_secure_btn2">
+                                                <i class="material-icons">reply</i>
+                                            </button>
+                                        <?php } else { ?>
+                                            <button name="submit" type="submit"
+                                                    class="btn btn-blue right bottom margin event_secure_btn2" disabled><i
+                                                    class="material-icons">reply</i></button>
+                                        <?php } ?>
+                                    </form>
+                                    <p></p>
                                 </div>
-                                <p class="secure_reponse">In front of the concert door at 9PM.</p>
-                            </div>
+                                <?php endif; ?>
+                                <!-- FIN FORMULAIRE DE REPONSE -->
+                                <!-- AFFICHAGE DE LA REPONSE  -->
+                                <?php if(isset($question['idEventAnswers']) && $question['idEventAnswers'] !== null): ?>
+                                    <div class="reponse">
+                                        <div class="chip margin event_secure_chip2">
+                                            <img src="assets/img/square_face.png" alt="Contact Person">Organizer
+                                        </div>
+                                        <p class="secure_reponse"><?= $question['eventAnswer']; ?></p>
+                                    </div>
+                                <?php endif; ?>
+                                <!-- FIN AFFICHAGE DE LA REPONSE  -->
+                            <?php endforeach; ?>
                         </li>
                     </ul>
                 </div>
             </div>
-
-
             <div class="col s12 m4 event_col_droite">
 
                 <div class="more_margin"></div>
@@ -163,8 +178,6 @@
                             ?>
                         <?php } ?>
                     </div>
-
-
                     <div class="clear">
                         <form action="user/join" method="post">
                             <input type="hidden" name="idEvent" value="<?= $data['event']['idEvent']; ?>">
@@ -199,7 +212,6 @@
                         <?php } ?>
                     </ul>
                 </div>
-
 
                 <h5 class="event_sstitre">More info</h5>
 
