@@ -11,20 +11,15 @@ class ProfileController extends AppController
 
     public function home()
     {
-        if(isset($_SESSION['user_id']))
+        if(isset($_SESSION['user_id']) && isset($_SESSION['user_email']))
         {
             // Charger les informations du profil
-            $data = $this->model->readOne(array(
-                "table" => "users",
-                // "columns" => "col1, col2",
-                "column_id" => "idUser",
-                "id" => $_SESSION['user_id']
-            ));
+            $data = $this->model->getProfile($_SESSION['user_id']);
 
             if(!$data)
             {
                 // Si pas de data on apelle la page d'erreur
-                define("TITLE_HEAD", "Erreur technique !");
+                define("TITLE_HEAD", "An error occur !");
                 $this->load->view('view_error.php');
             }
             else
@@ -36,11 +31,13 @@ class ProfileController extends AppController
         }
         else
         {
-            // Si pas de data on apelle la page d'erreur
-            define("TITLE_HEAD", "Erreur technique !");
-            $this->load->view('view_error.php');
-        }
+            $messageFlash = 'Error ! You are not logged in !';
+            $this->coreSetFlashMessage('error', $messageFlash, 4);
+            // Si pas de data on renvoi sur la page d'accueil
+            header('Location:?');
+            exit();
 
+        }
     }
 
     public function edit()
@@ -65,7 +62,11 @@ class ProfileController extends AppController
                 $email = NULL;
             }
 
-            if(isset($_POST['birth_day']) && $_POST['birth_month'] && $_POST['birth_year'])
+            if(isset($data['BirthDate']))
+            {
+                $birth_date = $data['BirthDate'];
+            }
+            elseif(isset($_POST['birth_day']) && $_POST['birth_month'] && $_POST['birth_year'])
             {
                 $birth_date = $_POST['birth_day']."/".$_POST['birth_month']."/".$_POST['birth_year'];
             }
@@ -83,29 +84,53 @@ class ProfileController extends AppController
 
             $id = $_SESSION['user_id'];
 
-            if(!$this->model->update_profile($id, $first_name, $last_name, $birth_date, $email, $location))
+            if (!empty($_FILES['userPicture']['name'])) {
+                $file = new Upload($_FILES['userPicture']['name'], $_FILES["userPicture"]["tmp_name"], 'assets/img/user_pp/', '');
+
+                if ($file->extControl()) {
+                    if ($file->moveFile()) {
+                        $userPicture = $file->setNom();
+                        $lastId = $this->model->insertUserPicture($userPicture);
+                        //TODO
+                        // if($lastId == null) alors blablabla
+                    }
+                    else {
+                        // fichier non déplacé
+                        define("TITLE_HEAD", "An error occur.");
+                        $messageFlash = 'An error occur. Please try again.';
+                        $this->coreSetFlashMessage('error', $messageFlash, 3);
+                        header('Location:profile/home');
+                        exit();
+                    }
+                }
+                else {
+                    // Extension non autorisée
+                    define("TITLE_HEAD", "An error occur.");
+                    $messageFlash = 'Invalid file extension. Please try again.';
+                    $this->coreSetFlashMessage('error', $messageFlash, 3);
+                    header('Location:profile/home');
+                    exit();
+                }
+            }
+            else {
+                $lastId = null;
+            }
+
+            if(!$this->model->update_profile($id, $first_name, $last_name, $birth_date, $email, $location, $lastId))
             {
-                // Si pas de données updaté on appel la page d'erreur
-                define("TITLE_HEAD", "Erreur technique !");
-                $this->load->view('view_error.php');
+                // Si pas de données updaté
+                define("TITLE_HEAD", "An error occur.");
+                $messageFlash = 'An error occur. Please try again.';
+                $this->coreSetFlashMessage('error', $messageFlash, 3);
+                header('Location:profile/home');
+                exit();
             }
             else
             {
-                // TODO
-                // à voir si on peut changer par un header location
-                // + Message de confirmation
-
-                // Charger les informations du profil
-                $data = $this->model->readOne(array(
-                    "table" => "users",
-                    // "columns" => "col1, col2",
-                    "column_id" => "idUser",
-                    "id" => $_SESSION['user_id']
-                ));
-
-                // Chargement de la vue du profil
-                define("TITLE_HEAD", "Volunteers | Profile");
-                $this->load->view('user/profile.php', $data);
+                $messageFlash = 'Done ! Your information has been updated !';
+                $this->coreSetFlashMessage('sucess', $messageFlash, 4);
+                header('Location:profile/home');
+                exit();
             }
         }
     }
