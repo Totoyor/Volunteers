@@ -107,14 +107,10 @@ class CoreModel extends Core
             $query .= DB_PREFIX.$options['table'];
 
             // Close WHERE
-            $query .= " WHERE ".$options['column_id']." = ".$options['id'];
-
-            //var_dump($query);
-            die();
+            $query .= " WHERE ".$options['column']." = ".$options['id'];
 
             // Traitement de la requete
             $cursor = $this->connexion->query($query);
-            $results = $cursor->fetch();
             $cursor->closeCursor();
 
             return true;

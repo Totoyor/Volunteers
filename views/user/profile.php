@@ -38,7 +38,7 @@
                     Required information
                     </div>
 
-                    <div class="grey-text panel-text">
+                    <div class="panel-text">
                         <div class="row">
                             <div class="col l6 s12">
                                 <div class="input-field">
@@ -120,7 +120,7 @@
                                <div class="input-field">
                                     <textarea id="icon_prefix2" class="materialize-textarea" name="description"><?php echo $data['Description']; ?></textarea>
                                     <label for="icon_prefix2">Describe yourself in some words</label>
-                                    <div class="text-description">
+                                    <div class="text-description grey-text">
                                         Volunteers is built on relationships. Help other people get to know you<br/><br/>
                                         Tell them about the things you like : what are your passions ?<br/><br/>
                                         Tell them what is your favourite work as a volunteer, or what could it be ?<br/><br/>
@@ -146,7 +146,7 @@
                         Optional information
                     </div>
 
-                    <div class="grey-text panel-text">
+                    <div class="panel-text">
                         <div class="row">
                             <div class="col l6 s12">
                                 <div class="input-field">
@@ -162,6 +162,14 @@
                                   <input placeholder="Apple/Carrefour" id="work" type="text" class="validate" name="work" value="<?php echo $data['Work']; ?>">
                                   <label for="work">Work</label>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12">
+                                <blockquote>
+                                    <a href="?module=profile&action=delete" class="red-text" title="">Delete my account :(</a>
+                                </blockquote>
+
                             </div>
                         </div>
                     </div>

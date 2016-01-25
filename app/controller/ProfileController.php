@@ -31,9 +31,9 @@ class ProfileController extends AppController
         }
         else
         {
+            // Pas de session
             $messageFlash = 'Error ! You are not logged in !';
             $this->coreSetFlashMessage('error', $messageFlash, 4);
-            // Si pas de data on renvoi sur la page d'accueil
             header('Location:?');
             exit();
 
@@ -42,136 +42,147 @@ class ProfileController extends AppController
 
     public function edit()
     {
-        if(isset($_POST))
-        {
-            if (isset($_POST['first_name'])) {
-                $first_name = $_POST['first_name'];
-            } else {
-                $first_name = NULL;
-            }
+        if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
+            if (isset($_POST)) {
+                if (isset($_POST['first_name'])) {
+                    $first_name = $_POST['first_name'];
+                } else {
+                    $first_name = null;
+                }
 
-            if (isset($_POST['last_name'])) {
-                $last_name = $_POST['last_name'];
-            } else {
-                $last_name = NULL;
-            }
+                if (isset($_POST['last_name'])) {
+                    $last_name = $_POST['last_name'];
+                } else {
+                    $last_name = null;
+                }
 
-            if (isset($_POST['email'])) {
-                $email = $_POST['email'];
-            } else {
-                $email = NULL;
-            }
+                if (isset($_POST['email'])) {
+                    $email = $_POST['email'];
+                } else {
+                    $email = null;
+                }
 
-            if(isset($_POST['BirthDateSaved']))
-            {
-                $birth_date = $_POST['BirthDateSaved'];
-            }
-            elseif(isset($_POST['birth_day']) && $_POST['birth_month'] && $_POST['birth_year'])
-            {
-                $birth_date = $_POST['birth_day']."/".$_POST['birth_month']."/".$_POST['birth_year'];
-            }
-            else {
-                $birth_date = NULL;
-            }
+                if (isset($_POST['BirthDateSaved'])) {
+                    $birth_date = $_POST['BirthDateSaved'];
+                } elseif (isset($_POST['birth_day']) && $_POST['birth_month'] && $_POST['birth_year']) {
+                    $birth_date = $_POST['birth_day'] . "/" . $_POST['birth_month'] . "/" . $_POST['birth_year'];
+                } else {
+                    $birth_date = null;
+                }
 
-            if(isset($_POST['location']))
-            {
-                $location = $_POST['location'];
-            }
-            else {
-                $location = NULL;
-            }
+                if (isset($_POST['location'])) {
+                    $location = $_POST['location'];
+                } else {
+                    $location = null;
+                }
 
-            if(isset($_POST['skills']))
-            {
-                $skills = $_POST['skills'];
-            }
-            else {
-                $skills = NULL;
-            }
+                if (isset($_POST['skills'])) {
+                    $skills = $_POST['skills'];
+                } else {
+                    $skills = null;
+                }
 
-            if(isset($_POST['description']))
-            {
-                $description = $_POST['description'];
-            }
-            else {
-                $description = NULL;
-            }
+                if (isset($_POST['description'])) {
+                    $description = $_POST['description'];
+                } else {
+                    $description = null;
+                }
 
-            if(isset($_POST['school']))
-            {
-                $school = $_POST['school'];
-            }
-            else {
-                $school = NULL;
-            }
+                if (isset($_POST['school'])) {
+                    $school = $_POST['school'];
+                } else {
+                    $school = null;
+                }
 
-            if(isset($_POST['work']))
-            {
-                $work = $_POST['work'];
-            }
-            else {
-                $work = NULL;
-            }
+                if (isset($_POST['work'])) {
+                    $work = $_POST['work'];
+                } else {
+                    $work = null;
+                }
 
-            $id = $_SESSION['user_id'];
+                $id = $_SESSION['user_id'];
 
-            if(!empty($_FILES['userPicture']['name'])) {
-                $file = new Upload($_FILES['userPicture']['name'], $_FILES["userPicture"]["tmp_name"], 'assets/img/user_pp/', '');
+                if (!empty($_FILES['userPicture']['name'])) {
+                    $file = new Upload($_FILES['userPicture']['name'], $_FILES["userPicture"]["tmp_name"], 'assets/img/user_pp/', '');
 
-                if ($file->extControl()) {
-                    if ($file->moveFile()) {
-                        $userPicture = $file->setNom();
-                        $lastId = $this->model->insertUserPicture($userPicture);
-                        //TODO
-                        // if($lastId == null) alors blablabla
-                    }
-                    else {
-                        // fichier non déplacé
+                    if ($file->extControl()) {
+                        if ($file->moveFile()) {
+                            $userPicture = $file->setNom();
+                            $lastId = $this->model->insertUserPicture($userPicture);
+                            //TODO
+                            // if($lastId == null) alors blablabla
+                        } else {
+                            // fichier non déplacé
+                            define("TITLE_HEAD", "An error occur.");
+                            $messageFlash = 'An error occur. Please try again.';
+                            $this->coreSetFlashMessage('error', $messageFlash, 3);
+                            header('Location:profile/home');
+                            exit();
+                        }
+                    } else {
+                        // Extension non autorisée
                         define("TITLE_HEAD", "An error occur.");
-                        $messageFlash = 'An error occur. Please try again.';
+                        $messageFlash = 'Invalid file extension. Please try again.';
                         $this->coreSetFlashMessage('error', $messageFlash, 3);
                         header('Location:profile/home');
                         exit();
                     }
+                } else {
+                    if (isset($_POST['userPictureSaved'])) {
+                        $userPicture = $_POST['userPictureSaved'];
+                        $lastId = $this->model->insertUserPicture($userPicture);
+                    } else {
+                        $lastId = null;
+                    }
                 }
-                else {
-                    // Extension non autorisée
+
+                if (!$this->model->update_profile($id, $first_name, $last_name, $birth_date, $email, $location, $description, $skills, $school, $work, $lastId)) {
+                    // Si pas de données updaté
                     define("TITLE_HEAD", "An error occur.");
-                    $messageFlash = 'Invalid file extension. Please try again.';
+                    $messageFlash = 'An error occur. Please try again.';
                     $this->coreSetFlashMessage('error', $messageFlash, 3);
+                    header('Location:profile/home');
+                    exit();
+                } else {
+                    $messageFlash = 'Done ! Your information has been updated !';
+                    $this->coreSetFlashMessage('sucess', $messageFlash, 4);
                     header('Location:profile/home');
                     exit();
                 }
             }
-            else {
-                if(isset($_POST['userPictureSaved']))
-                {
-                    $userPicture = $_POST['userPictureSaved'];
-                    $lastId = $this->model->insertUserPicture($userPicture);
-                }
-                else {
-                    $lastId = null;
-                }
-            }
-
-            if(!$this->model->update_profile($id, $first_name, $last_name, $birth_date, $email, $location, $description, $skills, $school, $work, $lastId))
-            {
-                // Si pas de données updaté
-                define("TITLE_HEAD", "An error occur.");
-                $messageFlash = 'An error occur. Please try again.';
-                $this->coreSetFlashMessage('error', $messageFlash, 3);
-                header('Location:profile/home');
-                exit();
-            }
-            else
-            {
-                $messageFlash = 'Done ! Your information has been updated !';
-                $this->coreSetFlashMessage('sucess', $messageFlash, 4);
-                header('Location:profile/home');
-                exit();
-            }
         }
     }
 
+    public function delete()
+    {
+        if(isset($_SESSION['user_id']) && isset($_SESSION['user_email']))
+        {
+            // Suppresion du user
+            $this->model->deleteOne(array(
+                'table' => 'users',
+                'column' => 'idUser',
+                'id' => $_SESSION['user_id']
+            ));
+
+            // Détruire la session
+            session_unset();
+            session_destroy();
+            unset($_COOKIE['fbsr_941553679268599']);
+
+            // Message de confirmation et redirection
+            session_start();
+            $messageFlash = 'Done ! Your information has been deleted !';
+            $this->coreSetFlashMessage('sucess', $messageFlash, 4);
+            header('Location:?');
+            exit();
+        }
+        else
+        {
+            // Pas de session
+            $messageFlash = 'Error ! You are not logged in !';
+            $this->coreSetFlashMessage('error', $messageFlash, 4);
+            header('Location:?');
+            exit();
+        }
+    }
 }
