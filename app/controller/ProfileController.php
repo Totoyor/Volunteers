@@ -82,6 +82,38 @@ class ProfileController extends AppController
                 $location = NULL;
             }
 
+            if(isset($_POST['skills']))
+            {
+                $skills = $_POST['skills'];
+            }
+            else {
+                $skills = NULL;
+            }
+
+            if(isset($_POST['description']))
+            {
+                $description = $_POST['description'];
+            }
+            else {
+                $description = NULL;
+            }
+
+            if(isset($_POST['school']))
+            {
+                $school = $_POST['school'];
+            }
+            else {
+                $school = NULL;
+            }
+
+            if(isset($_POST['work']))
+            {
+                $work = $_POST['work'];
+            }
+            else {
+                $work = NULL;
+            }
+
             $id = $_SESSION['user_id'];
 
             if(!empty($_FILES['userPicture']['name'])) {
@@ -123,7 +155,7 @@ class ProfileController extends AppController
                 }
             }
 
-            if(!$this->model->update_profile($id, $first_name, $last_name, $birth_date, $email, $location, $lastId))
+            if(!$this->model->update_profile($id, $first_name, $last_name, $birth_date, $email, $location, $description, $skills, $school, $work, $lastId))
             {
                 // Si pas de données updaté
                 define("TITLE_HEAD", "An error occur.");

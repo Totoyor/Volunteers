@@ -100,7 +100,7 @@
                         <div class="row">
                              <div class="col l12 s12">
                                 <div class="input-field">
-                                  <input placeholder="Please enter a valid email adress" id="email" type="email" class="validate" value="<?php echo $data['Email']; ?>" name="email">
+                                  <input placeholder="Please enter a valid email adress" id="email" type="email" class="validate" value="<?php echo $data['Email']; ?>" name="email" required="required">
                                   <label for="email">Email adress</label>
                                 </div>
                             </div>
@@ -118,7 +118,7 @@
                         <div class="row">
                            <div class="col s12">
                                <div class="input-field">
-                                    <textarea id="icon_prefix2" class="materialize-textarea" name="presentation"></textarea>
+                                    <textarea id="icon_prefix2" class="materialize-textarea" name="description"><?php echo $data['Description']; ?></textarea>
                                     <label for="icon_prefix2">Describe yourself in some words</label>
                                     <div class="text-description">
                                         Volunteers is built on relationships. Help other people get to know you<br/><br/>
@@ -133,7 +133,7 @@
                         <div class="row">
                            <div class="col s12">
                                <div class="input-field">
-                                  <textarea id="icon_prefix2" class="materialize-textarea" name="presentation"></textarea>
+                                  <textarea id="icon_prefix2" class="materialize-textarea" name="skills"><?php echo $data['Skills']; ?></textarea>
                                   <label for="icon_prefix2">What are your skills ?</label>
                                 </div>
                             </div>
@@ -150,7 +150,7 @@
                         <div class="row">
                             <div class="col l6 s12">
                                 <div class="input-field">
-                                  <input id="school" type="text" class="validate">
+                                  <input id="school" type="text" class="validate" name="school" value="<?php echo $data['School']; ?>">
                                   <label for="school">School</label>
                                 </div>
                             </div>
@@ -159,7 +159,7 @@
                         <div class="row">
                             <div class="col l6 s12">
                                 <div class="input-field">
-                                  <input placeholder="Apple / Carrefour Market" id="work" type="text" class="validate">
+                                  <input placeholder="Apple/Carrefour" id="work" type="text" class="validate" name="work" value="<?php echo $data['Work']; ?>">
                                   <label for="work">Work</label>
                                 </div>
                             </div>
