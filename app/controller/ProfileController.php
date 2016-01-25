@@ -57,16 +57,24 @@ class ProfileController extends AppController
                 }
 
                 if (isset($_POST['email'])) {
-                    $email = $_POST['email'];
-                } else {
-                    $email = null;
+                    if($this->coreCheckEmail($_POST['email'])) {
+                        $email = $_POST['email'];
+                    }
+                    else {
+                        $messageFlash = 'Wrong email adress. Please try again.';
+                        $this->coreSetFlashMessage('error', $messageFlash, 4);
+                        header('Location:profile/home');
+                        exit();
+                    }
                 }
 
-                if (isset($_POST['BirthDateSaved'])) {
+                if(isset($_POST['BirthDateSaved'])) {
                     $birth_date = $_POST['BirthDateSaved'];
-                } elseif (isset($_POST['birth_day']) && $_POST['birth_month'] && $_POST['birth_year']) {
+                }
+                elseif(isset($_POST['birth_day']) && isset($_POST['birth_month']) && isset($_POST['birth_year'])) {
                     $birth_date = $_POST['birth_day'] . "/" . $_POST['birth_month'] . "/" . $_POST['birth_year'];
-                } else {
+                }
+                else {
                     $birth_date = null;
                 }
 
@@ -109,8 +117,6 @@ class ProfileController extends AppController
                         if ($file->moveFile()) {
                             $userPicture = $file->setNom();
                             $lastId = $this->model->insertUserPicture($userPicture);
-                            //TODO
-                            // if($lastId == null) alors blablabla
                         } else {
                             // fichier non déplacé
                             define("TITLE_HEAD", "An error occur.");
@@ -129,6 +135,8 @@ class ProfileController extends AppController
                     }
                 } else {
                     if (isset($_POST['userPictureSaved'])) {
+                        // TODO
+                        // Supprimer l'ancienne photo
                         $userPicture = $_POST['userPictureSaved'];
                         $lastId = $this->model->insertUserPicture($userPicture);
                     } else {

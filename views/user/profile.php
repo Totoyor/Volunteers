@@ -23,6 +23,7 @@
                     <div class="card-image">
                         <img class="responsive-img" src="assets/img/user_pp/<?php echo $data['Picture'] ?>">
                         <input type="hidden" value="<?php echo $data['Picture'] ?>" name="userPictureSaved">
+                        <input type="file" name="userPicture" class="upload">
                     </div>
                     <?php } else { ?>
                     <div class="upload-profile-pic btn btn-block">
@@ -100,7 +101,7 @@
                         <div class="row">
                              <div class="col l12 s12">
                                 <div class="input-field">
-                                  <input placeholder="Please enter a valid email adress" id="email" type="email" class="validate" value="<?php echo $data['Email']; ?>" name="email" required="required">
+                                  <input placeholder="Please enter a valid email adress" id="email" type="email" class="validate" value="<?php echo $data['Email']; ?>" name="email">
                                   <label for="email">Email adress</label>
                                 </div>
                             </div>
