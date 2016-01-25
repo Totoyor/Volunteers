@@ -22,11 +22,10 @@
                     <?php if(isset($data['Picture'])) { ?>
                     <div class="card-image">
                         <img class="responsive-img" src="assets/img/user_pp/<?php echo $data['Picture'] ?>">
+                        <input type="hidden" value="<?php echo $data['Picture'] ?>" name="userPictureSaved">
                     </div>
                     <?php } else { ?>
                     <div class="upload-profile-pic btn btn-block">
-<!--                        <i class="material-icons left">perm_identity</i>Upload a profile picture-->
-<!--                        <input type="file" class="upload" />-->
                         <input name="userPicture" type="file" id="input-file-now" data-height="250" class="dropify"/>
                     </div>
                     <?php } ?>
@@ -88,12 +87,14 @@
                                     </select>
                                 </div>
                             </div>
-
+                            <?php if(isset($data['BirthDate'])) { ?>
                             <div class="input-field col s1">
                                 <p>
                                 <?php echo $data['BirthDate']; ?>
                                 </p>
+                                <input type="hidden" name="BirthDateSaved" value="<?php echo $data['BirthDate']; ?>">
                             </div>
+                            <?php } ?>
                         </div>
 
                         <div class="row">

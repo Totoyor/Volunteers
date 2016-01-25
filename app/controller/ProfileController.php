@@ -62,9 +62,9 @@ class ProfileController extends AppController
                 $email = NULL;
             }
 
-            if(isset($data['BirthDate']))
+            if(isset($_POST['BirthDateSaved']))
             {
-                $birth_date = $data['BirthDate'];
+                $birth_date = $_POST['BirthDateSaved'];
             }
             elseif(isset($_POST['birth_day']) && $_POST['birth_month'] && $_POST['birth_year'])
             {
@@ -84,7 +84,7 @@ class ProfileController extends AppController
 
             $id = $_SESSION['user_id'];
 
-            if (!empty($_FILES['userPicture']['name'])) {
+            if(!empty($_FILES['userPicture']['name'])) {
                 $file = new Upload($_FILES['userPicture']['name'], $_FILES["userPicture"]["tmp_name"], 'assets/img/user_pp/', '');
 
                 if ($file->extControl()) {
@@ -113,7 +113,14 @@ class ProfileController extends AppController
                 }
             }
             else {
-                $lastId = null;
+                if(isset($_POST['userPictureSaved']))
+                {
+                    $userPicture = $_POST['userPictureSaved'];
+                    $lastId = $this->model->insertUserPicture($userPicture);
+                }
+                else {
+                    $lastId = null;
+                }
             }
 
             if(!$this->model->update_profile($id, $first_name, $last_name, $birth_date, $email, $location, $lastId))
