@@ -2,15 +2,27 @@
 
 Class EventModel extends AppModel
 {
+    /**
+     * @param $event_name
+     * @param $event_location
+     * @param $event_start
+     * @param $event_hour_start
+     * @param $event_end
+     * @param $event_hour_end
+     * @param $event_description
+     * @param $status
+     * @param $user
+     * @return bool|string
+     */
     public function createEvent($event_name, $event_location, $event_start, $event_hour_start, $event_end,
-                                $event_hour_end, $event_description, $status)
+                                $event_hour_end, $event_description, $status, $user)
     {
         try {
             $query = $this->connexion->prepare("INSERT INTO vol_events
                                         (nameEvent, startEvent, hourStartEvent, endEvent, hourEndEvent,
-                                        locationEvent, descriptionEvent, vol_event_status_idEventStatus)
+                                        locationEvent, descriptionEvent, vol_event_status_idEventStatus, vol_users_idUser)
                                         VALUES (:name, :start, :hourStart, :end, :hourEnd,
-                                        :location, :description, :status)");
+                                        :location, :description, :status, :user)");
 
             $query->bindValue(':name', $event_name, PDO::PARAM_STR);
             $query->bindValue(':location', $event_location, PDO::PARAM_STR);
@@ -20,6 +32,7 @@ Class EventModel extends AppModel
             $query->bindValue(':hourEnd', $event_hour_end, PDO::PARAM_STR);
             $query->bindValue(':description', $event_description, PDO::PARAM_STR);
             $query->bindValue(':status', $status, PDO::PARAM_STR);
+            $query->bindValue(':user', $user, PDO::PARAM_STR);
             $query->execute();
             $query->closeCursor();
 
@@ -34,13 +47,16 @@ Class EventModel extends AppModel
         }
     }
 
+    /**
+     * @return array|bool
+     */
     public function getCategories()
     {
         try {
             $query = $this->connexion->prepare("SELECT * FROM vol_events_categories");
             $query->execute();
 
-            $data = $query->fetchAll();
+            $data = $query->fetchAll(PDO::FETCH_ASSOC);
             $query->closeCursor();
             return $data;
 
@@ -49,6 +65,10 @@ Class EventModel extends AppModel
         }
     }
 
+    /**
+     * @param $id
+     * @return bool|mixed
+     */
     public function getEvent($id)
     {
         try {
@@ -62,25 +82,31 @@ Class EventModel extends AppModel
             ON vol_events.idEvent = vol_events_categories_has_vol_events.vol_events_idEvent
             LEFT JOIN vol_event_questions
             ON vol_events.idEvent = vol_event_questions.vol_events_idEvent
-            WHERE vol_events.vol_event_status_idEventStatus = :id
+            LEFT JOIN vol_users
+            ON vol_events.vol_users_idUser = vol_users.idUser
+            WHERE vol_events.idEvent = :id
+            AND vol_events.vol_event_status_idEventStatus = :status
             GROUP BY idEvent
             ");
 
             $query->bindValue(':id', $id, PDO::PARAM_INT);
+            $query->bindValue(':status', 1, PDO::PARAM_INT);
             $query->execute();
 
-            $data = $query->fetch();
+            $data = $query->fetch(PDO::FETCH_ASSOC);
             $query->closeCursor();
             return $data;
 
-
         } catch (Exception $e) {
             var_dump($e);
-            die();
+            die($e);
             return false;
         }
     }
 
+    /**
+     * @return array|bool
+     */
     public function getEvents()
     {
         try {
@@ -100,7 +126,7 @@ Class EventModel extends AppModel
 
             $query->bindValue(':status', 1, PDO::PARAM_INT);
             $query->execute();
-            $data = $query->fetchAll();
+            $data = $query->fetchAll(PDO::FETCH_ASSOC);
             $query->closeCursor();
 
             return $data;
@@ -110,6 +136,11 @@ Class EventModel extends AppModel
         }
     }
 
+    /**
+     * @param $idCategory
+     * @param $idEvent
+     * @return bool
+     */
     public function insertCategories($idCategory, $idEvent)
     {
         try {
@@ -129,6 +160,12 @@ Class EventModel extends AppModel
         }
     }
 
+    /**
+     * @param $idEvent
+     * @param $missions
+     * @param $nbVolunteer
+     * @return bool
+     */
     public function insertMissions($idEvent, $missions, $nbVolunteer)
     {
         try {
@@ -149,6 +186,10 @@ Class EventModel extends AppModel
         }
     }
 
+    /**
+     * @param $idEvent
+     * @return array|bool
+     */
     public function getMissions($idEvent)
     {
         try {
@@ -158,7 +199,7 @@ Class EventModel extends AppModel
             $query->bindValue(':id', $idEvent, PDO::PARAM_INT);
             $query->execute();
 
-            $data = $query->fetchAll();
+            $data = $query->fetchAll(PDO::FETCH_ASSOC);
             $query->closeCursor();
 
             return $data;
@@ -168,6 +209,39 @@ Class EventModel extends AppModel
         }
     }
 
+    /**
+     * @param $idEvent
+     * @return array|bool
+     */
+    public function getQuestions($idEvent)
+    {
+        try{
+
+            $query = $this->connexion->prepare("SELECT * FROM vol_event_questions
+            LEFT JOIN vol_events_answers
+            ON vol_event_questions.idEventQuestions = vol_events_answers.vol_event_questions_idEventQuestions
+            LEFT JOIN vol_users
+            ON vol_event_questions.vol_users_idUser = vol_users.idUser
+            WHERE vol_events_idEvent = :id");
+
+            $query->bindValue(':id', $idEvent, PDO::PARAM_INT);
+            $query->execute();
+
+            $data = $query->fetchAll(PDO::FETCH_ASSOC);
+            $query->closeCursor();
+
+            return $data;
+
+        } catch (Exception $e) {
+            die($e);
+            return false;
+        }
+    }
+
+    /**
+     * @param $idEvent
+     * @return array|bool
+     */
     public function getNbVolunteers($idEvent)
     {
         try {
@@ -178,7 +252,7 @@ Class EventModel extends AppModel
             $query->bindValue(':id', $idEvent, PDO::PARAM_INT);
             $query->execute();
 
-            $data = $query->fetchAll();
+            $data = $query->fetchAll(PDO::FETCH_ASSOC);
             $query->closeCursor();
 
             return $data;
@@ -188,6 +262,10 @@ Class EventModel extends AppModel
         }
     }
 
+    /**
+     * @param $idEvent
+     * @return array|bool
+     */
     public function getMedias($idEvent) {
         try {
             $query = $this->connexion->prepare("SELECT *
@@ -197,7 +275,7 @@ Class EventModel extends AppModel
             $query->bindValue(':id', $idEvent, PDO::PARAM_INT);
             $query->execute();
 
-            $data = $query->fetchAll();
+            $data = $query->fetchAll(PDO::FETCH_ASSOC);
             $query->closeCursor();
 
             return $data;
@@ -207,6 +285,10 @@ Class EventModel extends AppModel
         }
     }
 
+    /**
+     * @param $idEvent
+     * @return array|bool
+     */
     public function getVolunteers($idEvent) {
         try {
 
@@ -220,7 +302,7 @@ Class EventModel extends AppModel
 
             $query->bindValue(':idEvent', $idEvent, PDO::PARAM_INT);
             $query->execute();
-            $data = $query->fetchAll();
+            $data = $query->fetchAll(PDO::FETCH_ASSOC);
 
             $query->closeCursor();
 
@@ -231,6 +313,11 @@ Class EventModel extends AppModel
         }
     }
 
+    /**
+     * @param $idEvent
+     * @param $coverPicture
+     * @return bool
+     */
     public function insertCoverPicture($idEvent, $coverPicture)
     {
         try {
@@ -250,6 +337,11 @@ Class EventModel extends AppModel
         }
     }
 
+    /**
+     * @param $idEvent
+     * @param $media
+     * @return bool
+     */
     public function insertMediaPicture($idEvent, $media)
     {
         try {
@@ -268,6 +360,10 @@ Class EventModel extends AppModel
         }
     }
 
+    /**
+     * @param $recherche
+     * @return array|bool
+     */
     public function search($recherche)
     {
         try
@@ -284,6 +380,8 @@ Class EventModel extends AppModel
                                                 WHERE vol_events.vol_event_status_idEventStatus = :status
                                                 AND vol_events.nameEvent LIKE '%$recherche%'
                                                 OR vol_events.locationEvent LIKE '%$recherche%'
+                                                OR vol_events.startEvent LIKE '%$recherche%'
+                                                OR vol_events_categories.nameCategorie LIKE '%$recherche%'
                                                 GROUP BY idEvent ");
 
             $query->bindValue(':status', 1, PDO::PARAM_INT);
@@ -295,6 +393,56 @@ Class EventModel extends AppModel
         }
         catch (Exception $e)
         {
+            return false;
+        }
+    }
+
+    /**
+     * @param $user
+     * @param $event
+     * @param $question
+     * @return bool
+     */
+    public function insertQuestions($user, $event, $question) {
+        try {
+            $query = $this->connexion->prepare("INSERT INTO vol_event_questions
+                                                (eventQuestion, vol_events_idEvent, vol_users_idUser)
+                                                VALUES (:question, :event, :user)");
+
+            $query->bindValue(':question', $question, PDO::PARAM_STR);
+            $query->bindValue(':event', $event, PDO::PARAM_INT);
+            $query->bindValue(':user', $user, PDO::PARAM_INT);
+
+            $query->execute();
+            $query->closeCursor();
+
+            return true;
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
+    /**
+     * @param $user
+     * @param $question
+     * @param $answer
+     * @return bool
+     */
+    public function insertAnswer($user, $question, $answer) {
+        try {
+            $query = $this->connexion->prepare("INSERT INTO vol_events_answers
+                                                (eventAnswer, vol_event_questions_idEventQuestions, vol_users_idUser)
+                                                VALUES (:answer, :question , :user)");
+
+            $query->bindValue(':answer', $answer, PDO::PARAM_STR);
+            $query->bindValue(':question', $question, PDO::PARAM_INT);
+            $query->bindValue(':user', $user, PDO::PARAM_INT);
+
+            $query->execute();
+            $query->closeCursor();
+
+            return true;
+        } catch (Exception $e) {
             return false;
         }
     }
