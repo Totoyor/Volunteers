@@ -1,24 +1,14 @@
 <?php include_once('views/layout/header.inc.php'); ?>
 
-<div class="container-full">
-    <div class="nav-profil">
-        <div class="nav-wrapper-profil">
-            <ul>
-                <li><a href="../views/page/dashboard.php">Dashboard</a></li>
-                <li><a href="#">My missions</a></li>
-                <li><a href="#">My events</a></li>
-                <li><a href="editprofile.php"  class="nav-profil-active">Edit my profile</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
+
         
 <div class="container">
     <div class="page-content">
-        <div class="row">
+        <div class="row margtop100">
             <form class="formedit-profile" action="?module=profile&action=edit" method="post" enctype="multipart/form-data">
-            <div class="col l3 m12 s12">
-                <div class="card">
+                
+            <div class="col l3 m12 s12 colbg nopadding">
+                <!--<div class="card">
                     <?php if(isset($data['Picture'])) { ?>
                     <div class="card-image">
                         <img class="responsive-img" src="assets/img/user_pp/<?php echo $data['Picture'] ?>">
@@ -30,14 +20,59 @@
                         <input name="userPicture" type="file" id="input-file-now" data-height="250" class="dropify"/>
                     </div>
                     <?php } ?>
+                </div>-->
+                <div class="card noborder">
+                        <div class="card panel colbg noborder center">
+                            <div class="panel-text">
+                            <img class="resposive-img circle" src="assets/img/square_face.png" width="100" height="100">
+                            <h2 class="name-profile nospace">Salim</h2>
+                            <a href="profilepublic.php">See profile as public</a><br/>
+                            </div>
+                        </div>
+                        </div>
+                        
+                         <a class='hide-on-large-only dropdown-button btn btn-block' href='#' data-activates='dropdown1'>Menu</a>
+                        <ul id='dropdown1' class='dropdown-content'>
+                            <li><a href="dashboard.php"><i class="material-icons">view_list</i>Dashboard</a></li>
+                            <li><a href="mymissions.php"><i class="material-icons">work</i>My missions</a></li>
+                            <li><a href="myevents.php"><i class="material-icons">grade</i>My events</a></li>
+                            <li><a href="profile.php"><i class="material-icons">perm_identity</i>Edit my profile</a></li>
+                            
+                                
+                                
+                            
+                            </li>
+                        </ul>
+                        
+                        
+                        <ul class="left-nav hide-on-med-and-down">
+                            <li><a href="dashboard.php"><i class="material-icons">view_list</i>Dashboard</a></li>
+                            <li><a href="mymissions.php"><i class="material-icons">work</i>My missions</a></li>
+                            <li><a href="myevents.php"><i class="material-icons">grade</i>My events</a></li>
+                            <li><a href="profile.php"><i class="material-icons">perm_identity</i>Edit my profile</a></li>
+                            
+                                
+                                
+                            
+                            </li>
+                        </ul>
+                
                 </div>
-            </div>
 
             <div class="col l9 m12 s12">
-                <div class="card panel">
-                    <div class="panel-header">
-                    Required information
-                    </div>
+                <div class="row">
+                            <div class="col s12">
+                                <ul class="tabs">
+        <li class="tab col s4"><a class="active" href="#required">Required information</a></li>
+        <li class="tab col s4"><a href="#optional">Optional</a></li>
+        
+     
+                                </ul>
+                            
+                            </div>
+                        </div>
+                
+                <div class="card panel" id="required">
 
                     <div class="panel-text">
                         <div class="row">
@@ -142,10 +177,8 @@
                     </div>
                 </div><!-- fin card panel-->
 
-                <div class="card panel">
-                    <div class="panel-header">
-                        Optional information
-                    </div>
+                <div class="card panel" id="optional">
+                    
 
                     <div class="panel-text">
                         <div class="row">
