@@ -777,13 +777,13 @@ p {
     .image_crea {
         display: none;
     }
-    
+
     .formulaire_crea {
-   
+
     padding-left: 0%!important;
     padding-right: 0%!important;
 }
-  
+
 }
 
 
@@ -791,7 +791,7 @@ p {
 
 .container-full
 {
-width: 100%;  
+width: 100%;
 }
 
 .nav-profil
@@ -805,18 +805,18 @@ margin-top: 64px;
 
 .nav-profil ul li a
 {
-color: #f5f5f5;   
+color: #f5f5f5;
 display: block;
 }
 
 a.nav-profil-active
 {
-border-bottom: 3px solid #fb8c00;   
+border-bottom: 3px solid #fb8c00;
 }
 
 .nav-profil ul li a:hover
 {
- color: #fff;   
+ color: #fff;
 }
 
 .nav-wrapper-profil
@@ -835,7 +835,6 @@ padding: 0 15px;
 
 select
 {
-display: block;
 padding: 8px 10px;
 }
 
@@ -853,7 +852,7 @@ padding: 8px 10px;
 
 .minwidth
 {
-width: auto;   
+width: auto;
 }
 
 .panel{
@@ -871,7 +870,7 @@ width: auto;
 }
 
 .panel-text{
-padding: 20px;   
+padding: 20px;
 }
 
 .upload-profile-pic
@@ -892,7 +891,7 @@ bottom: 0;
     opacity: 0;
     height: 100%;
     filter: alpha(opacity=0);
-   
+
 }
 
 .btn-block
@@ -912,7 +911,7 @@ background-color: #7b7f81;
 
 .formedit-profile .input-field label
 {
-left: 0;   
+left: 0;
 }
 /***page search events***/
 
@@ -1014,7 +1013,7 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
 
 .btn-vue-bis:hover {
     background: #5498d4;
-}    
+}
 
 #search input[type=text]:focus {
      box-shadow: none;
@@ -1212,7 +1211,7 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
     .event_faces_responsive {
         display: none;
     }
-    
+
     .event_vol_faces {
         width: 80%;
         margin-left: 15%;
@@ -1348,18 +1347,18 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
         width: 70%;
         margin-left: 21%;
     }
-    
+
     .event_maincontent {
         padding: 0px!important;
     }
-    
+
 
 }
 @media screen and (min-width: 0px) and (max-width: 1200px) {
     .event_secure_chip {
         width: 100px!important;
     }
-    
+
     .event_secure_btn2 {
         width: 150px!important
     }
