@@ -1,14 +1,5 @@
 <?php include_once('views/layout/header.inc.php'); ?>
-
-
-
-  
- 
-
     <div class="row creabody">
-        
-        
-        
         <div class="page_event col m10 s12 l8">
             <div class="formulaire_crea col l12">
                 <div class="row">
@@ -23,39 +14,23 @@
                 </div>
 
                 <!-----/****FORMS****/---->
-                
-                
-                
-                
-                
-                
-  
-
-
-
-
-                
-                
-                
-                
-                
-                
-                
                 <form method="post" action="event/create" class="" enctype="multipart/form-data">
 
                     <div class="row btn_crea1">
-                        
-                        
-                        
                         <div class="right">
-                            <button name="save" class="btn btn-menu" onclick="Materialize.toast('Saved', 4000)">Save</button>
-                       
-                        
-                            <button name="submit" href="#" class="btn btn-orange"
-                                    onclick="Materialize.toast('Published', 4000)">Publish
-                            </button>
-                            </div>
-                       
+                            <?php if(isset($_SESSION['user_id'])){ ?>
+                                <button name="save" class="btn btn-menu">Save</button>
+
+                                <button name="submit" href="#" class="btn btn-orange"
+                                        onclick="Materialize.toast('Published', 4000)">Publish
+                                </button>
+                            <?php } else { ?>
+                                <a name="save" class="btn btn-menu modal-trigger" href="#login">Save</a>
+
+                                <a name="submit" href="#login" class="btn btn-orange modal-trigger">Publish
+                                </a>
+                            <?php } ?>
+                        </div>
                     </div>
 
                     <div class="row"></div>
@@ -73,8 +48,7 @@
                     </div>
 
                     <div class="input-field col s12 l12 m12">
-                        
-                        <input name="event_name" class="" data-position="right" data-delay="50"
+                        <input name="event_name" class="" name="event_name" data-position="right" data-delay="50"
                                data-tooltip="Show me what you've got !" id="" type="text" required>
                         <label for="icon_prefix">Event Name</label>
                     </div>
@@ -243,7 +217,24 @@
                     <div class="row">
                         <div class="input-field col s12 l12 m12">
                             <input name="coverPicture" type="file" id="input-file-now" data-height="200" class="dropify tooltipped"
-                                   data-tooltip="Choose a cover photo for your event"
+                                   data-tooltip="Choose a cover picture"
+                                   data-delay="50" data-position="right"/>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s3">
+                            <input name="media[]" type="file" id="input-file-now" data-height="90" class="dropify"/>
+                        </div>
+                        <div class="input-field col s3">
+                            <input name="media[]" type="file" id="input-file-now" data-height="90" class="dropify" />
+                        </div>
+                        <div class="input-field col s3">
+                            <input name="media[]" type="file" id="input-file-now" data-height="90" class="dropify" />
+                        </div>
+                        <div class="input-field col s3">
+                            <input name="media[]" type="file" id="input-file-now" data-height="90" class="dropify tooltipped"
+                                   data-tooltip="Choose media pictures"
                                    data-delay="50" data-position="right"/>
                         </div>
                     </div>
@@ -302,13 +293,19 @@
                         
                         
                         <div class="right">
-                            <button name="save" class="btn btn-menu" onclick="Materialize.toast('Saved', 4000)">Save</button>
-                       
-                        
-                            <button name="submit" href="#" class="btn btn-orange"
-                                    onclick="Materialize.toast('Published', 4000)">Publish
-                            </button>
-                            </div>
+                            <?php if(isset($_SESSION['user_id'])){ ?>
+                                <button name="save" class="btn btn-menu">Save</button>
+
+                                <button name="submit" href="#" class="btn btn-orange"
+                                        onclick="Materialize.toast('Published', 4000)">Publish
+                                </button>
+                            <?php } else { ?>
+                                <a name="save" class="btn btn-menu modal-trigger" href="#login">Save</a>
+
+                                <a name="submit" href="#login" class="btn btn-orange modal-trigger">Publish
+                                </a>
+                            <?php } ?>
+                        </div>
                        
                     </div>
 

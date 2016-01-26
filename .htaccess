@@ -10,3 +10,4 @@ RewriteCond %{REQUEST_FILENAME} !-f
 # Enclancher une réecriture d'url
 RewriteRule ^([a-z]+)/([a-z]+)$ ?module=$1&action=$2 [L]
 RewriteRule ^([a-z]+)/([a-z]+)/([0-9]+)$ ?module=$1&action=$2&id=$3 [L]
+RewriteRule ^([a-z]+)/([a-z]+)/([0-9]+)/([a-z]+)$ ?module=$1&action=$2&id=$3&message=$4 [L]

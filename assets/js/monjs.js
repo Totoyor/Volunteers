@@ -108,28 +108,18 @@ $(document).ready(function () {
 
     $('#genre-categories .categories').click(function () {
 
-        var str = $(this).find('li').text();
-        
-        $('.categories').append('.chip');
-        console.log("je passe ici");
-         
+        i++;
 
+        var str = $(this).text();
 
+        $("#chip-bulle").clone().attr('id', 'chip-bulle' + i).appendTo("#div-cat-chip");
+
+        d = document.getElementById('#chip-bulle' + i);
+
+        d.html = str;
+
+        console.log(str);
+        console.log(d);
     });
 
-
-
-
-
-
-
-
-
-
-
-    
-    
-    
-
-    
 });

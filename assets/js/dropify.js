@@ -32,7 +32,7 @@ function Dropify(element, options) {
         defaultFile: '',
         maxFileSize: 0,
         messages: {
-            'default': 'Choose a cover photo',
+            'default': 'Choose a picture',
             'replace': 'Drag and drop or click to replace',
             'remove':  'Remove',
             'error':   'Sorry, this file is too large'
