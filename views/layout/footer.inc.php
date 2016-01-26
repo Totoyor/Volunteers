@@ -196,6 +196,8 @@
 <script type="text/javascript" src="assets/js/ajax.search.js"></script>
 <script type="text/javascript" src="assets/js/dropify.js"></script>
 <script type='text/javascript' src='assets/js/notie.js'></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBMeN71krkW93XBiRLbTAbexsjTBmVWhU&signed_in=true&callback=initMap"
+        async defer></script>
 <?php
 // Affichage de la notification
 if(isset($_SESSION['FlashMessage'])) {

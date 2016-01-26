@@ -69,6 +69,7 @@
                             <input data-position="right" data-delay="50" data-tooltip="What day is it?"
                                    name="event_start" id="icon_prefix" type="date"
                                    placeholder="Click here to choose the begining"
+                                   id="datepicker"
                                    class="validate datepicker tooltipped">
                             <label for="icon_prefix"></label>
                         </div>

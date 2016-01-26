@@ -446,4 +446,49 @@ Class EventModel extends AppModel
             return false;
         }
     }
+
+    /**
+     * @param $category
+     * @param $date
+     * @return array|bool
+     */
+    public function sortEvents($category, $date) {
+        try
+        {
+            $query = "SELECT * FROM vol_events
+                        LEFT JOIN vol_event_pictures
+                        ON vol_events.idEvent = vol_event_pictures.vol_events_idEvent
+                        LEFT JOIN vol_event_missions
+                        ON vol_events.idEvent = vol_event_missions.vol_events_idEvent
+                        LEFT JOIN vol_events_categories_has_vol_events
+                        ON vol_events.idEvent = vol_events_categories_has_vol_events.vol_events_idEvent
+                        LEFT JOIN vol_events_categories
+                        ON vol_events_categories_has_vol_events.vol_events_categories_idCategorie = vol_events_categories.idCategorie
+                        WHERE vol_events.vol_event_status_idEventStatus = 1
+                        ";
+
+            if ($category !== '') {
+                $query .= "AND vol_events_categories.nameCategorie = '".$category."'";
+            }
+
+            if ($date !== '') {
+                $query .= " AND vol_events.startEvent = '".$date."'";
+            }
+
+            $query .= " GROUP BY idEvent";
+
+
+            $cursor = $this->connexion->query($query);
+
+            $data = $cursor->fetchAll(PDO::FETCH_ASSOC);
+
+            return $data;
+        }
+        catch (Exception $e)
+        {
+            die($e);
+            return false;
+        }
+    }
+
 }

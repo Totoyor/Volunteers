@@ -1527,3 +1527,8 @@ absolute {
     margin: 2%;
     padding: 1%;
 }
+
+#btn-sort{
+    width: 100%;
+    margin: auto;
+}
