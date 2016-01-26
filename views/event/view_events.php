@@ -40,7 +40,7 @@
                                 </ul>
                             </div> -->
                             <select name="category" class="browser-default">
-                                <option disabled selected>Category</option>
+                                <option disabled selected>Choose a category</option>
                                 <?php foreach ($data['categories'] as $category): ?>
                                     <option value="<?= $category['nameCategorie']; ?>">
                                         <?= $category['nameCategorie']; ?>
