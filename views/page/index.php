@@ -9,7 +9,7 @@
                         <li><i class="material-icons">done</i>Live new work exepriences</li>
                         <li><i class="material-icons">done</i>Meet awesome people</li>
                     </ul>
-                    <a href="event/lists" class="btn">Get Started</a>
+                    <a href="event/lists" class="btn">Ready to participate</a>
                 </div>
             </div>
             <div class="col s6 blocprincipal white-text bgorange valign-wrapper">
@@ -20,7 +20,7 @@
                         <li><i class="material-icons">done</i>Save your time</li>
                         <li><i class="material-icons">done</i>Better visibility for your event</li>
                     </ul>
-                    <a href="event/home" class="btn btn-orange">Get Started</a>
+                    <a href="event/home" class="btn btn-orange">Tell us about your event</a>
                 </div>
                 <!-- content bloc-->
             </div>

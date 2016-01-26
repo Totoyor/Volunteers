@@ -13,6 +13,7 @@ if(SERVER === 'LOCAL') {
      */
     define('DEBUG', true);
     define('BASE_HOME', '<base href="http://localhost/Volunteers/">');
+    define('PATH_HOME', 'http://localhost/Volunteers/');
     /**
      * Constantes de Base de Données
      */
@@ -29,6 +30,7 @@ else if(SERVER === 'DEV') {
      */
     define('DEBUG', true);
     define('BASE_HOME', '<base href="http://sabates.etudiant-eemi.com/perso/volunteers/dev/">');
+    define('PATH_HOME', 'YOUR_URL');
     /**
      * Constantes de Base de Données
      */
@@ -45,6 +47,7 @@ else if(SERVER === 'TEST') {
      */
     define('DEBUG', true);
     define('BASE_HOME', '<base href="http://sabates.etudiant-eemi.com/perso/volunteers/test/">');
+    define('PATH_HOME', 'YOUR_URL');
     /**
      * Constantes de Base de Données
      */
@@ -60,6 +63,7 @@ else if(SERVER === 'PROD') {
      */
     define('DEBUG', false);
     define('BASE_HOME', '<base href="http://sabates.etudiant-eemi.com/perso/volunteers/prod/">');
+    define('PATH_HOME', 'YOUR_URL');
     /**
      * Constantes de Base de Données
      */

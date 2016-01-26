@@ -122,6 +122,12 @@ $(document).ready(function () {
         console.log(str);
         console.log(d);
     });
+    
+    $(".list-missions").hide();
+    
+    $(".show-missions").click(function(){
+    $(".list-missions").slideToggle("slow");
+});
 
 
 
