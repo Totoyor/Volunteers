@@ -193,4 +193,22 @@ class ProfileController extends AppController
             exit();
         }
     }
+
+    public function missions()
+    {
+        define("TITLE_HEAD", "Volunteers | Profile");
+        $this->load->view("user/missions.php");
+    }
+
+    public function events()
+    {
+        define("TITLE_HEAD", "Volunteers | Profile");
+        $this->load->view("user/my_events.php");
+    }
+
+    public function dashboard()
+    {
+        define("TITLE_HEAD", "Volunteers | Profile");
+        $this->load->view("user/dashboard.php");
+    }
 }
