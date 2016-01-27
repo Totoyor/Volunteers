@@ -267,7 +267,7 @@ a.viewmore.btn-vue {
 
 .bgright {
     background-color: #ff8b02;
-    background: linear-gradient(230deg, #FF9900, #D55E3A);
+    background: linear-gradient(120deg, #FF9900, #D55E3A);
 }
 
 .bgorange {
@@ -782,11 +782,9 @@ p {
     }
 
     .formulaire_crea {
-
         padding-left: 0%!important;
         padding-right: 0%!important;
-    }
-
+}
     .event_secure_input {
         width: 50%!important;
         float: left;
@@ -803,7 +801,7 @@ p {
 
 .container-full
 {
-    width: 100%;
+width: 100%;
 }
 
 .nav-profil
@@ -817,18 +815,24 @@ p {
 
 .nav-profil ul li a
 {
-    color: #f5f5f5;
-    display: block;
+
+color: #f5f5f5;
+display: block;
 }
 
 a.nav-profil-active
 {
-    border-bottom: 3px solid #fb8c00;
+
+border-bottom: 3px solid #fb8c00;
+
 }
 
 .nav-profil ul li a:hover
 {
-    color: #fff;
+
+ color: #fff;
+
+
 }
 
 .nav-wrapper-profil
@@ -839,10 +843,10 @@ a.nav-profil-active
 
 .nav-wrapper-profil ul li
 {
-    float: left;
-    font-size: 1rem;
-    display: block;
-    padding: 0 15px;
+float: left;
+font-size: 1rem;
+display: block;
+padding: 0 15px;
 }
 
 .select
@@ -859,7 +863,7 @@ textarea
 
 .minwidth
 {
-    width: auto;
+width: auto;
 }
 
 .panel{
@@ -877,7 +881,7 @@ textarea
 }
 
 .panel-text{
-    padding: 20px;
+padding: 20px;
 }
 
 .upload-profile-pic
@@ -917,7 +921,7 @@ textarea
 
 .formedit-profile .input-field label
 {
-    left: 0;
+left: 0;
 }
 
 
@@ -1378,7 +1382,6 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
         display: block;
     }
 
-
 }
 @media screen and (min-width: 0px) and (max-width: 1200px) {
     .event_secure_chip {
@@ -1410,10 +1413,6 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
 
 #bgvid {
 
-}
-
-absolute {
-    position: absolute;
 }
 
 .nomargin {
