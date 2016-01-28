@@ -168,9 +168,15 @@
                         <div class="row">
                             <div class="col s12">
                                 <blockquote>
+                                    <a href="?module=password&action=change" class="blue-text" title="">Change my password</a>
+                                </blockquote>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12">
+                                <blockquote>
                                     <a href="?module=profile&action=delete" class="red-text" title="">Delete my account :(</a>
                                 </blockquote>
-
                             </div>
                         </div>
                     </div>

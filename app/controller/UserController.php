@@ -29,6 +29,9 @@ class UserController extends AppController
         {
             if(!empty($_POST['email']) && (!empty($_POST['password'])))
             {
+                if(isset($_POST['SaveEmail'])) {
+                    setcookie("EmailUserVolunteers", $_POST['email'], time()+60*60*24*30);
+                }
                 $this->_login = $_POST['email'];
                 $this->_password = md5($_POST['password']);
 
@@ -208,5 +211,4 @@ class UserController extends AppController
             die('please log in');
         }
     }
-
 }
