@@ -267,7 +267,7 @@ a.viewmore.btn-vue {
 
 .bgright {
     background-color: #ff8b02;
-    background: linear-gradient(230deg, #FF9900, #D55E3A);
+    background: linear-gradient(120deg, #FF9900, #D55E3A);
 }
 
 .bgorange {
@@ -782,11 +782,9 @@ p {
     }
 
     .formulaire_crea {
-
         padding-left: 0%!important;
         padding-right: 0%!important;
-    }
-
+}
     .event_secure_input {
         width: 50%!important;
         float: left;
@@ -803,7 +801,7 @@ p {
 
 .container-full
 {
-    width: 100%;
+width: 100%;
 }
 
 .nav-profil
@@ -817,18 +815,24 @@ p {
 
 .nav-profil ul li a
 {
-    color: #f5f5f5;
-    display: block;
+
+color: #f5f5f5;
+display: block;
 }
 
 a.nav-profil-active
 {
-    border-bottom: 3px solid #fb8c00;
+
+border-bottom: 3px solid #fb8c00;
+
 }
 
 .nav-profil ul li a:hover
 {
-    color: #fff;
+
+ color: #fff;
+
+
 }
 
 .nav-wrapper-profil
@@ -839,10 +843,10 @@ a.nav-profil-active
 
 .nav-wrapper-profil ul li
 {
-    float: left;
-    font-size: 1rem;
-    display: block;
-    padding: 0 15px;
+float: left;
+font-size: 1rem;
+display: block;
+padding: 0 15px;
 }
 
 .select
@@ -859,7 +863,7 @@ textarea
 
 .minwidth
 {
-    width: auto;
+width: auto;
 }
 
 .panel{
@@ -877,7 +881,7 @@ textarea
 }
 
 .panel-text{
-    padding: 20px;
+padding: 20px;
 }
 
 .upload-profile-pic
@@ -917,8 +921,10 @@ textarea
 
 .formedit-profile .input-field label
 {
-    left: 0;
+left: 0;
 }
+
+
 /***page search events***/
 
 .filter {
@@ -1376,7 +1382,6 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
         display: block;
     }
 
-
 }
 @media screen and (min-width: 0px) and (max-width: 1200px) {
     .event_secure_chip {
@@ -1408,10 +1413,6 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
 
 #bgvid {
 
-}
-
-absolute {
-    position: absolute;
 }
 
 .nomargin {
@@ -1525,4 +1526,261 @@ absolute {
 .map {
     margin: 2%;
     padding: 1%;
+}
+
+/**** DASHBOARD V2****/ 
+
+.colbg
+{
+background-color: #efefef ; 
+}
+
+.name-profile
+{
+font-size: 2em;
+}
+
+.colbgpublic
+{
+background-color: #5498d4;
+}
+
+.left-nav li i
+{
+color: #4a4a4a;
+margin-left: 15px;
+}
+
+.left-nav li a
+{
+color: #4a4a4a; 
+display:block;
+padding: 20px 0px;
+transition: all 0.2s;
+-webkit-transition: all 0.2s;
+-moz-transition: all 0.2s;
+border-top: 1px solid #cecece;
+}
+
+.left-nav li a:hover 
+{
+color: #fff; 
+background-color: #4a4a4a;
+}
+
+.left-nav li a:hover i
+{
+color: #fff; 
+}
+
+a.left-nav-active
+{
+color: #fff; 
+border-left: solid 5px #5498d4;
+}
+
+.borderbotitem
+{
+border-bottom: 1px solid #cecece; 
+}
+
+.up-nav a
+{
+display: block;   
+padding: 20px;
+color: #4a4a4a;
+}
+
+.up-nav a.active
+{
+border-bottom: 3px solid #5498d4;  
+color: #5498d4;
+}
+
+.nopadding
+{
+padding: 0!important;   
+}
+
+.noborder
+{
+border: 0;!important 
+}
+
+.upcoming-wrapper
+{
+padding: 20px;   
+}
+
+.panel2
+{
+position: relative;
+}
+
+.content-upcoming-event, .list-missions
+{
+box-sizing: border-box;
+padding-left: 20px;
+padding-right: 20px;
+}
+
+.show-missions
+{
+height: 60px;
+line-height: 60px;
+width: 100%;
+background-color: #efefef;
+bottom: 0;
+box-sizing: border-box;
+padding-left: 20px;
+cursor: pointer;
+transition: all 0.2s;
+-webkit-transition: all 0.2s;
+-moz-transition: all 0.2s;
+}
+
+.show-missions:hover
+{
+background-color: #4a4a4a;  
+color: #fff;
+}
+
+.show-missions:hover p
+{ 
+color: #fff;
+}
+
+.view-missions
+{
+line-height: 60px !important;
+padding-right: 20px;
+}
+
+.tabs
+{
+background-color: transparent;   
+}
+
+.tabs .tab a
+{
+color: #5498d4;
+}
+
+.tabs .tab a:hover
+{
+background-color: #efefef;   
+color: #5498d4;
+}
+
+.tabs .indicator 
+{
+background-color: #5498d4;  
+}
+
+.list-missions
+{
+position: relative;
+}
+
+.blue-title
+{
+color: #5498d4;
+}
+
+
+.padding3
+{
+padding: 20px;   
+}
+
+.img-comment
+{
+border: 2px solid #cecece;   
+}
+
+.bordernone
+{
+border: none;
+}
+
+.reviews .row
+{
+margin-bottom: 0;   
+}
+
+.fancy-hr2
+{
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    margin-bottom: 21px;
+}
+
+.title-profile
+{
+color: #cecece;
+font-size: 2em;
+}
+
+.dropdown-content li > a, .dropdown-content li > span
+{
+color: #4a4a4a;
+}
+
+.padding1
+{
+    padding-left: 20px;
+    padding-right: 20px;   
+}
+
+/**** MY EVENTS ****/ 
+
+.space3
+{
+margin-bottom: 5px;   
+}
+
+.eventsprofile
+{
+    box-sizing: border-box;
+    padding: 15px;
+}
+
+.btn-red
+{
+background-color: #F34541;
+border-color: rgb(198, 56, 52);
+}
+
+.btn-red:hover
+{
+background-color: #f06b68;
+border-color: rgb(198, 56, 52);
+}
+
+
+/**** MY MISSIONS ****/ 
+
+.padding2
+{
+padding: 0 0.75rem;   
+}
+
+.table-missions thead
+{
+border-bottom: 2px solid #cecece;
+cursor: pointer;
+color: #5498d4;
+}
+
+.rotate
+{
+transform: rotate(90deg);   
+vertical-align: middle;
+}
+
+.fullwidth
+{
+width: 100%;   
 }
