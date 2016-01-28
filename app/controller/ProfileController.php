@@ -203,7 +203,11 @@ class ProfileController extends AppController
     public function events()
     {
         define("TITLE_HEAD", "Volunteers | Profile");
-        $this->load->view("user/my_events.php");
+        $data = array(
+            'eventsPulished' => $this->model->selectEventsUserPublished($_SESSION['user_id']),
+            'eventSaved' => $this->model->selectEventsUserSaved($_SESSION['user_id'])
+        );
+        $this->load->view("user/my_events.php", $data);
     }
 
     public function dashboard()

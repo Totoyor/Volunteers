@@ -197,11 +197,12 @@ class UserController extends AppController
 
             $idEvent = $_POST['idEvent'];
             $idUser = $_SESSION['user_id'];
+            $status = 0;
 
-            if ($this->model->join($idEvent, $idUser)) {
+            if ($this->model->join($idEvent, $idUser, $status)) {
                 header("location:/3ADEV/Volunteers/event/show/" . $idEvent);
             } else {
-                header("location:/3ADEV/Volunteers/event/show/" . $idEvent . "?join=nok");
+                header("location:/3ADEV/Volunteers/event/show/" . $idEvent . "/joinnok");
             }
 
         } else {

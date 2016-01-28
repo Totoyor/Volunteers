@@ -98,8 +98,44 @@ Class EventModel extends AppModel
             return $data;
 
         } catch (Exception $e) {
-            var_dump($e);
-            die($e);
+            return false;
+        }
+    }
+
+    /**
+     * Récupère les informations d'un évènement sauvegarder
+     * @param $id
+     * @return bool|mixed
+     */
+    public function getEventSaved($id)
+    {
+        try {
+            $query = $this->connexion->prepare("SELECT *
+            FROM vol_events
+            LEFT JOIN vol_event_pictures
+            ON vol_events.idEvent = vol_event_pictures.vol_events_idEvent
+            LEFT JOIN vol_event_missions
+            ON vol_events.idEvent = vol_event_missions.vol_events_idEvent
+            LEFT JOIN vol_events_categories_has_vol_events
+            ON vol_events.idEvent = vol_events_categories_has_vol_events.vol_events_idEvent
+            LEFT JOIN vol_event_questions
+            ON vol_events.idEvent = vol_event_questions.vol_events_idEvent
+            LEFT JOIN vol_users
+            ON vol_events.vol_users_idUser = vol_users.idUser
+            WHERE vol_events.idEvent = :id
+            AND vol_events.vol_event_status_idEventStatus = :status
+            GROUP BY idEvent
+            ");
+
+            $query->bindValue(':id', $id, PDO::PARAM_INT);
+            $query->bindValue(':status', 0, PDO::PARAM_INT);
+            $query->execute();
+
+            $data = $query->fetch(PDO::FETCH_ASSOC);
+            $query->closeCursor();
+            return $data;
+
+        } catch (Exception $e) {
             return false;
         }
     }

@@ -520,4 +520,25 @@ class EventController extends AppController
             header("location:lists");
         }
     }
+
+    public function listvolunteers()
+    {
+        define("TITLE_HEAD", "Volunteers | List Volunteers");
+        $idEvent = $_GET['id'];
+        $data = array(
+            'volunteers' => $this->model->getVolunteers($idEvent)
+        );
+        $this->load->view("event/list_volunteers.php", $data);
+    }
+
+    public function edit()
+    {
+        define("TITLE_HEAD", "Volunteers | Edit");
+        $idEvent = $_GET['id'];
+        $data = array(
+            'event' => $this->model->getEventSaved($idEvent),
+            'category' => $this->model->getCategories()
+        );
+        $this->load->view("event/update_event.php", $data);
+    }
 }
