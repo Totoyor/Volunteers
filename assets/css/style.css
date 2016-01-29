@@ -1528,6 +1528,11 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
     padding: 1%;
 }
 
+#btn-sort{
+    width: 100%;
+    margin: auto;
+}
+
 /**** DASHBOARD V2****/ 
 
 .colbg

@@ -14,23 +14,7 @@
                             </div>
                         </div>
                     </div>
-                    <a class='hide-on-large-only dropdown-button btn btn-block' href='#'
-                       data-activates='dropdown1'>Menu</a>
-                    <ul id='dropdown1' class='dropdown-content'>
-                        <li><a href="dashboard.php"><i class="material-icons">view_list</i>Dashboard</a></li>
-                        <li><a href="mymissions.php"><i class="material-icons">work</i>My missions</a></li>
-                        <li><a href="myevents.php"><i class="material-icons">grade</i>My events</a></li>
-                        <li><a href="profile.php"><i class="material-icons">perm_identity</i>Edit my profile</a></li>
-                        <li class="borderbotitem"><a href="#"><i class="material-icons">settings</i>Help center</a></li>
-                    </ul>
-
-                    <ul class="left-nav hide-on-med-and-down">
-                        <li><a href="dashboard.php"><i class="material-icons">view_list</i>Dashboard</a></li>
-                        <li><a href="mymissions.php"><i class="material-icons">work</i>My missions</a></li>
-                        <li><a href="myevents.php"><i class="material-icons">grade</i>My events</a></li>
-                        <li><a href="profile.php"><i class="material-icons">perm_identity</i>Edit my profile</a></li>
-                        <li class="borderbotitem"><a href="#"><i class="material-icons">settings</i>Help center</a></li>
-                    </ul>
+                    <?php include_once('views/layout/nav.profile.php'); ?>
                 </div>
 
                 <div class="col l9 m12 s12">
@@ -50,7 +34,6 @@
                                 <h6>Studio Albatros, Montreuil</h6>
                                 <p><i class="material-icons">schedule</i>21 Nov. 2015</p>
                             </div>
-
                             <div class="list-missions">
                                 <hr class="fancy-hr">
                                 <h5 class="blue-title">Missions</h5>
@@ -60,15 +43,19 @@
                                     <li><i class="material-icons">done</i>Tickets</li>
                                 </ul>
                             </div>
-
                             <div class="show-missions">
                                 <p>View what I'll do during this event
                                     <i class="hide-on-med-and-down material-icons view-missions right">visibility</i>
                                 </p>
                             </div>
+                            <div class="show-missions">
+                                <p>
+                                    View what I'll do during this event
+                                    <i class="hide-on-med-and-down material-icons view-missions right">visibility</i>
+                                </p>
+                            </div>
                         </div>
                     </div><!-- fin onglet1-->
-
                     <div id="test2" class="reviews card panel panel2 space1 bordernone padding1">
                         <div class="row">
                             <div class="col l12 center">

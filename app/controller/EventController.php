@@ -3,11 +3,16 @@
 class EventController extends AppController
 
 {
+    protected $_date;
+
     public function __construct()
     {
         require 'app/model/EventModel.php';
         $this->model = new EventModel();
         parent::__construct();
+
+        $this->_date = date("j F, Y");
+
     }
 
     public function create()
@@ -30,7 +35,10 @@ class EventController extends AppController
                     }
 
                     if (isset($_POST['event_start'])) {
-                        $event_start = $_POST['event_start'];
+                        $start = $_POST['event_start'];
+                        $search = array(',');
+                        $replace = array('.');
+                        $event_start = str_replace($search, $replace, $start);
                     } else {
                         $event_start = NULL;
                     }
@@ -42,9 +50,12 @@ class EventController extends AppController
                     }
 
                     if (isset($_POST['event_end'])) {
-                        $event_end = $_POST['event_end'];
+                        $end = $_POST['event_end'];
+                        $search = array(',');
+                        $replace = array('.');
+                        $event_end = str_replace($search, $replace, $end);
                     } else {
-                        $event_end = $_POST['event_start'];
+                        $event_end = $event_start;
                     }
 
                     if (isset($_POST['event_hour_end']) && isset($_POST['event_min_end'])) {
@@ -179,7 +190,10 @@ class EventController extends AppController
                     }
 
                     if (!empty($_POST['event_start'])) {
-                        $event_start = $_POST['event_start'];
+                        $start = $_POST['event_start'];
+                        $search = array(',');
+                        $replace = array('.');
+                        $event_start = str_replace($search, $replace, $start);
                     } else {
                         $messageFlash = 'Please set up the beginning of the event';
                         $this->coreSetFlashMessage('error', $messageFlash, 3);
@@ -197,9 +211,13 @@ class EventController extends AppController
                     }
 
                     if (!empty($_POST['event_end'])) {
-                        $event_end = $_POST['event_end'];
+                        //$event_end = $_POST['event_end'];
+                        $end = $_POST['event_end'];
+                        $search = array(',');
+                        $replace = array('.');
+                        $event_end = str_replace($search, $replace, $end);
                     } else {
-                        $event_end = $_POST['event_start'];
+                        $event_end = $event_start;
                     }
 
                     if (!empty($_POST['event_hour_end']) && !empty($_POST['event_min_end']) && !empty($_POST['event_end_mode'])) {
@@ -274,15 +292,27 @@ class EventController extends AppController
                             $file = new Upload($_FILES['coverPicture']['name'], $_FILES["coverPicture"]["tmp_name"], 'assets/img/events/uploads/', '');
 
                             if ($file->extControl()) {
-                                if ($file->moveFile()) {
-                                    if ($file->resizeFile()) {
-                                        $coverPicture = $file->setNom();
-                                        $this->model->insertCoverPicture($lastId, $coverPicture);
-                                    } else {
-                                        $coverPicture = $file->setNom();
-                                        $this->model->insertCoverPicture($lastId, $coverPicture);
+                                if ($file->sizeControl()) {
+                                    if ($file->moveFile()) {
+                                        if ($file->resizeFile()) {
+                                            $coverPicture = $file->setNom();
+                                            $this->model->insertCoverPicture($lastId, $coverPicture);
+                                        } else {
+                                            $coverPicture = $file->setNom();
+                                            $this->model->insertCoverPicture($lastId, $coverPicture);
+                                        }
                                     }
+                                } else {
+                                    $messageFlash = 'Your file is to big';
+                                    $this->coreSetFlashMessage('error', $messageFlash, 3);
+                                    header("location:home?create&event=sizenok");
+                                    exit();
                                 }
+                            } else {
+                                $messageFlash = 'The file extension isn\'t ok';
+                                $this->coreSetFlashMessage('error', $messageFlash, 3);
+                                header("location:home?create&event=extnok");
+                                exit();
                             }
                         }
 
@@ -310,9 +340,10 @@ class EventController extends AppController
                         }
 
                     } else {
-                        define("TITLE_HEAD", "Erreur | Volunteers");
-                        // Chargement de la vue
-                        $this->load->view('view_error.php');
+                        $messageFlash = 'There was a problem during the publishing';
+                        $this->coreSetFlashMessage('error', $messageFlash, 3);
+                        header("location:home?create&event=lastidnok");
+                        exit();
                     }
 
                     //Chargement de la vue de l'évènement
@@ -405,13 +436,19 @@ class EventController extends AppController
             if (!empty($_POST['question'])) {
                 $question = $_POST['question'];
                 if ($this->model->insertQuestions($user, $event, $question)) {
-                    header("location:show/".$event."/questionok");
+                    $messageFlash = 'Your question has been published with success';
+                    $this->coreSetFlashMessage('sucess', $messageFlash, 1);
+                    header("location:show/" . $event . "/questiook");
                 } else {
-                    header("location:show/".$event."/questionnok");
+                    $messageFlash = 'Question error';
+                    $this->coreSetFlashMessage('error', $messageFlash, 3);
+                    header("location:show/" . $event . "/questionnok");
                 }
             }
         } else {
-            header("location:show/".$event."/questionloginnok");
+            $messageFlash = 'Please login for ask question';
+            $this->coreSetFlashMessage('error', $messageFlash, 3);
+            header("location:show/" . $event . "/questionloginnok");
         }
     }
 
@@ -428,16 +465,106 @@ class EventController extends AppController
                 $answer = $_POST['answer'];
 
                 if ($this->model->insertAnswer($user, $question, $answer)) {
-                    header("location:show/".$event."/answerok");
+                    $messageFlash = 'Your answer has been published with success';
+                    $this->coreSetFlashMessage('sucess', $messageFlash, 1);
+                    header("location:show/" . $event . "/answerok");
                 } else {
-                    header("location:show/".$event."/answernok");
+                    $messageFlash = 'Answer error';
+                    $this->coreSetFlashMessage('error', $messageFlash, 3);
+                    header("location:show/" . $event . "/answernok");
                 }
 
             } else {
-                header("location:show/".$event."/notallowed");
+                $messageFlash = 'Your not allowed to answer at question';
+                $this->coreSetFlashMessage('error', $messageFlash, 3);
+                header("location:show/" . $event . "/notallowed");
             }
         } else {
-            header("location:show/".$event."/answerloginok");
+            $messageFlash = 'Please login for answer at question';
+            $this->coreSetFlashMessage('error', $messageFlash, 3);
+            header("location:show/" . $event . "/answerloginok");
+        }
+    }
+
+    public function sort()
+    {
+        if (!empty($_POST['category']) || !empty($_POST['sortDate'])) {
+
+            if (!empty($_POST['category'])) {
+                $category = $_POST['category'];
+            } else {
+                $category = '';
+            }
+
+            $post = $_POST['sortDate'];
+            $search = array(',');
+            $replace = array('.');
+            $date = str_replace($search, $replace, $post);
+
+            if ($this->model->sortEvents($category, $date)) {
+                define("TITLE_HEAD", "List of events | Volunteers");
+                // Chargement de la vue
+                $data = array(
+                    'events' => $this->model->sortEvents($category, $date),
+                    'categories' => $this->model->getCategories()
+                );
+                $this->load->view('event/view_events.php', $data);
+            } else {
+                $messageFlash = 'Nothing correspond to your search';
+                $this->coreSetFlashMessage('error', $messageFlash, 3);
+                header("location:lists");
+            }
+        } else {
+            $messageFlash = 'Please select an option';
+            $this->coreSetFlashMessage('error', $messageFlash, 3);
+            header("location:lists");
+        }
+    }
+
+    public function listvolunteers()
+    {
+        define("TITLE_HEAD", "Volunteers | List Volunteers");
+        $idEvent = $_GET['id'];
+        $data = array(
+            'volunteers' => $this->model->getVolunteers($idEvent)
+        );
+        $this->load->view("event/list_volunteers.php", $data);
+    }
+
+    public function editsaved()
+    {
+        define("TITLE_HEAD", "Volunteers | Edit");
+        $idEvent = $_GET['id'];
+        $data = array(
+            'event' => $this->model->getEventSaved($idEvent),
+            'category' => $this->model->getCategories(),
+            'missions' => $this->model->getMissions($idEvent),
+            'medias' => $this->model->getMedias($idEvent)
+        );
+        $this->load->view("event/update_event.php", $data);
+    }
+
+    public function editpublished()
+    {
+        define("TITLE_HEAD", "Volunteers | Edit");
+        $idEvent = $_GET['id'];
+        $data = array(
+            'event' => $this->model->getEvent($idEvent),
+            'category' => $this->model->getCategories(),
+            'missions' => $this->model->getMissions($idEvent),
+            'medias' => $this->model->getMedias($idEvent)
+        );
+        $this->load->view("event/update_event.php", $data);
+    }
+
+    public function hire()
+    {
+        if(!empty($_POST['hire'])) {
+
+        } else {
+            $messageFlash = 'Please select volunteers to hire';
+            $this->coreSetFlashMessage('error', $messageFlash, 3);
+            header("location:listvolunteers/".$_POST['idEvent']);
         }
     }
 }

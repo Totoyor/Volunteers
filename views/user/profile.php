@@ -29,21 +29,7 @@
                                 </div>
                             </div>
                         </div>
-
-                        <a class='hide-on-large-only dropdown-button btn btn-block' href='#' data-activates='dropdown1'>Menu</a>
-                        <ul id='dropdown1' class='dropdown-content'>
-                            <li><a href="dashboard.php"><i class="material-icons">view_list</i>Dashboard</a></li>
-                            <li><a href="mymissions.php"><i class="material-icons">work</i>My missions</a></li>
-                            <li><a href="myevents.php"><i class="material-icons">grade</i>My events</a></li>
-                            <li><a href="profile.php"><i class="material-icons">perm_identity</i>Edit my profile</a></li>
-                        </ul>
-
-                        <ul class="left-nav hide-on-med-and-down">
-                            <li><a href="dashboard.php"><i class="material-icons">view_list</i>Dashboard</a></li>
-                            <li><a href="mymissions.php"><i class="material-icons">work</i>My missions</a></li>
-                            <li><a href="myevents.php"><i class="material-icons">grade</i>My events</a></li>
-                            <li><a href="profile.php"><i class="material-icons">perm_identity</i>Edit my profile</a></li>
-                        </ul>
+                        <?php include_once('views/layout/nav.profile.php'); ?>
                     </div>
 
                     <div class="col l9 m12 s12">
@@ -144,8 +130,7 @@
                                 <div class="row">
                                     <div class="col s12">
                                         <div class="input-field">
-                                            <textarea id="icon_prefix2" class="materialize-textarea"
-                                                      name="description"><?php echo $data['Description']; ?></textarea>
+                                            <textarea id="icon_prefix2" class="materialize-textarea" name="description"><?php echo $data['Description']; ?></textarea>
                                             <label for="icon_prefix2">Describe yourself in some words</label>
 
                                             <div class="text-description grey-text">

@@ -17,8 +17,6 @@ class AdminController extends AppController
     }
 
 
-
-
     public function createUser()
     {
         // Chargement de la home

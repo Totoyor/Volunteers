@@ -53,7 +53,7 @@
                 <li><a class="btn btn-menu" href="event/home">Create event</a></li>
                   <?php if(isset($_SESSION['user_email']) || isset($_COOKIE['fbsr_941553679268599'])) { ?>
                       <li><a href="event/lists">Events</a></li>
-                      <li><a href="?module=profile">My Profile</a></li>
+                      <li><a href="profile/dashboard">My Profile</a></li>
                       <li><a href="?module=user&action=disconnect">Disconnect</a></li>
                   <?php } else { ?>
                       <li><a href="event/lists">Events</a></li>
@@ -69,7 +69,7 @@
                     <li><a class="modal-trigger" href="#signup">Sign Up</a></li>
                 <?php } else { ?>
                     <li><a href="?module=event&action=lists">Events</a></li>
-                    <li><a href="profile/home">My Profile</a></li>
+                    <li><a href="profile/dashboard">My Profile</a></li>
                     <li><a href="?module=user&action=disconnect">Disconnect</a></li>
                 <?php } ?>
                 <li><a href="?module=help">Help</a></li>

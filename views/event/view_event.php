@@ -1,7 +1,11 @@
 <?php include_once('views/layout/header.inc.php'); ?>
     <div class="container content-event">
         <div class="row" id="secure_row">
-            <img src="assets/img/events/uploads/<?= $data['event']['coverPicture']; ?>" class="event_couv"/>
+            <?php if(!empty($data['event']['coverPicture'])) { ?>
+                <img src="assets/img/events/uploads/<?= $data['event']['coverPicture']; ?>" class="event_couv"/>
+            <?php } else { ?>
+                <img src="assets/img/couv_default.jpg" class="event_couv"/>
+            <?php } ?>
         </div>
         <div class="row" id="secure_row">
             <div class="col s12 m8 event_maincontent">
@@ -18,12 +22,16 @@
                             <?= $data['event']['locationEvent']; ?>
                             <span class="reply right">View map</span>
                         </div>
-                        <div class="collapsible-body">
+                        <div class="collapsible-body" onload="//initMap()">
                             <div>
-                                <iframe class="map"
+                                <!--<iframe class="map"
                                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24190.47771857847!2d-73.97530616228735!3d40.72220524493002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25942c97aa1ed%3A0xf3f544c180838fa2!2sOutput!5e0!3m2!1sfr!2sfr!4v1453205040900"
                                         width="96%" height="300" frameborder="0" style="border:0"
-                                        allowfullscreen></iframe>
+                                        allowfullscreen></iframe>-->
+                                <div id="map" style="width: 96%; height: 300px;">
+
+                                </div>
+
                             </div>
                         </div>
                     </li>
@@ -39,6 +47,7 @@
 
                 <div class="event_apog encar">
                     <h5 class="event_sstitre">Description</h5>
+
                     <div>
                         <input type="checkbox" class="read-more-state" id="post-1"/>
 
@@ -76,25 +85,29 @@
                             <input name="question" placeholder="example: How should i dress ?" type="text"
                                    class="validate question_input" required>
 
-                            <input type="hidden" name="idEvent" value="<?= $_GET['id']; ?>">
+                            <input type="hidden" name="idEvent" value="<?= $data['event']['idEvent']; ?>">
 
                             <label for="question" class="none">Question</label>
                             <?php if (isset($_SESSION['user_email'])) { ?>
-                                <button name="submit" type="submit" class="btn btn-orange right bottom" required>Submit</button>
+                                <button name="submit" type="submit" class="btn btn-orange right bottom" required>
+                                    Submit
+                                </button>
                             <?php } else { ?>
-                                <button name="submit" type="submit" class="btn btn-orange right bottom" disabled>Submit</button>
+                                <button name="submit" type="submit" class="btn btn-orange right bottom" disabled>
+                                    Submit
+                                </button>
                             <?php } ?>
                         </form>
                     </div>
                     <ul class="collapsible dshadow accordion_border radius" data-collapsible="accordion">
-                        <li>
-                            <?php if(!empty($data['questions'])): ?>
-                                <?php foreach($data['questions'] as $question): ?>
+                        <?php if (!empty($data['questions'])): ?>
+                            <?php foreach ($data['questions'] as $question): ?>
+                                <li>
                                     <!-- QUESTION -->
                                     <div class="collapsible-header grey_diff clear upborder">
                                         <div class="chip event_secure_chip absolute">
                                             <img src="assets/img/square_face.png" alt="Contact Person">
-                                            <?php if(isset($question['FirstName']) && $question['FirstName'] !== null){
+                                            <?php if (isset($question['FirstName']) && $question['FirstName'] !== null) {
                                                 echo $question['FirstName'];
                                             } else {
                                                 echo 'Volunteer';
@@ -111,35 +124,39 @@
                                     <!-- FIN QUESTION -->
                                     <!-- FORMULAIRE DE REPONSE -->
                                     <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $data['event']['idUser']): ?>
-                                    <div class="collapsible-body accordion_border">
-                                        <div class="chip margin event_secure_chip">
-                                            <img src="assets/img/square_face.png" alt="Contact Person"> Organizer
+                                        <div class="collapsible-body accordion_border">
+                                            <div class="chip margin event_secure_chip">
+                                                <img src="assets/img/square_face.png" alt="Contact Person"> Organizer
+                                            </div>
+                                            <form method="post" action="event/answer">
+                                                <input name="answer" placeholder="example: How should i dress ?"
+                                                       id="first_name" type="text"
+                                                       class="validate event_secure_input" required>
+
+                                                <input type="hidden" name="idQuestion"
+                                                       value="<?= $question['idEventQuestions']; ?>">
+                                                <input type="hidden" name="idCreator"
+                                                       value="<?= $data['event']['idUser']; ?>">
+                                                <input type="hidden" name="idEvent" value="<?= $_GET['id']; ?>">
+
+                                                <?php if (isset($_SESSION['user_email'])) { ?>
+                                                    <button name="submit" type="submit"
+                                                            class="btn btn-blue right bottom margin event_secure_btn2">
+                                                        <i class="material-icons">reply</i>
+                                                    </button>
+                                                <?php } else { ?>
+                                                    <button name="submit" type="submit"
+                                                            class="btn btn-blue right bottom margin event_secure_btn2"
+                                                            disabled><i
+                                                            class="material-icons">reply</i></button>
+                                                <?php } ?>
+                                            </form>
+                                            <p></p>
                                         </div>
-                                        <form method="post" action="event/answer">
-                                            <input name="answer" placeholder="example: How should i dress ?" id="first_name" type="text"
-                                                   class="validate event_secure_input" required>
-
-                                            <input type="hidden" name="idQuestion" value="<?= $question['idEventQuestions']; ?>">
-                                            <input type="hidden" name="idCreator" value="<?= $data['event']['idUser']; ?>">
-                                            <input type="hidden" name="idEvent" value="<?= $_GET['id']; ?>">
-
-                                            <?php if (isset($_SESSION['user_email'])) { ?>
-                                                <button name="submit" type="submit"
-                                                        class="btn btn-blue right bottom margin event_secure_btn2">
-                                                    <i class="material-icons">reply</i>
-                                                </button>
-                                            <?php } else { ?>
-                                                <button name="submit" type="submit"
-                                                        class="btn btn-blue right bottom margin event_secure_btn2" disabled><i
-                                                        class="material-icons">reply</i></button>
-                                            <?php } ?>
-                                        </form>
-                                        <p></p>
-                                    </div>
                                     <?php endif; ?>
                                     <!-- FIN FORMULAIRE DE REPONSE -->
                                     <!-- AFFICHAGE DE LA REPONSE  -->
-                                    <?php if(isset($question['idEventAnswers']) && $question['idEventAnswers'] !== null): ?>
+                                    <?php if (isset($question['idEventAnswers']) && $question['idEventAnswers'] !== null): ?>
                                         <div class="reponse">
                                             <div class="chip margin event_secure_chip2">
                                                 <img src="assets/img/square_face.png" alt="Contact Person">Organizer
@@ -148,9 +165,9 @@
                                         </div>
                                     <?php endif; ?>
                                     <!-- FIN AFFICHAGE DE LA REPONSE  -->
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                        </li>
+                                </li>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </ul>
                 </div>
             </div>
