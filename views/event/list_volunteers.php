@@ -8,7 +8,7 @@
         </div>
         <div class="row">
             <div class="col l9 m12 s12">
-                <form method="get">
+                <form method="post" action="event/hire">
                     <table class="striped responsive-table table-missions">
                         <thead>
                         <tr>
@@ -21,6 +21,7 @@
                         <tbody>
                         <?php if(!empty($data['volunteers'])) { ?>
                             <?php foreach($data['volunteers'] as $volunteer): ?>
+                                <input type="hidden" name="idEvent" value="<?= $data['volunteers'][0]['vol_events_idEvent'] ?>">
                                 <tr>
                                     <td>
                                         <input name="hire[]" type="checkbox" id="test5"/>

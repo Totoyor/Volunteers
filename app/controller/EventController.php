@@ -531,14 +531,40 @@ class EventController extends AppController
         $this->load->view("event/list_volunteers.php", $data);
     }
 
-    public function edit()
+    public function editsaved()
     {
         define("TITLE_HEAD", "Volunteers | Edit");
         $idEvent = $_GET['id'];
         $data = array(
             'event' => $this->model->getEventSaved($idEvent),
-            'category' => $this->model->getCategories()
+            'category' => $this->model->getCategories(),
+            'missions' => $this->model->getMissions($idEvent),
+            'medias' => $this->model->getMedias($idEvent)
         );
         $this->load->view("event/update_event.php", $data);
+    }
+
+    public function editpublished()
+    {
+        define("TITLE_HEAD", "Volunteers | Edit");
+        $idEvent = $_GET['id'];
+        $data = array(
+            'event' => $this->model->getEvent($idEvent),
+            'category' => $this->model->getCategories(),
+            'missions' => $this->model->getMissions($idEvent),
+            'medias' => $this->model->getMedias($idEvent)
+        );
+        $this->load->view("event/update_event.php", $data);
+    }
+
+    public function hire()
+    {
+        if(!empty($_POST['hire'])) {
+
+        } else {
+            $messageFlash = 'Please select volunteers to hire';
+            $this->coreSetFlashMessage('error', $messageFlash, 3);
+            header("location:listvolunteers/".$_POST['idEvent']);
+        }
     }
 }

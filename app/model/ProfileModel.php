@@ -139,4 +139,29 @@ class ProfileModel extends AppModel
             return false;
         }
     }
+
+    public function getUserMissions($idUser, $status)
+    {
+        try {
+            $query = $this->connexion->prepare("SELECT *
+            FROM vol_events
+            LEFT JOIN event_has_volunteers
+            ON vol_events.idEvent = event_has_volunteers.vol_events_idEvent
+            WHERE event_has_volunteers.vol_event_volunteers_idEventVolunteer = :user
+            AND event_has_volunteers.vol_event_volunteer_status = :status
+            GROUP BY idEvent
+            ");
+
+            $query->bindValue(':user', $idUser, PDO::PARAM_INT);
+            $query->bindValue(':status', $status, PDO::PARAM_INT);
+            $query->execute();
+            $data = $query->fetchAll(PDO::FETCH_ASSOC);
+            $query->closeCursor();
+
+            return $data;
+
+        } catch (Exception $e) {
+            return false;
+        }
+    }
 }

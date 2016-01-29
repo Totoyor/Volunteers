@@ -20,45 +20,36 @@
                     <div class="row">
                         <div class="col s12">
                             <ul class="tabs">
-                                <li class="tab col s6"><a class="active" href="#test4">Upcoming missions</a></li>
-                                <li class="tab col s6"><a href="#test5">Missions done</a></li>
+                                <li class="tab col s6"><a class="active" href="#test4">Demander</a></li>
+                                <li class="tab col s6"><a href="#test5">Retenue</a></li>
                             </ul>
                         </div>
                     </div><!-- fin row-->
                     <table id="test4" class="striped responsive-table table-missions">
                         <thead>
                         <tr>
-                            <th data-field="id">Date<i class="tiny material-icons right rotate">play_arrow</i></th>
+                            <th data-field="id">Date<!--<i class="tiny material-icons right rotate">play_arrow</i>--></th>
                             <th data-field="name">Event</th>
-                            <th data-field="price">Mission</th>
+                            <th data-field="price">Status</th>
                         </tr>
                         </thead>
 
                         <tbody>
-                        <tr>
-                            <td>13/01/2015</td>
-                            <td>La Dynamiterie</td>
-                            <td>Bar</td>
-                        </tr>
-
-                        <tr>
-                            <td>13/01/2015</td>
-                            <td>La Dynamiterie</td>
-                            <td>Bar</td>
-                        </tr>
-
-                        <tr>
-                            <td>13/01/2015</td>
-                            <td>La Dynamiterie</td>
-                            <td>Bar</td>
-                        </tr>
-
-                        <tr>
-                            <td>13/01/2015</td>
-                            <td>La Dynamiterie</td>
-                            <td>Bar</td>
-                        </tr>
-
+                            <?php if(!empty($data['missionsNok'])){ ?>
+                                <?php foreach($data['missionsNok'] as $missionsNok): ?>
+                                    <tr>
+                                        <td><?= $missionsNok['startEvent']; ?></td>
+                                        <td>
+                                            <a href="event/show/<?= $missionsNok['idEvent']; ?>"><?= $missionsNok['nameEvent']; ?></a>
+                                        </td>
+                                        <td>Demande envoyer</td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php } else { ?>
+                                <tr>
+                                    <td>Vous n'avez postulez pour aucun évènements pour le moment</td>
+                                </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
 
@@ -66,26 +57,26 @@
                     <table id="test5" class="striped responsive-table table-missions">
                         <thead>
                         <tr>
-                            <th data-field="id">Date<i class="tiny material-icons right rotate">play_arrow</i></th>
+                            <th data-field="id">Date<!--<i class="tiny material-icons right rotate">play_arrow</i>--></th>
                             <th data-field="name">Event</th>
-                            <th data-field="price">Mission</th>
+                            <th data-field="price">Status</th>
                         </tr>
                         </thead>
 
                         <tbody>
-                        <tr>
-                            <td>13/01/2015</td>
-                            <td>La Dynamiterie</td>
-                            <td>Bar</td>
-                        </tr>
-
-                        <tr>
-                            <td>13/01/2015</td>
-                            <td>La Dynamiterie</td>
-                            <td>Bar</td>
-                        </tr>
-
-
+                            <?php if(!empty($data['missionsOk'])){ ?>
+                                <?php foreach($data['missionsOk'] as $missionsOk): ?>
+                                    <tr>
+                                        <td><?= $missionsOk['startEvent']; ?></td>
+                                        <td><?= $missionsOk['nameEvent']; ?></td>
+                                        <td><?= $missionsOk['vol_event_volunteer_status']; ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php } else { ?>
+                                <tr>
+                                    <td>Vous ne participez à aucun évènement pour le moment</td>
+                                </tr>
+                            <?php } ?>
                         </tbody>
                     </table>
 

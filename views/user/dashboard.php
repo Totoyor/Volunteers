@@ -57,7 +57,8 @@
 
                             <div class="show-missions">
 
-                                <p>View what I'll do during this event
+                                <p>
+                                    View what I'll do during this event
                                     <i class="hide-on-med-and-down material-icons view-missions right">visibility</i>
                                 </p>
 

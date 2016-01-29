@@ -80,6 +80,8 @@ Class EventModel extends AppModel
             ON vol_events.idEvent = vol_event_missions.vol_events_idEvent
             LEFT JOIN vol_events_categories_has_vol_events
             ON vol_events.idEvent = vol_events_categories_has_vol_events.vol_events_idEvent
+            LEFT JOIN vol_events_categories
+            ON vol_events_categories_has_vol_events.vol_events_categories_idCategorie = vol_events_categories.idCategorie
             LEFT JOIN vol_event_questions
             ON vol_events.idEvent = vol_event_questions.vol_events_idEvent
             LEFT JOIN vol_users
@@ -118,6 +120,8 @@ Class EventModel extends AppModel
             ON vol_events.idEvent = vol_event_missions.vol_events_idEvent
             LEFT JOIN vol_events_categories_has_vol_events
             ON vol_events.idEvent = vol_events_categories_has_vol_events.vol_events_idEvent
+            LEFT JOIN vol_events_categories
+            ON vol_events_categories_has_vol_events.vol_events_categories_idCategorie = vol_events_categories.idCategorie
             LEFT JOIN vol_event_questions
             ON vol_events.idEvent = vol_event_questions.vol_events_idEvent
             LEFT JOIN vol_users

@@ -197,7 +197,12 @@ class ProfileController extends AppController
     public function missions()
     {
         define("TITLE_HEAD", "Volunteers | Profile");
-        $this->load->view("user/missions.php");
+        $idUser = $_SESSION['user_id'];
+        $data = array(
+            'missionsNok' => $this->model->getUserMissions($idUser, 0),
+            'missionsOk' => $this->model->getUserMissions($idUser, 1)
+        );
+        $this->load->view("user/missions.php", $data);
     }
 
     public function events()
