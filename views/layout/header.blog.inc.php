@@ -37,7 +37,7 @@
             </li>
         </ul>
         <ul id="nav-mobile" class="side-nav">
-            <li><a href="?module=page&action=home">Accueil</a></li>
+            <li><a href="?module=page&action=home">Home</a></li>
         </ul>
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>

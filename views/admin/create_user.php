@@ -9,90 +9,191 @@
       <div class="row">
         <div class="col s12 m9 l10">
           <h1>Register</h1>
-
-          <ul>
-            <li>
-              <a href="#"><i class="fa fa-home"></i> Home</a>  <i class="fa fa-angle-right"></i>
-            </li>
-
-            <li><a href='dashboard.html'>Dashboard</a>  <i class='fa fa-angle-right'></i>
-            </li>
-            <li><a href='#'>Forms</a>  <i class='fa fa-angle-right'></i>
-            </li>
-            <li><a href='forms-register.html'>Register</a>
-            </li>
-          </ul>
-        </div>
-        <div class="col s12 m3 l2 right-align">
-          <a href="#!" class="btn grey lighten-3 grey-text z-depth-0 chat-toggle"><i class="fa fa-comments"></i></a>
-        </div>
       </div>
 
     </div>
     <!-- /Breadcrumb -->
 
-
-    <div class="row">
-      <div class="col s12 l6">
-
-        <div class="card-panel">
-          <form action="#!">
-
+<form action="#!">
+    </div>
+      <div class="row">
+        <div class="col l9 m12 s12">
             <div class="row">
-              <!-- First Name -->
-              <div class="col m6 s12">
-                <div class="input-field">
-                  <i class="fa fa-user prefix"></i>
-                  <input id="input_fname" type="text" name="firstname">
-                  <label for="input_fname">First Name</label>
+                <div class="col s12">
+                    <ul class="tabs">
+                        <li class="tab col s4"><a class="active" href="#required">Required information</a>
+                        </li>
+                        <li class="tab col s4"><a href="#optional">Optional</a></li>
+                    </ul>
                 </div>
-              </div>
-              <!-- /First Name -->
+            </div>
 
-              <!-- Last Name -->
-              <div class="col m6 s12">
-                <div class="input-field">
-                  <i class="fa fa-user prefix"></i>
-                  <input id="input_lname" type="text" name="lastname">
-                  <label for="input_lname">Last Name</label>
+            <div class="card panel" id="required">
+                <div class="container">
+                    <div class="row">
+                        <div class="col l6 s12">
+                            <div class="input-field">
+                              <i class="fa fa-user prefix"></i>
+                                <input id="first_name" type="text" class="validate" name="first_name" value="<?php echo $data['FirstName']; ?>">
+                                <label for="first_name">First Name</label>
+                            </div>
+                        </div>
+
+                        <div class="col l6 s12">
+                            <div class="input-field">
+                              <i class="fa fa-user prefix"></i>
+                                <input id="last_name" type="text" class="validate" name="last_name" value="<?php echo $data['LastName']; ?>">
+                                <label for="last_name">Last Name</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col s9 m9">
+                            <label for="user-birthdate">
+                                Date of birth
+                            </label><br/>
+
+                            <div class="select">
+                                <select class="browser-default col s3" name="birth_day">
+                                    <option value="" disabled selected>Day</option>
+                                    <?php for ($d = 1; $d <= 31; $d++) { ?>
+                                        <option value="<?php echo $d; ?>"><?php echo $d; ?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+
+                            <div class="select">
+                                <select class="browser-default col s3" name="birth_month">
+                                    <option value="" disabled selected>Month</option>
+                                    <?php for ($m = 1; $m <= 12; $m++) { ?>
+                                        <option value="<?php echo $m; ?>"><?php echo $m; ?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+
+                            <div class="select">
+                                <select class="browser-default col s3" name="birth_year">
+                                    <option value="" disabled selected>Year</option>
+                                    <?php for ($m = 1950; $m <= 2015; $m++) { ?>
+                                        <option value="<?php echo $m; ?>"><?php echo $m; ?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        </div>
+                        <?php if (isset($data['BirthDate'])) { ?>
+                            <div class="input-field col s1">
+                                <p>
+                                    <?php echo $data['BirthDate']; ?>
+                                </p>
+                                <input type="hidden" name="BirthDateSaved"
+                                       value="<?php echo $data['BirthDate']; ?>">
+                            </div>
+                        <?php } ?>
+                    </div>
+
+                    <div class="row">
+                        <div class="col l12 s12">
+                            <div class="input-field">
+                              <i class="fa fa-envelope prefix"></i>
+                                <input placeholder="Please enter a valid email adress" id="email"
+                                       type="email" class="validate" value="<?php echo $data['Email']; ?>"
+                                       name="email">
+                                <label for="email">Email adress</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col l12 s12">
+                            <div class="input-field">
+                              <i class="fa fa-unlock-alt prefix"></i>
+                                <input placeholder="Password" id="password"
+                                       type="password" class="validate" value="<?php echo $data['Password']; ?>"
+                                       name="password">
+                                <label for="password">Password</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col l12 s12">
+                            <div class="input-field">
+                                <input placeholder="Example : Paris, France" id="location" type="text"
+                                       class="validate" name="location"
+                                       value="<?php echo $data['Location']; ?>">
+                                <label for="last_name">Where s/he lives</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="input-field">
+                                <textarea id="icon_prefix2" class="materialize-textarea" name="description"><?php echo $data['Description']; ?></textarea>
+                                <label for="icon_prefix2">Description</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="input-field">
+                                <textarea id="icon_prefix2" class="materialize-textarea"
+                                          name="skills"><?php echo $data['Skills']; ?></textarea>
+                                <label for="icon_prefix2">Skills</label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <!-- /Last Name -->
-            </div>
+            </div><!-- fin card panel-->
 
-            <!-- Email -->
-            <div class="input-field">
-              <i class="fa fa-envelope prefix"></i>
-              <input id="input_email" type="email" name="email">
-              <label for="input_email">Email</label>
-            </div>
-            <!-- /Email -->
+            <div class="card panel" id="optional">
+                <div class="panel-text">
+                    <div class="row">
+                        <div class="col l6 s12">
+                            <div class="input-field">
+                                <input id="school" type="text" class="validate" name="school"
+                                       value="<?php echo $data['School']; ?>">
+                                <label for="school">School</label>
+                            </div>
+                        </div>
+                    </div>
 
-            <!-- Password -->
-            <div class="input-field">
-              <i class="fa fa-unlock-alt prefix"></i>
-              <input id="input_password" type="password" name="password">
-              <label for="input_password">Password</label>
-            </div>
-            <!-- /Password -->
-
-            <!-- Gender -->
-            <select name="gender">
-              <option value="" disabled selected>Gender</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-              <option value="other">Other</option>
-            </select>
-            <!-- /Gender -->
-
-            <button class="waves-effect btn">Register</button>
-
-          </form>
+                    <div class="row">
+                        <div class="col l6 s12">
+                            <div class="input-field">
+                                <input placeholder="Apple/Carrefour" id="work" type="text" class="validate"
+                                       name="work" value="<?php echo $data['Work']; ?>">
+                                <label for="work">Work</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12">
+                            <blockquote>
+                                <a href="?module=password&action=change" class="blue-text" title="">Change
+                                    my password</a>
+                            </blockquote>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12">
+                            <blockquote>
+                                <a href="?module=profile&action=delete" class="red-text" title="">Delete my
+                                    account :(</a>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- fin card panel-->
+          </div>
+        </div>
+        <div class="row">
+        <button type="submit" class="btn btn-orange">Save</button>
         </div>
 
-      </div>
-
-    </div>
+        </form>
 
   </section>
   <!-- /Main Content -->

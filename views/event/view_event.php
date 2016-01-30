@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="clear event_apog encar">
-                    <h5 class="event_sstitre">Medias</h5>
+                    <h5 class="event_sstitre">Photos</h5>
 
                     <div class="leftmargin">
                         <?php foreach ($data['medias'] as $media) { ?>
@@ -79,9 +79,10 @@
                         <div class="more_margin"></div>
                         <h5 class="event_sstitre">Q & A</h5>
 
-                        <p>Ask your question</p>
+                        <p>Ask a question</p>
 
                         <form method="post" action="event/question">
+                            <i class="material-icons prefix">chat_bubble</i>
                             <input name="question" placeholder="example: How should i dress ?" type="text"
                                    class="validate question_input" required>
 
@@ -104,7 +105,7 @@
                             <?php foreach ($data['questions'] as $question): ?>
                                 <li>
                                     <!-- QUESTION -->
-                                    <div class="collapsible-header grey_diff clear upborder">
+                                    <div class="collapsible-header blue lighten-3 clear upborder">
                                         <div class="chip event_secure_chip absolute">
                                             <img src="assets/img/square_face.png" alt="Contact Person">
                                             <?php if (isset($question['FirstName']) && $question['FirstName'] !== null) {
@@ -116,7 +117,7 @@
                                         <div>
                                             <p class="nomargin"><?= $question['eventQuestion']; ?>
                                                 <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $data['event']['idUser']): ?>
-                                                    <span class="right reply">reply</span>
+                                                    <span class="right reply">Answer</span>
                                                 <?php endif; ?>
                                             </p>
                                         </div>
@@ -159,6 +160,7 @@
                                     <?php if (isset($question['idEventAnswers']) && $question['idEventAnswers'] !== null): ?>
                                         <div class="reponse">
                                             <div class="chip margin event_secure_chip2">
+                                                <i class="material-icons prefix">comment</i>
                                                 <img src="assets/img/square_face.png" alt="Contact Person">Organizer
                                             </div>
                                             <p class="secure_reponse"><?= $question['eventAnswer']; ?></p>
@@ -178,7 +180,7 @@
                 <div class="more_margin"></div>
                 <div class="more_margin"></div>
 
-                <p class="event_sstitre">They volunteer !</p>
+                <p class="event_sstitre">They are volunteering!</p>
 
                 <div class="event_volunteers encar">
                     <div class="clear event_vol_faces">
@@ -203,7 +205,7 @@
                                 <?php if (isset($userJoinEvent) && $userJoinEvent == true) { ?>
                                     <button name="submit" type="submit" class="btn btn-orange event_secure_bouton"
                                             disabled>
-                                        You already volunteer
+                                        You have already volunteered
                                     </button>
                                 <?php } else { ?>
                                     <button name="submit" type="submit" class="btn btn-orange event_secure_bouton">
@@ -212,7 +214,7 @@
                                 <?php } ?>
                             <?php } else { ?>
                                 <button name="submit" type="submit" class="btn btn-orange event_secure_bouton" disabled>
-                                    Log in for join them
+                                    Log in to join them
                                 </button>
                             <?php } ?>
                         </form>

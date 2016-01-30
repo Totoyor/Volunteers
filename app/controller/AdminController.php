@@ -46,7 +46,6 @@ class AdminController extends AppController
     }
 
 
-
     public function createEvent()
     {
         // Chargement de la home
@@ -87,5 +86,12 @@ class AdminController extends AppController
         define("TITLE_HEAD", "Event Name | Volunteers Admin");
         // Chargement de la vue
         $this->load->view('admin/compose.php');
+    }
+
+    public function signIn()
+    {
+        define("TITLE_HEAD", "Sign-in | Volunteers Admin");
+        // Chargement de la vue
+        $this->load->view('admin/sign-in.php');
     }
 }
