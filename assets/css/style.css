@@ -1789,3 +1789,59 @@ vertical-align: middle;
 {
 width: 100%;   
 }
+
+/**** PROFILE PUBLIC ****/
+
+.colbgpublic
+{
+    background-color: #5498d4;
+    background: linear-gradient(230deg, #00BBE0, #3a7bd5);
+}
+
+.title-profile-public
+{
+    padding: 12px 20px;
+    color: #cecece;
+    font-size: 2em;
+}
+
+.title-cardpanel
+{
+    font-size: 1.2em;
+}
+
+.title-cardpanel2
+{
+    font-size: 2.2em;
+    font-weight: 300;
+}
+
+
+.orange-icon
+{
+    color:  #ff8b02;
+}
+
+.card
+{
+    box-shadow: none;
+}
+
+.padding4
+{
+    padding: 1.6rem 0 !important;
+}
+
+input[type="range" i]
+{
+    color: #fff !important;
+}
+
+input[type=range] {
+    border: none;
+}
+
+input[type=range] + .thumb {
+    background-color: #fb8c00;
+}
+

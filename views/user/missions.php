@@ -20,8 +20,8 @@
                     <div class="row">
                         <div class="col s12">
                             <ul class="tabs">
-                                <li class="tab col s6"><a class="active" href="#test4">Demander</a></li>
-                                <li class="tab col s6"><a href="#test5">Retenue</a></li>
+                                <li class="tab col s6"><a class="active" href="#test4">Asked</a></li>
+                                <li class="tab col s6"><a href="#test5">Participated</a></li>
                             </ul>
                         </div>
                     </div><!-- fin row-->
@@ -42,7 +42,7 @@
                                         <td>
                                             <a href="event/show/<?= $missionsNok['idEvent']; ?>"><?= $missionsNok['nameEvent']; ?></a>
                                         </td>
-                                        <td>Demande envoyer</td>
+                                        <td>Request has been send</td>
                                     </tr>
                                 <?php endforeach; ?>
                             <?php } else { ?>
@@ -68,8 +68,10 @@
                                 <?php foreach($data['missionsOk'] as $missionsOk): ?>
                                     <tr>
                                         <td><?= $missionsOk['startEvent']; ?></td>
-                                        <td><?= $missionsOk['nameEvent']; ?></td>
-                                        <td><?= $missionsOk['vol_event_volunteer_status']; ?></td>
+                                        <td>
+                                            <a href="event/show/<?= $missionsOk['idEvent']; ?>"><?= $missionsOk['nameEvent']; ?></a>
+                                        </td>
+                                        <td>Hired</td>
                                     </tr>
                                 <?php endforeach; ?>
                             <?php } else { ?>

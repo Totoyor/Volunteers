@@ -13,14 +13,14 @@
                     </p>
                 </div>
                 <!-----/****FORMS****/---->
-                <form method="post" action="event/create" class="" enctype="multipart/form-data">
+                <form method="post" action="event/edit" class="" enctype="multipart/form-data">
                     <div class="row btn_crea1">
                         <div class="right">
                             <?php if (isset($_SESSION['user_id'])) { ?>
                                 <button name="save" class="btn btn-menu">Save</button>
 
-                                <button name="submit" href="#" class="btn btn-orange"
-                                        onclick="Materialize.toast('Published', 4000)">Update
+                                <button name="submit" class="btn btn-orange"
+                                        onclick="Materialize.toast('Published', 4000)">Publish
                                 </button>
                             <?php } else { ?>
                                 <a name="save" class="btn btn-menu modal-trigger" href="#login">Save</a>
@@ -54,6 +54,7 @@
                                required>
                         <label for="icon_prefix">Event Name</label>
                     </div>
+                    <input type="hidden" name="idEvent" value="<?= $data['event']['idEvent']; ?>" />
                     <div class="row">
                         <div class="input-field col s12 col l12 m12">
 
@@ -146,7 +147,7 @@
                         <div class="input-field col s4 m2 tooltipped" data-position="right" data-delay="50"
                              data-tooltip="When?">
                             <select name="event_start_mode">
-                                <option value="" disabled selected>AM - PM</option>
+                                <option disabled selected>AM - PM</option>
                                 <option value="am">AM</option>
                                 <option value="pm">PM</option>
                             </select>
@@ -155,6 +156,7 @@
                         <?php if (!empty($data['event']['hourStartEvent'])) { ?>
                             <div class="input-field col s4 m2">
                                 <input type="text" value="<?= $data['event']['hourStartEvent'] ?>" disabled>
+                                <input type="hidden" name="hourStartSave" value="<?= $data['event']['hourStartEvent'] ?>">
                             </div>
                         <?php } ?>
                     </div>
@@ -208,6 +210,7 @@
                         <?php if (!empty($data['event']['hourEndEvent'])) { ?>
                             <div class="input-field col s4 m2">
                                 <input type="text" value="<?= $data['event']['hourEndEvent'] ?>" disabled>
+                                <input type="hidden" name="hourEndSave" value="<?= $data['event']['hourEndEvent'] ?>">
                             </div>
                         <?php } ?>
                     </div>
@@ -243,7 +246,7 @@
                             <div class="input-field col s4 m2">
                                 <input type="text" value="<?= $data['event']['nameCategorie'] ?>" disabled>
                                 <input type="hidden" name="categorieSave"
-                                       value="<?= $data['event']['nameCategorie'] ?>">
+                                       value="<?= $data['event']['idCategorie'] ?>">
                             </div>
                         <?php } ?>
                     </div>
@@ -321,7 +324,7 @@
                                  data-delay="50" data-position="right"
                                  data-tooltip="What kind of missions for your volunteers?">
                                 <div class="input-field col s9 secure-mission">
-                                    <input name="missions[]"
+                                    <input name="missionsSave[]"
                                            id="icon_prefix"
                                            placeholder="Barman"
                                            type="text"
@@ -331,7 +334,7 @@
                                 </div>
                                 <div class="input-field col s3 secure_nb_vol">
                                     <div class="input-field col secure-mission">
-                                        <input name="nbVolunteer[]"
+                                        <input name="nbVolunteerSave[]"
                                                placeholder="1"
                                                type="number"
                                                min="0"
@@ -340,6 +343,7 @@
                                         <label>Number</label>
                                     </div>
                                 </div>
+                                <input type="hidden" name="idMissionsSave[]" value="<?= $mission['idEventMission'] ?>">
                             </div>
                         <?php endforeach; ?>
                     <?php } else { ?>
@@ -382,8 +386,8 @@
                             <?php if (isset($_SESSION['user_id'])) { ?>
                                 <button name="save" class="btn btn-menu">Save</button>
 
-                                <button name="submit" href="#" class="btn btn-orange"
-                                        onclick="Materialize.toast('Published', 4000)">Update
+                                <button name="submit" class="btn btn-orange"
+                                        onclick="Materialize.toast('Published', 4000)">Publish
                                 </button>
                             <?php } else { ?>
                                 <a name="save" class="btn btn-menu modal-trigger" href="#login">Save</a>

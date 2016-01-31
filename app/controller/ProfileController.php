@@ -220,4 +220,10 @@ class ProfileController extends AppController
         define("TITLE_HEAD", "Volunteers | Profile");
         $this->load->view("user/dashboard.php");
     }
+
+    public function show()
+    {
+        define("TITLE_HEAD", "Volunteers | Profile");
+        $this->load->view("user/profile_public.php");
+    }
 }

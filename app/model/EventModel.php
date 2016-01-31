@@ -47,6 +47,46 @@ Class EventModel extends AppModel
         }
     }
 
+    public function editEvent($event_name, $event_location, $event_start, $event_hour_start, $event_end,
+                              $event_hour_end, $event_description, $status, $user, $idEvent)
+    {
+        try {
+            $query = $this->connexion->prepare("UPDATE vol_events SET
+                                                nameEvent = :name,
+                                                startEvent = :start,
+                                                hourStartEvent = :hourStart,
+                                                endEvent = :end,
+                                                hourEndEvent = :hourEnd,
+                                                locationEvent = :location,
+                                                descriptionEvent = :description,
+                                                vol_event_status_idEventStatus = :status,
+                                                vol_users_idUser = :user
+                                                WHERE idEvent = :idEvent");
+
+            $query->bindValue(':name', $event_name, PDO::PARAM_STR);
+            $query->bindValue(':location', $event_location, PDO::PARAM_STR);
+            $query->bindValue(':start', $event_start, PDO::PARAM_STR);
+            $query->bindValue(':hourStart', $event_hour_start, PDO::PARAM_STR);
+            $query->bindValue(':end', $event_end, PDO::PARAM_STR);
+            $query->bindValue(':hourEnd', $event_hour_end, PDO::PARAM_STR);
+            $query->bindValue(':description', $event_description, PDO::PARAM_STR);
+            $query->bindValue(':status', $status, PDO::PARAM_STR);
+            $query->bindValue(':user', $user, PDO::PARAM_STR);
+            $query->bindValue(':idEvent', $idEvent, PDO::PARAM_INT);
+            $query->execute();
+            $query->closeCursor();
+
+            //On récupère l'id de l'insertion
+            //$lastId = $this->connexion->lastInsertId();
+
+            //return $lastId;
+            return true;
+
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
     /**
      * @return array|bool
      */
@@ -200,6 +240,27 @@ Class EventModel extends AppModel
         }
     }
 
+    public function editCategories($idCategory, $idEvent)
+    {
+        try {
+            $query = $this->connexion->prepare("UPDATE vol_events_categories_has_vol_events SET
+                                                vol_events_categories_idCategorie = :idCategory,
+                                                vol_events_idEvent = :idEvent
+                                                WHERE vol_events_idEvent = :idEvent");
+
+
+            $query->bindValue(':idCategory', $idCategory, PDO::PARAM_INT);
+            $query->bindValue(':idEvent', $idEvent, PDO::PARAM_INT);
+
+            $query->execute();
+
+            return true;
+
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
     /**
      * @param $idEvent
      * @param $missions
@@ -216,6 +277,30 @@ Class EventModel extends AppModel
             $query->bindValue(':mission', $missions, PDO::PARAM_STR);
             $query->bindValue(':nbVol', $nbVolunteer, PDO::PARAM_INT);
             $query->bindValue(':idEvent', $idEvent, PDO::PARAM_INT);
+
+            $query->execute();
+
+            return true;
+
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
+    public function editMissions($idEvent, $missions, $nbVolunteer, $idMission)
+    {
+        try {
+            $query = $this->connexion->prepare("UPDATE vol_event_missions SET
+                                                missionName = :mission,
+                                                nbVolunteer = :nbVol,
+                                                vol_events_idEvent = :idEvent
+                                                WHERE vol_events_idEvent = :idEvent
+                                                AND idEventMission = :idMission");
+
+            $query->bindValue(':mission', $missions, PDO::PARAM_STR);
+            $query->bindValue(':nbVol', $nbVolunteer, PDO::PARAM_INT);
+            $query->bindValue(':idEvent', $idEvent, PDO::PARAM_INT);
+            $query->bindValue(':idMission', $idMission, PDO::PARAM_INT);
 
             $query->execute();
 
@@ -526,7 +611,48 @@ Class EventModel extends AppModel
         }
         catch (Exception $e)
         {
-            die($e);
+            return false;
+        }
+    }
+
+    public function hireVolunteers($idEvent, $volunteer)
+    {
+        try {
+            $query = $this->connexion->prepare("UPDATE event_has_volunteers SET
+                                                vol_event_volunteer_status = :status
+                                                WHERE vol_events_idEvent = :idEvent
+                                                AND vol_event_volunteers_idEventVolunteer = :volunteer");
+
+            $query->bindValue(':status', 1, PDO::PARAM_INT);
+            $query->bindValue(':idEvent', $idEvent, PDO::PARAM_INT);
+            $query->bindValue(':volunteer', $volunteer, PDO::PARAM_INT);
+
+            $query->execute();
+            $query->closeCursor();
+
+            return true;
+
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
+    public function hireSession($idEvent)
+    {
+        try {
+            $query = $this->connexion->prepare("UPDATE vol_events SET
+                                                hireSession = :status
+                                                WHERE idEvent = :idEvent");
+
+            $query->bindValue(':status', 1, PDO::PARAM_INT);
+            $query->bindValue(':idEvent', $idEvent, PDO::PARAM_INT);
+
+            $query->execute();
+            $query->closeCursor();
+
+            return true;
+
+        } catch (Exception $e) {
             return false;
         }
     }
