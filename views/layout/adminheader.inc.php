@@ -18,22 +18,22 @@
   <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
 
 
-  <link rel="icon" type="image/png" href="../assets/admin/_con/images/icon.png">
+  <link rel="icon" type="image/png" href="<?php echo PATH_HOME ?>assets/admin/_con/images/icon.png">
 
   <!-- nanoScroller -->
-  <link rel="stylesheet" type="text/css" href="../assets/admin/nanoScroller/nanoscroller.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo PATH_HOME ?>assets/admin/nanoScroller/nanoscroller.css" />
 
   <!-- FontAwesome -->
-  <link rel="stylesheet" type="text/css" href="../assets/admin/font-awesome/css/font-awesome.min.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo PATH_HOME ?>assets/admin/font-awesome/css/font-awesome.min.css" />
 
   <!-- Material Design Icons -->
-  <link rel="stylesheet" type="text/css" href="../assets/admin/material-design-icons/css/material-design-icons.min.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo PATH_HOME ?>assets/admin/material-design-icons/css/material-design-icons.min.css" />
 
   <!-- Main -->
-  <link rel="stylesheet" type="text/css" href="../assets/admin/_con/css/_con.min.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo PATH_HOME ?>assets/admin/_con/css/_con.min.css" />
 
   <!-- Custom -->
-  <link rel="stylesheet" type="text/css" href="../assets/admin/style.css" />
+  <link rel="stylesheet" type="text/css" href="<?php echo PATH_HOME ?>assets/admin/style.css" />
 
   </script>
 </head>
@@ -51,7 +51,7 @@
 
       <!-- Logo -->
       <a href="#!" class="brand-logo">
-        <img src="../assets/admin/_con/images/logo.png" alt="Con">
+        <img src="<?php echo PATH_HOME ?>assets/admin/_con/images/logo.png" alt="Con">
       </a>
       <!-- /Logo -->
 
@@ -61,14 +61,14 @@
         </li>
         <li class="user">
           <a class="dropdown-button" href="#!" data-activates="user-dropdown">
-            <img src="../assets/admin/_con/images/user.jpg" alt="John Doe" class="circle">John Doe<i class="mdi-navigation-expand-more right"></i>
+            <img src="<?php echo PATH_HOME ?>assets/admin/_con/images/user.jpg" alt="John Doe" class="circle">John Doe<i class="mdi-navigation-expand-more right"></i>
           </a>
 
           <ul id="user-dropdown" class="dropdown-content">
             <li><a href="page-profile.html"><i class="fa fa-user"></i> Profile</a>
             </li>
             <li class="divider"></li>
-            <li><a href="page-sign-in.html"><i class="fa fa-sign-out"></i> Logout</a>
+            <li><a href="signin"><i class="fa fa-sign-out"></i> Logout</a>
             </li>
           </ul>
         </li>
@@ -108,7 +108,7 @@
 
         <!-- Logo -->
         <a href="#!" class="brand-logo">
-          <img src="../assets/admin/_con/images/logo-white.png" alt="Con">
+          <img src="<?php echo PATH_HOME ?>assets/admin/_con/images/logo-white.png" alt="Con">
         </a>
         <!-- /Logo -->
       </div>
@@ -127,31 +127,31 @@
             <li>
               <a class="yay-sub-toggle waves-effect waves-blue"><i class="fa fa-users"></i> Users<span class="yay-collapse-icon mdi-navigation-expand-more"></span></a>
               <ul>
-                <li><a href="createuser" class="waves-effect waves-blue"><i class="mdi-content-add-circle"></i> Create</a>
+                <li><a href="<?php echo PATH_HOME ?>admin/registeruser" class="waves-effect waves-blue"><i class="mdi-content-add-circle"></i> Register</a>
                 </li>
-                <li><a href="userlist" class="waves-effect waves-blue"><i class="mdi-av-equalizer"></i> List</a>
+                <li><a href="<?php echo PATH_HOME ?>admin/userlist" class="waves-effect waves-blue"><i class="mdi-av-equalizer"></i> List</a>
                 </li>
-                <li><a href="userstatus" class="waves-effect waves-blue"><i class="mdi-action-dashboard"></i> Status</a>
+                <li><a href="<?php echo PATH_HOME ?>admin/userstatus" class="waves-effect waves-blue"><i class="mdi-action-dashboard"></i> Status</a>
                 </li>
               </ul>
             </li>
             <li>
               <a class="yay-sub-toggle waves-effect waves-blue"><i class="mdi-av-queue-music"></i> Events<span class="yay-collapse-icon mdi-navigation-expand-more"></span></a>
               <ul>
-                <li><a href="createevent" class="waves-effect waves-blue"><i class="mdi-content-add-circle"></i> Create</a>
+                <li><a href="<?php echo PATH_HOME ?>admin/createevent" class="waves-effect waves-blue"><i class="mdi-content-add-circle"></i> Create</a>
                 </li>
-                <li><a href="eventlist" class="waves-effect waves-blue"><i class="mdi-av-equalizer"></i> List</a>
+                <li><a href="<?php echo PATH_HOME ?>admin/eventlist" class="waves-effect waves-blue"><i class="mdi-av-equalizer"></i> List</a>
                 </li>
-                <li><a href="categories" class="waves-effect waves-blue" href="css-badges.html"><i class="mdi-action-dashboard"></i> Categories</a>
+                <li><a href="<?php echo PATH_HOME ?>admin/categories" class="waves-effect waves-blue" href="<?php echo PATH_HOME ?>admin/css-badges.html"><i class="mdi-action-dashboard"></i> Categories</a>
                 </li>
               </ul>
             </li>
             <li>
               <a class="yay-sub-toggle waves-effect waves-blue"><i class="fa fa-envelope"></i> Mailbox<span class="yay-collapse-icon mdi-navigation-expand-more"></span></a>
               <ul>
-                <li><a href="inbox" class="waves-effect waves-blue"><i class="mdi-content-inbox"></i>Inbox</a>
+                <li><a href="<?php echo PATH_HOME ?>admin/inbox" class="waves-effect waves-blue"><i class="mdi-content-inbox"></i>Inbox</a>
                 </li>
-                <li><a href="compose" class="waves-effect waves-blue"><i class="mdi-content-add-circle"></i> Compose</a>
+                <li><a href="<?php echo PATH_HOME ?>admin/compose" class="waves-effect waves-blue"><i class="mdi-content-add-circle"></i> Compose</a>
                 </li>
               </ul>
             </li>

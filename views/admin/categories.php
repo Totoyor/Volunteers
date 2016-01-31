@@ -1,4 +1,4 @@
-<?php include_once('layout/adminheader.inc.php'); ?>
+<?php include_once('views/layout/adminheader.inc.php'); ?>
   <section class="content-wrap">
 
 
@@ -30,14 +30,18 @@
           	    </tr>
           	  </thead>
           	  <tbody>
-          	    <tr>
-          	      <th>1</th>
-          	      <td>Techno</td>
-          	      <td><a class="btn"><i class="mdi-editor-mode-edit"></i>Edit</a>
-</td>
-          	      <td><a class="btn red darken-1"><i class="mdi-action-delete"></i>Delete</a>
-</td>
-          	    </tr>
+                <?php if (isset($data)): ?>
+                    <?php foreach ($data['categories'] as $category) : ?>
+                	    <tr>
+                	      <td><?= $category['idCategorie']; ?></td>
+                	      <td><?= $category['nameCategorie']; ?></td>
+                	      <td><a class="btn"><i class="mdi-editor-mode-edit"></i>Edit</a>
+      </td>
+                	      <td><a class="btn red darken-1"><i class="mdi-action-delete"></i>Delete</a>
+      </td>
+                	    </tr>
+                    <?php endforeach; ?>
+                <?php endif; ?>
           	  </tbody>
           	</table>
         </div>
@@ -58,4 +62,4 @@
     </div>
 
   </section>
-<?php include_once('layout/adminfooter.inc.php'); ?>
+<?php include_once('views/layout/adminfooter.inc.php'); ?>

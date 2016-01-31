@@ -5,11 +5,11 @@
                 <div class="content-bloc center">
                     <h1 class="valign">I want to volunteer at events</h1>
                     <ul class="hidden-content-leftside">
-                        <li><i class="material-icons">done</i>Participate at events for free</li>
-                        <li><i class="material-icons">done</i>Live new work exepriences</li>
-                        <li><i class="material-icons">done</i>Meet awesome people</li>
+                        <li><i class="material-icons">input</i>Join events for free</li>
+                        <li><i class="material-icons">thumb_up</i>Live new work exepriences</li>
+                        <li><i class="material-icons">person_pin</i>Meet awesome people</li>
                     </ul>
-                    <a href="event/lists" class="btn">Join events</a>
+                    <a href="event/lists" class="btn">Join events now</a>
                 </div>
             </div>
             <div class="col s6 blocprincipal white-text bgorange valign-wrapper">
@@ -17,8 +17,8 @@
                     <h1>I need volunteers for my event</h1>
                     <ul class="hidden-content-rightside">
                         <li><i class="material-icons">done</i>Easiest way to hire volunteers</li>
-                        <li><i class="material-icons">done</i>Save your time</li>
-                        <li><i class="material-icons">done</i>Better visibility for your event</li>
+                        <li><i class="material-icons">schedule</i>Save time</li>
+                        <li><i class="material-icons">visibility</i>Better visibility for your event</li>
                     </ul>
                     <a href="event/home" class="btn btn-orange">Create your event</a>
                 </div>
@@ -270,7 +270,7 @@
         <h1 class="title-section white-text">Be helpful and party now</h1>
         <p class="white-text">Create your own event and join hundreds of thousands of event
             organizers</br>managing volunteers registrations</p>
-        <a href="event/lists" class="btn btn-menu-bis btn-hoverbleu">I volunteer</a>
+        <a href="event/lists" class="btn btn-menu-bis btn-hoverbleu">Sign me up!</a>
     </div>
 </div>
 

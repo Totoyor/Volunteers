@@ -1,4 +1,4 @@
-<?php include_once('layout/adminheader.inc.php'); ?>
+<?php include_once('views/layout/adminheader.inc.php'); ?>
   <section class="content-wrap">
 
 
@@ -58,4 +58,4 @@
     </div>
 
   </section>
-<?php include_once('layout/adminfooter.inc.php'); ?>
+<?php include_once('views/layout/adminfooter.inc.php'); ?>

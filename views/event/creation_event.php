@@ -4,7 +4,7 @@
             <div class="formulaire_crea col l12">
                 <div class="row">
                     <div class="center">
-                        <h1 class="title-section center bleu">Ready to find volunteers ?</h1>
+                        <h1 class="title-section center bleu">Ready to find volunteers?</h1>
                     </div>
                     <p class="">
                         Aliqua instituendarum appellat elit singulis. Officia ipsum voluptate a
@@ -35,19 +35,20 @@
 
                     <div class="row"></div>
 
-                    <!----I-1----->
+                    <!--I-1-->
                     <div class="row">
                         <div class="separateur_form valign-wrapper col l12 m12 s12">
                             <div class="bullet_point">
                                 <p class="num_bullet_point">1</p>
                             </div>
                             <div>
-                                <h3 class="text_separteur">Let's describe your event !</h3>
+                                <h3 class="text_separteur">Let's describe your event!</h3>
                             </div>
                         </div>
                     </div>
 
                     <div class="input-field col s12 l12 m12">
+                        <i class="material-icons prefix">label</i>
                         <input name="event_name" class="" name="event_name" data-position="right" data-delay="50"
                                data-tooltip="Show me what you've got !" id="" type="text" required>
                         <label for="icon_prefix">Event Name</label>
@@ -55,11 +56,21 @@
 
                     <div class="row">
                         <div class="input-field col s12 col l12 m12">
-                            
-                            <input name="event_location" id="icon_prefix" type="text" class="tooltipped validate"
+                            <i class="material-icons prefix">room</i>
+                            <input name="event_location" id="location" type="text" class="tooltipped validate"
                                    data-position="right"
                                    data-delay="50" data-tooltip="Where is your event ?">
-                            <label for="icon_prefix">Location</label>
+                            <label for="location">Location</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12 l12 m12">
+                            <i class="material-icons prefix">comment</i>
+                            <textarea name="event_description" id="textarea1"
+                                      class="materialize-textarea tooltipped" data-tooltip="How awesome is your event ?"
+                                      data-position="right" data-delay="50"></textarea>
+                            <label for="textarea1">Description</label>
                         </div>
                     </div>
 
@@ -67,32 +78,32 @@
                         <div class="input-field col s9 l10 m9">
                             <i class="material-icons prefix">today</i>
                             <input data-position="right" data-delay="50" data-tooltip="What day is it?"
-                                   name="event_start" id="icon_prefix" type="date"
-                                   placeholder="Click here to choose the begining"
+                                   name="event_start" id="start-date" type="date"
+                                   placeholder="Click here to choose the start date"
                                    id="datepicker"
                                    class="validate datepicker tooltipped">
-                            <label for="icon_prefix"></label>
+                            <label for="start-date"></label>
                         </div>
-                        <div class="col s3 l2 m3">
-                            <p><a class="showend">+ End time</a></p>
+                        <div class="col s3 l3 m3">
+                            <p><a class="showend">+ Add End Date</a></p>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s10 l10 m10 newdate">
                             <i class="material-icons prefix">today</i>
-                            <input name="event_end" id="icon_prefix" type="date"
-                                   placeholder="Click here to choose the ending"
+                            <input name="event_end" id="end-date" type="date"
+                                   placeholder="Click here to choose the end date"
                                    class="datepicker">
-                            <label for="icon_prefix"></label>
+                            <label for="end-date"></label>
                         </div>
                     </div>
 
-
+                    <i class="material-icons prefix">schedule</i>
                     <div class="row">
                         <div class="input-field col s6 m3">
                             <select name="event_hour_start">
-                                <option value="" disabled selected>Hours</option>
+                                <option value="" disabled selected>Hour</option>
                                 <option value="0">00</option>
                                 <option value="1">01</option>
                                 <option value="2">02</option>
@@ -112,7 +123,7 @@
 
                         <div class="input-field col s6 m3">
                             <select name="event_min_start">
-                                <option value="" disabled selected>Minutes</option>
+                                <option value="" disabled selected>Min</option>
                                 <option value="00">00</option>
                                 <option value="05">05</option>
                                 <option value="10">10</option>
@@ -142,7 +153,7 @@
                     <div class="row">
                         <div class="input-field col s6 m3 offset-m1">
                             <select name="event_hour_end">
-                                <option value="" disabled selected>Hours</option>
+                                <option value="" disabled selected>Hour</option>
                                 <option value="0">00</option>
                                 <option value="1">01</option>
                                 <option value="2">02</option>
@@ -162,7 +173,7 @@
 
                         <div class="input-field col s6 m3">
                             <select name="event_min_end">
-                                <option value="" disabled selected>Minutes</option>
+                                <option value="" disabled selected>Min</option>
                                 <option value="00">00</option>
                                 <option value="05">05</option>
                                 <option value="10">10</option>
@@ -189,21 +200,13 @@
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="input-field col s12 l12 m12">
-                            <textarea name="event_description" id="textarea1 icon_prefix"
-                                      class="materialize-textarea tooltipped" data-tooltip="How awesome is your event ?"
-                                      data-position="right" data-delay="50"></textarea>
-                            <label for="textarea1 icon_prefix">Description</label>
-                        </div>
-                    </div>
-
+                    <i class="material-icons prefix">label_outline</i>
                     <div class="row ">
                         <div class="input-field col s6 m6 l4 offset-m1 offset-l1 tooltipped" data-position="right"
                              data-delay="50"
                              data-tooltip="What type of event is it?">
                             <select name="event_categories[]" class="icons" multiple>
-                                <option value="" disabled selected>Categories</option>
+                                <option value="" disabled selected>Category</option>
                                 <?php foreach ($data as $category) {
                                     ?>
                                     <option value="<?= $category['idCategorie']; ?>"
@@ -211,7 +214,7 @@
                                     <?php
                                 } ?>
                             </select>
-                            <label>Choose your categories</label>
+                            <label>Choose your category</label>
                         </div>
                     </div>
 
@@ -240,14 +243,14 @@
                         </div>
                     </div>
 
-                    <!----II-2----->
+                    <!--II-2-->
                     <div class="row">
                         <div class="separateur_form valign-wrapper col l12 m12 s12">
                             <div class="bullet_point">
                                 <p class="num_bullet_point">2</p>
                             </div>
                             <div>
-                                <h3 class="text_separteur">Volunteers needed !</h3>
+                                <h3 class="text_separteur">Volunteer positions you need</h3>
                             </div>
                         </div>
                     </div>
@@ -256,6 +259,7 @@
                          data-delay="50" data-position="right"
                          data-tooltip="What kind of missions for your volunteers?">
                         <div class="input-field col s9 secure-mission">
+                            <i class="material-icons prefix">perm_identity</i>
                             <input name="missions[]" id="icon_prefix" placeholder="Barman" type="text" class="validate">
                             <label for="icon_prefix">Mission</label>
                         </div>
@@ -280,7 +284,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div id="new-mission"></div>
 
                     <div class="row">
@@ -290,9 +294,9 @@
                     </div>
 
                     <div class="row btn_crea2">
-                        
-                        
-                        
+
+
+
                         <div class="right">
                             <?php if(isset($_SESSION['user_id'])){ ?>
                                 <button name="save" class="btn btn-menu">Save</button>
@@ -307,10 +311,10 @@
                                 </a>
                             <?php } ?>
                         </div>
-                       
+
                     </div>
 
-                </form><!--//// END FOM ****/////--->
+                </form><!--//// END FOM ****/////-->
 
             </div> <!--content-->
         </div><!-- fin formulaire-->
