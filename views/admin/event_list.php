@@ -71,7 +71,7 @@
                     </td>
                     <td><a href="<?php echo PATH_HOME ?>admin/singleevent/<?= $event['idEvent']; ?>" class="btn btn-small z-depth-0"><i class="mdi mdi-editor-mode-edit"></i></a>
                     </td>
-                    <td><a href="<?php echo PATH_HOME ?>admin/singleevent/<?= $event['idEvent']; ?>" class="btn btn-small z-depth-0"><i class="mdi mdi-action-delete"></i></a>
+                    <td><a href="<?php echo PATH_HOME ?>admin/deleteevent/<?= $event['idEvent']; ?>" class="btn btn-small z-depth-0 red darken-1" onclick="return confirm('Are you sure you want to delete this item?');"><i class="mdi mdi-action-delete"></i></a>
                     </td>
                   </tr>
                 <?php endforeach; ?>

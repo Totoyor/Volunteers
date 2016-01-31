@@ -46,7 +46,7 @@
     <!-- /Background Bubbles -->
 
     <!-- Sign Up Form -->
-    <form action="dashboard.html">
+    <form action="?module=admin&action=signup" method="post">
       <div class="row links">
         <div class="col s6 logo">
           <img src="assets/_con/images/logo-white.png" alt="">

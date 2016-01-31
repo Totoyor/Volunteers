@@ -16,7 +16,7 @@
   <div class="col s12 l6">
 
     <div class="card-panel">
-      <form action="?module=user&action=signup" method="post">
+      <form action="?module=admin&action=signup" method="post">
 
         <div class="row">
 

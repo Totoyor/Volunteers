@@ -13,7 +13,7 @@
                     </p>
                 </div>
 
-                <!-----/****FORMS****/---->
+                <!--/****FORMS****/-->
                 <form method="post" action="event/create" class="" enctype="multipart/form-data">
 
                     <div class="row btn_crea1">

@@ -8,18 +8,26 @@
 
       <div class="row">
         <div class="col s12 m9 l10">
-          <h1>Event Name</h1>
+          <?php if ($_GET['action'] == "createevent") {?>
+            <h1>Create Event</h1>
+          <?php } else { ?>
+            <h1>Edit Event</h1>
+          <?php } ?>
         </div>
       </div>
 
     </div>
     <!-- /Breadcrumb -->
 
-    <form action="">
+    <?php if ($_GET['action'] == "createevent") { ?>
+      <form method="post" action="admin/create" enctype="multipart/form-data">
+    <?php } else { ?>
+      <form method="post" action="admin/edit" enctype="multipart/form-data">
+    <?php } ?>
       <!-- Save and Cancel buttons -->
       <p class="right-align">
         <button class="btn" type="submit">Save</button>
-        <a class="btn" href="eventList">Cancel</a>
+        <a class="btn" href="dashboard">Cancel</a>
       </p>
       <!-- /Save and Cancel buttons -->
 
@@ -343,18 +351,20 @@
             <div class="col s12 l9">
               <div class="input-field no-margin-top">
 
-                <?php foreach ($data['missions'] as $mission) {?>
-                <div class="top-space">
-                    <div class="input-field col s5 secure-mission">
-                        <input name="missions[]" id="icon_prefix" placeholder="Barman" type="text" class="validate" value="<?php echo ($mission['missionName']); ?>">
-                        <label for="icon_prefix">Mission</label>
-                    </div>
-                    <div class="input-field col secure-mission">
-                        <input name="nbVolunteer[]" placeholder="1" type="number" min="0" class="validate" value="<?php echo ($mission['nbVolunteer']); ?>">
-                        <label>Number</label>
-                    </div>
-                </div>
-                <?php } ?>
+                <?php if (isset($data['missions'])): ?>
+                  <?php foreach ($data['missions'] as $mission) {?>
+                  <div class="top-space">
+                      <div class="input-field col s5 secure-mission">
+                          <input name="missions[]" id="icon_prefix" placeholder="Barman" type="text" class="validate" value="<?php echo ($mission['missionName']); ?>">
+                          <label for="icon_prefix">Mission</label>
+                      </div>
+                      <div class="input-field col secure-mission">
+                          <input name="nbVolunteer[]" placeholder="1" type="number" min="0" class="validate" value="<?php echo ($mission['nbVolunteer']); ?>">
+                          <label>Number</label>
+                      </div>
+                  </div>
+                  <?php } ?>
+                <?php endif ?>
 
 
                 <div id="first-mission-field" class="top-space">
@@ -427,7 +437,7 @@
       <!-- Save and Cancel buttons -->
       <p class="right-align">
         <button class="btn" type="submit">Save</button>
-        <a class="btn" href="ecommerce-products.html">Cancel</a>
+        <a class="btn" href="dashboard">Cancel</a>
       </p>
       <!-- /Save and Cancel buttons -->
     </form>

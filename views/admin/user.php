@@ -24,6 +24,7 @@
             </td>
             <td>
               <!-- Edit Button -->
+              <a href="<?php echo PATH_HOME ?>admin/deleteuser/<?= $data['idUser']; ?>" class="btn btn-small right z-depth-0 red darken-1" style="margin-left:10px;" onclick="return confirm('Are you sure you want to delete this item?');"><i class="mdi mdi-action-delete"></i></a>
               <a href="<?php echo PATH_HOME ?>admin/edituser/<?= $data['idUser']; ?>" class="btn btn-small right z-depth-0"><i class="mdi mdi-editor-mode-edit"></i></a>
               <!-- /Edit Button -->
               <!-- Name -->
