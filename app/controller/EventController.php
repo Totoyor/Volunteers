@@ -532,25 +532,12 @@ class EventController extends AppController
         $this->load->view("event/list_volunteers.php", $data);
     }
 
-    public function editsaved()
+    public function editshow()
     {
         define("TITLE_HEAD", "Volunteers | Edit");
         $idEvent = $_GET['id'];
         $data = array(
-            'event' => $this->model->getEventSaved($idEvent),
-            'category' => $this->model->getCategories(),
-            'missions' => $this->model->getMissions($idEvent),
-            'medias' => $this->model->getMedias($idEvent)
-        );
-        $this->load->view("event/update_event.php", $data);
-    }
-
-    public function editpublished()
-    {
-        define("TITLE_HEAD", "Volunteers | Edit");
-        $idEvent = $_GET['id'];
-        $data = array(
-            'event' => $this->model->getEvent($idEvent),
+            'event' => $this->model->getEventForUpdate($idEvent),
             'category' => $this->model->getCategories(),
             'missions' => $this->model->getMissions($idEvent),
             'medias' => $this->model->getMedias($idEvent)
@@ -774,7 +761,7 @@ class EventController extends AppController
                     } else {
                         $messageFlash = 'Please set up the location';
                         $this->coreSetFlashMessage('error', $messageFlash, 3);
-                        header("location:home?create&event=locationNok");
+                        header("location:editshow/".$idEvent);
                         exit();
                     }
 
@@ -786,7 +773,7 @@ class EventController extends AppController
                     } else {
                         $messageFlash = 'Please set up the beginning of the event';
                         $this->coreSetFlashMessage('error', $messageFlash, 3);
-                        header("location:home?create&event=startNok");
+                        header("location:editshow/".$idEvent);
                         exit();
                     }
 
@@ -797,7 +784,7 @@ class EventController extends AppController
                     } else {
                         $messageFlash = 'Please set up the start time of the event';
                         $this->coreSetFlashMessage('error', $messageFlash, 3);
-                        header("location:home?create&event=startTimeNok");
+                        header("location:editshow/".$idEvent);
                         exit();
                     }
 
@@ -818,7 +805,7 @@ class EventController extends AppController
                     } else {
                         $messageFlash = 'Please set up the end time of the event';
                         $this->coreSetFlashMessage('error', $messageFlash, 3);
-                        header("location:home?create&event=endTimeNok");
+                        header("location:editshow/".$idEvent);
                         exit();
                     }
 
@@ -829,7 +816,7 @@ class EventController extends AppController
                     } else {
                         $messageFlash = 'Please set up the categori';
                         $this->coreSetFlashMessage('error', $messageFlash, 3);
-                        header("location:../profile/events");
+                        header("location:editshow/".$idEvent);
                         exit();
                     }
 
@@ -846,7 +833,7 @@ class EventController extends AppController
                     } else {
                         $messageFlash = 'Please set up the different missions';
                         $this->coreSetFlashMessage('error', $messageFlash, 3);
-                        header("location:home?create&event=missionsNok");
+                        header("location:editshow/".$idEvent);
                         exit();
                     }
 
@@ -855,7 +842,7 @@ class EventController extends AppController
                     } else {
                         $messageFlash = 'Please set up the number of volunteers';
                         $this->coreSetFlashMessage('error', $messageFlash, 3);
-                        header("location:home?create&event=nbVolNok");
+                        header("location:editshow/".$idEvent);
                         exit();
                     }
 
@@ -953,7 +940,7 @@ class EventController extends AppController
                         //Chargement de la vue de l'évènement
                         $messageFlash = 'Your event has been published';
                         $this->coreSetFlashMessage('sucess', $messageFlash, 3);
-                        header("location:../profile/events");
+                        header("location:show".$idEvent);
                         exit();
 
                     } else {
@@ -971,7 +958,9 @@ class EventController extends AppController
             }
 
         } else {
-            header("location:home?create&event=loginNok");
+            $messageFlash = 'Please log in';
+            $this->coreSetFlashMessage('error', $messageFlash, 3);
+            header("location:../home/home");
             exit();
         }
     }

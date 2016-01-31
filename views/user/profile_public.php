@@ -1,9 +1,8 @@
 <?php include_once('views/layout/header.inc.php'); ?>
 <div class="container">
     <div class="page-content">
-        <div class="row">
+        <div class="row margtop100">
             <div class="col l3 m12 s12 nopadding">
-
                 <div class="card">
                     <div class="card panel colbgpublic noborder center">
                         <div class="panel-text">

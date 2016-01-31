@@ -218,7 +218,11 @@ class ProfileController extends AppController
     public function dashboard()
     {
         define("TITLE_HEAD", "Volunteers | Profile");
-        $this->load->view("user/dashboard.php");
+        $idUser = $_SESSION['user_id'];
+        $data = array(
+            'missions' => $this->model->getUserMissions($idUser, 1)
+        );
+        $this->load->view("user/dashboard.php", $data);
     }
 
     public function show()

@@ -149,7 +149,7 @@ Class EventModel extends AppModel
      * @param $id
      * @return bool|mixed
      */
-    public function getEventSaved($id)
+    public function getEventForUpdate($id)
     {
         try {
             $query = $this->connexion->prepare("SELECT *
@@ -167,12 +167,10 @@ Class EventModel extends AppModel
             LEFT JOIN vol_users
             ON vol_events.vol_users_idUser = vol_users.idUser
             WHERE vol_events.idEvent = :id
-            AND vol_events.vol_event_status_idEventStatus = :status
             GROUP BY idEvent
             ");
 
             $query->bindValue(':id', $id, PDO::PARAM_INT);
-            $query->bindValue(':status', 0, PDO::PARAM_INT);
             $query->execute();
 
             $data = $query->fetch(PDO::FETCH_ASSOC);
