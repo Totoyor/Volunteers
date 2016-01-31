@@ -1,4 +1,4 @@
-<?php include_once('layout/adminheader.inc.php'); ?>
+<?php include_once('views/layout/adminheader.inc.php'); ?>
 <!-- Main Content -->
   <section class="content-wrap">
 
@@ -9,22 +9,6 @@
       <div class="row">
         <div class="col s12 m9 l10">
           <h1>Profile</h1>
-
-          <ul>
-            <li>
-              <a href="#"><i class="fa fa-home"></i> Home</a>  <i class="fa fa-angle-right"></i>
-            </li>
-
-            <li><a href='dashboard.html'>Dashboard</a>  <i class='fa fa-angle-right'></i>
-            </li>
-            <li><a href='#'>Pages</a>  <i class='fa fa-angle-right'></i>
-            </li>
-            <li><a href='page-profile.html'>Profile</a>
-            </li>
-          </ul>
-        </div>
-        <div class="col s12 m3 l2 right-align">
-          <a href="#!" class="btn grey lighten-3 grey-text z-depth-0 chat-toggle"><i class="fa fa-comments"></i></a>
         </div>
       </div>
 
@@ -36,19 +20,23 @@
         <tbody>
           <tr>
             <td class="photo">
-              <img src="assets/_con/images/user.jpg" alt="Jogh Doe">
+              <img src="assets/_con/images/user.jpg" alt="<?php echo $data['FirstName']; ?>">
             </td>
             <td>
+              <!-- Edit Button -->
+              <a href="<?php echo PATH_HOME ?>admin/edituser/<?= $data['idUser']; ?>" class="btn btn-small right z-depth-0"><i class="mdi mdi-editor-mode-edit"></i></a>
+              <!-- /Edit Button -->
               <!-- Name -->
-              <h3>John Doe</h3>
+              <h3><?php echo $data['FirstName']; ?> <?php echo $data['LastName']; ?></h3>
               <!-- /Name -->
 
               <!-- Status Message -->
-              <span>Cras vel risus ac massa varius tempus. Suspendisse sed risus at mi egestas rutrum nec et velit.</span>
+              <span>Born <?php echo $data['BirthDate']; ?> <br> Lives in <?php echo $data['Location']; ?></span>
               <!-- /Status Message -->
 
+
               <!-- Contact Buttons -->
-              <div class="contacts">
+              <!-- <div class="contacts">
                 <a href="#!" class="blue darken-3 white-text waves-effect">
                   <i class="fa fa-facebook"></i>
                 </a>
@@ -67,7 +55,7 @@
                 <a href="#!" class="grey darken-3 white-text waves-effect">
                   <i class="fa fa-github"></i>
                 </a>
-              </div>
+              </div> -->
               <!-- /Contact Buttons -->
             </td>
           </tr>
@@ -90,9 +78,7 @@
             </a>
           </div>
           <div class="content">
-            Phasellus viverra, lectus quis iaculis gravida, nisl felis cursus dui, id rutrum nibh quam nec ante. In ullamcorper ipsum nec tincidunt convallis. Fusce rhoncus, nisl nec ornare laoreet, ligula eros volutpat odio, sit amet ultricies ex nulla quis dolor.
-            Sed consectetur, elit non ultricies viverra, orci ex feugiat felis, quis suscipit enim metus id ante. Aenean urna elit, laoreet accumsan pharetra et, lobortis nec odio. Ut faucibus, neque at posuere fermentum, ipsum enim lacinia augue, nec
-            malesuada velit orci sed enim. Vivamus porttitor lacus eget arcu dapibus semper. Proin nec pretium nunc, vitae interdum tortor.
+            <?php echo $data['Description']; ?>
           </div>
         </div>
         <!-- /About -->
@@ -116,11 +102,11 @@
             <div class="row center-align" style="margin-top: 0">
               <div class="col m6 s12">
                 <strong>87</strong>
-                <h5>Following</h5>
+                <h5>Events created</h5>
               </div>
               <div class="col m6 s12">
                 <strong>12</strong>
-                <h5>Followers</h5>
+                <h5>Volunteering</h5>
               </div>
             </div>
           </div>
@@ -141,14 +127,7 @@
             </a>
           </div>
           <div class="content">
-            <a href="#!" class="skill">JavaScript</a>
-            <a href="#!" class="skill">CSS3</a>
-            <a href="#!" class="skill">HTML5</a>
-            <a href="#!" class="skill">jQuery</a>
-            <a href="#!" class="skill">AngularJS</a>
-            <a href="#!" class="skill">Bootstrap</a>
-            <a href="#!" class="skill">PHP</a>
-            <a href="#!" class="skill">MySQL</a>
+            <?php echo $data['Skills']; ?>
           </div>
         </div>
         <!-- /Skills -->
@@ -183,4 +162,4 @@
 
   </section>
   <!-- /Main Content -->
-  <?php include_once('layout/adminfooter.inc.php'); ?>
+  <?php include_once('views/layout/adminfooter.inc.php'); ?>

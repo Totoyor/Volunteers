@@ -1,4 +1,4 @@
-<?php include_once('layout/adminheader.inc.php'); ?>
+<?php include_once('views/layout/adminheader.inc.php'); ?>
 <!-- Main Content -->
   <section class="content-wrap">
 
@@ -8,13 +8,13 @@
 
       <div class="row">
         <div class="col s12 m9 l10">
-          <h1>Register</h1>
+          <h1>Create user</h1>
       </div>
 
     </div>
     <!-- /Breadcrumb -->
 
-<form action="#!">
+<form class="login-form" action="?module=user&action=signup" method="post">
     </div>
       <div class="row">
         <div class="col l9 m12 s12">
@@ -197,4 +197,4 @@
 
   </section>
   <!-- /Main Content -->
-<?php include_once('layout/adminfooter.inc.php'); ?>
+<?php include_once('views/layout/adminfooter.inc.php'); ?>

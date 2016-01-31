@@ -30,7 +30,7 @@ else if(SERVER === 'DEV') {
      */
     define('DEBUG', true);
     define('BASE_HOME', '<base href="http://sabates.etudiant-eemi.com/perso/volunteers/dev/">');
-    define('PATH_HOME', 'YOUR_URL');
+    define('PATH_HOME', 'http://sabates.etudiant-eemi.com/perso/volunteers/dev/');
     /**
      * Constantes de Base de Données
      */

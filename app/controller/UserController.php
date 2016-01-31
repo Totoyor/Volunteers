@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class UserController extends AppController
 {
@@ -9,14 +9,14 @@ class UserController extends AppController
     private $_active;
     private $_nom;
     private $_prenom;
-    
+
     public function __construct()
     {
         require 'app/model/UserModel.php';
         $this->model = new UserModel();
         parent::__construct();
     }
-    
+
     /*public function home()
     {
         define("TITLE_HEAD", "Les utilisateurs du blog");
@@ -44,7 +44,7 @@ class UserController extends AppController
                         $_SESSION['user_id'] = $user['idUser'];
 
                         // on set le message de confirmation
-                        $messageFlash = 'Well done ! You are now logged in !';
+                        $messageFlash = 'Well done! You are now logged in!';
                         $this->coreSetFlashMessage('sucess', $messageFlash, 3);
                         // et on renvoi sur la page d'accueil
                         header('Location:?login=ok');
@@ -74,7 +74,7 @@ class UserController extends AppController
             {
                 // Si false on renvoi sur une page erreur
                 define("TITLE_HEAD", "An error occur.");
-                $messageFlash = 'An error occur. Please try again.';
+                $messageFlash = 'An error has occurred. Please try again.';
                 $this->coreSetFlashMessage('error', $messageFlash, 3);
                 header('Location:?log=nok');
                 exit();
@@ -83,7 +83,7 @@ class UserController extends AppController
         else
         {
             define("TITLE_HEAD", "An error occur.");
-            $messageFlash = 'An error occur. Please try again.';
+            $messageFlash = 'An error has occurred. Please try again.';
             $this->coreSetFlashMessage('error', $messageFlash, 3);
             header('Location:?log=nok');
             exit();
@@ -130,9 +130,9 @@ class UserController extends AppController
                             // Ajout du contenu
                             $objet_mail = 'Volunteers Account';
                             $message_mail = 'Hello,
-                             We confirm you that your account has been created !
+                             Your account has been created!
                              Please confirm your email by cliking on this link : '.PATH_HOME.'?module=validate&key='.urlencode($this->_userKey).'
-                             Thanks !';
+                             Thank you for joining Volunteers!';
                             $mail->contenuMail($objet_mail, $message_mail);
 
                             // Envoi du mail
@@ -144,7 +144,7 @@ class UserController extends AppController
                         }
 
                         // Si ok (true) alors on renvoi sur la page d'accueil
-                        $messageFlash = 'Your account has been created. Please confirm your email trought the one we sent you.';
+                        $messageFlash = 'Your account has been created. Please confirm your email through the one we sent you.';
                         $this->coreSetFlashMessage('sucess', $messageFlash, 6);
                         header('Location:?sign=ok');
                         exit();
@@ -152,7 +152,7 @@ class UserController extends AppController
                     else
                     {
                         define("TITLE_HEAD", "An error occur.");
-                        $messageFlash = 'An error occur. Please try again.';
+                        $messageFlash = 'An error has occurred. Please try again.';
                         $this->coreSetFlashMessage('error', $messageFlash, 3);
                         header('Location:?signup=nok');
                         exit();
@@ -169,7 +169,7 @@ class UserController extends AppController
             {
                 // Si false on renvoi sur une page erreur
                 define("TITLE_HEAD", "An error occur.");
-                $messageFlash = 'An error occur. Please try again.';
+                $messageFlash = 'An error has occurred. Please try again.';
                 $this->coreSetFlashMessage('error', $messageFlash, 3);
                 header('Location:?signup=nok');
                 exit();
@@ -178,7 +178,7 @@ class UserController extends AppController
         else
         {
             define("TITLE_HEAD", "An error occur.");
-            $messageFlash = 'An error occur. Please try again.';
+            $messageFlash = 'An error has occurred. Please try again.';
             $this->coreSetFlashMessage('error', $messageFlash, 3);
             header('Location:?signup=nok');
             exit();

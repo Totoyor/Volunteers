@@ -1,4 +1,4 @@
-<?php include_once('layout/adminheader.inc.php'); ?>
+<?php include_once('views/layout/adminheader.inc.php'); ?>
 <!-- Main Content -->
   <section class="content-wrap ecommerce-product-single">
 
@@ -41,7 +41,7 @@
             </div>
             <div class="col s12 l9">
               <div class="input-field no-margin-top">
-                <input id="ecommerce-product-name" type="text" placeholder="Event Name" value="" name="product-name">
+                <input id="ecommerce-product-name" type="text" placeholder="Event Name" value="<?= $data['event']['nameEvent']; ?>" name="product-name">
               </div>
             </div>
           </div>
@@ -91,19 +91,7 @@
             </div>
             <div class="col s12 l9">
 
-              <textarea id="ckeditor1" name="product-description">
-                <u>Small Description</u>
-                <p><i>The Good</i>
-                  <br>The iPhone 6 delivers a spacious, crisp 4.7-inch screen, improved wireless speeds, better camera autofocus, and bumped-up storage capacities to 128GB at the top end. iOS remains a top-notch mobile operating system with an excellent app
-                  selection, and Apple Pay is a smooth, secure payment system.
-                </p>
-                <p><i>The Bad</i>
-                  <br>Battery life isn't much better than last year's iPhone 5S. An even larger screen could have been squeezed into the same housing.
-                </p>
-                <p><i>The Bottom Line</i>
-                  <br>The iPhone 6 is an exceptional phone in nearly every way except its average battery life: it's thin and fast with a spacious screen and the smoothest payment system we've seen. It's the best overall phone of 2014.
-                </p>
-              </textarea>
+              <textarea id="ckeditor1" name="product-description"><?= $data['event']['descriptionEvent']; ?></textarea>
 
             </div>
           </div>
@@ -131,7 +119,7 @@
             </div>
             <div class="col s12 l9">
               <div class="input-field no-margin-top">
-                <textarea name="product-keywords" id="location" placeholder="Event Location" class="materialize-textarea"></textarea>
+                <textarea name="product-keywords" id="location" placeholder="Event Location" class="materialize-textarea"><?= $data['event']['locationEvent']; ?></textarea>
               </div>
             </div>
           </div>
@@ -148,6 +136,7 @@
               <div class="input-field no-margin-top">
                 <input class="datepicker" id="input_end_date" type="date">
                 <label for="input_end_date">Start date</label>
+                <?= $data['event']['startEvent']; ?>
               </div>
             </div>
           </div>
@@ -164,6 +153,7 @@
               <div class="input-field no-margin-top">
                 <input class="datepicker" id="input_end_date" type="date">
                 <label for="input_end_date">End date</label>
+                <?= $data['event']['endEvent']; ?>
               </div>
             </div>
           </div>
@@ -217,6 +207,7 @@
                   </select></div>
                   <label></label>
               </div>
+              <?= $data['event']['hourStartEvent']; ?>
             </div>
           </div>
           <!-- /Start time -->
@@ -267,6 +258,7 @@
                     </select></div>
                     <label></label>
                 </div>
+                <?= $data['event']['hourEndEvent']; ?>
               </div>
             </div>
           <!-- /End time -->
@@ -275,7 +267,7 @@
           <div class="row no-margin-top">
             <div class="col s12 l3">
               <label for="categories" class="setting-title">
-                Categories
+                Category
               </label>
             </div>
             <div class="col s3 l3">
@@ -284,7 +276,7 @@
                   <li class="disabled">
                     <span>
                       <input type="checkbox" disabled="">
-                      <label>Categories</label>
+                      <label>Category</label>
                     </span>
                   </li>
                   <li class="">
@@ -315,7 +307,7 @@
                   </li>
                 </ul>
                 <select name="event_categories[]" class="icons initialized" multiple="">
-                  <option value="" disabled="" selected="">Categories</option>
+                  <option value="" disabled="" selected="">Category</option>
                   <option value="1" class="left circle">Festival</option>
                   <option value="2" class="left circle">Rock</option>
                   <option value="4" class="left circle">Pop</option>
@@ -323,6 +315,7 @@
               </select>
             </div>
             </div>
+            <?= $data['event']['nameCategorie']; ?>
           </div>
           <!-- /End time -->
 
@@ -349,6 +342,20 @@
             </div>
             <div class="col s12 l9">
               <div class="input-field no-margin-top">
+
+                <?php foreach ($data['missions'] as $mission) {?>
+                <div class="top-space">
+                    <div class="input-field col s5 secure-mission">
+                        <input name="missions[]" id="icon_prefix" placeholder="Barman" type="text" class="validate" value="<?php echo ($mission['missionName']); ?>">
+                        <label for="icon_prefix">Mission</label>
+                    </div>
+                    <div class="input-field col secure-mission">
+                        <input name="nbVolunteer[]" placeholder="1" type="number" min="0" class="validate" value="<?php echo ($mission['nbVolunteer']); ?>">
+                        <label>Number</label>
+                    </div>
+                </div>
+                <?php } ?>
+
 
                 <div id="first-mission-field" class="top-space">
                     <div class="input-field col s5 secure-mission">
@@ -427,4 +434,4 @@
 
   </section>
   <!-- /Main Content -->
-<?php include_once('layout/adminfooter.inc.php'); ?>
+<?php include_once('views/layout/adminfooter.inc.php'); ?>

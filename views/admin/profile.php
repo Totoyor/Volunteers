@@ -1,4 +1,4 @@
-<?php include_once('layout/adminheader.inc.php'); ?>
+<?php include_once('views/layout/adminheader.inc.php'); ?>
   <!-- Main Content -->
   <section class="content-wrap">
 
@@ -168,4 +168,4 @@
   </section>
   <!-- /Main Content -->
 
-  <?php include_once('layout/adminfooter.inc.php'); ?>
+  <?php include_once('views/layout/adminfooter.inc.php'); ?>
