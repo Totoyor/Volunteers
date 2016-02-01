@@ -1845,3 +1845,7 @@ input[type=range] + .thumb {
     background-color: #fb8c00;
 }
 
+.thumb {
+    color: #fb8c00;
+}
+

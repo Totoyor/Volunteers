@@ -940,7 +940,7 @@ class EventController extends AppController
                         //Chargement de la vue de l'évènement
                         $messageFlash = 'Your event has been published';
                         $this->coreSetFlashMessage('sucess', $messageFlash, 3);
-                        header("location:show".$idEvent);
+                        header("location:show/".$idEvent);
                         exit();
 
                     } else {

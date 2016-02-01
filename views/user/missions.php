@@ -20,8 +20,8 @@
                     <div class="row">
                         <div class="col s12">
                             <ul class="tabs">
-                                <li class="tab col s6"><a class="active" href="#test4">Asked</a></li>
-                                <li class="tab col s6"><a href="#test5">Participated</a></li>
+                                <li class="tab col s6"><a class="active" href="#test4">Applied for</a></li>
+                                <li class="tab col s6"><a href="#test5">Participated at</a></li>
                             </ul>
                         </div>
                     </div><!-- fin row-->
