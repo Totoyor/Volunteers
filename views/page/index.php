@@ -21,6 +21,7 @@
                         <li><i class="material-icons">done</i>Better visibility for your event</li>
                     </ul>
                     <a href="event/home" class="btn btn-orange btn_right">Tell us about your event</a>
+
                 </div>
                 <!-- content bloc-->
             </div>
@@ -257,7 +258,7 @@
                         </a>
                     </div>
                 </div>
-                
+
             </div>
         <!-- fin row-->
     </div>

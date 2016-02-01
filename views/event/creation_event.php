@@ -1,4 +1,5 @@
 <?php include_once('views/layout/header.inc.php'); ?>
+<form method="post" action="event/create" class="" enctype="multipart/form-data">
     <div class="row creabody">
         <div class="page_event col m10 s12 l8">
             <div class="formulaire_crea col l12">
@@ -13,7 +14,7 @@
                 </div>
 
                 <!-----/****FORMS****/---->
-                <form method="post" action="event/create" class="" enctype="multipart/form-data">
+                
 
                     <div class="row btn_crea1">
                         <div class="right">
@@ -61,7 +62,9 @@
                     <div class="row">
                         <div class="input-field col s9 l10 m9">
                             <i class="material-icons prefix">today</i>
+
                             <input data-position="right" data-delay="50" data-tooltip="What day is it?" name="event_start" id="icon_prefix" type="date" placeholder="Click here to choose the begining" class="validate datepicker tooltipped">
+
                             <label for="icon_prefix"></label>
                         </div>
                         <div class="col s3 l2 m3">
@@ -365,8 +368,7 @@
 
                     </div>
 
-                </form>
-                <!--//// END FOM ****/////--->
+                
 
             </div>
             <!--content-->
@@ -395,5 +397,7 @@
 
         </div>
     </div>
+    </form>
+                <!--//// END FOM ****/////--->
     <!-- fin page event-->
     <?php include_once('views/layout/footer.inc.php'); ?>

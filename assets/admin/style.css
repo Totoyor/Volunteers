@@ -1,0 +1,7 @@
+.card .content {
+    overflow: visible;
+}
+
+.search-bar-toggle, .chat-toggle {
+    display: none;
+}

@@ -29,6 +29,9 @@ class UserController extends AppController
         {
             if(!empty($_POST['email']) && (!empty($_POST['password'])))
             {
+                if(isset($_POST['SaveEmail'])) {
+                    setcookie("EmailUserVolunteers", $_POST['email'], time()+60*60*24*30);
+                }
                 $this->_login = $_POST['email'];
                 $this->_password = md5($_POST['password']);
 
@@ -197,16 +200,16 @@ class UserController extends AppController
 
             $idEvent = $_POST['idEvent'];
             $idUser = $_SESSION['user_id'];
+            $status = 0;
 
-            if ($this->model->join($idEvent, $idUser)) {
+            if ($this->model->join($idEvent, $idUser, $status)) {
                 header("location:/3ADEV/Volunteers/event/show/" . $idEvent);
             } else {
-                header("location:/3ADEV/Volunteers/event/show/" . $idEvent . "?join=nok");
+                header("location:/3ADEV/Volunteers/event/show/" . $idEvent . "/joinnok");
             }
 
         } else {
             die('please log in');
         }
     }
-
 }

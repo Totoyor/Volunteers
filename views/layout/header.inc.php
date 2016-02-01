@@ -53,7 +53,7 @@
                 <li><a class="btn btn-menu secure_btn_menu" href="event/home">Create event</a></li>
                   <?php if(isset($_SESSION['user_email']) || isset($_COOKIE['fbsr_941553679268599'])) { ?>
                       <li><a href="event/lists">Events</a></li>
-                      <li><a href="?module=profile">My Profile</a></li>
+                      <li><a href="profile/dashboard">My Profile</a></li>
                       <li><a href="?module=user&action=disconnect">Disconnect</a></li>
                   <?php } else { ?>
                       <li><a href="event/lists">All events</a></li>
@@ -69,7 +69,7 @@
                     <li><a class="modal-trigger" href="#signup">Sign Up</a></li>
                 <?php } else { ?>
                     <li><a href="?module=event&action=lists">Events</a></li>
-                    <li><a href="profile/home">My Profile</a></li>
+                    <li><a href="profile/dashboard">My Profile</a></li>
                     <li><a href="?module=user&action=disconnect">Disconnect</a></li>
                 <?php } ?>
                 <li><a href="?module=help">Help</a></li>
@@ -84,16 +84,19 @@
             <h4 class="titre-login white-text">Log In</h4>
         </div>
         <div class="modal-content">
-            <div class="login_facebook">
+            <!--<div class="login_facebook">
                 <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="true"></div>
                 <div id="status">
                 </div>
+            </div>-->
+            <div class="col s12">
+                <p class="center">Great to have you back!</p>
             </div>
             <form class="login-form" action="?module=user&action=connect" method="post">
                 <div class="row">
                     <div class="input-field col s12">
                         <input placeholder="Email" id="email" type="email" class="validate" name="email"
-                               required="required">
+                               required="required" value="<?php if(isset($_COOKIE['EmailUserVolunteers'])) { echo $_COOKIE['EmailUserVolunteers']; } ?>">
                         <label for="email" class="center-align"></label>
                     </div>
                 </div>
@@ -106,8 +109,8 @@
                 </div>
 
                 <div class="row">
-                    <div class="input-field col s12 m12 l12  login-text">
-                        <input type="checkbox" id="remember-me"/>
+                    <div class="input-field col s12 m12 l12 login-text">
+                        <input type="checkbox" id="remember-me" name="SaveEmail" checked/>
                         <label for="remember-me" class="space-bot">Remember me</label>
                     </div>
                 </div>
@@ -124,7 +127,7 @@
                         <p class="medium-small"><a class="modal-trigger" href="#signup">Register now!</a></p>
                     </div>
                     <div class="input-field col s6 m6 l6">
-                        <p class="margin right-align medium-small"><a href="page-forgot-password.html">Forgot password
+                        <p class="margin right-align medium-small"><a href="?module=password">Forgot password
                                 ?</a></p>
                     </div>
                 </div>
@@ -140,11 +143,14 @@
         <div class="modal-content">
             <form class="login-form" action="?module=user&action=signup" method="post">
                 <div class="row">
-                    <div class="col s12 m6">
+                    <!--<div class="col s12 m6">
                         <a class="btn btn-fb"><img class="sociallog" src="assets/img/fbmini.png" alt="facebook"></a>
                     </div>
                     <div class="col s12 m6">
                         <a class="btn btn-tw"><img class="sociallog" src="assets/img/twmini.png" alt="twitter"></a>
+                    </div>-->
+                    <div class="col s12">
+                        <p class="center">Enter your email and password.<br/>Simple as that!</p>
                     </div>
                 </div>
 
