@@ -8,7 +8,6 @@
                             <div class="panel-text">
                                 <img class="resposive-img circle" src="assets/img/square_face.png" width="100"
                                      height="100">
-
                                 <h2 class="name-profile nospace">Salim</h2>
                                 <a href="profilepublic.php">See profile as public</a><br/>
                             </div>
@@ -86,6 +85,4 @@
             </div><!-- fin row-->
         </div>
     </div>
-
-
 <?php include_once('views/layout/footer.inc.php'); ?>

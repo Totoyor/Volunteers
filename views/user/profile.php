@@ -1,9 +1,9 @@
 <?php include_once('views/layout/header.inc.php'); ?>
+
     <div class="container">
         <div class="page-content">
             <div class="row margtop100">
-                <form class="formedit-profile" action="?module=profile&action=edit" method="post"
-                      enctype="multipart/form-data">
+                <form class="formedit-profile" action="?module=profile&action=edit" method="post" enctype="multipart/form-data">
                     <div class="col l3 m12 s12 colbg nopadding">
                         <!--<div class="card">
                     <?php if (isset($data['Picture'])) { ?>
@@ -31,6 +31,7 @@
                         </div>
                         <?php include_once('views/layout/nav.profile.php'); ?>
                     </div>
+
                     <div class="col l9 m12 s12">
                         <div class="row">
                             <div class="col s12">
@@ -41,21 +42,20 @@
                                 </ul>
                             </div>
                         </div>
+
                         <div class="card panel" id="required">
                             <div class="panel-text">
                                 <div class="row">
                                     <div class="col l6 s12">
                                         <div class="input-field">
-                                            <input id="first_name" type="text" class="validate" name="first_name"
-                                                   value="<?php echo $data['FirstName']; ?>">
+                                            <input id="first_name" type="text" class="validate" name="first_name" value="<?php echo $data['FirstName']; ?>">
                                             <label for="first_name">First Name</label>
                                         </div>
                                     </div>
 
                                     <div class="col l6 s12">
                                         <div class="input-field">
-                                            <input id="last_name" type="text" class="validate" name="last_name"
-                                                   value="<?php echo $data['LastName']; ?>">
+                                            <input id="last_name" type="text" class="validate" name="last_name" value="<?php echo $data['LastName']; ?>">
                                             <label for="last_name">Last Name</label>
                                         </div>
                                     </div>
@@ -130,8 +130,7 @@
                                 <div class="row">
                                     <div class="col s12">
                                         <div class="input-field">
-                                            <textarea id="icon_prefix2" class="materialize-textarea"
-                                                      name="description"><?php //echo $data['Description']; ?></textarea>
+                                            <textarea id="icon_prefix2" class="materialize-textarea" name="description"><?php echo $data['Description']; ?></textarea>
                                             <label for="icon_prefix2">Describe yourself in some words</label>
 
                                             <div class="text-description grey-text">
@@ -150,7 +149,7 @@
                                     <div class="col s12">
                                         <div class="input-field">
                                             <textarea id="icon_prefix2" class="materialize-textarea"
-                                                      name="skills"><?php //echo $data['Skills']; ?></textarea>
+                                                      name="skills"><?php echo $data['Skills']; ?></textarea>
                                             <label for="icon_prefix2">What are your skills ?</label>
                                         </div>
                                     </div>
@@ -159,14 +158,12 @@
                         </div><!-- fin card panel-->
 
                         <div class="card panel" id="optional">
-
-
                             <div class="panel-text">
                                 <div class="row">
                                     <div class="col l6 s12">
                                         <div class="input-field">
                                             <input id="school" type="text" class="validate" name="school"
-                                                   value="<?php //echo $data['School']; ?>">
+                                                   value="<?php echo $data['School']; ?>">
                                             <label for="school">School</label>
                                         </div>
                                     </div>
@@ -176,9 +173,17 @@
                                     <div class="col l6 s12">
                                         <div class="input-field">
                                             <input placeholder="Apple/Carrefour" id="work" type="text" class="validate"
-                                                   name="work" value="<?php //echo $data['Work']; ?>">
+                                                   name="work" value="<?php echo $data['Work']; ?>">
                                             <label for="work">Work</label>
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col s12">
+                                        <blockquote>
+                                            <a href="?module=password&action=change" class="blue-text" title="">Change
+                                                my password</a>
+                                        </blockquote>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -187,7 +192,6 @@
                                             <a href="?module=profile&action=delete" class="red-text" title="">Delete my
                                                 account :(</a>
                                         </blockquote>
-
                                     </div>
                                 </div>
                             </div>

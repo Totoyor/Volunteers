@@ -20,7 +20,7 @@ class ValidateController extends AppController
         if(isset($_GET['key']))
         {
             $this->_key = $_GET['key'];
-            if($user = $this->model->checkEmail($this->_key))
+            if($user = $this->model->checkKey($this->_key))
             {
                 if($user['Active'] == 1)
                 {

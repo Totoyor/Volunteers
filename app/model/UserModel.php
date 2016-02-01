@@ -53,7 +53,6 @@ class UserModel extends AppModel
         }
     }
 
-
     public function join($idEvent, $idUser, $status)
     {
         try {
@@ -67,14 +66,14 @@ class UserModel extends AppModel
             $query->closeCursor();
 
             return true;
+
         } catch (Exception $e) {
             die($e);
             return false;
         }
     }
-
-
-    public function checkEmail($key)
+    
+    public function checkKey($key)
     {
         try
         {
@@ -94,15 +93,13 @@ class UserModel extends AppModel
             {
                 return false;
             }
-
         }
         catch (Exception $e)
         {
             return false;
         }
     }
-
-
+    
     public function validateUser($key, $active)
     {
         try {
@@ -119,6 +116,71 @@ class UserModel extends AppModel
         }
         catch (Exception $e) {
             echo "Erreur MYSQL, impossible : ".$e->getMessage();
+        }
+    }
+
+    public function checkEmail($email)
+    {
+        try
+        {
+            $query = $this->connexion->prepare('SELECT * FROM vol_users
+                                                WHERE Email = :email');
+
+            $query->bindParam(':email', $email, PDO::PARAM_STR);
+            $query->execute();
+            $user = $query->fetch();
+
+            $nbrRow = $query->rowCount();
+            if ($nbrRow === 1)
+            {
+                return $user;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        catch (Exception $e)
+        {
+            return false;
+        }
+    }
+
+    public function changePassword($email, $newpass)
+    {
+        try {
+            $query = $this->connexion->prepare("UPDATE vol_users SET Password = :password WHERE Email = :email");
+
+            $query->bindValue(':password', $newpass, PDO::PARAM_STR);
+            $query->bindValue(':email', $email, PDO::PARAM_STR);
+
+            $query->execute();
+            $query->closeCursor();
+
+            return true;
+
+        }
+        catch (Exception $e) {
+            echo "Erreur MYSQL, impossible : ".$e->getMessage();
+        }
+    }
+
+    public function checkPassword($id)
+    {
+        try
+        {
+            $query = $this->connexion->prepare('SELECT * FROM vol_users
+                                                WHERE idUser = :id');
+
+            $query->bindParam(':id', $id, PDO::PARAM_INT);
+            $query->execute();
+            $user = $query->fetch();
+
+            return $user;
+        }
+        catch (Exception $e)
+        {
+            return false;
         }
     }
 }
