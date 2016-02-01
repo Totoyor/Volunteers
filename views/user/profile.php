@@ -5,19 +5,6 @@
             <div class="row margtop100">
                 <form class="formedit-profile" action="?module=profile&action=edit" method="post" enctype="multipart/form-data">
                     <div class="col l3 m12 s12 colbg nopadding">
-                        <!--<div class="card">
-                        </div>-->
-                        <div class="card noborder">
-                            <div class="card panel colbg noborder center">
-                                <div class="panel-text">
-                                    <img class="resposive-img circle" src="assets/img/square_face.png" width="100"
-                                         height="100">
-
-                                    <h2 class="name-profile nospace">Salim</h2>
-                                    <a href="profilepublic.php">See profile as public</a><br/>
-                                </div>
-                            </div>
-                        </div>
                         <?php include_once('views/layout/nav.profile.php'); ?>
                     </div>
 
@@ -37,10 +24,10 @@
                                 <div class="row">
                                     <div class="col s6">
                                         <div class="input-field">
-                                            <?php if (isset($data['Picture'])) { ?>
+                                            <?php if (isset($data['user']['Picture'])) { ?>
                                                 <div class="card-image">
-                                                    <img class="responsive-img" src="assets/img/user_pp/<?php echo $data['Picture'] ?>">
-                                                    <input type="hidden" value="<?php echo $data['Picture'] ?>" name="userPictureSaved">
+                                                    <img class="responsive-img" src="assets/img/user_pp/<?php echo $data['user']['Picture'] ?>">
+                                                    <input type="hidden" value="<?php echo $data['user']['Picture'] ?>" name="userPictureSaved">
                                                     <input type="file" name="userPicture" class="upload">
                                                 </div>
                                             <?php } else { ?>
@@ -54,14 +41,14 @@
                                 <div class="row">
                                     <div class="col l6 s12">
                                         <div class="input-field">
-                                            <input id="first_name" type="text" class="validate" name="first_name" value="<?php echo $data['FirstName']; ?>">
+                                            <input id="first_name" type="text" class="validate" name="first_name" value="<?php echo $data['user']['FirstName']; ?>">
                                             <label for="first_name">First Name</label>
                                         </div>
                                     </div>
 
                                     <div class="col l6 s12">
                                         <div class="input-field">
-                                            <input id="last_name" type="text" class="validate" name="last_name" value="<?php echo $data['LastName']; ?>">
+                                            <input id="last_name" type="text" class="validate" name="last_name" value="<?php echo $data['user']['LastName']; ?>">
                                             <label for="last_name">Last Name</label>
                                         </div>
                                     </div>
@@ -100,13 +87,13 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <?php if (isset($data['BirthDate'])) { ?>
+                                    <?php if (isset($data['user']['BirthDate'])) { ?>
                                         <div class="input-field col s1">
                                             <p>
-                                                <?php echo $data['BirthDate']; ?>
+                                                <?php echo $data['user']['BirthDate']; ?>
                                             </p>
                                             <input type="hidden" name="BirthDateSaved"
-                                                   value="<?php echo $data['BirthDate']; ?>">
+                                                   value="<?php echo $data['user']['BirthDate']; ?>">
                                         </div>
                                     <?php } ?>
                                 </div>
@@ -115,7 +102,7 @@
                                     <div class="col l12 s12">
                                         <div class="input-field">
                                             <input placeholder="Please enter a valid email adress" id="email"
-                                                   type="email" class="validate" value="<?php echo $data['Email']; ?>"
+                                                   type="email" class="validate" value="<?php echo $data['user']['Email']; ?>"
                                                    name="email">
                                             <label for="email">Email adress</label>
                                         </div>
@@ -127,7 +114,7 @@
                                         <div class="input-field">
                                             <input placeholder="Example : Paris, France" id="location" type="text"
                                                    class="validate" name="location"
-                                                   value="<?php echo $data['Location']; ?>">
+                                                   value="<?php echo $data['user']['Location']; ?>">
                                             <label for="last_name">Where you live</label>
                                         </div>
                                     </div>
@@ -136,7 +123,7 @@
                                 <div class="row">
                                     <div class="col s12">
                                         <div class="input-field">
-                                            <textarea id="icon_prefix2" class="materialize-textarea" name="description"><?php echo $data['Description']; ?></textarea>
+                                            <textarea id="icon_prefix2" class="materialize-textarea" name="description"><?php echo $data['user']['Description']; ?></textarea>
                                             <label for="icon_prefix2">Describe yourself in some words</label>
 
                                             <div class="text-description grey-text">
@@ -155,7 +142,7 @@
                                     <div class="col s12">
                                         <div class="input-field">
                                             <textarea id="icon_prefix2" class="materialize-textarea"
-                                                      name="skills"><?php echo $data['Skills']; ?></textarea>
+                                                      name="skills"><?php echo $data['user']['Skills']; ?></textarea>
                                             <label for="icon_prefix2">What are your skills ?</label>
                                         </div>
                                     </div>
@@ -169,7 +156,7 @@
                                     <div class="col l6 s12">
                                         <div class="input-field">
                                             <input id="school" type="text" class="validate" name="school"
-                                                   value="<?php echo $data['School']; ?>">
+                                                   value="<?php echo $data['user']['School']; ?>">
                                             <label for="school">School</label>
                                         </div>
                                     </div>
@@ -179,7 +166,7 @@
                                     <div class="col l6 s12">
                                         <div class="input-field">
                                             <input placeholder="Apple/Carrefour" id="work" type="text" class="validate"
-                                                   name="work" value="<?php echo $data['Work']; ?>">
+                                                   name="work" value="<?php echo $data['user']['Work']; ?>">
                                             <label for="work">Work</label>
                                         </div>
                                     </div>

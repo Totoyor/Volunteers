@@ -1,6 +1,7 @@
 <?php include_once('views/layout/header.inc.php'); ?>
-<form method="post" action="event/create" class="" enctype="multipart/form-data">
+
     <div class="row creabody">
+    <form method="post" action="event/create" enctype="multipart/form-data">
         <div class="page_event col m10 s12 l8">
             <div class="formulaire_crea col l12">
                 <div class="row">
@@ -14,25 +15,22 @@
                 </div>
 
                 <!-----/****FORMS****/---->
-                
 
-                    <div class="row btn_crea1">
-                        <div class="right">
-                            <?php if(isset($_SESSION['user_id'])){ ?>
-                                <button name="save" class="btn btn-menu">SAVE</button>
-
-                                <button name="submit" href="#" class="btn btn-orange" onclick="Materialize.toast('Published', 4000)">Publish
-                                </button>
-                                <?php } else { ?>
-                                    <a name="save" class="btn btn-menu modal-trigger" href="#login">SAVE</a>
-
-                                    <a name="submit" href="#login" class="btn btn-orange modal-trigger">Publish
-                                </a>
-                                    <?php } ?>
-                        </div>
+                <div class="row btn_crea1">
+                    <div class="right">
+                        <?php if(isset($_SESSION['user_id'])){ ?>
+                            <button name="save" class="btn btn-menu">SAVE</button>
+                            <button name="submit" class="btn btn-orange" onclick="Materialize.toast('Published', 4000)">Publish
+                            </button>
+                            <?php } else { ?>
+                                <a name="save" class="btn btn-menu modal-trigger" href="#login">SAVE</a>
+                                <a name="submit" href="#login" class="btn btn-orange modal-trigger">Publish
+                            </a>
+                        <?php } ?>
                     </div>
+                </div>
 
-                    <div class="row"></div>
+                <div class="row"></div>
 
                     <!----I-1----->
                     <div class="row">
@@ -47,7 +45,7 @@
                     </div>
 
                     <div class="input-field col s12 l12 m12">
-                        <input name="event_name" class="" name="event_name" data-position="right" data-delay="50" data-tooltip="Show me what you've got !" id="" type="text" required>
+                        <input name="event_name" class="" data-position="right" data-delay="50" data-tooltip="Show me what you've got !" id="" type="text" required>
                         <label for="icon_prefix">Event Name</label>
                     </div>
 
@@ -79,7 +77,6 @@
                             <label for="icon_prefix"></label>
                         </div>
                     </div>
-
 
                     <div class="row">
                         <div class="input-field col s6 m3">
@@ -208,53 +205,42 @@
                         <p class="margin_left blued">Add social network</p>
                         <div class="secure_hover_picto">
                             <a  class="fb_click">
-                                <div class=" event_picto_soc event_fb"></div>
+                                <div class="event_picto_soc event_fb"></div>
                             </a>
-
-                            
 
                             <a class="ins_click clear">
                                 <div class="event_picto_soc event_ins"></div>
                             </a>
-                            
-                            
-                            
+
                             <a class="yout_click">
                                 <div class="event_picto_soc event_yout"></div>
                             </a>
-                            
-                            
-                            
+
                             <a class="tw_click">
                                 <div class="event_picto_soc event_tw"></div>
                             </a>
-                            
-                            
+
                             <div class="input-field col s12 l12 m12 secure_margin none field_fb">
-                                <input name="event_name" class="" name="event_name" data-position="right" data-delay="50" data-tooltip="Show me what you've got !" id="" type="text" required>
+                                <input name="event_name" data-position="right" data-delay="50" data-tooltip="Show me what you've got !" id="" type="text">
                                 <label for="icon_prefix">Event Facebook url</label>
                             </div>
                             
                             <div class="input-field col s12 l12 m12 secure_margin none field_ins">
-                                <input name="event_name" class="" name="event_name" data-position="right" data-delay="50" data-tooltip="Show me what you've got !" id="" type="text" required>
+                                <input name="event_name" data-position="right" data-delay="50" data-tooltip="Show me what you've got !" id="" type="text">
                                 <label for="icon_prefix">Instagram url</label>
                             </div>
                             
                             <div class="input-field col s12 l12 m12 secure_margin none field_yout">
-                                <input name="event_name" class="" name="event_name" data-position="right" data-delay="50" data-tooltip="Show me what you've got !" id="" type="text" required>
+                                <input name="event_name" data-position="right" data-delay="50" data-tooltip="Show me what you've got !" id="" type="text">
                                 <label for="icon_prefix">Youtube url</label>
                             </div>
                             
                             <div class="input-field col s12 l12 m12 secure_margin none field_tw">
-                                <input name="event_name" class="" name="event_name" data-position="right" data-delay="50" data-tooltip="Show me what you've got !" id="" type="text" required>
+                                <input name="event_name" data-position="right" data-delay="50" data-tooltip="Show me what you've got !" id="" type="text">
                                 <label for="icon_prefix">Twitter url</label>
                             </div>
-                            
                         </div>
                     </div>
-
-
-
 
                     <div class="more_margin"></div>
 
@@ -294,9 +280,6 @@
                         <div class="input-field col s3">
                             <input name="media[]" type="file" id="input-file-now" data-height="90" class="dropify tooltipped" data-tooltip="Choose media pictures" data-delay="50" data-position="right" />
                         </div>
-
-
-
                     </div>
 
 
@@ -349,55 +332,37 @@
                     </div>
 
                     <div class="row btn_crea2">
-
-
-
                         <div class="right">
                             <?php if(isset($_SESSION['user_id'])){ ?>
-                                <button name="save" class="btn btn-menu">SAVE</button>
-
-                                <button name="submit" href="#" class="btn btn-orange" onclick="Materialize.toast('Published', 4000)">Publish
+                                <button type="submit" name="save" class="btn btn-menu">SAVE</button>
+                                <button type="submit" name="submit" href="#" class="btn btn-orange" onclick="Materialize.toast('Published', 4000)">Publish
                                 </button>
-                                <?php } else { ?>
-                                    <a name="save" class="btn btn-menu modal-trigger " href="#login"><i class="material-icons">save</i>SAVE</a>
-
-                                    <a name="submit" href="#login" class="btn btn-orange modal-trigger"><i class="material-icons">publish</i>Publish
+                            <?php } else { ?>
+                                <a name="save" class="btn btn-menu modal-trigger " href="#login"><i class="material-icons">save</i>SAVE</a>
+                                <a name="submit" href="#login" class="btn btn-orange modal-trigger"><i class="material-icons">publish</i>Publish
                                 </a>
-                                    <?php } ?>
+                            <?php } ?>
                         </div>
-
                     </div>
-
-                
-
             </div>
             <!--content-->
         </div>
-        <!-- fin formulaire-->
+
         <div class="col l4 col_fix">
-
-
-
             <div class="right btn_fix_crea">
                 <?php if(isset($_SESSION['user_id'])){ ?>
                     <button name="save" class="btn btn-menu">Save</button>
-
                     <button name="submit" href="#" class="btn btn-orange" onclick="Materialize.toast('Published', 4000)">Publish
                     </button>
-                    <?php } else { ?>
+                <?php } else { ?>
                         <a data-position="bottom" data-delay="50" data-tooltip="Save" name="save" class="btn btn-menu modal-trigger tooltipped" href="#login"><i class="material-icons secure_btn_crea">save</i></a>
-
                         <a name="submit" href="#login" data-position="bottom" data-delay="50" data-tooltip="Publish" class="btn btn-orange modal-trigger tooltipped"><i class="material-icons">publish</i></a>
-                        <?php } ?>
+                <?php } ?>
             </div>
-
-
-
-
-
         </div>
-    </div>
     </form>
+    </div>
+
                 <!--//// END FOM ****/////--->
     <!-- fin page event-->
     <?php include_once('views/layout/footer.inc.php'); ?>

@@ -14,7 +14,9 @@ class ProfileController extends AppController
         if(isset($_SESSION['user_id']) && isset($_SESSION['user_email']))
         {
             // Charger les informations du profil
-            $data = $this->model->getProfile($_SESSION['user_id']);
+            $data = array(
+                'user' => $this->model->getProfile($_SESSION['user_id'])
+            );
 
             if(!$data)
             {
@@ -199,7 +201,8 @@ class ProfileController extends AppController
         $idUser = $_SESSION['user_id'];
         $data = array(
             'missionsNok' => $this->model->getUserMissions($idUser, 0),
-            'missionsOk' => $this->model->getUserMissions($idUser, 1)
+            'missionsOk' => $this->model->getUserMissions($idUser, 1),
+            'user' => $this->model->getProfile($_SESSION['user_id'])
         );
         define("TITLE_HEAD", "Volunteers | Profile");
         $this->load->view("user/missions.php", $data);
@@ -210,7 +213,8 @@ class ProfileController extends AppController
 
         $data = array(
             'eventsPulished' => $this->model->selectEventsUserPublished($_SESSION['user_id']),
-            'eventSaved' => $this->model->selectEventsUserSaved($_SESSION['user_id'])
+            'eventSaved' => $this->model->selectEventsUserSaved($_SESSION['user_id']),
+            'user' => $this->model->getProfile($_SESSION['user_id'])
         );
         define("TITLE_HEAD", "Volunteers | Profile");
         $this->load->view("user/my_events.php", $data);
@@ -221,14 +225,15 @@ class ProfileController extends AppController
         define("TITLE_HEAD", "Volunteers | Profile");
         $idUser = $_SESSION['user_id'];
         $data = array(
-            'missions' => $this->model->getUserMissions($idUser, 1)
+            'missions' => $this->model->getUserMissions($idUser, 1),
+            'user' => $this->model->getProfile($_SESSION['user_id'])
         );
         $this->load->view("user/dashboard.php", $data);
     }
 
     public function show()
     {
-        define("TITLE_HEAD", "Volunteers | Profile");
+        define("TITLE_HEAD", "Volunteers | Public Profile");
         $this->load->view("user/profile_public.php");
     }
 }
