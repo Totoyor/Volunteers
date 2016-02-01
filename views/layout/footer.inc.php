@@ -155,6 +155,9 @@
                             method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
                             class="validate" target="_blank" novalidate>
                             <div id="mc_embed_signup_scroll">
+                                
+                                
+                                
                                 <input type="email" value="" name="EMAIL" class="email newsletter-home" id="mce-EMAIL"
                                        placeholder="Enter your e-mail" required>
                                 <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
