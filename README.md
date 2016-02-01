@@ -9,15 +9,15 @@ C'est la qu'intervient le projet Volunteers, son but est de permettre aux organi
 
 # Architecture utilisée
 
-l'architecture utilisée pour le projet Volunteers est une architecture MVC.
-Elle est composé de un dossier principale nommé volunteers, ce dossier contient différents fichiers, gitignore pour ignoré les fichiers sensibles du dépot git, .htaccess pour la configuration de la réecriture d'URL, index.php qui est le controleur principale de l'application ainsi que le readme, ce dossier app contient plusieurs sous dossier :
+L'architecture utilisée pour le projet Volunteers est une architecture MVC basé sur un framework objet en PHP.
+Elle est composé de un dossier principal nommé volunteers, ce dossier contient différents fichiers, gitignore pour ignorer les fichiers sensibles du dépot git, .htaccess pour la configuration de la réecriture d'URL, index.php qui est le controleur principal de l'application ainsi que le readme, ce dossier app contient plusieurs sous dossier :
 
-* App : Ce dossier contient les élements nécessaire au fonctionnement de l'application, trois fichiers, app.php qui est le controleur secondaire qui permet la redirection automatique vers le bon controller lorsqu'on appel une fonction, AppController.php qui contient les différents élements de contrôles commun à l'application entière et le fichier AppModel.php qui contient les différents fonctions qui peuvent s'appliqué à l'ensemble du site. Ce dossier contient également deux sous dossiers, le dossier controller qui contient tout les différents controller de l'application ainsi que le dossier model qui contiendra tout les différents model de l'application.
-* Assets : Ce dossier contient tout les élements nécessaire au design du site, tel que les fichiers css ou encore js.
-* Config : Ce dossier contient les différents fichiers nécessaire à la configuration du site.
-* Core : Ce dossier contient tout les fichiers de core, ces fichiers servent au bon fonctionnement du site web, ils sont les premiers fchiers appeler dans le controleur principale, les dossiers présent dans app hérite du CoreController et du CoreModel.
-* Lib : Ce dossier contient les différentes fonctions précedemment codé.
-* Views : Ce dossier contient les différentes vue du site web, chaque vue est rangé dans un sous dossiers qui correspond au nom de la fonctionnalité ou de la page développer.
+* App : Ce dossier contient les élements nécessaire au fonctionnement de l'application, trois fichiers, app.php qui est le controleur secondaire qui permet la redirection automatique vers la bonne action lorsqu'elle est appelée, AppController.php qui contient les différents élements de contrôles communs à l'application et le fichier AppModel.php qui contient les différentes fonctions qui s'appliquent à l'ensemble du site. Ce dossier contient également deux sous dossiers, le dossier controller qui contient tout les différents controller de l'application ainsi que le dossier model qui contient tous les différents modèles de l'application.
+* Assets : Ce dossier contient tout les éléments nécessaires au design du site, tel que les fichiers css, les images, les polices et les scripts js.
+* Config : Ce dossier contient les différents fichiers nécessaires à la configuration du site dont les constantes.
+* Core : Ce dossier contient tout les fichiers de core, ces fichiers servent au bon fonctionnement du site, ils sont les premiers fchiers appelés dans le controleur principal, les dossiers présent dans app hérite du CoreController et du CoreModel qui eux-même héritent de Core.php.
+* Lib : Ce dossier contient les différentes classes et des fichiers de sécurisation du site.
+* Views : Ce dossier contient les différentes vues du site web, chaque vue est rangée dans un sous dossier qui correspond au nom du controller associé.
 
 # Contributors
 Thomas Vanwelden

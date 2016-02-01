@@ -6,18 +6,7 @@
                 <form class="formedit-profile" action="?module=profile&action=edit" method="post" enctype="multipart/form-data">
                     <div class="col l3 m12 s12 colbg nopadding">
                         <!--<div class="card">
-                    <?php if (isset($data['Picture'])) { ?>
-                    <div class="card-image">
-                        <img class="responsive-img" src="assets/img/user_pp/<?php echo $data['Picture'] ?>">
-                        <input type="hidden" value="<?php echo $data['Picture'] ?>" name="userPictureSaved">
-                        <input type="file" name="userPicture" class="upload">
-                    </div>
-                    <?php } else { ?>
-                    <div class="upload-profile-pic btn btn-block">
-                        <input name="userPicture" type="file" id="input-file-now" data-height="250" class="dropify"/>
-                    </div>
-                    <?php } ?>
-                </div>-->
+                        </div>-->
                         <div class="card noborder">
                             <div class="card panel colbg noborder center">
                                 <div class="panel-text">
@@ -45,6 +34,23 @@
 
                         <div class="card panel" id="required">
                             <div class="panel-text">
+                                <div class="row">
+                                    <div class="col s6">
+                                        <div class="input-field">
+                                            <?php if (isset($data['Picture'])) { ?>
+                                                <div class="card-image">
+                                                    <img class="responsive-img" src="assets/img/user_pp/<?php echo $data['Picture'] ?>">
+                                                    <input type="hidden" value="<?php echo $data['Picture'] ?>" name="userPictureSaved">
+                                                    <input type="file" name="userPicture" class="upload">
+                                                </div>
+                                            <?php } else { ?>
+                                                <div class="upload-profile-pic btn btn-block">
+                                                    <input name="userPicture" type="file" id="input-file-now" data-height="250" class="dropify"/>
+                                                </div>
+                                            <?php } ?>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <div class="col l6 s12">
                                         <div class="input-field">

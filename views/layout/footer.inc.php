@@ -103,7 +103,7 @@
                 <h5 class="title-list white-text">Company</h5>
                 <ul>
                     <li><a class="grey-text text-lighten-3" href="page/aboutus">About us</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Contact</a></li>
+                    <li><a class="grey-text text-lighten-3" href="?module=contact">Contact</a></li>
                     <li><a class="grey-text text-lighten-3" href="blog/home">Blog</a></li>
                     <li><a class="grey-text text-lighten-3" href="#!">Terms and privacy</a></li>
                 </ul>
