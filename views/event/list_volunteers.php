@@ -24,7 +24,7 @@
                                 <input type="hidden" name="idEvent" value="<?= $data['volunteers'][0]['vol_events_idEvent'] ?>">
                                 <tr>
                                     <td>
-                                        <input name="hire[]" type="checkbox" id="test5"/>
+                                        <input name="hire[]" value="<?= $volunteer['idUser'] ?>" type="checkbox" id="test5"/>
                                         <label for="test5"></label>
                                     </td>
                                     <td>
@@ -49,8 +49,10 @@
                         <?php } ?>
                         </tbody>
                     </table>
-                    <?php if(!empty($data['volunteers'])) { ?>
-                        <button type="submit" class="btn btn-orange">Hire selected</button>
+                    <?php if($data['event']['hireSession']) { ?>
+                        <button type="submit" class="btn btn-orange" disabled>Hire already done</button>
+                    <?php } else if(!empty($data['volunteers'])) { ?>
+                        <button type="submit" class="btn btn-orange" disabled>Hire selected</button>
                     <?php } else { ?>
                         <button type="submit" class="btn btn-orange" disabled>Hire selected</button>
                     <?php } ?>
