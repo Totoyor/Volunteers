@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col s6 blocprincipal white-text bgblue valign-wrapper">
                 <div class="content-bloc center">
-                    <h1 class="valign">I want to volunteer at events</h1>
+                    <h1 class="titre_left">I want to volunteer at events</h1>
                     <ul class="hidden-content-leftside">
                         <li><i class="material-icons">input</i>Join events for free</li>
                         <li><i class="material-icons">thumb_up</i>Live new work exepriences</li>
@@ -14,13 +14,14 @@
             </div>
             <div class="col s6 blocprincipal white-text bgorange valign-wrapper">
                 <div class="content-bloc center">
-                    <h1>I need volunteers for my event</h1>
+                    <h1 class="titre_right">I need volunteers for my event</h1>
                     <ul class="hidden-content-rightside">
                         <li><i class="material-icons">done</i>Easiest way to hire volunteers</li>
                         <li><i class="material-icons">schedule</i>Save time</li>
                         <li><i class="material-icons">visibility</i>Better visibility for your event</li>
                     </ul>
-                    <a href="event/home" class="btn btn-orange">Create your event</a>
+                    <a href="event/home" class="btn btn-orange btn_right">Tell us about your event</a>
+
                 </div>
                 <!-- content bloc-->
             </div>
@@ -42,13 +43,13 @@
 
             <div class="row">
                 <div class="col s12 m6 l6">
-                    <a href="#">
+                <a href="#">
                     <div class="card small event popevent left">
                         <div class="card-image">
                             <img src="assets/img/event2.png" class="responsive-img" alt="image-event">
                         </div>
                         <div class="card-content">
-                            <h4 class="titre-cards truncate black-text">La Dynamiterie</h4>
+                            <a href="#"><h4 class="titre-cards truncate black-text">La Dynamiterie</h4></a>
                             <h6 class="truncate black-text">Studio Albatros, Montreuil - 21 Nov</h6>
                         </div>
                         <div class="card-action">
@@ -192,7 +193,7 @@
             <div class="row">
                 <div class="col s12 m8">
                     <a href="#">
-                        <div class="card margin-cat-bottom">
+                        <div class="card margin-cat-bottom festival_responsive">
                             <div class="card-image item">
                                 <img class="responsive-img" alt="festival" src="assets/img/festival1.jpg">
                                 <div class="text-wrapper">

@@ -147,6 +147,8 @@ class ProfileModel extends AppModel
             FROM vol_events
             LEFT JOIN event_has_volunteers
             ON vol_events.idEvent = event_has_volunteers.vol_events_idEvent
+            LEFT JOIN vol_event_missions
+            ON vol_events.idEVent = vol_event_missions.vol_events_idEvent
             WHERE event_has_volunteers.vol_event_volunteers_idEventVolunteer = :user
             AND event_has_volunteers.vol_event_volunteer_status = :status
             GROUP BY idEvent

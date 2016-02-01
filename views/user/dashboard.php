@@ -10,13 +10,12 @@
                                      height="100">
 
                                 <h2 class="name-profile nospace">Salim</h2>
-                                <a href="profilepublic.php">See profile as public</a><br/>
+                                <a href="profile/show">See profile as public</a><br/>
                             </div>
                         </div>
                     </div>
                     <?php include_once('views/layout/nav.profile.php'); ?>
                 </div>
-
                 <div class="col l9 m12 s12">
                     <div class="row">
                         <div class="col s12">
@@ -26,36 +25,25 @@
                             </ul>
                         </div>
                     </div>
-
-                    <div id="test1" class="card panel panel2 space1">
-                        <div class="upcoming-event">
-                            <div class="content-upcoming-event">
-                                <h5 class="blue-title">La Dynamiterie</h5>
-                                <h6>Studio Albatros, Montreuil</h6>
-                                <p><i class="material-icons">schedule</i>21 Nov. 2015</p>
+                    <?php foreach($data['missions'] as $mission): ?>
+                        <div id="test1" class="card panel panel2 space1">
+                            <div class="upcoming-event">
+                                <div class="content-upcoming-event">
+                                    <h5 class="blue-title"><?= $mission['nameEvent']; ?></h5>
+                                    <h6><?= $mission['locationEvent']; ?></h6>
+                                    <p><i class="material-icons">schedule</i><?= $mission['startEvent']; ?></p>
+                                </div>
+                                <div class="show-missions">
+                                    <a href="event/show/<?= $mission['idEvent']; ?>">
+                                        <p>
+                                            View event
+                                            <i class="hide-on-med-and-down material-icons view-missions right">visibility</i>
+                                        </p>
+                                    </a>
+                                </div>
                             </div>
-                            <div class="list-missions">
-                                <hr class="fancy-hr">
-                                <h5 class="blue-title">Missions</h5>
-                                <ul>
-                                    <li><i class="material-icons">done</i>Trash</li>
-                                    <li><i class="material-icons">done</i>Bar</li>
-                                    <li><i class="material-icons">done</i>Tickets</li>
-                                </ul>
-                            </div>
-                            <div class="show-missions">
-                                <p>View what I'll do during this event
-                                    <i class="hide-on-med-and-down material-icons view-missions right">visibility</i>
-                                </p>
-                            </div>
-                            <div class="show-missions">
-                                <p>
-                                    View what I'll do during this event
-                                    <i class="hide-on-med-and-down material-icons view-missions right">visibility</i>
-                                </p>
-                            </div>
-                        </div>
-                    </div><!-- fin onglet1-->
+                        </div><!-- fin onglet1-->
+                    <?php endforeach; ?>
                     <div id="test2" class="reviews card panel panel2 space1 bordernone padding1">
                         <div class="row">
                             <div class="col l12 center">

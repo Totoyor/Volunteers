@@ -57,7 +57,7 @@
                                         </div>
 
                                         <div class="col l3 m3 s6">
-                                            <a href="event/editsaved/<?= $saved['idEvent']; ?>" class="space3 btn btn-orange fullwidth"><i
+                                            <a href="event/editshow/<?= $saved['idEvent']; ?>" class="space3 btn btn-orange fullwidth"><i
                                                     class="material-icons">create</i>Edit</a>
                                             <a href="#" class="btn btn-red fullwidth space3"><i class="material-icons">delete</i>Delete</a>
                                         </div>
@@ -87,7 +87,7 @@
                                         </div>
 
                                         <div class="col l3 m3 s6">
-                                            <a href="event/editpublished/<?= $published['idEvent']; ?>" class="space3 btn btn-orange fullwidth"><i
+                                            <a href="event/editshow/<?= $published['idEvent']; ?>" class="space3 btn btn-orange fullwidth"><i
                                                     class="material-icons">create</i>Edit</a>
                                             <a href="#" class="btn btn-red fullwidth space3"><i class="material-icons">delete</i>Delete</a>
                                             <a href="event/listvolunteers/<?= $published['idEvent']; ?>" class="btn btn-block fullwidth"><i
