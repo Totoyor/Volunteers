@@ -5,7 +5,6 @@
             <div class="formulaire_crea col l12">
                 <div class="row">
                     <div class="center">
-                        <h1 class="title-section center bleu">Ready to find volunteers?</h1>
                         <h1 class="title-section center bleu"><strong>Ready to find volunteers ?</strong></h1>
                         <hr class="fancy-hr">
                     </div>

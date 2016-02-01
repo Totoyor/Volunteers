@@ -765,7 +765,7 @@ p {
     .image_crea {
         height: 900px;
     }
-    
+
 }
 
 
@@ -1545,12 +1545,12 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
 .secure_btn_menu {
     vertical-align: baseline;
     padding-bottom: 35px!important;
-  
+
 }
 
 .secure_btn_crea {
     vertical-align: sub;
-    
+
 }
 
 
@@ -1561,11 +1561,12 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
 
     opacity: 0;
     transition-timing-function: ease-in-out;
-   
+
 }
 
 .titre_right {
     top : 180px;
+    width: 47%;
     transition: top 0.4s;
     transition-timing-function: ease-in-out;;
 }
@@ -1575,7 +1576,7 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
     top : 110px;
      transition: top 0.4s;
     transition-timing-function: ease-in-out;
-    
+
 }
 
 .hidden_show {
@@ -1583,91 +1584,91 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
     top: 260px;
    transition: opacity 0.8s;
     transition-timing-function: ease-in-out;
-    
+
 }
 
 
 @media only screen and (min-width: 850px) and (max-width: 1600px) {
-    
+
 .hidden-content-rightside {
 		position : absolute;
         padding-left: 15%;
 }
-    
+
     .titre_right{
 		position : absolute;
         text-align : center;
-       
+
         margin: 0px;
-        
+
 		}
-    
+
     .btn_right {
 		position : absolute;
         margin-left : 15%;
-      
+
         top : 380px!important;
-   
-        
+
+
     }
-    
+
 }
 
 @media only screen and (min-width: 0px) and (max-width: 480px) {
-    
+
 .hidden-content-rightside {
 
     opacity: 1;
     top: 390px!important;
     margin-left: 14%;
-    
+
 }
-    
+
     .titre_right{
-		
+
         text-align : center;
         top: 340px!important;
         padding-left: 10%;
-      
-        
+
+
 		}
-    
+
     .btn_right {
-	
+
         margin-left: 15%;
         top : 500px!important;
 
-        
+
     }
-    
+
 }
 
 
 @media only screen and (min-width: 480px) and (max-width: 850px) {
-    
+
 .hidden-content-rightside {
 		position : absolute;
         padding-left: 5%;
         opacity: 1;
         top: 250px;
 }
-    
+
     .titre_right{
 		position : absolute;
         text-align : center;
         margin: 0px;
-        
+
 		}
-    
+
     .btn_right {
 		position : absolute;
         margin-left : 5%;
-      
+
         top : 380px!important;
-   
-        
+
+
     }
-    
+
 }
 
 /*********JS HOVER HOME LEFT************/
@@ -1675,13 +1676,13 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
 .hidden-content-leftside {
 
     opacity: 0;
-  
-   
+
+
 }
 
 .titre_left {
-    top : 180px;
-    width: 50%;
+    top : 190px;
+    width: 48%;
     transition: top 0.4s;
     transition-timing-function: ease-in-out;
 }
@@ -1691,7 +1692,7 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
     top : 110px;
      transition: top 0.4s;
     transition-timing-function: ease-in-out;
-    
+
 }
 
 .hidden_show {
@@ -1699,85 +1700,85 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
     top: 260px;
    transition: opacity 0.8s;
     transition-timing-function: ease-in-out;
-    
+
 }
 
 
 @media only screen and (min-width: 850px) and (max-width: 1600px) {
-    
+
 .hidden-content-leftside {
 		position : absolute;
         padding-left: 15%;
 }
-    
+
     .titre_left{
 		position : absolute;
         text-align : center;
         margin-top: -10px;
-        
+
 		}
-    
+
     .btn_left {
 		position : absolute;
         margin-left : 15%;
-      
+
         top : 380px!important;
-   
-        
+
+
     }
-    
+
 }
 
 @media only screen and (min-width: 0px) and (max-width: 480px) {
-    
+
 .hidden-content-leftside {
-		
+
     opacity: 1!important;
     top: 120px!important;
         margin-left: 15%;
 }
-    
+
     .titre_left{
-		
+
         text-align : center;
         top: 70px!important;
         width: 90%;
-      
-        
+
+
 		}
-    
+
     .btn_left {
-	
+
         margin-left: 15%;
         top : 220px!important;
-        
+
     }
-    
+
 }
 
 @media only screen and (min-width: 480px) and (max-width: 850px) {
-    
+
 .hidden-content-leftside {
 		position : absolute;
         padding-left: 5%;
         opacity: 1;
          top: 250px;
 }
-    
+
     .titre_left{
 		position : absolute;
         text-align : center;
         margin: 0px;
-        
+
 		}
-    
+
     .btn_left {
 		position : absolute;
         margin-left : 5%;
-      
+
         top : 380px!important;
-   
-        
+
+
     }
 }
 
@@ -1805,9 +1806,9 @@ display: none!important;
 }
 
 a h4:hover {
-    
+
     text-decoration: underline;
-    
+
 }
 
 #mce-EMAIL {

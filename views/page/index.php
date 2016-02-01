@@ -9,7 +9,7 @@
                         <li><i class="material-icons">thumb_up</i>Live new work exepriences</li>
                         <li><i class="material-icons">person_pin</i>Meet awesome people</li>
                     </ul>
-                    <a href="event/lists" class="btn">Join events now</a>
+                    <a href="event/lists" class="btn btn_left">Join events now</a>
                 </div>
             </div>
             <div class="col s6 blocprincipal white-text bgorange valign-wrapper">
