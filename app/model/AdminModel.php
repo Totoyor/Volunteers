@@ -75,6 +75,51 @@ class AdminModel extends AppModel
 	}
 
 	/**
+	 * @param $event_name
+	 * @param $event_location
+	 * @param $event_start
+	 * @param $event_hour_start
+	 * @param $event_end
+	 * @param $event_hour_end
+	 * @param $event_description
+	 * @param $status
+	 * @param $user
+	 * @return bool|string
+	 */
+	public function createEvent($event_name, $event_location, $event_start, $event_hour_start, $event_end,
+	                            $event_hour_end, $event_description, $status, $user)
+	{
+	    try {
+	        $query = $this->connexion->prepare("INSERT INTO vol_events
+	                                    (nameEvent, startEvent, hourStartEvent, endEvent, hourEndEvent,
+	                                    locationEvent, descriptionEvent, vol_event_status_idEventStatus, vol_users_idUser)
+	                                    VALUES (:name, :start, :hourStart, :end, :hourEnd,
+	                                    :location, :description, :status, :user)");
+
+	        $query->bindValue(':name', $event_name, PDO::PARAM_STR);
+	        $query->bindValue(':location', $event_location, PDO::PARAM_STR);
+	        $query->bindValue(':start', $event_start, PDO::PARAM_STR);
+	        $query->bindValue(':hourStart', $event_hour_start, PDO::PARAM_STR);
+	        $query->bindValue(':end', $event_end, PDO::PARAM_STR);
+	        $query->bindValue(':hourEnd', $event_hour_end, PDO::PARAM_STR);
+	        $query->bindValue(':description', $event_description, PDO::PARAM_STR);
+	        $query->bindValue(':status', $status, PDO::PARAM_STR);
+	        $query->bindValue(':user', $user, PDO::PARAM_STR);
+	        $query->execute();
+	        $query->closeCursor();
+
+	        //On récupère l'id de l'insertion
+	        $lastId = $this->connexion->lastInsertId();
+
+	        return $lastId;
+	        //return true;
+
+	    } catch (Exception $e) {
+	        return false;
+	    }
+	}
+
+	/**
 	 * @param $idEvent
 	 * @return array|bool
 	 */
@@ -201,6 +246,46 @@ class AdminModel extends AppModel
 	    }
 	}
 
+	public function deleteEvent($options) // à checker
+	{
+	    try
+	    {
+
+	        // Requête DELETE
+	        $query = "BEGIN;
+
+	        DELETE FROM vol_events_categories_has_vol_events
+	        WHERE vol_events_idEvent = ".$options['id'].";
+
+	        DELETE FROM vol_event_missions
+	        WHERE vol_events_idEvent = ".$options['id'].";
+
+	        DELETE FROM vol_event_pictures
+	        WHERE vol_events_idEvent = ".$options['id'].";
+
+	        DELETE FROM vol_event_questions
+	        WHERE vol_events_idEvent = ".$options['id'].";
+
+	        DELETE FROM vol_events
+	        WHERE idEvent = ".$options['id'].";
+
+	        COMMIT;";
+
+	        // Traitement de la requete
+	        $cursor = $this->connexion->query($query);
+	        $cursor->closeCursor();
+
+	        return true;
+	    }
+	    catch (Exception $e)
+	    {
+	        $this->coreDbError($e);
+	        return false;
+	    }
+	}
+
+
+
 	/**
 	 * @return array|bool
 	 */
@@ -213,6 +298,48 @@ class AdminModel extends AppModel
 	        $data = $query->fetchAll(PDO::FETCH_ASSOC);
 	        $query->closeCursor();
 	        return $data;
+
+	    } catch (Exception $e) {
+	        return false;
+	    }
+	}
+
+	/**
+	 * @return array|bool
+	 */
+	public function deleteCategory($id)
+	{
+	    try {
+	        $query = $this->connexion->prepare("
+	        	DELETE FROM vol_events_categories
+	        	WHERE idCategorie = ".$id.";
+	        	");
+	        $query->execute();
+
+	        $data = $query->fetchAll(PDO::FETCH_ASSOC);
+	        $query->closeCursor();
+	        return $data;
+
+	    } catch (Exception $e) {
+	        return false;
+	    }
+	}
+
+	/**
+	 * @param $category
+	 * @return bool
+	 */
+	public function insertCategory($category)
+	{
+	    try {
+	    	$query = $this->connexion->prepare("INSERT INTO vol_events_categories
+	    	(nameCategorie) VALUES (:category)");
+
+	    	$query->bindValue(':category', $category, PDO::PARAM_STR);
+
+	        $query->execute();
+
+	        return true;
 
 	    } catch (Exception $e) {
 	        return false;

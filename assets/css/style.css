@@ -275,20 +275,20 @@ a.viewmore.btn-vue {
     transition: 0.3s;
 }
 
-.bgorange:hover {
+/*.bgorange:hover {
     background: linear-gradient(to left, rgba(204, 81, 10, 0.4), rgba(173, 109, 30, 0.4));
     transition: 0.3s;
-}
+}*/
 
 .bgblue {
     background: linear-gradient(to left, rgba(163, 152, 206, 0.4), rgba(80, 88, 187, 0.4));
     transition: 0.3s;
 }
 
-.bgblue:hover {
+/*.bgblue:hover {
     background: linear-gradient(to left, rgba(80, 98, 187, 0.4) , rgba(72, 80, 170, 0.4));
     transition: 0.3s;
-}
+}*/
 
 /*** FOOTER ***/
 

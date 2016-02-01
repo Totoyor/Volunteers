@@ -51,7 +51,7 @@
 
       <!-- Logo -->
       <a href="#!" class="brand-logo">
-        <img src="<?php echo PATH_HOME ?>assets/admin/_con/images/logo.png" alt="Con">
+        <img src="<?php echo PATH_HOME ?>assets/admin//_con/images/logo.png" alt="Con">
       </a>
       <!-- /Logo -->
 
@@ -61,7 +61,7 @@
         </li>
         <li class="user">
           <a class="dropdown-button" href="#!" data-activates="user-dropdown">
-            <img src="<?php echo PATH_HOME ?>assets/admin/_con/images/user.jpg" alt="John Doe" class="circle">John Doe<i class="mdi-navigation-expand-more right"></i>
+            <img src="<?php echo PATH_HOME ?>assets/admin//_con/images/user.jpg" alt="John Doe" class="circle">John Doe<i class="mdi-navigation-expand-more right"></i>
           </a>
 
           <ul id="user-dropdown" class="dropdown-content">
