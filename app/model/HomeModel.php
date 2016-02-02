@@ -88,4 +88,21 @@ class HomeModel extends AppModel
             return false;
         }
     }
+
+    public function insertNewsletter($email)
+    {
+        try {
+            $query = $this->connexion->prepare("INSERT INTO vol_newsletter (email)
+                                                VALUES (:email)");
+
+            $query->bindValue(':email', $email, PDO::PARAM_STR);
+            $query->execute();
+            $query->closeCursor();
+
+            return true;
+
+        } catch (Exception $e) {
+            return false;
+        }
+    }
 }
