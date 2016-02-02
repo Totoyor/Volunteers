@@ -1,19 +1,17 @@
 <?php include_once('views/layout/header.inc.php'); ?>
-
     <div class="row creabody">
     <form method="post" action="event/create" enctype="multipart/form-data">
         <div class="page_event col m10 s12 l8">
             <div class="formulaire_crea col l12">
                 <div class="row">
                     <div class="center">
-                        <h1 class="title-section center"><strong>Ready to find volunteers ?</strong></h1>
+                        <h1 class="title-section center bleu"><strong>Ready to find volunteers ?</strong></h1>
                         <hr class="fancy-hr">
                     </div>
                     <p class="">
                         Aliqua instituendarum appellat elit singulis. Officia ipsum voluptate a excepteur a proident, si malis malis varias mandaremus, minim iis admodum ut esse, admodum enim ubi nostrud comprehenderit.
                     </p>
                 </div>
-
                 <!-----/****FORMS****/---->
 
                 <div class="row btn_crea1">
@@ -32,14 +30,14 @@
 
                 <div class="row"></div>
 
-                    <!----I-1----->
+                    <!--I-1-->
                     <div class="row">
                         <div class="separateur_form valign-wrapper col l12 m12 s12">
                             <div class="bullet_point">
                                 <p class="num_bullet_point">1</p>
                             </div>
                             <div>
-                                <h3 class="text_separteur">Let's describe your event !</h3>
+                                <h3 class="text_separteur">Let's describe your event!</h3>
                             </div>
                         </div>
                     </div>
@@ -65,23 +63,25 @@
 
                             <label for="icon_prefix"></label>
                         </div>
-                        <div class="col s3 l2 m3">
-                            <p><a class="showend">+ End time</a></p>
+                        <div class="col s3 l3 m3">
+                            <p><a class="showend">+ Add End Date</a></p>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="input-field col s10 l10 m10 newdate">
                             <i class="material-icons prefix">today</i>
+
                             <input name="event_end" id="icon_prefix" type="date" placeholder="Click here to choose the ending" class="datepicker">
                             <label for="icon_prefix"></label>
                         </div>
                     </div>
 
+                    <i class="material-icons prefix">schedule</i>
                     <div class="row">
                         <div class="input-field col s6 m3">
                             <select name="event_hour_start">
-                                <option value="" disabled selected>Hours</option>
+                                <option value="" disabled selected>Hour</option>
                                 <option value="0">00</option>
                                 <option value="1">01</option>
                                 <option value="2">02</option>
@@ -101,7 +101,7 @@
 
                         <div class="input-field col s6 m3">
                             <select name="event_min_start">
-                                <option value="" disabled selected>Minutes</option>
+                                <option value="" disabled selected>Min</option>
                                 <option value="00">00</option>
                                 <option value="05">05</option>
                                 <option value="10">10</option>
@@ -131,7 +131,7 @@
                     <div class="row">
                         <div class="input-field col s6 m3 offset-m1">
                             <select name="event_hour_end">
-                                <option value="" disabled selected>Hours</option>
+                                <option value="" disabled selected>Hour</option>
                                 <option value="0">00</option>
                                 <option value="1">01</option>
                                 <option value="2">02</option>
@@ -151,7 +151,7 @@
 
                         <div class="input-field col s6 m3">
                             <select name="event_min_end">
-                                <option value="" disabled selected>Minutes</option>
+                                <option value="" disabled selected>Min</option>
                                 <option value="00">00</option>
                                 <option value="05">05</option>
                                 <option value="10">10</option>
@@ -188,7 +188,7 @@
                     <div class="row ">
                         <div class="input-field col s6 m6 l4 offset-m1 offset-l1 tooltipped" data-position="right" data-delay="50" data-tooltip="What type of event is it?">
                             <select name="event_categories[]" class="icons" multiple>
-                                <option value="" disabled selected>Categories</option>
+                                <option value="" disabled selected>Category</option>
                                 <?php foreach ($data as $category) {
                                     ?>
                                     <option value="<?= $category['idCategorie']; ?>" class="left circle">
@@ -197,7 +197,7 @@
                                     <?php
                                 } ?>
                             </select>
-                            <label>Choose your categories</label>
+                            <label>Choose your category</label>
                         </div>
                     </div>
 
@@ -207,15 +207,12 @@
                             <a  class="fb_click">
                                 <div class="event_picto_soc event_fb"></div>
                             </a>
-
                             <a class="ins_click clear">
                                 <div class="event_picto_soc event_ins"></div>
                             </a>
-
                             <a class="yout_click">
                                 <div class="event_picto_soc event_yout"></div>
                             </a>
-
                             <a class="tw_click">
                                 <div class="event_picto_soc event_tw"></div>
                             </a>
@@ -224,17 +221,17 @@
                                 <input name="event_name" data-position="right" data-delay="50" data-tooltip="Show me what you've got !" id="" type="text">
                                 <label for="icon_prefix">Event Facebook url</label>
                             </div>
-                            
+
                             <div class="input-field col s12 l12 m12 secure_margin none field_ins">
                                 <input name="event_name" data-position="right" data-delay="50" data-tooltip="Show me what you've got !" id="" type="text">
                                 <label for="icon_prefix">Instagram url</label>
                             </div>
-                            
+
                             <div class="input-field col s12 l12 m12 secure_margin none field_yout">
                                 <input name="event_name" data-position="right" data-delay="50" data-tooltip="Show me what you've got !" id="" type="text">
                                 <label for="icon_prefix">Youtube url</label>
                             </div>
-                            
+
                             <div class="input-field col s12 l12 m12 secure_margin none field_tw">
                                 <input name="event_name" data-position="right" data-delay="50" data-tooltip="Show me what you've got !" id="" type="text">
                                 <label for="icon_prefix">Twitter url</label>
@@ -282,8 +279,7 @@
                         </div>
                     </div>
 
-
-                    <!----II-2----->
+                    <!--II-2-->
                     <div class="row">
                         <div class="more_margin"></div>
                         <div class="more_margin"></div>
@@ -292,13 +288,14 @@
                                 <p class="num_bullet_point">3</p>
                             </div>
                             <div>
-                                <h3 class="text_separteur">Volunteers needed !</h3>
+                                <h3 class="text_separteur">Volunteer positions you need</h3>
                             </div>
                         </div>
                     </div>
 
                     <div id="first-mission-field" class="top-space tooltipped" data-delay="50" data-position="right" data-tooltip="What kind of missions for your volunteers?">
                         <div class="input-field col s9 secure-mission">
+                            <i class="material-icons prefix">perm_identity</i>
                             <input name="missions[]" id="icon_prefix" placeholder="Barman" type="text" class="validate">
                             <label for="icon_prefix">Mission</label>
                         </div>
@@ -345,8 +342,7 @@
                         </div>
                     </div>
             </div>
-            <!--content-->
-        </div>
+        </div><!--content-->
 
         <div class="col l4 col_fix">
             <div class="right btn_fix_crea">
@@ -360,9 +356,6 @@
                 <?php } ?>
             </div>
         </div>
-    </form>
-    </div>
-
-                <!--//// END FOM ****/////--->
-    <!-- fin page event-->
-    <?php include_once('views/layout/footer.inc.php'); ?>
+    </form> <!--//// END FOM ****/////--->
+    </div> <!-- fin page event-->
+<?php include_once('views/layout/footer.inc.php'); ?>

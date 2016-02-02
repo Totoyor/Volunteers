@@ -1,4 +1,4 @@
-<?php include_once('layout/adminheader.inc.php'); ?>
+<?php include_once('views/layout/adminheader.inc.php'); ?>
 <!-- Main Content -->
   <section class="content-wrap">
 
@@ -8,19 +8,7 @@
 
       <div class="row">
         <div class="col s12 m9 l10">
-          <h1>Dashboard v1</h1>
-
-          <ul>
-            <li>
-              <a href="#"><i class="fa fa-home"></i> Home</a>  <i class="fa fa-angle-right"></i>
-            </li>
-
-            <li><a href='dashboard-v1.html'>Dashboard v1</a>
-            </li>
-          </ul>
-        </div>
-        <div class="col s12 m3 l2 right-align">
-          <a href="#!" class="btn grey lighten-3 grey-text z-depth-0 chat-toggle"><i class="fa fa-comments"></i></a>
+          <h1>Dashboard</h1>
         </div>
       </div>
 
@@ -29,33 +17,19 @@
 
     <!-- Stats Panels -->
     <div class="row sortable">
-      <div class="col l3 m6 s12">
+      <div class="col l6 m6 s12">
         <a href="#" class="card-panel stats-card red lighten-2 red-text text-lighten-5">
           <i class="fa fa-comments-o"></i>
-          <span class="count">145</span>
-          <div class="name">Feedbacks</div>
+          <span class="count"><?php echo count($data['users']); ?></span>
+          <div class="name">Users</div>
         </a>
       </div>
-      <div class="col l3 m6 s12">
+      <div class="col l6 m6 s12">
         <a href="#" class="card-panel stats-card blue lighten-2 blue-text text-lighten-5">
           <i class="fa fa-send"></i>
-          <span class="count">342</span>
-          <div class="name">Posts</div>
+          <span class="count"><?php echo count($data['events']); ?></span>
+          <div class="name">Events</div>
         </a>
-      </div>
-      <div class="col l3 m6 s12">
-        <a href="#" class="card-panel stats-card amber lighten-2 amber-text text-lighten-5">
-          <i class="fa fa-cloud-upload"></i>
-          <span class="count">58</span>
-          <div class="name">Uploads</div>
-        </a>
-      </div>
-      <div class="col l3 m6 s12">
-        <div class="card-panel stats-card green lighten-2 green-text text-lighten-5">
-          <i class="fa fa-spinner"></i>
-          <span class="count">37%</span>
-          <div class="name">Server Load</div>
-        </div>
       </div>
     </div>
     <!-- /Stats Panels -->
@@ -222,4 +196,4 @@
 
   </section>
   <!-- /Main Content -->
-<?php include_once('layout/adminfooter.inc.php'); ?>
+<?php include_once('views/layout/adminfooter.inc.php'); ?>
