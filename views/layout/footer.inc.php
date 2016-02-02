@@ -105,7 +105,7 @@
                     <li><a class="grey-text text-lighten-3" href="page/aboutus">About us</a></li>
                     <li><a class="grey-text text-lighten-3" href="?module=contact">Contact</a></li>
                     <li><a class="grey-text text-lighten-3" href="blog/home">Blog</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Terms and privacy</a></li>
+                    <li><a class="grey-text text-lighten-3" href="?module=home&action=terms">Terms and privacy</a></li>
                 </ul>
             </div>
 
