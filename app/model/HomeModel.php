@@ -5,7 +5,7 @@ class HomeModel extends AppModel
     /**
      * @return array|bool
      */
-    public function getEvents()
+    public function getHomeEvents()
     {
         try {
             $query = $this->connexion->prepare("SELECT *
@@ -63,6 +63,25 @@ class HomeModel extends AppModel
             $data = $query->fetchAll(PDO::FETCH_ASSOC);
             $query->closeCursor();
 
+            return $data;
+
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
+    /**
+     * @return array|bool
+     */
+    public function getHomeCategories()
+    {
+        try {
+            $query = $this->connexion->prepare("SELECT * FROM vol_events_categories
+                                                LIMIT 0,5 ");
+            $query->execute();
+
+            $data = $query->fetchAll(PDO::FETCH_ASSOC);
+            $query->closeCursor();
             return $data;
 
         } catch (Exception $e) {

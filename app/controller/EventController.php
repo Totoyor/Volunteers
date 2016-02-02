@@ -394,18 +394,36 @@ class EventController extends AppController
 
     public function show()
     {
-        define("TITLE_HEAD", "Event Name | Volunteers");
-        // Chargement de la vue
-        $id = $_GET['id'];
-        $data = array(
-            'event' => $this->model->getEvent($id),
-            'missions' => $this->model->getMissions($id),
-            'nbVolunteer' => $this->model->getNbVolunteers($id),
-            'medias' => $this->model->getMedias($id),
-            'volunteers' => $this->model->getVolunteers($id),
-            'questions' => $this->model->getQuestions($id)
-        );
-        $this->load->view('event/view_event.php', $data);
+        if(isset($_GET['id']))
+        {
+            $id = $_GET['id'];
+            $data = array(
+                'event' => $this->model->getEvent($id),
+                'missions' => $this->model->getMissions($id),
+                'nbVolunteer' => $this->model->getNbVolunteers($id),
+                'medias' => $this->model->getMedias($id),
+                'volunteers' => $this->model->getVolunteers($id),
+                'questions' => $this->model->getQuestions($id)
+            );
+            if($data != null)
+            {
+                // Chargement de la vue
+                define("TITLE_HEAD", "Event Name | Volunteers");
+                $this->load->view('event/view_event.php', $data);
+            }
+            else
+            {
+                // Pas de data -> error
+                define("TITLE_HEAD", "Error | Volunteers");
+                $this->load->view('view_error.php');
+            }
+        }
+        else
+        {
+            // Pas d'id -> error
+            define("TITLE_HEAD", "Error | Volunteers");
+            $this->load->view('view_error.php');
+        }
     }
 
     public function search()
@@ -480,11 +498,15 @@ class EventController extends AppController
 
     public function sort()
     {
-        if (!empty($_POST['category']) || !empty($_POST['sortDate'])) {
+        if (!empty($_POST['category']) || !empty($_POST['sortDate']) || isset($_GET['message'])) {
 
             if (!empty($_POST['category'])) {
                 $category = $_POST['category'];
-            } else {
+            }
+            elseif(isset($_GET['message'])) {
+                $category = $_GET['message'];
+            }
+            else {
                 $category = '';
             }
 

@@ -103,8 +103,7 @@
             </div>
             <?php endforeach; ?>
         <?php endif; ?>
-        </div>
-            <!-- fin row (events) -->
+        </div><!-- fin row (events) -->
 
             <div class="row">
                 <div class="col s12 center">
@@ -120,80 +119,55 @@
             </div>
 
             <div class="row">
-                <div class="col s12 m8">
-                    <a href="#">
-                        <div class="card margin-cat-bottom festival_responsive">
-                            <div class="card-image item">
-                                <img class="responsive-img" alt="festival" src="assets/img/festival1.jpg">
-                                <div class="text-wrapper">
-                                    <h6 class="white-text">Festival</h6>
+            <?php if (isset($data)): ?>
+                <?php foreach ($data['categories'] as $category) : ?>
+                    <?php if($category['nameCategorie'] == 'Festival') { ?>
+                        <div class="row">
+                        <div class="col s12 m8">
+                            <a href="event/sort/<?= $category['idCategorie']; ?>/<?= $category['nameCategorie']; ?>">
+                                <div class="card margin-cat-bottom festival_responsive">
+                                    <div class="card-image item">
+                                        <img class="responsive-img" alt="festival" src="assets/img/<?= $category['imageCategorie']; ?>">
+                                        <div class="text-wrapper">
+                                            <h6 class="white-text"><?= $category['nameCategorie']; ?></h6>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
-                    </a>
-                </div>
-
-                <div class="col s12 m4">
-                    <a href="#">
-                        <div class="card margin-cat-bottom">
-                            <div class="card-image item">
-                                <img class="responsive-img" alt="party" src="assets/img/party.png">
-                                <div class="text-wrapper">
-                                    <h6 class="white-text">Party</h6>
+                    <?php } elseif($category['nameCategorie'] == 'Rock') { ?>
+                        <div class="col s12 m4">
+                            <a href="event/sort/<?= $category['idCategorie']; ?>/<?= $category['nameCategorie']; ?>">
+                                <div class="card margin-cat-bottom">
+                                    <div class="card-image item">
+                                        <img class="responsive-img" alt="party" src="assets/img/<?= $category['imageCategorie']; ?>">
+                                        <div class="text-wrapper">
+                                            <h6 class="white-text"><?= $category['nameCategorie']; ?></h6>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
-                    </a>
-                </div>
-            </div>
-            <!-- fin row-->
-
-            <div class="row">
-                <div class="col s12 m4">
-                    <a href="#">
-                        <div class="card margin-cat-top">
-                            <div class="card-image item">
-                                <img class="responsive-img" alt="hiphop-concert" src="assets/img/hiphop.png">
-                                <div class="text-wrapper">
-                                    <h6 class="white-text">Hip-Hop</h6>
-                                </div>
-                            </div>
                         </div>
-                    </a>
-                </div>
-
-                <div class="col s12 m4">
-                    <a href="#">
-                        <div class="card margin-cat-top">
-                            <div class="card-image item">
-                                <img class="responsive-img" alt="rock-concert" src="assets/img/rock.png">
-                                <div class="text-wrapper">
-                                    <h6 class="white-text">Rock</h6>
-                                </div>
+                    <?php } else { ?>
+                            <div class="col s12 m4">
+                                <a href="event/sort/<?= $category['idCategorie']; ?>/<?= $category['nameCategorie']; ?>">
+                                    <div class="card margin-cat-bottom">
+                                        <div class="card-image item">
+                                            <img class="responsive-img" alt="party" src="assets/img/<?= $category['imageCategorie']; ?>">
+                                            <div class="text-wrapper">
+                                                <h6 class="white-text"><?= $category['nameCategorie']; ?></h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col s12 m4">
-                    <div class="card margin-cat-top">
-                        <a href="#">
-                            <div class="card-image item">
-                                <img class="responsive-img" alt="techno" src="assets/img/techno.png">
-                                <div class="text-wrapper">
-                                    <h6 class="white-text">Techno</h6>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        <!-- fin row-->
-    </div>
-    <!-- fin page content-->
-    </div>
-    <!-- fin container-->
+                    <?php } ?>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            </div><!-- fin row-->
+        </div><!-- fin page content-->
+    </div><!-- fin container-->
 
 <div class="row double-content white-text left bgleft">
     <div class="col s12 center">

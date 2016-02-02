@@ -12,9 +12,6 @@ class ValidateController extends AppController
         parent::__construct();
     }
 
-    // TODO :
-    // Styliser les pages
-
     public function home()
     {
         if(isset($_GET['key']))
