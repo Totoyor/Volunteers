@@ -38,144 +38,73 @@
                     <h2 class="title-section"><strong>Popular events</strong></h2>
                     <hr class="fancy-hr">
                 </div>
-
             </div>
 
             <div class="row">
+            <?php if (isset($data)): ?>
+                <?php foreach ($data['eventsPremium'] as $premium) : ?>
                 <div class="col s12 m6 l6">
-                <a href="#">
+                <a href="event/show/<?= $premium['idEvent']; ?>">
                     <div class="card small event popevent left">
                         <div class="card-image">
-                            <img src="assets/img/event2.png" class="responsive-img" alt="image-event">
+                            <?php if(!empty($premium['coverPicture'])) { ?>
+                                <img class="responsive-img"
+                                     src="assets/img/events/uploads/<?= $premium['coverPicture']; ?>"
+                                     alt="image-event">
+                            <?php } else { ?>
+                                <img class="responsive-img"
+                                     src="assets/img/couv_default.jpg"
+                                     alt="image-event">
+                            <?php } ?>
                         </div>
                         <div class="card-content">
-                            <a href="#"><h4 class="titre-cards truncate black-text">La Dynamiterie</h4></a>
-                            <h6 class="truncate black-text">Studio Albatros, Montreuil - 21 Nov</h6>
+                            <a href="event/show/<?= $premium['idEvent']; ?>"><h4 class="titre-cards truncate black-text"><?= $premium['nameEvent']; ?></h4></a>
+                            <h6 class="truncate black-text"><?= $premium['locationEvent']; ?></h6>
                         </div>
                         <div class="card-action">
-                          <a href="#">Techno</a>
-                          <a class="viewmore btn btn-blue" href="#">See more</a>
+                          <a href="#"><?= $premium['nameCategorie']; ?></a>
+                          <a class="viewmore btn btn-blue" href="event/show/<?= $premium['idEvent']; ?>">See more</a>
                         </div>
                     </div>
                 </a>
                 </div>
-
-            <div class="col s12 m6 l6">
-                <div class="card small event popevent left">
-                    <div class="card-image">
-                      <img src="assets/img/event2.png" class="responsive-img" alt="image-event">
-                    </div>
-                    <div class="card-content">
-                        <h4 class="titre-cards truncate">Woodfloor: La Mamie’s</h4>
-                        <h6 class="truncate">Concrete, Paris - 21 Nov</h6>
-                    </div>
-                    <div class="card-action">
-                        <a href="#">Party</a>
-                        <a class="viewmore btn btn-blue" href="#">See more</a>
-                    </div>
-                </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
             </div>
-            </div>
-            <!-- fin row-->
+            <!-- fin row (premium events) -->
 
         <div class="row">
+        <?php if (isset($data)): ?>
+            <?php foreach ($data['events'] as $event) : ?>
             <div class="col s12 m6 l4">
                 <div class="card small event popevent left">
                     <div class="card-image">
-                      <img class="responsive-img" src="assets/img/event3.png" alt="image-event">
+                        <?php if(!empty($event['coverPicture'])) { ?>
+                            <img class="responsive-img"
+                                 src="assets/img/events/uploads/<?= $event['coverPicture']; ?>"
+                                 alt="image-event">
+                        <?php } else { ?>
+                            <img class="responsive-img"
+                                 src="assets/img/couv_default.jpg"
+                                 alt="image-event">
+                        <?php } ?>
                     </div>
                     <div class="card-content">
-                        <h4 class="titre-cards truncate">Blocaus</h4>
-                        <h6 class="truncate">La Machine du Moulin Rouge, Paris - 21 Nov</h6>
+                        <h4 class="titre-cards truncate"><?= $event['nameEvent']; ?></h4>
+                        <h6 class="truncate location-cards"><?= $event['locationEvent']; ?>
+                            , <?= $event['startEvent']; ?></h6>
                     </div>
                     <div class="card-action">
-                        <a href="#">Party</a>
-                        <a class="viewmore btn btn-blue" href="#">See more</a>
+                        <a class="card-categorie" href="event/show/<?= $event['idEvent']; ?>"><?= $event['nameCategorie']; ?></a>
+                        <a class="viewmore btn btn-blue" href="event/show/<?= $event['idEvent']; ?>">See
+                            more</a>
                     </div>
                 </div>
             </div>
-
-            <div class="col s12 m6 l4">
-                <div class="card small event popevent left">
-                    <div class="card-image">
-                      <img class="responsive-img" alt="image-event" src="assets/img/event4.png">
-                    </div>
-                    <div class="card-content">
-                        <h4 class="titre-cards truncate">Château Perché</h4>
-                        <h6 class="truncate">Le Petit Bain, Paris - 21 Nov</h6>
-                    </div>
-                    <div class="card-action">
-                        <a href="#">Techno</a>
-                        <a class="viewmore btn btn-blue" href="#">See more</a>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="col s12 m6 l4">
-                <div class="card small event popevent left">
-                    <div class="card-image">
-                      <img class="responsive-img" alt="image-event" src="assets/img/event5.png">
-                    </div>
-                    <div class="card-content">
-                        <h4 class="titre-cards truncate">Lunar II</h4>
-                        <h6 class="truncate">Le Gibus, Paris - 21 Nov</h6>
-                    </div>
-                    <div class="card-action">
-                        <a href="#">Techno</a>
-                        <a class="viewmore btn btn-blue" href="#">See more</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col s12 m6 l4">
-                <div class="card small event popevent left">
-                    <div class="card-image">
-                      <img class="responsive-img" alt="image-event" src="assets/img/event6.png">
-                    </div>
-                    <div class="card-content">
-                        <h4 class="titre-cards truncate">Propice</h4>
-                        <h6 class="truncate">Le Glazart, Paris - 21 Nov</h6>
-                    </div>
-                    <div class="card-action">
-                        <a href="#">Techno</a>
-                        <a class="viewmore btn btn-blue" href="#">See more</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col s12 m6 l4">
-                <div class="card small event popevent left">
-                    <div class="card-image">
-                      <img class="responsive-img" alt="image-event" src="assets/img/event7.png">
-                    </div>
-                    <div class="card-content">
-                        <h4 class="titre-cards truncate">Macki Paradise</h4>
-                        <h6 class="truncate">La Machine du Moulin Rouge, Paris - 21 Nov</h6>
-                    </div>
-                    <div class="card-action">
-                      <a href="#">Techno</a>
-                      <a class="viewmore btn btn-blue" href="#">See more</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col s12 m6 l4">
-                <div class="card small event popevent left">
-                    <div class="card-image">
-                      <img class="responsive-img" alt="image-event" src="assets/img/event8.png">
-                    </div>
-                    <div class="card-content">
-                        <h4 class="titre-cards">Dixon Ame All Night</h4>
-                        <h6>La Fabric, Paris - 21 Nov</h6>
-                    </div>
-                    <div class="card-action">
-                        <a href="#">Techno</a>
-                        <a class="viewmore btn btn-blue" href="#">See more</a>
-                    </div>
-                </div>
-            </div>
-            </div>
-            <!-- fin row-->
+            <?php endforeach; ?>
+        <?php endif; ?>
+        </div>
+            <!-- fin row (events) -->
 
             <div class="row">
                 <div class="col s12 center">

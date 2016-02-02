@@ -128,11 +128,13 @@ Class EventModel extends AppModel
             ON vol_events.vol_users_idUser = vol_users.idUser
             WHERE vol_events.idEvent = :id
             AND vol_events.vol_event_status_idEventStatus = :status
+            OR vol_events.vol_event_status_idEventStatus = :premium
             GROUP BY idEvent
             ");
 
             $query->bindValue(':id', $id, PDO::PARAM_INT);
             $query->bindValue(':status', 1, PDO::PARAM_INT);
+            $query->bindValue(':premium', 2, PDO::PARAM_INT);
             $query->execute();
 
             $data = $query->fetch(PDO::FETCH_ASSOC);
