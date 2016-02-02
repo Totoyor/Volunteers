@@ -130,7 +130,9 @@
                                 <div class="row">
                                     <div class="col s12">
                                         <div class="input-field">
-                                            <textarea id="icon_prefix2" class="materialize-textarea" name="description"><?php echo $data['Description']; ?></textarea>
+                                            <textarea id="icon_prefix2" class="materialize-textarea" name="description">
+                                                <?php echo $data['Description']; ?>
+                                            </textarea>
                                             <label for="icon_prefix2">Describe yourself in some words</label>
 
                                             <div class="text-description grey-text">

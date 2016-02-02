@@ -14,14 +14,14 @@
                 </div>
 
                 <!-----/****FORMS****/---->
-                <form method="post" action="event/create" class="" enctype="multipart/form-data">
+                <form method="post" action="event/create" enctype="multipart/form-data">
 
                     <div class="row btn_crea1">
                         <div class="right">
                             <?php if(isset($_SESSION['user_id'])){ ?>
-                                <button name="save" class="btn btn-menu">Save</button>
+                                <button type="submit" name="save" class="btn btn-menu">Save</button>
 
-                                <button name="submit" href="#" class="btn btn-orange"
+                                <button type="submit" name="submit" class="btn btn-orange"
                                         onclick="Materialize.toast('Published', 4000)">Publish
                                 </button>
                             <?php } else { ?>
@@ -48,7 +48,7 @@
                     </div>
 
                     <div class="input-field col s12 l12 m12">
-                        <input name="event_name" class="" name="event_name" data-position="right" data-delay="50"
+                        <input name="event_name" data-position="right" data-delay="50"
                                data-tooltip="Show me what you've got !" id="" type="text" required>
                         <label for="icon_prefix">Event Name</label>
                     </div>
@@ -295,9 +295,9 @@
                         
                         <div class="right">
                             <?php if(isset($_SESSION['user_id'])){ ?>
-                                <button name="save" class="btn btn-menu">Save</button>
+                                <button type="submit" name="save" class="btn btn-menu">Save</button>
 
-                                <button name="submit" href="#" class="btn btn-orange"
+                                <button type="submit" name="submit" class="btn btn-orange"
                                         onclick="Materialize.toast('Published', 4000)">Publish
                                 </button>
                             <?php } else { ?>

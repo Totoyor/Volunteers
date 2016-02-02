@@ -87,7 +87,7 @@ Class Upload
     /**
      *Fonction qui controle que le fichier ne soit pas trop gros
      */
-    public function sizeControl(){
+    /*public function sizeControl(){
         if($this->_filesize <= $this->_file_max_size)
         {
             return true;
@@ -96,7 +96,7 @@ Class Upload
         {
             return false;
         }
-    }
+    }*/
 
     //On déplace le fichier dans le dossier voulue.
     /**

@@ -1,7 +1,6 @@
 <?php
 
 class EventController extends AppController
-
 {
     protected $_date;
 
@@ -292,7 +291,6 @@ class EventController extends AppController
                             $file = new Upload($_FILES['coverPicture']['name'], $_FILES["coverPicture"]["tmp_name"], 'assets/img/events/uploads/', '');
 
                             if ($file->extControl()) {
-                                if ($file->sizeControl()) {
                                     if ($file->moveFile()) {
                                         if ($file->resizeFile()) {
                                             $coverPicture = $file->setNom();
@@ -302,12 +300,6 @@ class EventController extends AppController
                                             $this->model->insertCoverPicture($lastId, $coverPicture);
                                         }
                                     }
-                                } else {
-                                    $messageFlash = 'Your file is to big';
-                                    $this->coreSetFlashMessage('error', $messageFlash, 3);
-                                    header("location:home?create&event=sizenok");
-                                    exit();
-                                }
                             } else {
                                 $messageFlash = 'The file extension isn\'t ok';
                                 $this->coreSetFlashMessage('error', $messageFlash, 3);
