@@ -124,7 +124,7 @@
                     <?php if($category['nameCategorie'] == 'Festival') { ?>
                         <div class="row">
                         <div class="col s12 m8">
-                            <a href="event/sort/<?= $category['idCategorie']; ?>/<?= $category['nameCategorie']; ?>">
+                            <a href="event/sort/<?= $category['idCategorie']; ?>/<?= lcfirst($category['nameCategorie']); ?>">
                                 <div class="card margin-cat-bottom festival_responsive">
                                     <div class="card-image item">
                                         <img class="responsive-img" alt="festival" src="assets/img/<?= $category['imageCategorie']; ?>">
@@ -137,7 +137,7 @@
                         </div>
                     <?php } elseif($category['nameCategorie'] == 'Rock') { ?>
                         <div class="col s12 m4">
-                            <a href="event/sort/<?= $category['idCategorie']; ?>/<?= $category['nameCategorie']; ?>">
+                            <a href="event/sort/<?= $category['idCategorie']; ?>/<?= lcfirst($category['nameCategorie']); ?>">
                                 <div class="card margin-cat-bottom">
                                     <div class="card-image item">
                                         <img class="responsive-img" alt="party" src="assets/img/<?= $category['imageCategorie']; ?>">
@@ -151,7 +151,7 @@
                         </div>
                     <?php } else { ?>
                             <div class="col s12 m4">
-                                <a href="event/sort/<?= $category['idCategorie']; ?>/<?= $category['nameCategorie']; ?>">
+                                <a href="event/sort/<?= $category['idCategorie']; ?>/<?= lcfirst($category['nameCategorie']); ?>">
                                     <div class="card margin-cat-bottom">
                                         <div class="card-image item">
                                             <img class="responsive-img" alt="party" src="assets/img/<?= $category['imageCategorie']; ?>">

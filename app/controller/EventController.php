@@ -504,16 +504,24 @@ class EventController extends AppController
                 $category = $_POST['category'];
             }
             elseif(isset($_GET['message'])) {
+
                 $category = $_GET['message'];
             }
             else {
                 $category = '';
             }
+            if(isset($_POST['sortDate']))
+            {
+                $post = $_POST['sortDate'];
+                $search = array(',');
+                $replace = array('.');
+                $date = str_replace($search, $replace, $post);
+            }
+            else
+            {
+                $date = '';
+            }
 
-            $post = $_POST['sortDate'];
-            $search = array(',');
-            $replace = array('.');
-            $date = str_replace($search, $replace, $post);
 
             if ($this->model->sortEvents($category, $date)) {
                 define("TITLE_HEAD", "List of events | Volunteers");
