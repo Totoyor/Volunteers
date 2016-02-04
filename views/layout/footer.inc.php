@@ -103,9 +103,9 @@
                 <h5 class="title-list white-text">Company</h5>
                 <ul>
                     <li><a class="grey-text text-lighten-3" href="page/aboutus">About us</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Contact</a></li>
+                    <li><a class="grey-text text-lighten-3" href="?module=contact">Contact</a></li>
                     <li><a class="grey-text text-lighten-3" href="blog/home">Blog</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Terms and privacy</a></li>
+                    <li><a class="grey-text text-lighten-3" href="?module=home&action=terms">Terms and privacy</a></li>
                 </ul>
             </div>
 
@@ -150,15 +150,10 @@
                 <ul>
                     <h5 class="title-list white-text">Subscribe to our newsletter</h5>
                     <div id="mc_embed_signup">
-                        <form
-                            action="//volunteers.us12.list-manage.com/subscribe/post?u=2fb275a6dc11af1ee664e7ea2&amp;id=f47de3f760"
-                            method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
-                            class="validate" target="_blank" novalidate>
+                        <form action="home/newsletter" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
+                            class="validate">
                             <div id="mc_embed_signup_scroll">
-                                
-                                
-                                
-                                <input type="email" value="" name="EMAIL" class="email newsletter-home" id="mce-EMAIL"
+                                <input type="email" name="newsletter" class="email" id="mce-EMAIL"
                                        placeholder="Enter your e-mail" required>
                                 <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
                                 <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_2fb275a6dc11af1ee664e7ea2_f47de3f760" tabindex="-1" value="">
@@ -195,7 +190,6 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="assets/js/materialize.min.js"></script>
 <script type="text/javascript" src="assets/js/monjs.js"></script>
-<script type="text/javascript" src="assets/js/ajax.js"></script>
 <script type="text/javascript" src="assets/js/ajax.search.js"></script>
 <script type="text/javascript" src="assets/js/dropify.js"></script>
 <script type='text/javascript' src='assets/js/notie.js'></script>

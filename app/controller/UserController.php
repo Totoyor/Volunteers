@@ -112,13 +112,11 @@ class UserController extends AppController
                     $this->_userKey = mt_rand();
 
                     // TODO
-                    // AJAX
-                    // Twitter Facebook
+                    // Facebook
 
                     if($this->model->inscriptionUser($this->_login, $this->_password, $this->_status, $this->_userKey))
                     {
                         // Envoi du mail de confirmation
-                        include_once('lib/class/mail.class.php');
                         try
                         {
                             // Instanciation

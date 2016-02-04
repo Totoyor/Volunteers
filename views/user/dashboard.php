@@ -3,17 +3,6 @@
         <div class="page-content">
             <div class="row margtop100">
                 <div class="col l3 m12 s12 colbg nopadding">
-                    <div class="card noborder">
-                        <div class="card panel colbg noborder center">
-                            <div class="panel-text">
-                                <img class="resposive-img circle" src="assets/img/square_face.png" width="100"
-                                     height="100">
-
-                                <h2 class="name-profile nospace">Salim</h2>
-                                <a href="profile/show">See profile as public</a><br/>
-                            </div>
-                        </div>
-                    </div>
                     <?php include_once('views/layout/nav.profile.php'); ?>
                 </div>
                 <div class="col l9 m12 s12">

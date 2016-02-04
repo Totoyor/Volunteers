@@ -33,6 +33,7 @@
                             </div>
                         </div>
 
+
                         <div class="row"></div>
 
                         <!--I-1-->
@@ -47,11 +48,13 @@
                             </div>
                         </div>
 
+
                         <div class="input-field col s12 l12 m12">
                             <input name="event_name" data-position="right" data-delay="50"
                                    data-tooltip="What is the name of your event ?" class="tooltipped" type="text" required>
                             <label for="icon_prefix">Event Name</label>
                         </div>
+
 
                         <div class="row">
                             <div class="input-field col s12 col l12 m12">
@@ -216,6 +219,7 @@
                             </div>
                         </div>
 
+
                         <div class="row blued tooltipped" data-position="right" data-delay="50"
                              data-tooltip="Did you already create an event on an other site?">
                             <p class="margin_left blued">Add social network</p>
@@ -270,7 +274,9 @@
                                 </div>
 
                             </div>
+
                         </div>
+
 
 
                         <div class="more_margin"></div>
@@ -283,6 +289,7 @@
                                 <div>
                                     <h3 class="text_separteur">Let's embellish your event</h3>
                                 </div>
+
                             </div>
                         </div>
 
@@ -299,6 +306,7 @@
                                 Aliqua instituendarum appellat elit singulis. Officia ipsum voluptate.
                             </p>
                         </div>
+
 
                         <div class="row">
                             <div class="input-field col s3">
@@ -318,6 +326,7 @@
 
 
                         </div>
+
 
                         <!--II-2-->
                         <div class="row">
@@ -372,6 +381,7 @@
                             </div>
                         </div>
 
+
                         <div class="row btn_crea2">
 
 
@@ -418,4 +428,5 @@
     </form>
     <!--//// END FOM ****/////-->
     <!-- fin page event-->
+
 <?php include_once('views/layout/footer.inc.php'); ?>

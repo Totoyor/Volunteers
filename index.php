@@ -5,8 +5,7 @@ include_once 'config/constant.php';
 
 // Démarage de la session
 require_once 'lib/secure_session.php';
-//require_once 'lib/upload_files.php';
-require_once 'lib/class/upload.class.php';
+include_once 'lib/autoload.php';
 VOLUNTEERS_session_start(SESSION_NAME);
 
 // Gestion des erreurs

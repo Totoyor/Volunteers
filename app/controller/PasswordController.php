@@ -38,7 +38,6 @@ class PasswordController extends AppController
 
                         if($this->model->changePassword($this->_email, $this->_newPassMD5)) {
                             // envoi par mail du nouveau password en clair
-                            include_once('lib/class/mail.class.php');
                             try
                             {
                                 // Instanciation

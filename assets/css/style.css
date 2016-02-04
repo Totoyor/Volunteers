@@ -351,10 +351,6 @@ footer.page-footer {
     color: #4a4a4a;
 }
 
-.newsletter-home {
-    color: #FFF;
-}
-
 /*** PAGE EN CONSTRUCTION ***/
 
 .img-full {
@@ -897,11 +893,6 @@ width: auto;
 
 .panel-text{
 padding: 20px;
-}
-
-.upload-profile-pic
-{
-    position: absolute;
 }
 
 .upload-profile-pic input.upload
