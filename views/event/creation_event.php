@@ -1,5 +1,4 @@
 <?php include_once('views/layout/header.inc.php'); ?>
-    <form method="post" action="event/create" class="" enctype="multipart/form-data">
         <div class="row creabody">
             <div class="page_event col m10 s12 l8">
                 <div class="formulaire_crea col l12">
@@ -246,30 +245,26 @@
 
 
                                 <div class="input-field col s12 l12 m12 secure_margin none field_fb">
-                                    <input name="event_name" class="" name="event_name" data-position="right"
-                                           data-delay="50" data-tooltip="Show me what you've got !" id="" type="text"
-                                           required>
+                                    <input class="" name="facebook" data-position="right"
+                                           data-delay="50" data-tooltip="Show me what you've got !" id="" type="text">
                                     <label for="icon_prefix">Event Facebook url</label>
                                 </div>
 
                                 <div class="input-field col s12 l12 m12 secure_margin none field_ins">
-                                    <input name="event_name" class="" name="event_name" data-position="right"
-                                           data-delay="50" data-tooltip="Show me what you've got !" id="" type="text"
-                                           required>
+                                    <input class="" name="instagram" data-position="right"
+                                           data-delay="50" data-tooltip="Show me what you've got !" id="" type="text">
                                     <label for="icon_prefix">Instagram url</label>
                                 </div>
 
                                 <div class="input-field col s12 l12 m12 secure_margin none field_yout">
-                                    <input name="event_name" class="" name="event_name" data-position="right"
-                                           data-delay="50" data-tooltip="Show me what you've got !" id="" type="text"
-                                           required>
+                                    <input class="" name="youtube" data-position="right"
+                                           data-delay="50" data-tooltip="Show me what you've got !" id="" type="text">
                                     <label for="icon_prefix">Youtube url</label>
                                 </div>
 
                                 <div class="input-field col s12 l12 m12 secure_margin none field_tw">
-                                    <input name="event_name" class="" name="event_name" data-position="right"
-                                           data-delay="50" data-tooltip="Show me what you've got !" id="" type="text"
-                                           required>
+                                    <input class="" name="twitter" data-position="right"
+                                           data-delay="50" data-tooltip="Show me what you've got !" id="" type="text">
                                     <label for="icon_prefix">Twitter url</label>
                                 </div>
 
@@ -409,9 +404,9 @@
             <div class="col l4 col_fix">
                 <div class="right btn_fix_crea">
                     <?php if (isset($_SESSION['user_id'])) { ?>
-                        <button name="save" class="btn btn-menu">Save</button>
+                        <button type="submit" name="save" class="btn btn-menu">Save</button>
 
-                        <button name="submit" href="#" class="btn btn-orange"
+                        <button type="submit" name="submit" href="#" class="btn btn-orange"
                                 onclick="Materialize.toast('Published', 4000)">Publish
                         </button>
                     <?php } else { ?>
@@ -428,5 +423,4 @@
     </form>
     <!--//// END FOM ****/////-->
     <!-- fin page event-->
-
 <?php include_once('views/layout/footer.inc.php'); ?>
