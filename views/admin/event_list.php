@@ -1,4 +1,4 @@
-<?php include_once('layout/adminheader.inc.php'); ?>
+<?php include_once('views/layout/adminheader.inc.php'); ?>
 <!-- Main Content -->
   <section class="content-wrap ecommerce-products">
 
@@ -21,9 +21,7 @@
       <div class="title">
         <h5>Events</h5>
         <div class="btn-group right">
-          <a href="ecommerce-product-single.html" class="btn btn-small z-depth-0"><i class="mdi mdi-content-add"></i></a>
-          <a href="ecommerce-product-single.html" class="btn btn-small z-depth-0"><i class="mdi mdi-editor-mode-edit"></i></a>
-          <a href="#" class="btn btn-small red lighten-1 z-depth-0"><i class="mdi mdi-action-delete"></i></a>
+          <a href="<?php echo PATH_HOME ?>admin/createevent" class="btn btn-small z-depth-0"><i class="mdi mdi-content-add"></i></a>
         </div>
       </div>
       <div class="content">
@@ -32,29 +30,52 @@
             <tr>
               <th>Image</th>
               <th>Name</th>
-              <th>Status</th>
-              <th>Edit</th>
-              <th>Delete</th>
+              <th style="width: 80px;">Status</th>
+              <th style="width: 50px;">View</th>
+              <th style="width: 50px;">Edit</th>
+              <th style="width: 50px;">Delete</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>
-                <img src="assets/_con/images/ecommerce-apple-iphone-30x30.jpg" alt="Teknival">
-              </td>
-              <td>
-                <a href="singleevent">
-                  <strong class="grey-text text-darken-2">Teknival</strong>
-                  <br>
-                  <span class="grey-text">3 jours de gros son en continu. Hardtek, Hardcore, Drum n Bass, Punk. Du lourd lourd lourd</span>
-                </a>
-              </td>
-              <td class="green-text">Active</td>
-              <td><a href="admin/singleEvent" class="btn btn-small z-depth-0"><i class="mdi mdi-editor-mode-edit"></i></a>
-              </td>
-              <td><a href="admin/singleEvent" class="btn btn-small z-depth-0"><i class="mdi mdi-action-delete"></i></a>
-              </td>
-            </tr>
+            <?php if (isset($data)): ?>
+                <?php foreach ($data['events'] as $event) : ?>
+                  <tr>
+                    <td>
+                      <?php if(!empty($event['coverPicture'])) { ?>
+                          <img class="responsive-img"
+                           src="<?php echo PATH_HOME ?>assets/img/events/uploads/<?= $event['coverPicture']; ?>"
+                           alt="<?= $event['nameEvent']; ?>">
+                      <?php } else { ?>
+                          <img class="responsive-img"
+                               src="assets/img/couv_default.jpg"
+                               alt="image-event">
+                      <?php } ?>
+                    </td>
+                    <td>
+                      <a href="singleevent/<?= $event['idEvent']; ?>">
+                        <strong class="grey-text text-darken-2"><?= $event['nameEvent']; ?></strong>
+                        <br>
+                        <span class="grey-text"><?= $event['descriptionEvent']; ?></span>
+                      </a>
+                    </td>
+                    <td class="green-text">
+                      <?php if ($event['vol_event_status_idEventStatus'] == 0){
+                            echo("Saved");
+                          } else if ($event['vol_event_status_idEventStatus'] == 1) {
+                            echo("Active");
+                          }else if ($event['vol_event_status_idEventStatus'] == 2) {
+                            echo("Premium");
+                      }?>
+                    </td>
+                    <td><a href="<?php echo PATH_HOME ?>admin/singleevent/<?= $event['idEvent']; ?>" class="btn btn-small z-depth-0"><i class="mdi mdi-action-visibility"></i></a>
+                    </td>
+                    <td><a href="<?php echo PATH_HOME ?>admin/singleevent/<?= $event['idEvent']; ?>" class="btn btn-small z-depth-0"><i class="mdi mdi-editor-mode-edit"></i></a>
+                    </td>
+                    <td><a href="<?php echo PATH_HOME ?>admin/deleteevent/<?= $event['idEvent']; ?>" class="btn btn-small z-depth-0 red darken-1" onclick="return confirm('Are you sure you want to delete this item?');"><i class="mdi mdi-action-delete"></i></a>
+                    </td>
+                  </tr>
+                <?php endforeach; ?>
+            <?php endif; ?>
           </tbody>
         </table>
       </div>
@@ -64,4 +85,4 @@
 
   </section>
   <!-- /Main Content -->
-<?php include_once('layout/adminfooter.inc.php'); ?>
+<?php include_once('views/layout/adminfooter.inc.php'); ?>

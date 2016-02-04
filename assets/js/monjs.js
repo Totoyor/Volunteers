@@ -1,9 +1,130 @@
 $(document).ready(function () {
+ 
+    
+    $(".hidden-content-rightside")
+		.css({
+		"position" : "absolute",
+		})
+    
+    $(".titre_right")
+		.css({
+		"position" : "absolute",
+        "text-align" : "center",
+		})
+    
+    $(".btn_right")
+		.css({
+		"position" : "absolute",
+        "top" : "400px",
+		})
+/* left */    
+    $(".hidden-content-leftside")
+		.css({
+		"position" : "absolute",
+		})
+    
+    $(".titre_left")
+		.css({
+		"position" : "absolute",
+        "text-align" : "center",
+		})
+    
+    $(".btn_left")
+		.css({
+		"position" : "absolute",
+        
+		})
+    
+/* */
+    
+$(".bgorange").hover(
+    
+    function(){
+    $('.titre_right').addClass("active_titre");
+    },
+    
+    function(){
+    $('.titre_right').removeClass("active_titre");
+    }
+    
+    );
+    
+    
+ $(".bgorange").hover(   
+     
+     function(){
+$('.hidden-content-rightside').addClass("hidden_show");
+    },
+    
+     function(){
+         
+$('.hidden-content-rightside').removeClass("hidden_show");
+    }
+);
+    
+    
+    
+    /*  */
+    
+    
+    $(".bgblue").hover(
+    
+    function(){
+    $('.titre_left').addClass("active_titre");
+    },
+    
+    function(){
+    $('.titre_left').removeClass("active_titre");
+    }
+    
+    );
+    
+    
+ $(".bgblue").hover(   
+     
+     function(){
+$('.hidden-content-leftside').addClass("hidden_show");
+    },
+    
+     function(){
+         
+$('.hidden-content-leftside').removeClass("hidden_show");
+    }
+);
+    
+    
+  /* CREA eVENT */
+    
+    
+$(".fb_click").click( 
+  
+      function(){      
+$('.field_fb').fadeIn("slow");
+    }
+  );
+    
+    
+$(".ins_click").click( 
+      function(){      
+$('.field_ins').fadeIn("slow");
+    }
+  );
+    
+    
     
 
-
-    $(".hidden-content-rightside").hide();
-    $(".hidden-content-leftside").hide();
+$(".yout_click").click( function(){      
+$('.field_yout').fadeIn("slow");
+    }
+  );
+    
+$(".tw_click").click( function(){      
+$('.field_tw').fadeIn("slow");
+    }
+  );
+    
+/*
+    
    
 
     $(".bgorange").mouseover(function () {
@@ -21,6 +142,12 @@ $(document).ready(function () {
     $(".bgblue").mouseleave(function () {
         $(".hidden-content-leftside").toggle("slow");
     })
+    
+    */
+    
+    
+    
+    
 
     // Initialize collapse button
     $(".button-collapse").sideNav();
@@ -56,7 +183,6 @@ $(document).ready(function () {
     $(".showend").click(function () {
         $(".newdate").fadeIn("100");
         $(".showend").hide("slow");
-
     })
 
     $(".page_event")

@@ -5,3 +5,7 @@
 .search-bar-toggle, .chat-toggle {
     display: none;
 }
+
+textarea {
+    height: 13rem;
+}

@@ -1,5 +1,5 @@
 <?php include_once('views/layout/adminheader.inc.php'); ?>
-<!-- Main Content -->
+  <!-- Main Content -->
   <section class="content-wrap">
 
 
@@ -20,24 +20,19 @@
         <tbody>
           <tr>
             <td class="photo">
-              <img src="assets/_con/images/user.jpg" alt="<?php echo $data['FirstName']; ?>">
+              <img src="assets/_con/images/user.jpg" alt="Jogh Doe">
             </td>
             <td>
-              <!-- Edit Button -->
-              <a href="<?php echo PATH_HOME ?>admin/deleteuser/<?= $data['idUser']; ?>" class="btn btn-small right z-depth-0 red darken-1" style="margin-left:10px;" onclick="return confirm('Are you sure you want to delete this item?');"><i class="mdi mdi-action-delete"></i></a>
-              <a href="<?php echo PATH_HOME ?>admin/edituser/<?= $data['idUser']; ?>" class="btn btn-small right z-depth-0"><i class="mdi mdi-editor-mode-edit"></i></a>
-              <!-- /Edit Button -->
               <!-- Name -->
-              <h3><?php echo $data['FirstName']; ?> <?php echo $data['LastName']; ?></h3>
+              <h3>John Doe</h3>
               <!-- /Name -->
 
               <!-- Status Message -->
-              <span>Born <?php echo $data['BirthDate']; ?> <br> Lives in <?php echo $data['Location']; ?></span>
+              <span>Cras vel risus ac massa varius tempus. Suspendisse sed risus at mi egestas rutrum nec et velit.</span>
               <!-- /Status Message -->
 
-
               <!-- Contact Buttons -->
-              <!-- <div class="contacts">
+              <div class="contacts">
                 <a href="#!" class="blue darken-3 white-text waves-effect">
                   <i class="fa fa-facebook"></i>
                 </a>
@@ -56,7 +51,7 @@
                 <a href="#!" class="grey darken-3 white-text waves-effect">
                   <i class="fa fa-github"></i>
                 </a>
-              </div> -->
+              </div>
               <!-- /Contact Buttons -->
             </td>
           </tr>
@@ -79,7 +74,9 @@
             </a>
           </div>
           <div class="content">
-            <?php echo $data['Description']; ?>
+            Phasellus viverra, lectus quis iaculis gravida, nisl felis cursus dui, id rutrum nibh quam nec ante. In ullamcorper ipsum nec tincidunt convallis. Fusce rhoncus, nisl nec ornare laoreet, ligula eros volutpat odio, sit amet ultricies ex nulla quis dolor.
+            Sed consectetur, elit non ultricies viverra, orci ex feugiat felis, quis suscipit enim metus id ante. Aenean urna elit, laoreet accumsan pharetra et, lobortis nec odio. Ut faucibus, neque at posuere fermentum, ipsum enim lacinia augue, nec
+            malesuada velit orci sed enim. Vivamus porttitor lacus eget arcu dapibus semper. Proin nec pretium nunc, vitae interdum tortor.
           </div>
         </div>
         <!-- /About -->
@@ -103,11 +100,11 @@
             <div class="row center-align" style="margin-top: 0">
               <div class="col m6 s12">
                 <strong>87</strong>
-                <h5>Events created</h5>
+                <h5>Following</h5>
               </div>
               <div class="col m6 s12">
                 <strong>12</strong>
-                <h5>Volunteering</h5>
+                <h5>Followers</h5>
               </div>
             </div>
           </div>
@@ -128,7 +125,14 @@
             </a>
           </div>
           <div class="content">
-            <?php echo $data['Skills']; ?>
+            <a href="#!" class="skill">JavaScript</a>
+            <a href="#!" class="skill">CSS3</a>
+            <a href="#!" class="skill">HTML5</a>
+            <a href="#!" class="skill">jQuery</a>
+            <a href="#!" class="skill">AngularJS</a>
+            <a href="#!" class="skill">Bootstrap</a>
+            <a href="#!" class="skill">PHP</a>
+            <a href="#!" class="skill">MySQL</a>
           </div>
         </div>
         <!-- /Skills -->
@@ -163,4 +167,5 @@
 
   </section>
   <!-- /Main Content -->
+
   <?php include_once('views/layout/adminfooter.inc.php'); ?>

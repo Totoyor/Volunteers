@@ -1,4 +1,4 @@
-<?php include_once('layout/adminheader.inc.php'); ?>
+<?php include_once('views/layout/adminheader.inc.php'); ?>
   <section class="content-wrap">
 
 
@@ -30,14 +30,21 @@
           	    </tr>
           	  </thead>
           	  <tbody>
-          	    <tr>
-          	      <th>1</th>
-          	      <td>Techno</td>
-          	      <td><a class="btn"><i class="mdi-editor-mode-edit"></i>Edit</a>
-</td>
-          	      <td><a class="btn red darken-1"><i class="mdi-action-delete"></i>Delete</a>
-</td>
-          	    </tr>
+                <?php if (isset($data)): ?>
+                    <?php foreach ($data['categories'] as $category) : ?>
+                	    <tr>
+                        <form action="?module=admin&action=categories" method="post">
+
+                  	      <td><?= $category['idCategorie']; ?></td>
+                  	      <td><input type="text" class="validate" name="<?php echo $category['idCategorie']; ?>" value="<?php echo $category['nameCategorie']; ?>"></td>
+                  	      <td><a class="btn"><i class="mdi-editor-mode-edit"></i>Edit</a>
+        </td>
+                  	      <td><a href="categories/<?= $category['idCategorie']; ?>" class="btn red darken-1" onclick="return confirm('Are you sure you want to delete this item?');"><i class="mdi-action-delete"></i>Delete</a>
+        </td>
+                        </form>
+                	    </tr>
+                    <?php endforeach; ?>
+                <?php endif; ?>
           	  </tbody>
           	</table>
         </div>
@@ -45,12 +52,12 @@
       <div class="col s12 l6">
         <div class="card-panel">
           <h2>Add Category</h2>
-          <form action="#!">
+          <form action="?module=admin&action=categories" method="post">
           	<div class="input-field">
-          	  <input id="add_category" type="text" class="validate" >
-          	  <label for="add_category">Add category</label>
+          	  <input id="category" type="text" class="validate" name='category'>
+          	  <label for="category">Add category</label>
           	</div>
-          	<button name="submit" href="#" class="btn orange lighten-1">SEND</button>
+          	<button href="#" class="btn orange lighten-1">SEND</button>
           </form>
         </div>
       </div>
@@ -58,4 +65,4 @@
     </div>
 
   </section>
-<?php include_once('layout/adminfooter.inc.php'); ?>
+<?php include_once('views/layout/adminfooter.inc.php'); ?>
