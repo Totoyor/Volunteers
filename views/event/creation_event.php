@@ -7,10 +7,14 @@
                             <h1 class="title-section center bleu"><strong>Ready to find volunteers ?</strong></h1>
                             <hr class="fancy-hr">
                         </div>
-                        <p class="">
-                            Aliqua instituendarum appellat elit singulis. Officia ipsum voluptate a excepteur a
-                            proident, si malis malis varias mandaremus, minim iis admodum ut esse, admodum enim ubi
-                            nostrud comprehenderit.
+                        <p>
+                        <?php if (isset($_SESSION['user_id'])) {
+                                echo "Aliqua instituendarum appellat elit singulis. Officia ipsum voluptate a excepteur a
+                                proident, si malis malis varias mandaremus, minim iis admodum ut esse, admodum enim ubi
+                                nostrud comprehenderit.";
+                            } else {
+                               echo "For save or publish event please log you in";
+                            } ?>
                         </p>
                     </div>
                     <!-----/****FORMS****/---->
@@ -24,10 +28,11 @@
                                             onclick="Materialize.toast('Published', 4000)">Publish
                                     </button>
                                 <?php } else { ?>
-                                    <a name="save" class="btn btn-menu modal-trigger" href="#login">SAVE</a>
+                                   <button type="submit" name="save" class="btn btn-menu" disabled>Save</button>
 
-                                    <a name="submit" href="#login" class="btn btn-orange modal-trigger">Publish
-                                    </a>
+                                    <button type="submit" name="submit" class="btn btn-orange"
+                                            onclick="Materialize.toast('Published', 4000)" disabled>Publish
+                                    </button>
                                 <?php } ?>
                             </div>
                         </div>
@@ -388,12 +393,12 @@
                                             onclick="Materialize.toast('Published', 4000)">Publish
                                     </button>
                                 <?php } else { ?>
-                                    <a name="save" class="btn btn-menu modal-trigger " href="#login"><i
-                                            class="material-icons">save</i>SAVE</a>
+                                    <button name="save" class="btn btn-menu modal-trigger " disabled><i
+                                            class="material-icons">save</i>SAVE</button>
 
-                                    <a name="submit" href="#login" class="btn btn-orange modal-trigger"><i
+                                    <button name="submit" class="btn btn-orange modal-trigger" disabled><i
                                             class="material-icons">publish</i>Publish
-                                    </a>
+                                    </button>
                                 <?php } ?>
                             </div>
                         </div>
@@ -404,18 +409,22 @@
             <div class="col l4 col_fix">
                 <div class="right btn_fix_crea">
                     <?php if (isset($_SESSION['user_id'])) { ?>
-                        <button type="submit" name="save" class="btn btn-menu">Save</button>
-
-                        <button type="submit" name="submit" href="#" class="btn btn-orange"
-                                onclick="Materialize.toast('Published', 4000)">Publish
-                        </button>
-                    <?php } else { ?>
-                        <a data-position="bottom" data-delay="50" data-tooltip="Save" name="save"
+                       <button data-position="bottom" data-delay="50" data-tooltip="Save" name="save"
                            class="btn btn-menu modal-trigger tooltipped" href="#login"><i
-                                class="material-icons secure_btn_crea">save</i></a>
+                                class="material-icons secure_btn_crea">save</i></button>
 
-                        <a name="submit" href="#login" data-position="bottom" data-delay="50" data-tooltip="Publish"
-                           class="btn btn-orange modal-trigger tooltipped"><i class="material-icons">publish</i></a>
+                        <button name="submit" href="#login" data-position="bottom" data-delay="50" data-tooltip="Publish"
+                           class="btn btn-orange modal-trigger tooltipped"><i class="material-icons">publish</i></button>
+                    <?php } else { ?>
+                        <button data-position="bottom" name="save"
+                           class="btn btn-menu modal-trigger" disabled>
+                           <i class="material-icons secure_btn_crea">save</i>
+                        </button>
+
+                        <button name="submit"
+                           class="btn btn-orange modal-trigger" disabled>
+                           <i class="material-icons">publish</i>
+                        </button>
                     <?php } ?>
                 </div>
             </div>

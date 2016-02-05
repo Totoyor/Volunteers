@@ -103,9 +103,9 @@
                 <h5 class="title-list white-text">Company</h5>
                 <ul>
                     <li><a class="grey-text text-lighten-3" href="page/aboutus">About us</a></li>
-                    <li><a class="grey-text text-lighten-3" href="?module=contact">Contact</a></li>
+                    <li><a class="grey-text text-lighten-3" href="contact/home">Contact</a></li>
                     <li><a class="grey-text text-lighten-3" href="blog/home">Blog</a></li>
-                    <li><a class="grey-text text-lighten-3" href="?module=home&action=terms">Terms and privacy</a></li>
+                    <li><a class="grey-text text-lighten-3" href="home/terms">Terms and privacy</a></li>
                 </ul>
             </div>
 
@@ -193,8 +193,6 @@
 <script type="text/javascript" src="assets/js/ajax.search.js"></script>
 <script type="text/javascript" src="assets/js/dropify.js"></script>
 <script type='text/javascript' src='assets/js/notie.js'></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBMeN71krkW93XBiRLbTAbexsjTBmVWhU&signed_in=true&callback=initMap"
-        async defer></script>
 <?php
 // Affichage de la notification
 if(isset($_SESSION['FlashMessage'])) {

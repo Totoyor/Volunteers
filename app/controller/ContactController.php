@@ -37,7 +37,7 @@ class ContactController extends AppController
                 $messageFlash = 'An error occured';
                 $this->coreSetFlashMessage('error', $messageFlash, 5);
                 header('location: home');
-                
+
             }
 
         } else {
