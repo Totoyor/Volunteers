@@ -9,7 +9,7 @@
                      height="100">
             <?php } ?>
             <h2 class="name-profile nospace"><?php if(isset($data['user']['FirstName'])) { echo $data['user']['FirstName']; }  ?></h2>
-            <a href="profile/show">See profile as public</a><br/>
+            <a href="profile/show/<?= $_SESSION['user_id']; ?>">See profile as public</a><br/>
         </div>
     </div>
 </div>

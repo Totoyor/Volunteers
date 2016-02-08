@@ -234,6 +234,53 @@ class ProfileController extends AppController
     public function show()
     {
         define("TITLE_HEAD", "Volunteers | Public Profile");
-        $this->load->view("user/profile_public.php");
+        $idUser = $_GET['id'];
+        $data = array(
+            'infos' => $this->model->getProfile($idUser),
+            'reviews' => $this->model->getReview($idUser)
+        );
+        $this->load->view("user/profile_public.php", $data);
+    }
+
+    public function comment()
+    {
+        $idVolunteer = $_POST['idvolunteer'];
+        $idUser = $_SESSION['user_id'];
+
+        if(isset($_POST['profile_comment']) && !empty($_POST['profile_comment'])) {
+
+            $comment = $_POST['profile_comment'];
+
+            if($this->model->insertComment($idVolunteer, $idUser, $comment)) {
+                $messageFlash = 'Your comment has been published';
+                $this->coreSetFlashMessage('sucess', $messageFlash, 4);
+                header('Location:show/'.$idVolunteer);
+            } else {
+                $messageFlash = 'A problem occured';
+                $this->coreSetFlashMessage('error', $messageFlash, 4);
+                header('Location:show/'.$idVolunteer);
+            }
+
+        } else {
+            header('Location:show/'.$idVolunteer);
+        }
+    }
+
+    public function rate()
+    {
+        $idVolunteer = $_POST['idVolunteer'];
+        $idUser = $_SESSION['user_id'];
+        $rate = $_POST['rate'];
+
+        if($this->model->insertRate($idVolunteer, $idUser, $rate))
+        {
+            $messageFlash = 'Your rate has been sent';
+            $this->coreSetFlashMessage('sucess', $messageFlash, 4);
+            header('Location:show/'.$idVolunteer);
+        } else {
+            $messageFlash = 'A problem occured';
+            $this->coreSetFlashMessage('error', $messageFlash, 4);
+            header('Location:show/'.$idVolunteer);
+        }
     }
 }

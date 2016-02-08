@@ -166,4 +166,67 @@ class ProfileModel extends AppModel
             return false;
         }
     }
+
+    public function insertComment($idVolunteer, $idUser, $comment)
+    {
+        try {
+            $query = $this->connexion->prepare("INSERT INTO vol_users_review
+            (review, vol_event_volunteers_idEventVolunteer, id_user_review) VALUES
+            (:comment, :idVolunteer, :idUser)");
+
+            $query->bindValue(':idVolunteer', $idVolunteer, PDO::PARAM_INT);
+            $query->bindValue(':comment', $comment, PDO::PARAM_STR);
+            $query->bindValue(':idUser', $idUser, PDO::PARAM_INT);
+
+            $query->execute();
+
+            return true;
+
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
+    public function getReview($idVolunteer)
+    {
+        try {
+            $query = $this->connexion->prepare("SELECT * FROM vol_users_review
+            LEFT JOIN vol_users
+            ON vol_users_review.id_user_review = vol_users.idUser
+            WHERE vol_event_volunteers_idEventVolunteer = :idVolunteer");
+
+            $query->bindValue(':idVolunteer', $idVolunteer, PDO::PARAM_INT);
+
+            $query->execute();
+
+            $data = $query->fetchAll(PDO::FETCH_ASSOC);
+
+            $query->closeCursor();
+
+            return $data;
+
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
+    public function insertRate($idVolunteer, $idUser, $rate)
+    {
+        try {
+            $query = $this->connexion->prepare("INSERT INTO vol_users_rating
+            (rating, vol_event_volunteers_idEventVolunteer, id_user_rating) VALUES
+            (:rate, :idVolunteer, :idUser)");
+
+            $query->bindValue(':idVolunteer', $idVolunteer, PDO::PARAM_INT);
+            $query->bindValue(':rate', $rate, PDO::PARAM_STR);
+            $query->bindValue(':idUser', $idUser, PDO::PARAM_INT);
+
+            $query->execute();
+
+            return true;
+
+        } catch (Exception $e) {
+            return false;
+        }
+    }
 }
