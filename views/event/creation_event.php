@@ -1,20 +1,20 @@
 <?php include_once('views/layout/header.inc.php'); ?>
-<form method="post" action="event/create" class="" enctype="multipart/form-data">
-    <div class="row creabody">
-        <div class="page_event col m10 s12 l8">
-            <div class="formulaire_crea col l12">
-                <div class="row">
-                    <div class="center">
-                        <h1 class="title-section center"><strong>Ready to find volunteers ?</strong></h1>
-                        <hr class="fancy-hr">
+    <form method="post" action="event/create" enctype="multipart/form-data">
+        <div class="row creabody">
+            <div class="page_event col m10 s12 l8">
+                <div class="formulaire_crea col l12">
+                    <div class="row">
+                        <div class="center">
+                            <h1 class="title-section center"><strong>Ready to find volunteers ?</strong></h1>
+                            <hr class="fancy-hr">
+                        </div>
+                        <p class="">
+                            Aliqua instituendarum appellat elit singulis. Officia ipsum voluptate a excepteur a proident, si malis malis varias mandaremus, minim iis admodum ut esse, admodum enim ubi nostrud comprehenderit.
+                        </p>
                     </div>
-                    <p class="">
-                        Aliqua instituendarum appellat elit singulis. Officia ipsum voluptate a excepteur a proident, si malis malis varias mandaremus, minim iis admodum ut esse, admodum enim ubi nostrud comprehenderit.
-                    </p>
-                </div>
 
-                <!-----/****FORMS****/---->
-                
+                    <!-----/****FORMS****/---->
+
 
                     <div class="row btn_crea1">
                         <div class="right">
@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="input-field col s12 l12 m12">
-                        <input name="event_name" class="" name="event_name" data-position="right" data-delay="50" data-tooltip="Show me what you've got !" id="" type="text" required>
+                        <input name="event_name" class="" data-position="right" data-delay="50" data-tooltip="Show me what you've got !" id="" type="text" required>
                         <label for="icon_prefix">Event Name</label>
                     </div>
 
@@ -206,53 +206,51 @@
 
                     <div class="row blued tooltipped" data-position="right" data-delay="50" data-tooltip="Did you already create an event on an other site?">
                         <p class="margin_left blued">Add social network</p>
+
                         <div class="secure_hover_picto">
-                            <a  class="fb_click">
+                            <a class="fb_click">
                                 <div class=" event_picto_soc event_fb"></div>
                             </a>
 
-                            
 
                             <a class="ins_click clear">
                                 <div class="event_picto_soc event_ins"></div>
                             </a>
-                            
-                            
-                            
+
+
                             <a class="yout_click">
                                 <div class="event_picto_soc event_yout"></div>
                             </a>
-                            
-                            
-                            
+
+
                             <a class="tw_click">
                                 <div class="event_picto_soc event_tw"></div>
                             </a>
-                            
-                            
+
+
                             <div class="input-field col s12 l12 m12 secure_margin none field_fb">
-                                <input name="event_name" class="" name="event_name" data-position="right" data-delay="50" data-tooltip="Show me what you've got !" id="" type="text" required>
+                                <input class="" name="facebook" data-position="right" data-delay="50" data-tooltip="Show me what you've got !" id="" type="text">
                                 <label for="icon_prefix">Event Facebook url</label>
                             </div>
-                            
+
                             <div class="input-field col s12 l12 m12 secure_margin none field_ins">
-                                <input name="event_name" class="" name="event_name" data-position="right" data-delay="50" data-tooltip="Show me what you've got !" id="" type="text" required>
+                                <input class="" name="instagram" data-position="right" data-delay="50" data-tooltip="Show me what you've got !" id="" type="text">
                                 <label for="icon_prefix">Instagram url</label>
                             </div>
-                            
+
                             <div class="input-field col s12 l12 m12 secure_margin none field_yout">
-                                <input name="event_name" class="" name="event_name" data-position="right" data-delay="50" data-tooltip="Show me what you've got !" id="" type="text" required>
+                                <input class="" name="youtube" data-position="right" data-delay="50" data-tooltip="Show me what you've got !" id="" type="text">
                                 <label for="icon_prefix">Youtube url</label>
                             </div>
-                            
+
                             <div class="input-field col s12 l12 m12 secure_margin none field_tw">
-                                <input name="event_name" class="" name="event_name" data-position="right" data-delay="50" data-tooltip="Show me what you've got !" id="" type="text" required>
+                                <input class="" name="twitter" data-position="right" data-delay="50" data-tooltip="Show me what you've got !" id="" type="text">
                                 <label for="icon_prefix">Twitter url</label>
                             </div>
-                            
-                        </div>
-                    </div>
 
+                        </div>
+
+                    </div>
 
 
 
@@ -350,8 +348,6 @@
 
                     <div class="row btn_crea2">
 
-
-
                         <div class="right">
                             <?php if(isset($_SESSION['user_id'])){ ?>
                                 <button name="save" class="btn btn-menu">SAVE</button>
@@ -367,37 +363,27 @@
                         </div>
 
                     </div>
-
-                
-
+                </div>
+                <!--content-->
             </div>
-            <!--content-->
-        </div>
-        <!-- fin formulaire-->
-        <div class="col l4 col_fix">
+            <!-- fin formulaire-->
+            <div class="col l4 col_fix">
 
+                <div class="right btn_fix_crea">
+                    <?php if(isset($_SESSION['user_id'])){ ?>
+                        <button name="save" class="btn btn-menu">Save</button>
 
+                        <button name="submit" href="#" class="btn btn-orange" onclick="Materialize.toast('Published', 4000)">Publish
+                        </button>
+                        <?php } else { ?>
+                            <a data-position="bottom" data-delay="50" data-tooltip="Save" name="save" class="btn btn-menu modal-trigger tooltipped" href="#login"><i class="material-icons secure_btn_crea">save</i></a>
 
-            <div class="right btn_fix_crea">
-                <?php if(isset($_SESSION['user_id'])){ ?>
-                    <button name="save" class="btn btn-menu">Save</button>
-
-                    <button name="submit" href="#" class="btn btn-orange" onclick="Materialize.toast('Published', 4000)">Publish
-                    </button>
-                    <?php } else { ?>
-                        <a data-position="bottom" data-delay="50" data-tooltip="Save" name="save" class="btn btn-menu modal-trigger tooltipped" href="#login"><i class="material-icons secure_btn_crea">save</i></a>
-
-                        <a name="submit" href="#login" data-position="bottom" data-delay="50" data-tooltip="Publish" class="btn btn-orange modal-trigger tooltipped"><i class="material-icons">publish</i></a>
-                        <?php } ?>
+                            <a name="submit" href="#login" data-position="bottom" data-delay="50" data-tooltip="Publish" class="btn btn-orange modal-trigger tooltipped"><i class="material-icons">publish</i></a>
+                            <?php } ?>
+                </div>
             </div>
-
-
-
-
-
         </div>
-    </div>
     </form>
-                <!--//// END FOM ****/////--->
+    <!--//// END FOM ****/////--->
     <!-- fin page event-->
     <?php include_once('views/layout/footer.inc.php'); ?>

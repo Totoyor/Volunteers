@@ -4,7 +4,7 @@
             <?php if(!empty($data['event']['coverPicture'])) { ?>
                 <img src="assets/img/events/uploads/<?= $data['event']['coverPicture']; ?>" class="event_couv"/>
             <?php } else { ?>
-                <img src="assets/img/couv_default.jpg" class="event_couv"/>
+                <img src="assets/img/couv_par.jpg" class="event_couv"/>
             <?php } ?>
         </div>
         <div class="row" id="secure_row">
