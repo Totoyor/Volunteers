@@ -202,7 +202,7 @@
                                 <?php if (isset($userJoinEvent) && $userJoinEvent == true) { ?>
                                     <button name="submit" type="submit" class="btn btn-orange event_secure_bouton"
                                             disabled>
-                                        You have already volunteered
+                                        You already volunteer
                                     </button>
                                 <?php } else { ?>
                                     <button name="submit" type="submit" class="btn btn-orange event_secure_bouton">
