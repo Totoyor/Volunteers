@@ -7,9 +7,9 @@
                 
                
                 <div class="col l6 m12 s12 center margtop-responsive">
-                	<h1 class="title-section margleft"><strong>ERROR 404</strong></h1>
+                	<h1 class="title-section margleft"><strong>ERROR</strong></h1>
 
-                	<p><b>Please don't do this !</b></br></br> This page doesn't exist, clic on the logo to return on the homepage</p>
+                	<p><b>You not supposed to be here</b></br></br><a href="index.php">Clic here</a></p>
                    
                 </div>
                  <div class="col l6 m12 s12">
