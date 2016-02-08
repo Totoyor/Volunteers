@@ -31,7 +31,7 @@
                                  <i class="material-icons noleft orange-icon">grade</i>
                                  <i class="material-icons noleft">grade</i>
                                  <i class="material-icons noleft">grade</i>
-                                <i class="material-icons noleft">grade</i>
+                                 <i class="material-icons noleft">grade</i>
                             </span>
 
                             <form action="profile/rate" method="post">

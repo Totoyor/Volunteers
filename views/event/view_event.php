@@ -1,7 +1,7 @@
 <?php include_once('views/layout/header.inc.php'); ?>
     <div class="container content-event">
         <div class="row" id="secure_row">
-            <?php if(!empty($data['event']['coverPicture'])) { ?>
+            <?php if (!empty($data['event']['coverPicture'])) { ?>
                 <img src="assets/img/events/uploads/<?= $data['event']['coverPicture']; ?>" class="event_couv"/>
             <?php } else { ?>
                 <img src="assets/img/couv_default.jpg" class="event_couv"/>
@@ -254,7 +254,8 @@
             </div>
         </div>
     </div>
-<script type="text/javascript" src="assets/js/google.map.js"></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAocp77VtGx4z5aZ2v4CTU_ZmljNFMGqX8&callback=initMap"
-        type="text/javascript"></script>
+    <script type="text/javascript" src="assets/js/google.map.js"></script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAocp77VtGx4z5aZ2v4CTU_ZmljNFMGqX8&callback=initMap"
+            type="text/javascript"></script>
 <?php include_once('views/layout/footer.inc.php'); ?>

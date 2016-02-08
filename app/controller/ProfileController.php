@@ -237,7 +237,8 @@ class ProfileController extends AppController
         $idUser = $_GET['id'];
         $data = array(
             'infos' => $this->model->getProfile($idUser),
-            'reviews' => $this->model->getReview($idUser)
+            'reviews' => $this->model->getReview($idUser),
+            'rating' => $this->model->getAverage($idUser)
         );
         $this->load->view("user/profile_public.php", $data);
     }
