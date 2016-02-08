@@ -84,11 +84,11 @@
                                     <?php if(!empty($event['coverPicture'])) { ?>
                                         <img class="responsive-img"
                                          src="assets/img/events/uploads/<?= $event['coverPicture']; ?>"
-                                         alt="image-event">
+                                         alt="<?= $event['nameEvent']; ?>">
                                     <?php } else { ?>
                                         <img class="responsive-img"
                                              src="assets/img/couv_default.jpg"
-                                             alt="image-event">
+                                             alt="<?= $event['nameEvent']; ?>">
                                     <?php } ?>
                                 </div>
                                 <div class="card-content">

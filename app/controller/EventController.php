@@ -1,7 +1,6 @@
 <?php
 
 class EventController extends AppController
-
 {
     protected $_date;
 
@@ -292,7 +291,6 @@ class EventController extends AppController
                             $file = new Upload($_FILES['coverPicture']['name'], $_FILES["coverPicture"]["tmp_name"], 'assets/img/events/uploads/', '');
 
                             if ($file->extControl()) {
-                                if ($file->sizeControl()) {
                                     if ($file->moveFile()) {
                                         if ($file->resizeFile()) {
                                             $coverPicture = $file->setNom();
@@ -302,12 +300,6 @@ class EventController extends AppController
                                             $this->model->insertCoverPicture($lastId, $coverPicture);
                                         }
                                     }
-                                } else {
-                                    $messageFlash = 'Your file is to big';
-                                    $this->coreSetFlashMessage('error', $messageFlash, 3);
-                                    header("location:home?create&event=sizenok");
-                                    exit();
-                                }
                             } else {
                                 $messageFlash = 'The file extension isn\'t ok';
                                 $this->coreSetFlashMessage('error', $messageFlash, 3);
@@ -402,18 +394,36 @@ class EventController extends AppController
 
     public function show()
     {
-        define("TITLE_HEAD", "Event Name | Volunteers");
-        // Chargement de la vue
-        $id = $_GET['id'];
-        $data = array(
-            'event' => $this->model->getEvent($id),
-            'missions' => $this->model->getMissions($id),
-            'nbVolunteer' => $this->model->getNbVolunteers($id),
-            'medias' => $this->model->getMedias($id),
-            'volunteers' => $this->model->getVolunteers($id),
-            'questions' => $this->model->getQuestions($id)
-        );
-        $this->load->view('event/view_event.php', $data);
+        if(isset($_GET['id']))
+        {
+            $id = $_GET['id'];
+            $data = array(
+                'event' => $this->model->getEvent($id),
+                'missions' => $this->model->getMissions($id),
+                'nbVolunteer' => $this->model->getNbVolunteers($id),
+                'medias' => $this->model->getMedias($id),
+                'volunteers' => $this->model->getVolunteers($id),
+                'questions' => $this->model->getQuestions($id)
+            );
+            if($data != null)
+            {
+                // Chargement de la vue
+                define("TITLE_HEAD", "Event Name | Volunteers");
+                $this->load->view('event/view_event.php', $data);
+            }
+            else
+            {
+                // Pas de data -> error
+                define("TITLE_HEAD", "Error | Volunteers");
+                $this->load->view('view_error.php');
+            }
+        }
+        else
+        {
+            // Pas d'id -> error
+            define("TITLE_HEAD", "Error | Volunteers");
+            $this->load->view('view_error.php');
+        }
     }
 
     public function search()
@@ -488,18 +498,30 @@ class EventController extends AppController
 
     public function sort()
     {
-        if (!empty($_POST['category']) || !empty($_POST['sortDate'])) {
+        if (!empty($_POST['category']) || !empty($_POST['sortDate']) || isset($_GET['message'])) {
 
             if (!empty($_POST['category'])) {
                 $category = $_POST['category'];
-            } else {
+            }
+            elseif(isset($_GET['message'])) {
+
+                $category = $_GET['message'];
+            }
+            else {
                 $category = '';
             }
+            if(isset($_POST['sortDate']))
+            {
+                $post = $_POST['sortDate'];
+                $search = array(',');
+                $replace = array('.');
+                $date = str_replace($search, $replace, $post);
+            }
+            else
+            {
+                $date = '';
+            }
 
-            $post = $_POST['sortDate'];
-            $search = array(',');
-            $replace = array('.');
-            $date = str_replace($search, $replace, $post);
 
             if ($this->model->sortEvents($category, $date)) {
                 define("TITLE_HEAD", "List of events | Volunteers");

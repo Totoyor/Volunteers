@@ -50,7 +50,7 @@
         <div class="nav-wrapper">
             <a href="?" class="brand-logo"><img src="assets/img/logo_volonteers3.svg" alt="logo" class="logo_svg"></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a class="btn btn-menu secure_btn_menu" href="event/home">Create event</a></li>
+                <li><a id="create-event" class="btn btn-menu" href="event/home">Create event</a></li>
                   <?php if(isset($_SESSION['user_email']) || isset($_COOKIE['fbsr_941553679268599'])) { ?>
                       <li><a href="event/lists">Events</a></li>
                       <li><a href="profile/dashboard">My Profile</a></li>
@@ -95,6 +95,7 @@
             <form class="login-form" action="?module=user&action=connect" method="post">
                 <div class="row">
                     <div class="input-field col s12">
+                        <i class="material-icons prefix">email</i>
                         <input placeholder="Email" id="email" type="email" class="validate" name="email"
                                required="required" value="<?php if(isset($_COOKIE['EmailUserVolunteers'])) { echo $_COOKIE['EmailUserVolunteers']; } ?>">
                         <label for="email" class="center-align"></label>
@@ -103,6 +104,7 @@
 
                 <div class="row">
                     <div class="input-field col s12">
+                        <i class="material-icons prefix">https</i>
                         <input placeholder="Password" id="password" type="password" name="password" required="required">
                         <label for="password" class="center-align"></label>
                     </div>
@@ -127,7 +129,7 @@
                         <p class="medium-small"><a class="modal-trigger" href="#signup">Register now!</a></p>
                     </div>
                     <div class="input-field col s6 m6 l6">
-                        <p class="margin right-align medium-small"><a href="?module=password">Forgot password
+                        <p class="right-align medium-small"><a href="?module=password">Forgot password
                                 ?</a></p>
                     </div>
                 </div>
@@ -156,6 +158,7 @@
 
                 <div class="row">
                     <div class="input-field col s12">
+                        <i class="material-icons prefix">email</i>
                         <input placeholder="Your Email" id="email" type="email" class="validate" name="email"
                                required="required">
                         <label for="email" class="center-align"></label>
@@ -164,6 +167,7 @@
 
                 <div class="row">
                     <div class="input-field col s12">
+                        <i class="material-icons prefix">https</i>
                         <input placeholder="Your Password" id="password" type="password" name="password"
                                required="required">
                         <label for="password" class="center-align"></label>

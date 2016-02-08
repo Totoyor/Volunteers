@@ -6,4 +6,6 @@
     display: none;
 }
 
-
+textarea {
+    height: 13rem;
+}

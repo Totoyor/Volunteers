@@ -3,7 +3,7 @@
     <div class="page-content">
         <div class="row">
             <div class="col l12">
-                <h1 class="title-section">They volunteer at this event</h1>
+                <h1 class="title-section">Volunteers for this event</h1>
             </div>
         </div>
         <div class="row">
@@ -12,7 +12,7 @@
                     <table class="striped responsive-table table-missions">
                         <thead>
                         <tr>
-                            <th>To hire</th>
+                            <th>Hire</th>
                             <th>Name</th>
                             <th>Mail</th>
                             <th data-field="name">Rating</th>
@@ -44,7 +44,7 @@
                             <?php endforeach; ?>
                         <?php } else { ?>
                             <tr>
-                                <td>0 Volunteer participate to your event</td>
+                                <td>0 Volunteer participating in your event</td>
                             </tr>
                         <?php } ?>
                         </tbody>
