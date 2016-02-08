@@ -127,8 +127,8 @@ Class EventModel extends AppModel
             LEFT JOIN vol_users
             ON vol_events.vol_users_idUser = vol_users.idUser
             WHERE vol_events.idEvent = :id
-            AND vol_events.vol_event_status_idEventStatus = :status
-            OR vol_events.vol_event_status_idEventStatus = :premium
+            AND (vol_events.vol_event_status_idEventStatus = :status
+            OR vol_events.vol_event_status_idEventStatus = :premium)
             GROUP BY idEvent
             ");
 
@@ -142,6 +142,7 @@ Class EventModel extends AppModel
             return $data;
 
         } catch (Exception $e) {
+            die($e);
             return false;
         }
     }

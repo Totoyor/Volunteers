@@ -20,14 +20,11 @@
                     <li>
                         <div class="collapsible-header"><i class="material-icons">place</i>
                             <?= $data['event']['locationEvent']; ?>
+                            <input type="hidden" id="adress" value="<?= $data['event']['locationEvent']; ?>">
                             <span class="reply right">View map</span>
                         </div>
-                        <div class="collapsible-body" onload="//initMap()">
+                        <div class="collapsible-body" onload="initMap()">
                             <div>
-                                <!--<iframe class="map"
-                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24190.47771857847!2d-73.97530616228735!3d40.72220524493002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25942c97aa1ed%3A0xf3f544c180838fa2!2sOutput!5e0!3m2!1sfr!2sfr!4v1453205040900"
-                                        width="96%" height="300" frameborder="0" style="border:0"
-                                        allowfullscreen></iframe>-->
                                 <div id="map" style="width: 96%; height: 300px;">
 
                                 </div>
@@ -205,7 +202,7 @@
                                 <?php if (isset($userJoinEvent) && $userJoinEvent == true) { ?>
                                     <button name="submit" type="submit" class="btn btn-orange event_secure_bouton"
                                             disabled>
-                                        You have already volunteered
+                                        You already volunteer
                                     </button>
                                 <?php } else { ?>
                                     <button name="submit" type="submit" class="btn btn-orange event_secure_bouton">
@@ -257,4 +254,7 @@
             </div>
         </div>
     </div>
+<script type="text/javascript" src="assets/js/google.map.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAocp77VtGx4z5aZ2v4CTU_ZmljNFMGqX8&callback=initMap"
+        type="text/javascript"></script>
 <?php include_once('views/layout/footer.inc.php'); ?>
