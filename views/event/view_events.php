@@ -99,7 +99,7 @@
                                         , <?= $event['startEvent']; ?></h6>
                                 </div>
                                 <div class="card-action">
-                                    <a class="card-categorie" href="#"><?= $event['nameCategorie']; ?></a>
+                                    <a class="card-categorie" href="event/sort/<?= $event['idCategorie']; ?>/<?= strtolower($event['nameCategorie']); ?>"><?= $event['nameCategorie']; ?></a>
                                     <a class="viewmore btn btn-blue" href="event/show/<?= $event['idEvent']; ?>">See
                                         more</a>
                                 </div>
@@ -126,7 +126,7 @@
                 <h6 class="truncate location-cards"><?= $event['locationEvent']; ?>, <?= $event['startEvent']; ?></h6>
             </div>
             <div class="card-action">
-                <a class="card-categorie" href="#"><?= $event['nameCategorie']; ?></a>
+                <a class="card-categorie" href="event/sort/<?= $event['idCategorie']; ?>/<?= strtolower($event['nameCategorie']); ?>"><?= $event['nameCategorie']; ?></a>
                 <a class="viewmore btn btn-blue" href="event/show/<?= $event['idEvent']; ?>">See more</a>
             </div>
         </div>
