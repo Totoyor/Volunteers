@@ -7,6 +7,7 @@
                 <img src="assets/img/couv_default.jpg" class="event_couv"/>
             <?php } ?>
         </div>
+        <div><?= var_dump($data); ?></div>
         <div class="row" id="secure_row">
             <div class="col s12 m8 event_maincontent">
                 <h1 class="center event_title left event_apog"><?= $data['event']['nameEvent']; ?></h1>
@@ -234,18 +235,30 @@
 
                 <div class="clear blued encar">
                     <div class="secure_hover_picto">
-                        <a href="#">
-                            <div class="event_picto_soc event_fb"></div>
-                        </a>
-                        <a href="#">
-                            <div class="event_picto_soc event_ins"></div>
-                        </a>
-                        <a href="#">
-                            <div class="event_picto_soc event_yout"></div>
-                        </a>
-                        <a href="#">
-                            <div class="event_picto_soc event_tw"></div>
-                        </a>
+                        <?php if($data['event']['facebookEvent'] !== null) { ?>
+                            <a href="<?= $data['event']['facebookEvent']; ?>">
+                                <div class="event_picto_soc event_fb"></div>
+                            </a>
+                        <?php } ?>
+
+                        <?php if($data['event']['instagramEvent'] !== null) { ?>
+                            <a href="<?= $data['event']['instagramEvent']; ?>">
+                                <div class="event_picto_soc event_ins"></div>
+                            </a>
+                        <?php } ?>
+
+                        <?php if($data['event']['youtubeEvent'] !== null) { ?>
+                            <a href="<?= $data['event']['youtubeEvent']; ?>">
+                                <div class="event_picto_soc event_yout"></div>
+                            </a>
+                        <?php } ?>
+
+                        <?php if($data['event']['twitterEvent'] !== null) { ?>
+                            <a href="<?= $data['event']['twitterEvent']; ?>">
+                                <div class="event_picto_soc event_tw"></div>
+                            </a>
+                        <?php } ?>
+
                         <a href="#">
                             <div class="event_picto_soc"></div>
                         </a>

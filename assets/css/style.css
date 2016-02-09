@@ -43,7 +43,7 @@ nav ul li a:hover {
 
 .big-img {
     height: 85vh;
-    background-image: url(../../assets/img/vol-dark.jpg);
+    background-image: url(../../assets/img/couv_par.jpg);
     background-position: center;
     background-size: cover;
 }
@@ -2161,6 +2161,21 @@ input[type=range] + .thumb {
     color: #fb8c00;
 }
 
+/*****************/
+
+.content-validate {
+    margin-top: 80px !important;
+}
+
+.logo_validate {
+    height: 80px;
+}
+
+.validate_green {
+    color: limegreen;
+    font-size: 1.2em;
+}
+    
 .bg-about{
   margin-top:64px;
   top:0;
@@ -2229,6 +2244,7 @@ input[type=range] + .thumb {
     box-sizing: border-box;
     background-color:#FFF;
     }
+
 .form-contact input[type="text"]:focus {
     border-color:#5498D4;
     box-shadow: none;

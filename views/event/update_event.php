@@ -4,7 +4,8 @@
             <div class="formulaire_crea col l12">
                 <div class="row">
                     <div class="center">
-                        <h1 class="title-section center bleu">Edit your event</h1>
+                        <h1 class="title-section center bleu"><strong>edit your event</strong></h1>
+                        <hr class="fancy-hr">
                     </div>
                     <p class="">
                         Aliqua instituendarum appellat elit singulis. Officia ipsum voluptate a
@@ -54,7 +55,8 @@
                                required>
                         <label for="icon_prefix">Event Name</label>
                     </div>
-                    <input type="hidden" name="idEvent" value="<?= $data['event']['idEvent']; ?>" />
+                    <input type="hidden" name="idEvent" value="<?= $data['event']['idEvent']; ?>"/>
+
                     <div class="row">
                         <div class="input-field col s12 col l12 m12">
 
@@ -156,7 +158,8 @@
                         <?php if (!empty($data['event']['hourStartEvent'])) { ?>
                             <div class="input-field col s4 m2">
                                 <input type="text" value="<?= $data['event']['hourStartEvent'] ?>" disabled>
-                                <input type="hidden" name="hourStartSave" value="<?= $data['event']['hourStartEvent'] ?>">
+                                <input type="hidden" name="hourStartSave"
+                                       value="<?= $data['event']['hourStartEvent'] ?>">
                             </div>
                         <?php } ?>
                     </div>
@@ -250,6 +253,82 @@
                             </div>
                         <?php } ?>
                     </div>
+
+                    <div class="row blued tooltipped" data-position="right" data-delay="50"
+                         data-tooltip="Did you already create an event on an other site?">
+                        <p class="margin_left blued">Add social network</p>
+
+                        <div class="secure_hover_picto">
+                            <a class="fb_click">
+                                <div class=" event_picto_soc event_fb"></div>
+                            </a>
+
+                            <a class="ins_click clear">
+                                <div class="event_picto_soc event_ins"></div>
+                            </a>
+
+                            <a class="yout_click">
+                                <div class="event_picto_soc event_yout"></div>
+                            </a>
+
+                            <a class="tw_click">
+                                <div class="event_picto_soc event_tw"></div>
+                            </a>
+
+                            <div class="input-field col s12 l12 m12 secure_margin none field_fb">
+                                <input name="facebook"
+                                       type="text"
+                                       value="<?php if (!empty($data['event']['facebookEvent'])) {
+                                            echo $data['event']['facebookEvent'];
+                                        } ?>">
+                                <label for="facebook">Event Facebook url</label>
+                            </div>
+
+                            <div class="input-field col s12 l12 m12 secure_margin none field_ins">
+                                <input name="instagram"
+                                       type="text"
+                                       value="<?php if (!empty($data['event']['instagramEvent'])) {
+                                           echo $data['event']['instagramEvent'];
+                                       } ?>">
+                                <label for="instagram">Instagram url</label>
+                            </div>
+
+                            <div class="input-field col s12 l12 m12 secure_margin none field_yout">
+                                <input name="youtube"
+                                       type="text"
+                                       value="<?php if (!empty($data['event']['youtubeEvent'])) {
+                                           echo $data['event']['youtubeEvent'];
+                                       } ?>">
+                                <label for="youtube">Youtube url</label>
+                            </div>
+
+                            <div class="input-field col s12 l12 m12 secure_margin none field_tw">
+                                <input name="twitter"
+                                       type="text"
+                                       value="<?php if (!empty($data['event']['twitterEvent'])) {
+                                           echo $data['event']['twitterEvent'];
+                                       } ?>">
+                                <label for="twitter">Twitter url</label>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="more_margin"></div>
+
+                    <div class="row">
+                        <div class="separateur_form valign-wrapper col l12 m12 s12">
+                            <div class="bullet_point">
+                                <p class="num_bullet_point">2</p>
+                            </div>
+                            <div>
+                                <h3 class="text_separteur">Let's embellish your event</h3>
+                            </div>
+
+                        </div>
+                    </div>
+
                     <div class="row">
                         <div class="input-field col s12 l12 m12">
                             <input name="coverPicture"
@@ -275,7 +354,7 @@
                     </div>
                     <div class="row">
 
-                        <?php for($i=0; $i<4; $i++){ ?>
+                        <?php for ($i = 0; $i < 4; $i++) { ?>
                             <div class="input-field col s3">
 
                                 <input name="media[]"
@@ -283,13 +362,14 @@
                                        id="input-file-now"
                                        data-height="90"
                                        class="dropify"
-                                       <?php if(!empty($data['medias'][$i]['eventPicture'])) { ?>
-                                            data-default-file="assets/img/events/uploads/<?= $data['medias'][$i]['eventPicture']; ?>" />
-                                       <?php } ?>
+                                    <?php if (!empty($data['medias'][$i]['eventPicture'])) { ?>
+                                       data-default-file="assets/img/events/uploads/<?= $data['medias'][$i]['eventPicture']; ?>"/>
+                                <?php } ?>
 
-                                <input type="hidden" name="mediasSave[]" value="<?php if(!empty($data['medias'][$i])) { ?>
+                                <input type="hidden" name="mediasSave[]"
+                                       value="<?php if (!empty($data['medias'][$i])) { ?>
                                     <?= $data['medias'][$i]['eventPicture']; ?>
-                                <?php } ?>" />
+                                <?php } ?>"/>
 
                             </div>
                         <?php } ?>
@@ -308,22 +388,24 @@
                       </div>-->
                     </div>
                     <!----II-2----->
+                    <div class="more_margin"></div>
                     <div class="row">
                         <div class="separateur_form valign-wrapper col l12 m12 s12">
                             <div class="bullet_point">
-                                <p class="num_bullet_point">2</p>
+                                <p class="num_bullet_point">3</p>
                             </div>
                             <div>
                                 <h3 class="text_separteur">Volunteers needed !</h3>
                             </div>
                         </div>
                     </div>
-                    <?php if(!empty($data['missions'])) { ?>
+                    <?php if (!empty($data['missions'])) { ?>
                         <?php foreach ($data['missions'] as $mission): ?>
                             <div id="first-mission-field" class="top-space tooltipped"
                                  data-delay="50" data-position="right"
                                  data-tooltip="What kind of missions for your volunteers?">
                                 <div class="input-field col s9 secure-mission">
+                                    <i class="material-icons prefix">perm_identity</i>
                                     <input name="missionsSave[]"
                                            id="icon_prefix"
                                            placeholder="Barman"
@@ -351,7 +433,9 @@
                              data-delay="50" data-position="right"
                              data-tooltip="What kind of missions for your volunteers?">
                             <div class="input-field col s9 secure-mission">
-                                <input name="missions[]" id="icon_prefix" placeholder="Barman" type="text" class="validate">
+                                <i class="material-icons prefix">perm_identity</i>
+                                <input name="missions[]" id="icon_prefix" placeholder="Barman" type="text"
+                                       class="validate">
                                 <label for="icon_prefix">Mission</label>
                             </div>
                             <div class="input-field col s3 secure_nb_vol">
@@ -365,6 +449,7 @@
                     <div id="mission-field" class="tooltipped mission hide" data-position="right" data-delay="50"
                          data-tooltip="What kind of missions for your volunteers?">
                         <div class="input-field col s9 secure-mission">
+                            <i class="material-icons prefix">perm_identity</i>
                             <input name="missions[]" id="icon_prefix" placeholder="Barman" type="text" class="validate">
                             <label for="icon_prefix">Mission</label>
                         </div>

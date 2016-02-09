@@ -146,33 +146,35 @@
                         <div class="col s12">
                             <h4 class="space1">Comments</h4>
                         </div>
-                        <?php foreach ($data['reviews'] as $review): ?>
-                            <div class="row">
-                                <div class="col s12 l2 m12 center">
-                                    <img src="assets/img/square_face.png" height="75" width="75" alt=""
-                                         class="img-comment circle responsive-img"> <!-- notice the "circle" class -->
-                                    <p class="center name-comment">
-                                        <?php if ($review['FirstName'] !== null) {
-                                            echo $review['FirstName'];
-                                        } else {
-                                            echo "Volunteer";
-                                        } ?>
-                                    </p>
-                                </div>
-                                <div class="col s12 l10 m12">
-                                  <span class="grey-text">
-                                      <?= $review['review']; ?>
-                                      <!--<p class="date-comment">January 19 2015</p>-->
-                                  </span>
+                        <?php if(isset($data['reviews'])): ?>
+                            <?php foreach ($data['reviews'] as $review): ?>
+                                <div class="row">
+                                    <div class="col s12 l2 m12 center">
+                                        <img src="assets/img/square_face.png" height="75" width="75" alt=""
+                                             class="img-comment circle responsive-img"> <!-- notice the "circle" class -->
+                                        <p class="center name-comment">
+                                            <?php if ($review['FirstName'] !== null) {
+                                                echo $review['FirstName'];
+                                            } else {
+                                                echo "Volunteer";
+                                            } ?>
+                                        </p>
+                                    </div>
+                                    <div class="col s12 l10 m12">
+                                      <span class="grey-text">
+                                          <?= $review['review']; ?>
+                                          <!--<p class="date-comment">January 19 2015</p>-->
+                                      </span>
 
-                                    <div class="row">
-                                        <div class="col s12">
-                                            <hr class="fancy-hr2">
+                                        <div class="row">
+                                            <div class="col s12">
+                                                <hr class="fancy-hr2">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        <?php endforeach; ?>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                         <div class="col s12 l2 m12 center padding4">
                             <img src="assets/img/square_face.png" height="75" width="75" alt=""
                                  class="img-comment circle responsive-img"><!-- notice the "circle" class -->
