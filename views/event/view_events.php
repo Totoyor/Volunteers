@@ -81,6 +81,7 @@
                         <div id="divList" class="col s12 m6 l4">
                             <div class="card small event popevent left">
                                 <div class="card-image">
+                                    <a href="event/show/<?= $event['idEvent']; ?>">
                                     <?php if(!empty($event['coverPicture'])) { ?>
                                         <img class="responsive-img"
                                          src="assets/img/events/uploads/<?= $event['coverPicture']; ?>"
@@ -90,9 +91,10 @@
                                              src="assets/img/couv_default.jpg"
                                              alt="<?= $event['nameEvent']; ?>">
                                     <?php } ?>
+                                    </a>
                                 </div>
                                 <div class="card-content">
-                                    <h4 class="titre-cards truncate"><?= $event['nameEvent']; ?></h4>
+                                    <a href="event/show/<?= $event['idEvent']; ?>"><h4 class="titre-cards truncate"><?= $event['nameEvent']; ?></h4></a>
                                     <h6 class="truncate location-cards"><?= $event['locationEvent']; ?>
                                         , <?= $event['startEvent']; ?></h6>
                                 </div>
@@ -109,15 +111,18 @@
         </div>
     </div>
 </div><!-- fin container-->
+
 <?php if (!empty($data)): ?>
     <div class="bloc_search col s12 m6 l4">
         <div class="card small event popevent left">
             <div class="card-image">
+                <a href="event/show/<?= $event['idEvent']; ?>">
                 <img class="responsive-img" src="assets/img/events/uploads/<?= $event['coverPicture']; ?>"
                      alt="image-event">
+                </a>
             </div>
             <div class="card-content">
-                <h4 class="titre-cards truncate"><?= $event['nameEvent']; ?></h4>
+                <a href="event/show/<?= $event['idEvent']; ?>"><h4 class="titre-cards truncate"><?= $event['nameEvent']; ?></h4></a>
                 <h6 class="truncate location-cards"><?= $event['locationEvent']; ?>, <?= $event['startEvent']; ?></h6>
             </div>
             <div class="card-action">
