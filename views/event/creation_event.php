@@ -23,16 +23,10 @@
                             <div class="right">
                                 <?php if (isset($_SESSION['user_id'])) { ?>
                                     <button type="submit" name="save" class="btn btn-menu">Save</button>
-
-                                    <button type="submit" name="submit" class="btn btn-orange"
-                                            onclick="Materialize.toast('Published', 4000)">Publish
-                                    </button>
+                                    <button type="submit" name="submit" class="btn btn-orange">Publish</button>
                                 <?php } else { ?>
                                    <button type="submit" name="save" class="btn btn-menu" disabled>Save</button>
-
-                                    <button type="submit" name="submit" class="btn btn-orange"
-                                            onclick="Materialize.toast('Published', 4000)" disabled>Publish
-                                    </button>
+                                    <button type="submit" name="submit" class="btn btn-orange" disabled>Publish</button>
                                 <?php } ?>
                             </div>
                         </div>
@@ -390,17 +384,10 @@
                             <div class="right">
                                 <?php if (isset($_SESSION['user_id'])) { ?>
                                     <button type="submit" name="save" class="btn btn-menu">Save</button>
-
-                                    <button type="submit" name="submit" class="btn btn-orange"
-                                            onclick="Materialize.toast('Published', 4000)">Publish
-                                    </button>
+                                    <button type="submit" name="submit" class="btn btn-orange">Publish</button>
                                 <?php } else { ?>
-                                    <button name="save" class="btn btn-menu modal-trigger " disabled><i
-                                            class="material-icons">save</i>SAVE</button>
-
-                                    <button name="submit" class="btn btn-orange modal-trigger" disabled><i
-                                            class="material-icons">publish</i>Publish
-                                    </button>
+                                    <button name="save" class="btn btn-menu modal-trigger " disabled><i class="material-icons">save</i>SAVE</button>
+                                    <button name="submit" class="btn btn-orange modal-trigger" disabled><i class="material-icons">publish</i>Publish</button>
                                 <?php } ?>
                             </div>
                         </div>
@@ -412,8 +399,7 @@
                 <div class="right btn_fix_crea">
                     <?php if (isset($_SESSION['user_id'])) { ?>
                        <button data-position="bottom" data-delay="50" data-tooltip="Save" name="save"
-                           class="btn btn-menu modal-trigger tooltipped" href="#login"><i
-                                class="material-icons secure_btn_crea">save</i></button>
+                           class="btn btn-menu modal-trigger tooltipped" href="#login"><i class="material-icons secure_btn_crea">save</i></button>
 
                         <button name="submit" href="#login" data-position="bottom" data-delay="50" data-tooltip="Publish"
                            class="btn btn-orange modal-trigger tooltipped"><i class="material-icons">publish</i></button>
