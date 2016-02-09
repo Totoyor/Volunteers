@@ -6,8 +6,12 @@
                 <div class="card">
                     <div class="card panel colbgpublic noborder center">
                         <div class="panel-text">
-                            <img class="resposive-img circle" src="assets/img/square_face.png">
-
+                            <?php if (isset($data['infos']['Picture'])) { ?>
+                                <img class="circle" src="assets/img/user_pp/<?php echo $data['infos']['Picture']; ?>" width="100"
+                                     height="100">
+                            <?php } else { ?>
+                                <img class="circle" src="assets/img/square_face.png">
+                            <?php } ?>
                             <h2 class="name-profile white-text nospace">
                                 <?php if ($data['infos']['FirstName'] !== null) {
                                     echo $data['infos']['FirstName'];
@@ -15,14 +19,6 @@
                                     echo "volunteer";
                                 } ?>
                             </h2>
-
-                            <p class="white-text">
-                                <?php if ($data['infos']['Description'] !== null) {
-                                    echo $data['infos']['Description'];
-                                } else {
-                                    echo "No description yet.";
-                                } ?>
-                            </p>
 
                             <p class="white-text">Rating :</p>
                             <span class="stars">
@@ -41,7 +37,7 @@
                                 <input type="hidden" name="idVolunteer" value="<?= $data['infos']['idUser']; ?>">
                                 <button type="submit"
                                         class="dropdown-button btn btn-orange fullwidth space2">
-                                    Rate Salim
+                                    Rate <?= $data['infos']['FirstName'] ?>
                                 </button>
                             </form>
                         </div>
@@ -49,7 +45,7 @@
                 </div>
                 <div class="card panel">
                     <div class="panel-header">
-                        Information
+                        Informations
 
                         <?php
                         $dateRegister = date("F j, Y", strtotime($data['infos']['DateRegister']));
@@ -128,18 +124,22 @@
                     </ul>
                 </div>
                 <div class="card panel panel-text" id="test1">
-                    <h4 class="nospace">Hello, I am Salim</h4>
-
-                    <p>I love to surf, I'm a student from Slovenia living in Portugal :)</p>
-
-                    <p>Life motto: "Follow your bliss!"</p>
-
-                    <p>Why Volunteers?
-                        It has all started 3 years ago, when I had a neck injury living in Lisbon and it was firstly
-                        said, that I could spend my entire life on the wheelchair.
-                        8 months of painful recovery has given me enough time to rethink life ambitions and goals.
-                        When I got back "on my feet", I have realized, that there is a
-                        profound wish to share happiness and "easy-going surf lifestyle" with others. </p>
+                    <h4 class="nospace">Description</h4>
+                    <p>
+                        <?php if ($data['infos']['Description'] !== null) {
+                            echo $data['infos']['Description'];
+                        } else {
+                            echo "No description yet.";
+                        } ?>
+                    </p>
+                    <h4 class="nospace">Skills</h4>
+                    <p>
+                        <?php if ($data['infos']['Skills'] !== null) {
+                            echo $data['infos']['Skills'];
+                        } else {
+                            echo "No skills yet.";
+                        } ?>
+                    </p>
                 </div>
                 <div class="card panel panel-text" id="test2">
                     <div class="row">
@@ -174,10 +174,14 @@
                             </div>
                         <?php endforeach; ?>
                         <div class="col s12 l2 m12 center padding4">
-                            <img src="assets/img/square_face.png" height="75" width="75" alt=""
-                                 class="img-comment circle responsive-img"><!-- notice the "circle" class -->
+                            <?php if (isset($data['infos']['Picture'])) { ?>
+                                <img class="circle" src="assets/img/user_pp/<?php echo $data['infos']['Picture']; ?>" width="100"
+                                     height="100">
+                            <?php } else { ?>
+                                <img class="circle" src="assets/img/square_face.png">
+                            <?php } ?>
 
-                            <p class="center name-comment">Johnny</p>
+                            <p class="center name-comment"><?= $data['infos']['FirstName'] ?></p>
                         </div>
                         <div class="col s12 l10 m12">
                             <form method="post" action="profile/comment">
