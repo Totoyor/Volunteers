@@ -3,53 +3,50 @@
     <div class="page-content">
         <div class="row margtop100">
             <div class="col l3 m12 s12 nopadding">
-                <div class="card">
-                    <div class="card panel colbgpublic noborder center">
-                        <div class="panel-text">
+                <div class="card panel colbgpublic noborder center">
+                    <div class="panel-text">
+                        <?php if($data['infos']['Picture'] !== null) { ?>
+                            <img height="100" class="circle" src="assets/img/user_pp/<?= $data['infos']['Picture']; ?>">
+                        <?php } else { ?>
+                            <img class="circle" src="assets/img/square_face.png">
+                        <?php } ?>
 
-                            <?php if($data['infos']['Picture'] !== null) { ?>
-                                <img height="100" class="circle" src="assets/img/user_pp/<?= $data['infos']['Picture']; ?>">
-                            <?php } else { ?>
-                                <img class="circle" src="assets/img/square_face.png">
-                            <?php } ?>
+                        <h2 class="name-profile white-text nospace">
+                            <?php if ($data['infos']['FirstName'] !== null) {
+                                echo $data['infos']['FirstName'];
+                            } else {
+                                echo "volunteer";
+                            } ?>
+                        </h2>
 
-                            <h2 class="name-profile white-text nospace">
-                                <?php if ($data['infos']['FirstName'] !== null) {
-                                    echo $data['infos']['FirstName'];
-                                } else {
-                                    echo "volunteer";
-                                } ?>
-                            </h2>
+                        <p class="white-text">Rating :</p>
+                        <span class="stars">
+                             <i class="material-icons noleft orange-icon">grade</i>
+                             <i class="material-icons noleft orange-icon">grade</i>
+                             <i class="material-icons noleft orange-icon">grade</i>
+                             <i class="material-icons noleft">grade</i>
+                             <i class="material-icons noleft">grade</i>
+                             <i class="material-icons noleft">grade</i>
+                        </span>
 
-                            <p class="white-text">Rating :</p>
-                            <span class="stars">
-                                 <i class="material-icons noleft orange-icon">grade</i>
-                                 <i class="material-icons noleft orange-icon">grade</i>
-                                 <i class="material-icons noleft orange-icon">grade</i>
-                                 <i class="material-icons noleft">grade</i>
-                                 <i class="material-icons noleft">grade</i>
-                                 <i class="material-icons noleft">grade</i>
-                            </span>
-
-                            <form action="profile/rate" method="post">
-                                <p class="range-field">
-                                    <input name="rate" type="range" id="test5" min="1" max="6"/>
-                                </p>
-                                <input type="hidden" name="idVolunteer" value="<?= $data['infos']['idUser']; ?>">
-                                <?php if($_SESSION['user_id'] == $data['infos']['idUser']) { ?>
-                                    <button type="submit"
-                                        class="dropdown-button btn btn-orange fullwidth space2" disabled>
-                                        Rate
-                                    </button>
-                                <?php } else { ?>
-                                    <button type="submit"
-                                        class="dropdown-button btn btn-orange fullwidth space2">
-
-                                    Rate <?= $data['infos']['FirstName'] ?>
+                        <form action="profile/rate" method="post">
+                            <p class="range-field">
+                                <input name="rate" type="range" id="test5" min="1" max="6"/>
+                            </p>
+                            <input type="hidden" name="idVolunteer" value="<?= $data['infos']['idUser']; ?>">
+                            <?php if($_SESSION['user_id'] == $data['infos']['idUser']) { ?>
+                                <button type="submit"
+                                    class="dropdown-button btn btn-orange fullwidth space2" disabled>
+                                    Rate
                                 </button>
+                            <?php } else { ?>
+                                <button type="submit"
+                                    class="dropdown-button btn btn-orange fullwidth space2">
 
-                            </form>
-                        </div>
+                                Rate <?= $data['infos']['FirstName'] ?>
+                            </button>
+                            <?php } ?>
+                        </form>
                     </div>
                 </div>
                 <div class="card panel">

@@ -474,6 +474,7 @@ class AdminController extends AppController
             exit();
         }
     }
+
     public function createEvent()
     {
         if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
@@ -528,13 +529,14 @@ class AdminController extends AppController
     public function deleteEvent()
     {
         if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
-            define("TITLE_HEAD", "user Status | Volunteers Admin");
-            $this->model->deleteEvent($_GET['id']);
 
+
+            $this->model->deleteEvent($_GET['id']);
             // Message de confirmation et redirection
             $messageFlash = 'Done ! The information has been deleted !';
             $this->coreSetFlashMessage('success', $messageFlash, 4);
-            $this->load->view('admin/dashboard.php');
+            //define("TITLE_HEAD", "user Status | Volunteers Admin");
+            header("location:".PATH_HOME."admin/eventlist");
             exit();
             // Chargement de la vue
         } else {
@@ -686,43 +688,18 @@ class AdminController extends AppController
 
                     if($this->model->inscriptionUser($this->_login, $this->_password, $this->_status, $this->_userKey))
                     {
-                        // Envoi du mail de confirmation
-                        try
-                        {
-                            // Instanciation
-                            $mail = new Mail('contact@volunteers.com', 'Team Volunteers', 'contact@volunteers.com');
-
-                            // Ajout destinataire
-                            $mail->ajoutDestinataire($this->_login);
-
-                            // Ajout du contenu
-                            $objet_mail = 'Volunteers Account';
-                            $message_mail = 'Hello,
-                             Your account has been created!
-                             Please confirm your email address by cliking on this link : '.PATH_HOME.'?module=validate&key='.urlencode($this->_userKey).'
-                             Thanks!';
-                            $mail->contenuMail($objet_mail, $message_mail);
-
-                            // Envoi du mail
-                            $mail->envoyerMail();
-                        }
-                        catch (Exception $e)
-                        {
-                            echo $e->getMessage();
-                        }
-
                         // Si ok (true) alors on renvoi sur la page d'accueil
-                        $messageFlash = 'Your account has been created. Please confirm your email through the one we sent you.';
-                        $this->coreSetFlashMessage('sucess', $messageFlash, 6);
-                        header('Location:?sign=ok');
+                        //$messageFlash = 'Your account has been created. Please confirm your email through the one we sent you.';
+                        //$this->coreSetFlashMessage('sucess', $messageFlash, 6);
+                        header("location:".PATH_HOME."admin/userlist");
                         exit();
                     }
                     else
                     {
                         define("TITLE_HEAD", "An error occurred.");
-                        $messageFlash = 'An error has occurred. Please try again.';
-                        $this->coreSetFlashMessage('error', $messageFlash, 3);
-                        header('Location:?signup=nok');
+                        //$messageFlash = 'An error has occurred. Please try again.';
+                        //$this->coreSetFlashMessage('error', $messageFlash, 3);
+                        header("location:".PATH_HOME."admin/registeruser");
                         exit();
                     }
                 }
@@ -744,6 +721,48 @@ class AdminController extends AppController
             $this->coreSetFlashMessage('error', $messageFlash, 3);
             header('Location:?signup=nok');
             exit();
+        }
+    }
+
+    public function activateuser()
+    {
+        if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
+
+            if(isset($_GET['id'])) {
+
+                $idUser = $_GET['id'];
+
+                if($this->model->activateUser($idUser)) {
+                    header("location:".PATH_HOME."admin/userlist");
+                } else {
+                    //header("location:".PATH_HOME."admin/userlist");
+                    die('nok');
+                }
+            }
+
+        } else {
+            header("location:".PATH_HOME."admin/signin");
+        }
+    }
+
+    public function disableuser()
+    {
+        if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
+
+            if(isset($_GET['id'])) {
+
+                $idUser = $_GET['id'];
+
+                if($this->model->disableUser($idUser)) {
+                    header("location:".PATH_HOME."admin/userlist");
+                } else {
+                    //header("location:".PATH_HOME."admin/userlist");
+                    die('nok');
+                }
+            }
+
+        } else {
+            header("location:".PATH_HOME."admin/signin");
         }
     }
 }

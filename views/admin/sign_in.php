@@ -48,7 +48,7 @@
     <form action="signin" method="post">
       <div class="row links">
         <div class="col s6 logo">
-          <img src="../assets/admin/_con/images/logo-white.png" alt="logo">
+          <img src="../assets/img/logo_volonteers3.svg" alt="logo">
         </div>
         <div class="col s6 right-align"><strong>Sign In</strong><!-- / <a href="signup">Sign Up</a>-->
         </div>
