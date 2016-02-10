@@ -68,7 +68,7 @@
             <li><a href="page-profile.html"><i class="fa fa-user"></i> Profile</a>
             </li>
             <li class="divider"></li>
-            <li><a href="signin"><i class="fa fa-sign-out"></i> Logout</a>
+            <li><a href="logout"><i class="fa fa-sign-out"></i> Logout</a>
             </li>
           </ul>
         </li>

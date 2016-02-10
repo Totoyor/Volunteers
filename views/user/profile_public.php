@@ -203,11 +203,6 @@
                                     <button type="submit" class="btn btn-blue" disabled>Post</button>
                                 <?php } ?>
                             </form>
-                            <!--<div class="row">
-                                <div class="col s12">
-                                    <hr class="fancy-hr">
-                                </div>
-                            </div>-->
                         </div>
                     </div><!-- fin row-->
                 </div>

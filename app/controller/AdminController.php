@@ -2,6 +2,10 @@
 class AdminController extends AppController
 
 {
+
+    private $_loginAdmin;
+    private $_passwordAdmin;
+
     public function __construct()
     {
         require 'app/model/AdminModel.php';
@@ -11,13 +15,22 @@ class AdminController extends AppController
 
     public function dashboard()
     {
-        $data = array(
-            'users' => $this->model->getUsers(),
-            'events' => $this->model->getEvents()
-        );
-        // Chargement de la home
-        define("TITLE_HEAD", "Volunteers | Admin");
-        $this->load->view('admin/dashboard.php', $data);
+        //Si le user n'est pas connécté ou n'est pas admin il est rediriger vers la page de connexion
+        if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
+
+            $data = array(
+                'users' => $this->model->getUsers(),
+                'events' => $this->model->getEvents()
+            );
+            // Chargement de la home
+            define("TITLE_HEAD", "Volunteers | Admin");
+            $this->load->view('admin/dashboard.php', $data);
+
+        } else {
+
+            header("location:".PATH_HOME."admin/signin");
+
+        }
     }
 
     public function registerUser()
@@ -526,11 +539,63 @@ class AdminController extends AppController
         $this->load->view('admin/compose.php');
     }
 
-    public function signIn()
+    public function signin()
     {
-        define("TITLE_HEAD", "Sign-in | Volunteers Admin");
-        // Chargement de la vue
-        $this->load->view('admin/sign_in.php');
+        if(isset($_POST['username']) && isset($_POST['password'])) {
+
+            $this->_loginAdmin = $_POST['username'];
+            $this->_passwordAdmin = md5($_POST['password']);
+
+            if($user = $this->model->connexionUser($this->_loginAdmin, $this->_passwordAdmin))
+            {
+                if($user['Active'] == 1)
+                {
+                    // on set les infos dans la session
+                    $_SESSION['user_email'] = $user['Email'];
+                    $_SESSION['user_id'] = $user['idUser'];
+                    $_SESSION['user_status'] = $user['vol_user_status_idStatus'];
+
+                    // on set le message de confirmation
+                    $messageFlash = 'Well done! You are now logged in!';
+                    $this->coreSetFlashMessage('sucess', $messageFlash, 5);
+                    // et on renvoi sur la page d'accueil
+                    header('Location:'.PATH_HOME.'admin/dashboard');
+                    exit();
+                }
+                else
+                {
+                    // Si ok (true) alors on set le message d'erreur
+                    $messageFlash = 'Please confirm your email :)';
+                    $this->coreSetFlashMessage('warning', $messageFlash, 4);
+                    // et on renvoi sur la page d'accueil
+                    header('Location:'.PATH_HOME.'admin/signin');
+                    exit();
+                }
+            }
+            else
+            {
+                // Si false on renvoi sur une page erreur
+                define("TITLE_HEAD", "An error occur.");
+                $messageFlash = 'Wrong email or wrong password. Please try again.';
+                $this->coreSetFlashMessage('error', $messageFlash, 3);
+                header('Location:'.PATH_HOME.'admin/signin');
+                exit();
+            }
+
+        } else {
+            define("TITLE_HEAD", "Sign-in | Volunteers Admin");
+            // Chargement de la vue
+            $this->load->view('admin/sign_in.php');
+        }
+    }
+
+    public function logout()
+    {
+        session_unset();
+        session_destroy();
+        unset($_COOKIE['fbsr_941553679268599']);
+        header('Location:'.PATH_HOME.'admin/signin');
+        exit();
     }
 
     public function signup()
