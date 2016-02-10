@@ -19,21 +19,21 @@
                             } ?>
                         </p>
                     </div>
+
                     <div class="row btn_crea1">
                         <div class="right">
                             <?php if (isset($_SESSION['user_id'])) { ?>
                                 <button type="submit" name="save" class="btn btn-menu">Save</button>
 
-                                <button type="submit" name="submit" class="btn btn-orange"
-                                        onclick="Materialize.toast('Published', 4000)">Publish
+                                <button type="submit" name="submit" class="btn btn-orange">Publish
                                 </button>
                             <?php } else { ?>
                                 <button type="submit" name="save" class="btn btn-menu" disabled>Save</button>
 
-                                <button type="submit" name="submit" class="btn btn-orange"
-                                        onclick="Materialize.toast('Published', 4000)" disabled>Publish
+                                <button type="submit" name="submit" class="btn btn-orange" disabled>Publish
                                 </button>
                             <?php } ?>
+
                         </div>
                     </div>
 
@@ -375,13 +375,13 @@
                     </div>
 
 
+
                     <div class="row btn_crea2">
                         <div class="right">
                             <?php if (isset($_SESSION['user_id'])) { ?>
                                 <button type="submit" name="save" class="btn btn-menu">Save</button>
 
-                                <button type="submit" name="submit" class="btn btn-orange"
-                                        onclick="Materialize.toast('Published', 4000)">Publish
+                                <button type="submit" name="submit" class="btn btn-orange">Publish
                                 </button>
                             <?php } else { ?>
                                 <button name="save" class="btn btn-menu modal-trigger " disabled><i
@@ -392,34 +392,13 @@
                                         class="material-icons">publish</i>Publish
                                 </button>
                             <?php } ?>
+
                         </div>
                     </div>
                 </div>
                 <!--content-->
             </div>
             <!-- fin formulaire-->
-            <!--<div class="col l4 col_fix">
-                <div class="right btn_fix_crea">
-                    <?php //if (isset($_SESSION['user_id'])) { ?>
-                        <button type="submit" name="save2"
-                                class="btn btn-menu modal-trigger"><i
-                                class="material-icons secure_btn_crea">save</i></button>
-
-                        <button type="submit" name="submit2"
-                                class="btn btn-orange modal-trigger "><i class="material-icons">publish</i></button>
-                    <?php //} else { ?>
-                        <button data-position="bottom" name="save"
-                                class="btn btn-menu modal-trigger" disabled>
-                            <i class="material-icons secure_btn_crea">save</i>
-                        </button>
-
-                        <button name="submit"
-                                class="btn btn-orange modal-trigger" disabled>
-                            <i class="material-icons">publish</i>
-                        </button>
-                    <?php //} ?>
-                </div>
-            </div>-->
         </div>
     </form>
     <!--//// END FOM ****/////-->
