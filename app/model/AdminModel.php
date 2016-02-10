@@ -255,19 +255,19 @@ class AdminModel extends AppModel
 	        $query = "BEGIN;
 
 	        DELETE FROM vol_events_categories_has_vol_events
-	        WHERE vol_events_idEvent = ".$options['id'].";
+	        WHERE vol_events_idEvent = ".$options.";
 
 	        DELETE FROM vol_event_missions
-	        WHERE vol_events_idEvent = ".$options['id'].";
+	        WHERE vol_events_idEvent = ".$options.";
 
 	        DELETE FROM vol_event_pictures
-	        WHERE vol_events_idEvent = ".$options['id'].";
+	        WHERE vol_events_idEvent = ".$options.";
 
 	        DELETE FROM vol_event_questions
-	        WHERE vol_events_idEvent = ".$options['id'].";
+	        WHERE vol_events_idEvent = ".$options.";
 
 	        DELETE FROM vol_events
-	        WHERE idEvent = ".$options['id'].";
+	        WHERE idEvent = ".$options.";
 
 	        COMMIT;";
 
@@ -279,6 +279,7 @@ class AdminModel extends AppModel
 	    }
 	    catch (Exception $e)
 	    {
+			die($e);
 	        $this->coreDbError($e);
 	        return false;
 	    }
@@ -470,5 +471,62 @@ class AdminModel extends AppModel
 	    {
 	        return false;
 	    }
+	}
+
+	public function connexionUser($email, $password)
+	{
+		try {
+			$query = $this->connexion->prepare('SELECT * FROM vol_users
+                                                WHERE Email = :email
+                                                 AND Password = :password');
+
+			$query->bindParam(':email', $email, PDO::PARAM_STR);
+			$query->bindParam(':password', $password, PDO::PARAM_STR);
+			$query->execute();
+			$user = $query->fetch();
+
+			$nbrRow = $query->rowCount();
+			if ($nbrRow === 1) {
+				return $user;
+			} else {
+				return false;
+			}
+		} catch (Exception $e) {
+			return false;
+		}
+	}
+
+	public function activateUser($iduser)
+	{
+		try {
+			$query = $this->connexion->prepare("UPDATE vol_users SET Active = 1
+												WHERE idUser = :idUser");
+
+			$query->bindParam(':idUser', $iduser, PDO::PARAM_INT);
+
+			$query->execute();
+
+			return true;
+
+		} catch (Exception $e) {
+			return false;
+		}
+	}
+
+	public function disableUser($iduser)
+	{
+		try {
+			$query = $this->connexion->prepare("UPDATE vol_users SET Active = null
+												WHERE idUser = :idUser");
+
+			$query->bindParam(':idUser', $iduser, PDO::PARAM_INT);
+
+			$query->execute();
+
+			return true;
+
+		} catch (Exception $e) {
+			return false;
+		}
 	}
 }

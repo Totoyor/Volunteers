@@ -3,48 +3,55 @@
     <div class="page-content">
         <div class="row margtop100">
             <div class="col l3 m12 s12 nopadding">
-                <div class="card">
-                    <div class="card panel colbgpublic noborder center">
-                        <div class="panel-text">
-                            <?php if (isset($data['infos']['Picture'])) { ?>
-                                <img class="circle" src="assets/img/user_pp/<?php echo $data['infos']['Picture']; ?>" width="100"
-                                     height="100">
-                            <?php } else { ?>
-                                <img class="circle" src="assets/img/square_face.png">
-                            <?php } ?>
-                            <h2 class="name-profile white-text nospace">
-                                <?php if ($data['infos']['FirstName'] !== null) {
-                                    echo $data['infos']['FirstName'];
-                                } else {
-                                    echo "volunteer";
-                                } ?>
-                            </h2>
+                <div class="card panel colbgpublic noborder center">
+                    <div class="panel-text">
+                        <?php if($data['infos']['Picture'] !== null) { ?>
+                            <img height="100" class="circle" src="assets/img/user_pp/<?= $data['infos']['Picture']; ?>">
+                        <?php } else { ?>
+                            <img class="circle" src="assets/img/square_face.png">
+                        <?php } ?>
 
-                            <p class="white-text">Rating :</p>
-                            <span class="stars">
-                                 <i class="material-icons noleft orange-icon">grade</i>
-                                 <i class="material-icons noleft orange-icon">grade</i>
-                                 <i class="material-icons noleft orange-icon">grade</i>
-                                 <i class="material-icons noleft">grade</i>
-                                 <i class="material-icons noleft">grade</i>
-                                <i class="material-icons noleft">grade</i>
-                            </span>
+                        <h2 class="name-profile white-text nospace">
+                            <?php if ($data['infos']['FirstName'] !== null) {
+                                echo $data['infos']['FirstName'];
+                            } else {
+                                echo "volunteer";
+                            } ?>
+                        </h2>
 
-                            <form action="profile/rate" method="post">
-                                <p class="range-field">
-                                    <input name="rate" type="range" id="test5" min="1" max="6"/>
-                                </p>
-                                <input type="hidden" name="idVolunteer" value="<?= $data['infos']['idUser']; ?>">
+                        <p class="white-text">Rating :</p>
+                        <span class="stars">
+                             <i class="material-icons noleft orange-icon">grade</i>
+                             <i class="material-icons noleft orange-icon">grade</i>
+                             <i class="material-icons noleft orange-icon">grade</i>
+                             <i class="material-icons noleft">grade</i>
+                             <i class="material-icons noleft">grade</i>
+                             <i class="material-icons noleft">grade</i>
+                        </span>
+
+                        <form action="profile/rate" method="post">
+                            <p class="range-field">
+                                <input name="rate" type="range" id="test5" min="1" max="6"/>
+                            </p>
+                            <input type="hidden" name="idVolunteer" value="<?= $data['infos']['idUser']; ?>">
+                            <?php if($_SESSION['user_id'] == $data['infos']['idUser']) { ?>
                                 <button type="submit"
-                                        class="dropdown-button btn btn-orange fullwidth space2">
-                                    Rate <?= $data['infos']['FirstName'] ?>
+                                    class="dropdown-button btn btn-orange fullwidth space2" disabled>
+                                    Rate
                                 </button>
-                            </form>
-                        </div>
+                            <?php } else { ?>
+                                <button type="submit"
+                                    class="dropdown-button btn btn-orange fullwidth space2">
+
+                                Rate <?= $data['infos']['FirstName'] ?>
+                            </button>
+                            <?php } ?>
+                        </form>
                     </div>
                 </div>
                 <div class="card panel">
                     <div class="panel-header">
+
                         Informations
 
                         <?php
@@ -146,33 +153,35 @@
                         <div class="col s12">
                             <h4 class="space1">Comments</h4>
                         </div>
-                        <?php foreach ($data['reviews'] as $review): ?>
-                            <div class="row">
-                                <div class="col s12 l2 m12 center">
-                                    <img src="assets/img/square_face.png" height="75" width="75" alt=""
-                                         class="img-comment circle responsive-img"> <!-- notice the "circle" class -->
-                                    <p class="center name-comment">
-                                        <?php if ($review['FirstName'] !== null) {
-                                            echo $review['FirstName'];
-                                        } else {
-                                            echo "Volunteer";
-                                        } ?>
-                                    </p>
-                                </div>
-                                <div class="col s12 l10 m12">
-                                  <span class="grey-text">
-                                      <?= $review['review']; ?>
-                                      <!--<p class="date-comment">January 19 2015</p>-->
-                                  </span>
+                        <?php if(isset($data['reviews'])): ?>
+                            <?php foreach ($data['reviews'] as $review): ?>
+                                <div class="row">
+                                    <div class="col s12 l2 m12 center">
+                                        <img src="assets/img/square_face.png" height="75" width="75" alt=""
+                                             class="img-comment circle responsive-img"> <!-- notice the "circle" class -->
+                                        <p class="center name-comment">
+                                            <?php if ($review['FirstName'] !== null) {
+                                                echo $review['FirstName'];
+                                            } else {
+                                                echo "Volunteer";
+                                            } ?>
+                                        </p>
+                                    </div>
+                                    <div class="col s12 l10 m12">
+                                      <span class="grey-text">
+                                          <?= $review['review']; ?>
+                                          <!--<p class="date-comment">January 19 2015</p>-->
+                                      </span>
 
-                                    <div class="row">
-                                        <div class="col s12">
-                                            <hr class="fancy-hr2">
+                                        <div class="row">
+                                            <div class="col s12">
+                                                <hr class="fancy-hr2">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        <?php endforeach; ?>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                         <div class="col s12 l2 m12 center padding4">
                             <?php if (isset($data['infos']['Picture'])) { ?>
                                 <img class="circle" src="assets/img/user_pp/<?php echo $data['infos']['Picture']; ?>" width="100"
@@ -190,17 +199,12 @@
                                     <textarea name="profile_comment" class="materialize-textarea"></textarea>
                                     <label>Post your comment</label>
                                 </div>
-                                <?php if (isset($_SESSION['user_id'])) { ?>
+                                <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] !== $data['infos']['idUser']) { ?>
                                     <button type="submit" class="btn btn-blue">Post</button>
                                 <?php } else { ?>
                                     <button type="submit" class="btn btn-blue" disabled>Post</button>
                                 <?php } ?>
                             </form>
-                            <!--<div class="row">
-                                <div class="col s12">
-                                    <hr class="fancy-hr">
-                                </div>
-                            </div>-->
                         </div>
                     </div><!-- fin row-->
                 </div>

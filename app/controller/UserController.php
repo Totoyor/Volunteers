@@ -36,6 +36,7 @@ class UserController extends AppController
                         // on set les infos dans la session
                         $_SESSION['user_email'] = $user['Email'];
                         $_SESSION['user_id'] = $user['idUser'];
+                        $_SESSION['user_status'] = $user['vol_user_status_idStatus'];
 
                         // on set le message de confirmation
                         $messageFlash = 'Well done! You are now logged in!';
@@ -195,13 +196,37 @@ class UserController extends AppController
             $status = 0;
 
             if ($this->model->join($idEvent, $idUser, $status)) {
-                header("location:/3ADEV/Volunteers/event/show/" . $idEvent);
+                header("location:".PATH_HOME."/event/show/" . $idEvent);
             } else {
-                header("location:/3ADEV/Volunteers/event/show/" . $idEvent . "/joinnok");
+                header("location:PATH_HOME/event/show/" . $idEvent . "/joinnok");
             }
 
         } else {
             die('please log in');
+        }
+    }
+
+    public function cancel()
+    {
+        if(isset($_SESSION['user_id'])) {
+
+            $idVolunteer = $_SESSION['user_id'];
+            $idEvent = $_POST['idEvent'];
+
+            if($this->model->cancelJoin($idVolunteer, $idEvent)) {
+                $messageFlash = 'Cancel ok';
+                $this->coreSetFlashMessage('sucess', $messageFlash, 3);
+                header('Location:'.PATH_HOME.'/profile/missions');
+            } else {
+                $messageFlash = 'Cancel Nok';
+                $this->coreSetFlashMessage('error', $messageFlash, 3);
+                header('Location:'.PATH_HOME.'/profile/missions');
+            }
+
+        } else {
+            $messageFlash = 'Please log you in';
+            $this->coreSetFlashMessage('error', $messageFlash, 3);
+            header('Location:?');
         }
     }
 }

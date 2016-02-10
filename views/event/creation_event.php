@@ -10,12 +10,12 @@
                             <hr class="fancy-hr">
                         </div>
                         <p>
-                        <?php if (isset($_SESSION['user_id'])) {
+                            <?php if (isset($_SESSION['user_id'])) {
                                 echo "Aliqua instituendarum appellat elit singulis. Officia ipsum voluptate a excepteur a
                                 proident, si malis malis varias mandaremus, minim iis admodum ut esse, admodum enim ubi
                                 nostrud comprehenderit.";
                             } else {
-                               echo "For save or publish event please log you in";
+                                echo "For save or publish event please log you in";
                             } ?>
                         </p>
                     </div>
@@ -24,11 +24,16 @@
                         <div class="right">
                             <?php if (isset($_SESSION['user_id'])) { ?>
                                 <button type="submit" name="save" class="btn btn-menu">Save</button>
-                                <button type="submit" name="submit" class="btn btn-orange">Publish</button>
+
+                                <button type="submit" name="submit" class="btn btn-orange">Publish
+                                </button>
                             <?php } else { ?>
-                               <button type="submit" name="save" class="btn btn-menu" disabled>Save</button>
-                                <button type="submit" name="submit" class="btn btn-orange" disabled>Publish</button>
+                                <button type="submit" name="save" class="btn btn-menu" disabled>Save</button>
+
+                                <button type="submit" name="submit" class="btn btn-orange" disabled>Publish
+                                </button>
                             <?php } ?>
+
                         </div>
                     </div>
 
@@ -47,11 +52,13 @@
                         </div>
                     </div>
 
+
                     <div class="input-field col s12 l12 m12">
                         <input name="event_name" data-position="right" data-delay="50"
                                data-tooltip="What is the name of your event ?" class="tooltipped" type="text" required>
                         <label for="icon_prefix">Event Name</label>
                     </div>
+
 
                     <div class="row">
                         <div class="input-field col s12 col l12 m12">
@@ -138,6 +145,7 @@
                         </div>
                     </div>
 
+
                     <div class="row">
                         <div class="input-field col s6 m3 offset-m1">
                             <select name="event_hour_end">
@@ -191,30 +199,31 @@
 
                     <div class="row">
                         <div class="input-field col s12 l12 m12">
-                            <textarea name="event_description" id="textarea1 icon_prefix"
-                                      class="materialize-textarea tooltipped"
-                                      data-tooltip="How awesome is your event ?" data-position="right"
-                                      data-delay="50"></textarea>
+                                <textarea name="event_description" id="textarea1 icon_prefix"
+                                          class="materialize-textarea tooltipped"
+                                          data-tooltip="How awesome is your event ?" data-position="right"
+                                          data-delay="50"></textarea>
                             <label for="textarea1 icon_prefix">Description</label>
                         </div>
                     </div>
 
                     <div class="row ">
                         <div class="input-field col s6 m6 l4 offset-m1 offset-l1 tooltipped" data-position="right"
-                             data-delay="50" data-tooltip="What type of event is it?">
+                             data-delay="50"
+                             data-tooltip="What type of event is it?">
                             <select name="event_categories[]" class="icons" multiple>
-                                <option value="" disabled selected>Category</option>
+                                <option value="" disabled selected>Categories</option>
                                 <?php foreach ($data as $category) {
                                     ?>
-                                    <option value="<?= $category['idCategorie']; ?>" class="left circle">
-                                        <?= $category['nameCategorie']; ?>
-                                    </option>
+                                    <option value="<?= $category['idCategorie']; ?>"
+                                            class="left circle"><?= $category['nameCategorie']; ?></option>
                                     <?php
                                 } ?>
                             </select>
-                            <label>Choose your category</label>
+                            <label>Choose your categories</label>
                         </div>
                     </div>
+
 
                     <div class="row blued tooltipped" data-position="right" data-delay="50"
                          data-tooltip="Did you already create an event on an other site?">
@@ -225,47 +234,42 @@
                                 <div class=" event_picto_soc event_fb"></div>
                             </a>
 
-
                             <a class="ins_click clear">
                                 <div class="event_picto_soc event_ins"></div>
                             </a>
-
 
                             <a class="yout_click">
                                 <div class="event_picto_soc event_yout"></div>
                             </a>
 
-
                             <a class="tw_click">
                                 <div class="event_picto_soc event_tw"></div>
                             </a>
 
-
                             <div class="input-field col s12 l12 m12 secure_margin none field_fb">
-                                <input class="" name="facebook" data-position="right"
-                                       data-delay="50" data-tooltip="Show me what you've got !" id="" type="text">
-                                <label for="icon_prefix">Event Facebook url</label>
+                                <input name="facebook" type="text">
+                                <label for="facebook">Event Facebook url</label>
                             </div>
 
                             <div class="input-field col s12 l12 m12 secure_margin none field_ins">
-                                <input class="" name="instagram" data-position="right"
-                                       data-delay="50" data-tooltip="Show me what you've got !" id="" type="text">
-                                <label for="icon_prefix">Instagram url</label>
+                                <input name="instagram" type="text">
+                                <label for="instagram">Instagram url</label>
                             </div>
 
                             <div class="input-field col s12 l12 m12 secure_margin none field_yout">
-                                <input class="" name="youtube" data-position="right"
-                                       data-delay="50" data-tooltip="Show me what you've got !" id="" type="text">
-                                <label for="icon_prefix">Youtube url</label>
+                                <input name="youtube" type="text">
+                                <label for="youtube">Youtube url</label>
                             </div>
 
                             <div class="input-field col s12 l12 m12 secure_margin none field_tw">
-                                <input class="" name="twitter" data-position="right"
-                                       data-delay="50" data-tooltip="Show me what you've got !" id="" type="text">
-                                <label for="icon_prefix">Twitter url</label>
+                                <input name="twitter" type="text">
+                                <label for="twitter">Twitter url</label>
                             </div>
+
                         </div>
+
                     </div>
+
 
                     <div class="more_margin"></div>
 
@@ -277,6 +281,7 @@
                             <div>
                                 <h3 class="text_separteur">Let's embellish your event</h3>
                             </div>
+
                         </div>
                     </div>
 
@@ -294,6 +299,7 @@
                         </p>
                     </div>
 
+
                     <div class="row">
                         <div class="input-field col s3">
                             <input name="media[]" type="file" id="input-file-now" data-height="90" class="dropify"/>
@@ -309,7 +315,10 @@
                                    class="dropify tooltipped" data-tooltip="Choose media pictures" data-delay="50"
                                    data-position="right"/>
                         </div>
+
+
                     </div>
+
 
                     <!--II-2-->
                     <div class="row">
@@ -344,6 +353,7 @@
                     <div id="mission-field" class="tooltipped mission hide" data-position="right" data-delay="50"
                          data-tooltip="What kind of missions for your volunteers?">
                         <div class="input-field col s9 secure-mission">
+                            <i class="material-icons prefix">perm_identity</i>
                             <input name="missions[]" id="icon_prefix" placeholder="Barman" type="text"
                                    class="validate">
                             <label for="icon_prefix">Mission</label>
@@ -364,15 +374,25 @@
                         </div>
                     </div>
 
+
+
                     <div class="row btn_crea2">
                         <div class="right">
                             <?php if (isset($_SESSION['user_id'])) { ?>
                                 <button type="submit" name="save" class="btn btn-menu">Save</button>
-                                <button type="submit" name="submit" class="btn btn-orange">Publish</button>
+
+                                <button type="submit" name="submit" class="btn btn-orange">Publish
+                                </button>
                             <?php } else { ?>
-                                <button name="save" class="btn btn-menu modal-trigger " disabled><i class="material-icons">save</i>SAVE</button>
-                                <button name="submit" class="btn btn-orange modal-trigger" disabled><i class="material-icons">publish</i>Publish</button>
+                                <button name="save" class="btn btn-menu modal-trigger " disabled><i
+                                        class="material-icons">save</i>SAVE
+                                </button>
+
+                                <button name="submit" class="btn btn-orange modal-trigger" disabled><i
+                                        class="material-icons">publish</i>Publish
+                                </button>
                             <?php } ?>
+
                         </div>
                     </div>
                 </div>
