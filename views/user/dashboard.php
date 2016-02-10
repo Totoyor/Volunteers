@@ -14,29 +14,31 @@
                             </ul>
                         </div>
                     </div>
-                    <?php if(!empty($data['missions'])) { ?>
-                        <?php foreach($data['missions'] as $mission): ?>
-                            <div id="test1" class="card panel panel2 space1">
-                                <div class="upcoming-event">
-                                    <div class="content-upcoming-event">
-                                        <h5 class="blue-title"><?= $mission['nameEvent']; ?></h5>
-                                        <h6><?= $mission['locationEvent']; ?></h6>
-                                        <p><i class="material-icons">schedule</i><?= $mission['startEvent']; ?></p>
-                                    </div>
-                                    <div class="show-missions">
-                                        <a href="event/show/<?= $mission['idEvent']; ?>">
-                                            <p>
-                                                View event
-                                                <i class="hide-on-med-and-down material-icons view-missions right">visibility</i>
-                                            </p>
-                                        </a>
+                    <div id="test1">
+                        <?php if(!empty($data['missions'])) { ?>
+                            <?php foreach($data['missions'] as $mission): ?>
+                                <div class="card panel panel2 space1">
+                                    <div class="upcoming-event">
+                                        <div class="content-upcoming-event">
+                                            <h5 class="blue-title"><?= $mission['nameEvent']; ?></h5>
+                                            <h6><?= $mission['locationEvent']; ?></h6>
+                                            <p><i class="material-icons">schedule</i><?= $mission['startEvent']; ?></p>
+                                        </div>
+                                        <div class="show-missions">
+                                            <a href="event/show/<?= $mission['idEvent']; ?>">
+                                                <p>
+                                                    View event
+                                                    <i class="hide-on-med-and-down material-icons view-missions right">visibility</i>
+                                                </p>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div><!-- fin onglet1-->
-                        <?php endforeach; ?>
-                    <?php } else { ?>
-                        No upcoming event
-                    <?php } ?>
+                            <?php endforeach; ?>
+                        <?php } else { ?>
+                            No upcoming event
+                        <?php } ?>
+                    </div><!-- fin onglet1-->
                     <div id="test2" class="reviews card panel panel2 space1 bordernone padding1">
                         <div class="row">
                             <div class="col l12 center">

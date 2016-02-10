@@ -34,62 +34,86 @@ class AdminController extends AppController
     }
 
     public function registerUser()
-        {
-        // Chargement de la home
-        define("TITLE_HEAD", "Volunteers | Admin");
-        $this->load->view('admin/register.php');
+    {
+        if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
+            // Chargement de la home
+            define("TITLE_HEAD", "Volunteers | Admin");
+            $this->load->view('admin/register.php');
+        } else {
+            header("location:".PATH_HOME."admin/signin");
+        }
     }
 
-    public function editUser()
+    public function edituser()
     {
-        $id = $_GET['id'];
-        $data = $this->model->getUser($id);
-        // Chargement de la home
-        define("TITLE_HEAD", "Volunteers | Admin");
-        $this->load->view('admin/edit_user.php', $data);
+        if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
+            $id = $_GET['id'];
+            $data = $this->model->getUser($id);
+            // Chargement de la home
+            define("TITLE_HEAD", "Volunteers | Admin");
+            $this->load->view('admin/edit_user.php', $data);
+        } else {
+            header("location:".PATH_HOME."admin/signin");
+        }
     }
 
     public function userList()
     {
-        define("TITLE_HEAD", "user List | Volunteers Admin");
-        $data = array(
-            'users' => $this->model->getUsers()
-        );
-        // Chargement de la vue
-        $this->load->view('admin/user_list.php', $data);
+        if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
+            define("TITLE_HEAD", "user List | Volunteers Admin");
+            $data = array(
+                'users' => $this->model->getUsers()
+            );
+            // Chargement de la vue
+            $this->load->view('admin/user_list.php', $data);
+        } else {
+            header("location:".PATH_HOME."admin/signin");
+        }
     }
 
     public function singleUser()
     {
-        define("TITLE_HEAD", "user show | Volunteers Admin");
-        $id = $_GET['id'];
-        $data = $this->model->getUser($id);
-        // Chargement de la vue
-        $this->load->view('admin/user.php', $data);
+        if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
+            define("TITLE_HEAD", "user show | Volunteers Admin");
+            $id = $_GET['id'];
+            $data = $this->model->getUser($id);
+            // Chargement de la vue
+            $this->load->view('admin/user.php', $data);
+        } else {
+            header("location:".PATH_HOME."admin/signin");
+        }
     }
 
     public function userStatus()
     {
-        define("TITLE_HEAD", "user Status | Volunteers Admin");
-        // Chargement de la vue
-        $this->load->view('admin/user_status.php');
+        if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
+            define("TITLE_HEAD", "user Status | Volunteers Admin");
+            // Chargement de la vue
+            $this->load->view('admin/user_status.php');
+        } else {
+            header("location:".PATH_HOME."admin/signin");
+        }
     }
 
     public function deleteUser()
     {
-        define("TITLE_HEAD", "user Status | Volunteers Admin");
-        $this->model->deleteOne(array(
-            'table' => 'users',
-            'column' => 'idUser',
-            'id' => $_GET['id']
-        ));
+        if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
+            define("TITLE_HEAD", "user Status | Volunteers Admin");
+            $this->model->deleteOne(array(
+                'table' => 'users',
+                'column' => 'idUser',
+                'id' => $_GET['id']
+            ));
 
-        // Message de confirmation et redirection
-        $messageFlash = 'Done ! The information has been deleted !';
-        $this->coreSetFlashMessage('success', $messageFlash, 4);
-        $this->load->view('admin/user_list.php');
-        exit();
-        // Chargement de la vue
+            // Message de confirmation et redirection
+            $messageFlash = 'Done ! The information has been deleted !';
+            $this->coreSetFlashMessage('success', $messageFlash, 4);
+            $this->load->view('admin/user_list.php');
+            exit();
+            // Chargement de la vue
+        } else {
+            header("location:".PATH_HOME."admin/signin");
+        }
     }
 
     public function create()
@@ -452,91 +476,132 @@ class AdminController extends AppController
     }
     public function createEvent()
     {
-        // Chargement de la home
-        define("TITLE_HEAD", "Volunteers | Admin");
-        $this->load->view('admin/event.php');
+        if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
+            // Chargement de la home
+            define("TITLE_HEAD", "Volunteers | Admin");
+            $this->load->view('admin/event.php');
+        } else {
+            header("location:".PATH_HOME."admin/signin");
+        }
     }
 
     public function eventList()
     {
-        define("TITLE_HEAD", "Event List | Volunteers Admin");
-        $data = array(
-            'events' => $this->model->getEvents()
-        );
-        // Chargement de la vue
-        $this->load->view('admin/event_list.php', $data);
+        if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
+            define("TITLE_HEAD", "Event List | Volunteers Admin");
+            $data = array(
+                'events' => $this->model->getEvents()
+            );
+            // Chargement de la vue
+            $this->load->view('admin/event_list.php', $data);
+        } else {
+            header("location:".PATH_HOME."admin/signin");
+        }
     }
 
     public function singleEvent()
     {
-        define("TITLE_HEAD", "Event Name | Volunteers Admin");
-        $id = $_GET['id'];
-        $data = array(
-            'event' => $this->model->getEvent($id),
-            'missions' => $this->model->getMissions($id),
-            'nbVolunteer' => $this->model->getNbVolunteers($id),
-            'medias' => $this->model->getMedias($id),
-            'volunteers' => $this->model->getVolunteers($id),
-            'questions' => $this->model->getQuestions($id)
-        );
-        // Chargement de la vue
-        $this->load->view('admin/event.php', $data);
+        if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
+
+            define("TITLE_HEAD", "Event Name | Volunteers Admin");
+            if (isset($_GET['id'])) {
+                $id = $_GET['id'];
+                $data = array(
+                    'event' => $this->model->getEvent($id),
+                    'missions' => $this->model->getMissions($id),
+                    'nbVolunteer' => $this->model->getNbVolunteers($id),
+                    'medias' => $this->model->getMedias($id),
+                    'volunteers' => $this->model->getVolunteers($id),
+                    'questions' => $this->model->getQuestions($id)
+                );
+                // Chargement de la vue
+                $this->load->view('admin/event.php', $data);
+            } else {
+                $this->load->view('view_error.php');
+            }
+
+        } else {
+            header("location:".PATH_HOME."admin/signin");
+        }
     }
 
     public function deleteEvent()
     {
-        define("TITLE_HEAD", "user Status | Volunteers Admin");
-        $this->model->deleteEvent($_GET['id']);
+        if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
+            define("TITLE_HEAD", "user Status | Volunteers Admin");
+            $this->model->deleteEvent($_GET['id']);
 
-        // Message de confirmation et redirection
-        $messageFlash = 'Done ! The information has been deleted !';
-        $this->coreSetFlashMessage('success', $messageFlash, 4);
-        $this->load->view('admin/dashboard.php');
-        exit();
-        // Chargement de la vue
+            // Message de confirmation et redirection
+            $messageFlash = 'Done ! The information has been deleted !';
+            $this->coreSetFlashMessage('success', $messageFlash, 4);
+            $this->load->view('admin/dashboard.php');
+            exit();
+            // Chargement de la vue
+        } else {
+            header("location:".PATH_HOME."admin/signin");
+        }
     }
 
     public function categories()
     {
-        define("TITLE_HEAD", "Event Name | Volunteers Admin");
-        if (isset($_POST['category'])) {
-            $this->model->insertCategory($_POST['category']);
+        if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
+            define("TITLE_HEAD", "Event Name | Volunteers Admin");
+            if (isset($_POST['category'])) {
+                $this->model->insertCategory($_POST['category']);
+            }
+            if (isset($_GET['id'])) {
+                $this->model->deleteCategory($_GET['id']);
+            }
+            $data = array(
+                'categories' => $this->model->getCategories()
+            );
+            // Chargement de la vue
+            $this->load->view('admin/categories.php', $data);
+        } else {
+            header("location:".PATH_HOME."admin/signin");
         }
-        if (isset($_GET['id'])) {
-            $this->model->deleteCategory($_GET['id']);
-        }
-        $data = array(
-            'categories' => $this->model->getCategories()
-        );
-        // Chargement de la vue
-        $this->load->view('admin/categories.php', $data);
+
     }
 
     public function deleteCategory()
     {
-        define("TITLE_HEAD", "Event Name | Volunteers Admin");
-        if (isset($_GET['category'])) {
-            $this->model->deleteCategory($_GET['category']);
+        if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
+
+            define("TITLE_HEAD", "Event Name | Volunteers Admin");
+            if (isset($_GET['category'])) {
+                $this->model->deleteCategory($_GET['category']);
+            }
+            $data = array(
+                'categories' => $this->model->getCategories()
+            );
+            // Chargement de la vue
+            $this->load->view('admin/categories.php', $data);
+
+        } else {
+            header("location:".PATH_HOME."admin/signin");
         }
-        $data = array(
-            'categories' => $this->model->getCategories()
-        );
-        // Chargement de la vue
-        $this->load->view('admin/categories.php', $data);
     }
 
     public function inbox()
     {
-        define("TITLE_HEAD", "Event Name | Volunteers Admin");
-        // Chargement de la vue
-        $this->load->view('admin/inbox.php');
+        if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
+            define("TITLE_HEAD", "Event Name | Volunteers Admin");
+            // Chargement de la vue
+            $this->load->view('admin/inbox.php');
+        } else {
+            header("location:".PATH_HOME."admin/signin");
+        }
     }
 
     public function compose()
     {
-        define("TITLE_HEAD", "Event Name | Volunteers Admin");
-        // Chargement de la vue
-        $this->load->view('admin/compose.php');
+        if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
+            define("TITLE_HEAD", "Event Name | Volunteers Admin");
+            // Chargement de la vue
+            $this->load->view('admin/compose.php');
+        } else {
+            header("location:".PATH_HOME."admin/signin");
+        }
     }
 
     public function signin()

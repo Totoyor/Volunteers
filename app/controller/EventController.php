@@ -582,7 +582,7 @@ class EventController extends AppController
         $idEvent = $_GET['id'];
         $data = array(
             'event' => $this->model->getEvent($idEvent),
-            'volunteers' => $this->model->getVolunteers($idEvent)
+            'volunteers' => $this->model->getVolunteers($idEvent),
         );
         $this->load->view("event/list_volunteers.php", $data);
     }

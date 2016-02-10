@@ -61,12 +61,12 @@
         </li>
         <li class="user">
           <a class="dropdown-button" href="#!" data-activates="user-dropdown">
-            <img src="<?php echo PATH_HOME ?>assets/admin//_con/images/user.jpg" alt="John Doe" class="circle">John Doe<i class="mdi-navigation-expand-more right"></i>
+            <img src="<?php echo PATH_HOME ?>assets/admin/_con/images/user.jpg" alt="John Doe" class="circle">Admin<i class="mdi-navigation-expand-more right"></i>
           </a>
 
           <ul id="user-dropdown" class="dropdown-content">
-            <li><a href="page-profile.html"><i class="fa fa-user"></i> Profile</a>
-            </li>
+            <!--<li><a href="page-profile.html"><i class="fa fa-user"></i> Profile</a>
+            </li>-->
             <li class="divider"></li>
             <li><a href="logout"><i class="fa fa-sign-out"></i> Logout</a>
             </li>
@@ -122,7 +122,7 @@
           <li class="label">Menu</li>
             <!-- <li class="active"> -->
             <li class="">
-              <a href="dashboard" class="waves-effect waves-blue"><i class="fa fa-dashboard"></i> Dashboard</a>
+              <a href="<?= PATH_HOME ?>admin/dashboard" class="waves-effect waves-blue"><i class="fa fa-dashboard"></i> Dashboard</a>
             </li>
             <li>
               <a class="yay-sub-toggle waves-effect waves-blue"><i class="fa fa-users"></i> Users<span class="yay-collapse-icon mdi-navigation-expand-more"></span></a>

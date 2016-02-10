@@ -431,11 +431,26 @@ Class EventModel extends AppModel
     public function getVolunteers($idEvent) {
         try {
 
-            $query = $this->connexion->prepare("SELECT *
+            $query = $this->connexion->prepare("SELECT
+                event_has_volunteers.vol_events_idEvent,
+                event_has_volunteers.vol_event_volunteers_idEventVolunteer,
+                event_has_volunteers.vol_event_volunteer_status,
+                vol_users.idUser,
+                vol_users.Email,
+                vol_users.FirstName,
+                vol_users.LastName,
+                vol_users_rating.idVolunteerRating,
+                AVG(vol_users_rating.rating),
+                vol_users_rating.vol_event_volunteers_idEventVolunteer,
+                vol_users_rating.id_user_rating
+
             FROM event_has_volunteers
             LEFT JOIN vol_users
             ON event_has_volunteers.vol_event_volunteers_idEventVolunteer = vol_users.idUser
+            LEFT JOIN vol_users_rating
+            ON event_has_volunteers.vol_event_volunteers_idEventVolunteer = vol_users_rating.vol_event_volunteers_idEventVolunteer
             WHERE event_has_volunteers.vol_events_idEvent = :idEvent
+
             GROUP BY idUser
             ");
 
@@ -448,6 +463,7 @@ Class EventModel extends AppModel
             return $data;
 
         } catch (Exception $e) {
+            die($e);
             return false;
         }
     }
