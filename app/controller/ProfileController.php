@@ -233,14 +233,20 @@ class ProfileController extends AppController
 
     public function show()
     {
-        define("TITLE_HEAD", "Volunteers | Public Profile");
-        $idUser = $_GET['id'];
-        $data = array(
-            'infos' => $this->model->getProfile($idUser),
-            'reviews' => $this->model->getReview($idUser),
-            'rating' => $this->model->getAverage($idUser)
-        );
-        $this->load->view("user/profile_public.php", $data);
+        if (isset($_GET['id'])) {
+            define("TITLE_HEAD", "Volunteers | Public Profile");
+            $idUser = $_GET['id'];
+            $data = array(
+                'infos' => $this->model->getProfile($idUser),
+                'reviews' => $this->model->getReview($idUser),
+                'rating' => $this->model->getAverage($idUser)
+            );
+            $this->load->view("user/profile_public.php", $data);
+        } else {
+            define("TITLE_HEAD", "Volunteers | Error");
+            $this->load->view("view_error.php");
+        }
+
     }
 
     public function comment()

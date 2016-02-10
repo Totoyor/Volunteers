@@ -44,7 +44,7 @@
     </div>
     <![endif]-->
 </head>
-<body class="grey lighten-4">
+<body class="grey lighten-4" onload="initMap()">
 <header>
     <nav>
         <div class="nav-wrapper">

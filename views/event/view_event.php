@@ -7,7 +7,6 @@
                 <img src="assets/img/couv_default.jpg" class="event_couv"/>
             <?php } ?>
         </div>
-        <div><?= var_dump($data); ?></div>
         <div class="row" id="secure_row">
             <div class="col s12 m8 event_maincontent">
                 <h1 class="center event_title left event_apog"><?= $data['event']['nameEvent']; ?></h1>
@@ -19,17 +18,15 @@
                         </div>
                     </li>
                     <li>
-                        <div class="collapsible-header"><i class="material-icons">place</i>
+                        <div class="collapsible-header active"><i class="material-icons">place</i>
                             <?= $data['event']['locationEvent']; ?>
                             <input type="hidden" id="adress" value="<?= $data['event']['locationEvent']; ?>">
                             <span class="reply right">View map</span>
                         </div>
-                        <div class="collapsible-body" onload="initMap()">
+                        <div class="collapsible-body">
                             <div>
-                                <div id="map" style="width: 96%; height: 300px;">
-
+                                <div id="map" style="width: 100%; height: 300px;">
                                 </div>
-
                             </div>
                         </div>
                     </li>
@@ -259,16 +256,11 @@
                             </a>
                         <?php } ?>
 
-                        <a href="#">
-                            <div class="event_picto_soc"></div>
-                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <script type="text/javascript" src="assets/js/google.map.js"></script>
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAocp77VtGx4z5aZ2v4CTU_ZmljNFMGqX8&callback=initMap"
-            type="text/javascript"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAocp77VtGx4z5aZ2v4CTU_ZmljNFMGqX8&callback=initMap" type="text/javascript"></script>
 <?php include_once('views/layout/footer.inc.php'); ?>

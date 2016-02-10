@@ -6,7 +6,10 @@
                 <div class="card">
                     <div class="card panel colbgpublic noborder center">
                         <div class="panel-text">
-                            <img class="resposive-img circle" src="assets/img/square_face.png">
+
+                            <?php if($data['infos']['Picture'] !== null) { ?>
+                                <img height="100" class="circle" src="assets/img/user_pp/<?= $data['infos']['Picture']; ?>">
+                            <?php } ?>
 
                             <h2 class="name-profile white-text nospace">
                                 <?php if ($data['infos']['FirstName'] !== null) {
@@ -39,10 +42,17 @@
                                     <input name="rate" type="range" id="test5" min="1" max="6"/>
                                 </p>
                                 <input type="hidden" name="idVolunteer" value="<?= $data['infos']['idUser']; ?>">
-                                <button type="submit"
+                                <?php if($_SESSION['user_id'] == $data['infos']['idUser']) { ?>
+                                    <button type="submit"
+                                        class="dropdown-button btn btn-orange fullwidth space2" disabled>
+                                        Rate
+                                    </button>
+                                <?php } else { ?>
+                                    <button type="submit"
                                         class="dropdown-button btn btn-orange fullwidth space2">
-                                    Rate Salim
-                                </button>
+                                        Rate
+                                    </button>
+                                <?php } ?>
                             </form>
                         </div>
                     </div>
@@ -50,7 +60,6 @@
                 <div class="card panel">
                     <div class="panel-header">
                         Information
-
                         <?php
                         $dateRegister = date("F j, Y", strtotime($data['infos']['DateRegister']));
                         ?>
@@ -188,7 +197,7 @@
                                     <textarea name="profile_comment" class="materialize-textarea"></textarea>
                                     <label>Post your comment</label>
                                 </div>
-                                <?php if (isset($_SESSION['user_id'])) { ?>
+                                <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] !== $data['infos']['idUser']) { ?>
                                     <button type="submit" class="btn btn-blue">Post</button>
                                 <?php } else { ?>
                                     <button type="submit" class="btn btn-blue" disabled>Post</button>
