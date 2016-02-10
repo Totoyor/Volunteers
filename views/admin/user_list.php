@@ -83,7 +83,7 @@
                   } ?>
                 </td>
                 <td class="center-align">
-                  <a href="singleuser/<?= $user['idUser']; ?>" class="btn green">
+                  <a href="<?= PATH_HOME ?>profile/show/<?= $user['idUser']; ?>" class="btn green">
                     <i class="mdi-action-search"></i> view
                   </a>
                 </td>
