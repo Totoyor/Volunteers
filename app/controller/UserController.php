@@ -17,12 +17,6 @@ class UserController extends AppController
         parent::__construct();
     }
 
-    /*public function home()
-    {
-        define("TITLE_HEAD", "Les utilisateurs du blog");
-        $this->load->view('page/index.php');
-    }*/
-
     public function connect()
     {
         if(isset($_POST['email']) && $_POST['password'])
