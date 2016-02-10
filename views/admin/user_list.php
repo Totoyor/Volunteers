@@ -65,16 +65,12 @@
             <?php foreach ($data['users'] as $user) : ?>
               <tr>
                 <td class="center-align">
-                  <?php if($user['FirstName'] !== null) {
-                    echo $user['FirstName'];
-                  } else {
-                    echo " / ";
-                  } ?>
+                  <?= $user['Email']; ?>
                 </td>
                 <td class="center-align">
                   <!--                  --><?//= $user['vol_user_status_idStatus']; ?>
                   <?php if($user['vol_user_status_idStatus'] == 1) {
-                    echo "Volunteer";
+                    echo "User";
                   } else if($user['vol_user_status_idStatus'] == 2) {
                     echo "Admin";
                   } ?>
@@ -87,7 +83,7 @@
                   } ?>
                 </td>
                 <td class="center-align">
-                  <a href="singleuser/<?= $user['idUser']; ?>" class="btn green">
+                  <a href="<?= PATH_HOME ?>profile/show/<?= $user['idUser']; ?>" class="btn green">
                     <i class="mdi-action-search"></i> view
                   </a>
                 </td>
@@ -97,9 +93,15 @@
                   </a>
                 </td>
                 <td class="center-align">
-                  <a class="btn orange">
-                    <i class="mdi-content-clear"></i> disable
-                  </a>
+                  <?php if ($user['Active'] == null) { ?>
+                    <a href="activateuser/<?= $user['idUser']; ?>" class="btn green">
+                      <i class="mdi-content-clear"></i> enable
+                    </a>
+                  <?php } else { ?>
+                    <a href="disableuser/<?= $user['idUser']; ?>" class="btn orange">
+                      <i class="mdi-content-clear"></i> disable
+                    </a>
+                  <?php } ?>
                 </td>
                 <td class="center-align">
                   <a class="btn red">

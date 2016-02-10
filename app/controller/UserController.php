@@ -42,6 +42,7 @@ class UserController extends AppController
                         // on set les infos dans la session
                         $_SESSION['user_email'] = $user['Email'];
                         $_SESSION['user_id'] = $user['idUser'];
+                        $_SESSION['user_status'] = $user['vol_user_status_idStatus'];
 
                         // on set le message de confirmation
                         $messageFlash = 'Well done! You are now logged in!';
