@@ -136,6 +136,8 @@
                 </li>
                 <li><a href="<?php echo PATH_HOME ?>admin/userstatus" class="waves-effect waves-blue"><i class="mdi-action-dashboard"></i> Status</a>
                 </li>
+                <li><a href="<?php echo PATH_HOME ?>admin/usersreview" class="waves-effect waves-blue"><i class="mdi-action-dashboard"></i> Reviews / Rates</a>
+                </li>
               </ul>
             </li>
             <li>

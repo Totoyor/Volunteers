@@ -19,6 +19,8 @@
   <script type="text/javascript" src="<?php echo PATH_HOME ?>assets/js/monjs.js"></script>
 
   <script type="text/javascript" src="<?php echo PATH_HOME ?>assets/js/dropify.js"></script>
+
+  <script type="text/javascript" src="<?= PATH_HOME ?>assets/js/jquery.dataTables.min.js"></script>
 </body>
 
 </html>

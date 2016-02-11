@@ -1212,13 +1212,26 @@ class AdminController extends AppController
                 $idUser = $_GET['id'];
 
                 if($this->model->disableUser($idUser)) {
-                    header("location:".PATH_HOME."admin/userlist");
+                    header("location:".PATH_HOME."admin/edituser/".$idUser);
                 } else {
                     //header("location:".PATH_HOME."admin/userlist");
                     die('nok');
                 }
             }
 
+        } else {
+            header("location:".PATH_HOME."admin/signin");
+        }
+    }
+
+    public function usersreview()
+    {
+        if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
+            define("TITLE_HEAD", "Reviews | Rates");
+            $data = array(
+                'users' => $this->model->getUsers()
+            );
+            $this->load->view("admin/review_list.php", $data);
         } else {
             header("location:".PATH_HOME."admin/signin");
         }

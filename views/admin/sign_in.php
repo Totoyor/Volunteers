@@ -50,7 +50,7 @@
         <div class="col s6 logo">
           <img src="../assets/img/logo_volonteers3.svg" alt="logo">
         </div>
-        <div class="col s6 right-align"><strong>Sign In</strong><!-- / <a href="signup">Sign Up</a>-->
+        <div class="col s6 right-align"><strong>Sign In</strong>
         </div>
       </div>
 
@@ -95,7 +95,6 @@
     <!-- /Sign In Form -->
 
   </section>
-
     <footer>&copy; 2015 <strong>Volunteers</strong>. All rights reserved.
   </footer>
 

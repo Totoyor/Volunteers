@@ -269,6 +269,8 @@ class AdminModel extends AppModel
 	        DELETE FROM vol_event_questions
 	        WHERE vol_events_idEvent = ".$options.";
 
+
+
 	        DELETE FROM vol_events
 	        WHERE idEvent = ".$options.";
 
