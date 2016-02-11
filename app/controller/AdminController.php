@@ -1628,4 +1628,17 @@ class AdminController extends AppController
             exit();
         }
     }
+
+    public function usersreview()
+    {
+        if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
+            define("TITLE_HEAD", "Reviews | Rates");
+            $data = array(
+                'users' => $this->model->getUsers()
+            );
+            $this->load->view("admin/review_list.php", $data);
+        } else {
+            header("location:".PATH_HOME."admin/signin");
+        }
+    }
 }

@@ -29,6 +29,7 @@
     unset($_SESSION['FlashMessage']);
   }
   ?>
+  <script type="text/javascript" src="<?= PATH_HOME ?>assets/js/jquery.dataTables.min.js"></script>
 </body>
 
 </html>

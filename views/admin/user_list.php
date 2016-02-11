@@ -1,14 +1,14 @@
 <?php include_once('views/layout/adminheader.inc.php'); ?>
-<!-- Main Content -->
-  <section class="content-wrap ecommerce-customers">
+    <!-- Main Content -->
+    <section class="content-wrap ecommerce-customers">
+        <!-- Breadcrumb -->
+        <div class="page-title">
 
-
-    <!-- Breadcrumb -->
-    <div class="page-title">
-
-      <div class="row">
-        <div class="col s12 m9 l10">
-          <h1>User List</h1>
+            <div class="row">
+                <div class="col s12 m9 l10">
+                    <h1>User List</h1>
+                </div>
+            </div>
         </div>
       </div>
 
@@ -88,9 +88,5 @@
         "bLengthChange": false,
         "iDisplayLength": 5,
         "filter": false
-      });
-    </script>
-
-  </section>
-  <!-- /Main Content -->
-<?php include_once('views/layout/adminfooter.inc.php'); ?>
+    });
+</script>
