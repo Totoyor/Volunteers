@@ -34,7 +34,7 @@
                                 <input name="rate" type="range" id="test5" min="1" max="6"/>
                             </p>
                             <input type="hidden" name="idVolunteer" value="<?= $data['infos']['idUser']; ?>">
-                            <?php if($_SESSION['user_id'] == $data['infos']['idUser']) { ?>
+                            <?php if(!isset($_SESSION['user_id']) || $_SESSION['user_id'] == $data['infos']['idUser']) { ?>
                                 <button type="submit"
                                     class="dropdown-button btn btn-orange fullwidth space2" disabled>
                                     Rate
