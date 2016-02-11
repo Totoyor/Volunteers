@@ -19,6 +19,16 @@
   <script type="text/javascript" src="<?php echo PATH_HOME ?>assets/js/monjs.js"></script>
 
   <script type="text/javascript" src="<?php echo PATH_HOME ?>assets/js/dropify.js"></script>
+  <script type='text/javascript' src='<?php echo PATH_HOME ?>assets/js/notie.js'></script>
+  <?php
+  // Affichage de la notification
+  if(isset($_SESSION['FlashMessage'])) {
+    $this->helperGetFlashMessage(array('type' => $_SESSION['FlashMessage']['type'],
+                                       'message' => $_SESSION['FlashMessage']['message'],
+                                       'duration' => $_SESSION['FlashMessage']['duration']));
+    unset($_SESSION['FlashMessage']);
+  }
+  ?>
 </body>
 
 </html>

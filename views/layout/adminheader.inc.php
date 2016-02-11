@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE>
 <!--[if lt IE 7]>  <html class="lt-ie7"> <![endif]-->
 <!--[if IE 7]>     <html class="lt-ie8"> <![endif]-->
 <!--[if IE 8]>     <html class="lt-ie9"> <![endif]-->
@@ -7,19 +7,13 @@
 <!--<![endif]-->
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Volunteers - Admin</title>
-
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
-
-
   <link rel="icon" type="image/png" href="<?php echo PATH_HOME ?>assets/admin/_con/images/icon.png">
-
   <!-- nanoScroller -->
   <link rel="stylesheet" type="text/css" href="<?php echo PATH_HOME ?>assets/admin/nanoScroller/nanoscroller.css" />
 
@@ -37,8 +31,6 @@
 
   <!-- Dropify -->
   <link rel="stylesheet" type="text/css" href="<?php echo PATH_HOME ?>assets/css/dropify.css">
-
-  </script>
 </head>
 <body>
   <nav class="navbar-top navbar-dark navbar-under navbar-static">

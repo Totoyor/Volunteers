@@ -4,7 +4,7 @@
         <div class="page-title">
             <div class="row">
                 <div class="col s12 m9 l10">
-                    <h1>Register user</h1>
+                    <h1>Register new user</h1>
                 </div>
             </div>
         </div>

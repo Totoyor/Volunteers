@@ -15,39 +15,6 @@
     </div>
     <!-- /Breadcrumb -->
 
-<!--    <div class="row">-->
-<!--      --><?php //if (isset($data)): ?>
-<!--          --><?php //foreach ($data['users'] as $user) : ?>
-<!--            <div class="col s6 m3 l2">-->
-<!--              <div class="card image-card">-->
-<!--                <div class="image">-->
-<!--                  --><?php //if(!empty($user['Picture'])) { ?>
-<!--                    <img src="assets/img/users/uploads/--><?//= $user['Picture']; ?><!--" alt="--><?//= $user['FirstName']; ?><!--">-->
-<!--                  --><?php //} else { ?>
-<!--                    <img src="assets/img/users/uploads/defaultuser.jpg" alt="User">-->
-<!--                  --><?php //} ?>
-<!--                  <a href="singleuser/--><?//= $user['idUser']; ?><!--" class="link"></a>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="content">-->
-<!--                  --><?php //if ($user['FirstName'] != null){ ?>
-<!--                    <h5>--><?//= $user['FirstName']; ?><!-- --><?//= $user['LastName']; ?><!--</h5>-->
-<!--                    --><?php //} else { ?>
-<!--                    <h5>Volunteer n°--><?//= $user['idUser']; ?><!--</h5>-->
-<!--                    --><?php //} ?>
-<!--                </div>-->
-<!--                <div class="actions" style="padding: 5px;">-->
-<!--                  <a href="edituser/--><?//= $user['idUser']; ?><!--" class="btn btn-small z-depth-0"><i class="mdi mdi-editor-mode-edit"></i></a>-->
-<!--                  <a href="singleuser/--><?//= $user['idUser']; ?><!--" class="btn btn-small z-depth-0"><i class="mdi mdi-action-visibility"></i></a>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--            --><?php //endforeach; ?>
-<!--        --><?php //endif; ?>
-<!---->
-<!--    </div>-->
-
-
       <table id="table1" class="display table table-bordered table-striped table-hover">
         <thead>
         <tr>
@@ -104,7 +71,7 @@
                   <?php } ?>
                 </td>
                 <td class="center-align">
-                  <a class="btn red">
+                  <a onclick="return confirm('Are you sure you want to delete this account ?');" href="deleteuser/<?= $user['idUser']; ?>" class="btn red">
                     <i class="mdi-content-clear"></i> delete
                   </a>
                 </td>

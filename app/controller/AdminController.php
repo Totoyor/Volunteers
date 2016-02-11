@@ -15,7 +15,7 @@ class AdminController extends AppController
 
     public function dashboard()
     {
-        //Si le user n'est pas connécté ou n'est pas admin il est rediriger vers la page de connexion
+        //Si le user n'est pas connecté ou n'est pas admin il est redirigé vers la page de connexion
         if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
 
             $data = array(
@@ -27,9 +27,8 @@ class AdminController extends AppController
             $this->load->view('admin/dashboard.php', $data);
 
         } else {
-
             header("location:".PATH_HOME."admin/signin");
-
+            exit();
         }
     }
 
@@ -41,19 +40,32 @@ class AdminController extends AppController
             $this->load->view('admin/register.php');
         } else {
             header("location:".PATH_HOME."admin/signin");
+            exit();
         }
     }
 
     public function edituser()
     {
-        if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
-            $id = $_GET['id'];
-            $data = $this->model->getUser($id);
-            // Chargement de la home
-            define("TITLE_HEAD", "Volunteers | Admin");
-            $this->load->view('admin/edit_user.php', $data);
+        if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2)
+        {
+            if(isset($_GET['id']))
+            {
+                $id = $_GET['id'];
+                $data = $this->model->getUser($id);
+                // Chargement de la home
+                define("TITLE_HEAD", "Volunteers | Admin");
+                $this->load->view('admin/edit_user.php', $data);
+            }
+            else
+            {
+                $messageFlash = 'An error has occurred. Please try again.';
+                $this->coreSetFlashMessage('error', $messageFlash, 3);
+                header("location:".PATH_HOME."admin/userlist");
+                exit();
+            }
         } else {
             header("location:".PATH_HOME."admin/signin");
+            exit();
         }
     }
 
@@ -68,6 +80,7 @@ class AdminController extends AppController
             $this->load->view('admin/user_list.php', $data);
         } else {
             header("location:".PATH_HOME."admin/signin");
+            exit();
         }
     }
 
@@ -81,38 +94,70 @@ class AdminController extends AppController
             $this->load->view('admin/user.php', $data);
         } else {
             header("location:".PATH_HOME."admin/signin");
+            exit();
         }
     }
 
     public function userStatus()
     {
         if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
-            define("TITLE_HEAD", "user Status | Volunteers Admin");
+
+            // Charger les status
+            $data = $this->model->readAll(array(
+                "table" => "user_status",
+                "orderBy" => "idStatus",
+                "sort" => "ASC"
+            ));
+
             // Chargement de la vue
-            $this->load->view('admin/user_status.php');
+            define("TITLE_HEAD", "user Status | Volunteers Admin");
+            $this->load->view('admin/user_status.php', $data);
         } else {
             header("location:".PATH_HOME."admin/signin");
+            exit();
         }
     }
 
     public function deleteUser()
     {
-        if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
-            define("TITLE_HEAD", "user Status | Volunteers Admin");
-            $this->model->deleteOne(array(
-                'table' => 'users',
-                'column' => 'idUser',
-                'id' => $_GET['id']
-            ));
-
-            // Message de confirmation et redirection
-            $messageFlash = 'Done ! The information has been deleted !';
-            $this->coreSetFlashMessage('success', $messageFlash, 4);
-            $this->load->view('admin/user_list.php');
-            exit();
-            // Chargement de la vue
-        } else {
+        if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2)
+        {
+            if(isset($_GET['id']))
+            {
+                if($this->model->deleteOne(array(
+                    'table' => 'users',
+                    'column' => 'idUser',
+                    'id' => $_GET['id']
+                )))
+                {
+                    // Message de confirmation et redirection
+                    define("TITLE_HEAD", "Volunteers Admin");
+                    $messageFlash = 'User deleted.';
+                    $this->coreSetFlashMessage('sucess', $messageFlash, 3);
+                    header("location:".PATH_HOME."admin/userlist");
+                    exit();
+                }
+                else
+                {
+                    // pas de suppression
+                    $messageFlash = 'An error has occurred. Please try again.';
+                    $this->coreSetFlashMessage('error', $messageFlash, 3);
+                    header("location:".PATH_HOME."admin/userlist");
+                    exit();
+                }
+            }
+            else
+            {
+                // pas d'id
+                $messageFlash = 'An error has occurred. Please try again.';
+                $this->coreSetFlashMessage('error', $messageFlash, 3);
+                header("location:".PATH_HOME."admin/userlist");
+                exit();
+            }
+        }
+        else {
             header("location:".PATH_HOME."admin/signin");
+            exit();
         }
     }
 
@@ -762,7 +807,7 @@ class AdminController extends AppController
                     } else if (isset($_POST['categorieSave']) && !empty($_POST['categorieSave'])) {
                         $event_categories = $_POST['categorieSave'];
                     } else {
-                        $messageFlash = 'Please set up the categori';
+                        $messageFlash = 'Please set up the categories';
                         $this->coreSetFlashMessage('error', $messageFlash, 3);
                         header("location:editshow/" . $idEvent);
                         exit();
@@ -941,6 +986,7 @@ class AdminController extends AppController
             $this->load->view('admin/event.php', $data);
         } else {
             header("location:".PATH_HOME."admin/signin");
+            exit();
         }
     }
 
@@ -955,6 +1001,7 @@ class AdminController extends AppController
             $this->load->view('admin/event_list.php', $data);
         } else {
             header("location:".PATH_HOME."admin/signin");
+            exit();
         }
     }
 
@@ -981,6 +1028,7 @@ class AdminController extends AppController
 
         } else {
             header("location:".PATH_HOME."admin/signin");
+            exit();
         }
     }
 
@@ -992,13 +1040,14 @@ class AdminController extends AppController
             $this->model->deleteEvent($_GET['id']);
             // Message de confirmation et redirection
             $messageFlash = 'Done ! The information has been deleted !';
-            $this->coreSetFlashMessage('success', $messageFlash, 4);
+            $this->coreSetFlashMessage('sucess', $messageFlash, 4);
             //define("TITLE_HEAD", "user Status | Volunteers Admin");
             header("location:".PATH_HOME."admin/eventlist");
             exit();
             // Chargement de la vue
         } else {
             header("location:".PATH_HOME."admin/signin");
+            exit();
         }
     }
 
@@ -1019,6 +1068,7 @@ class AdminController extends AppController
             $this->load->view('admin/categories.php', $data);
         } else {
             header("location:".PATH_HOME."admin/signin");
+            exit();
         }
 
     }
@@ -1039,6 +1089,7 @@ class AdminController extends AppController
 
         } else {
             header("location:".PATH_HOME."admin/signin");
+            exit();
         }
     }
 
@@ -1050,6 +1101,7 @@ class AdminController extends AppController
             $this->load->view('admin/inbox.php');
         } else {
             header("location:".PATH_HOME."admin/signin");
+            exit();
         }
     }
 
@@ -1061,6 +1113,7 @@ class AdminController extends AppController
             $this->load->view('admin/compose.php');
         } else {
             header("location:".PATH_HOME."admin/signin");
+            exit();
         }
     }
 
@@ -1125,60 +1178,63 @@ class AdminController extends AppController
 
     public function signup()
     {
-        if(isset($_POST['email']) && $_POST['password'])
+        if (isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2)
         {
-            if(!empty($_POST['email']) && (!empty($_POST['password'])))
+            if(isset($_POST['email']) && $_POST['password'])
             {
-                if(!$this->coreCheckEmail($_POST['email']))
+                if(!empty($_POST['email']) && (!empty($_POST['password'])))
                 {
-                    define("TITLE_HEAD", "An error occur.");
-                    $messageFlash = 'Your email is wrong. Please try again.';
-                    $this->coreSetFlashMessage('error', $messageFlash, 3);
-                    header('Location:?email=NOK');
-                    exit();
-                }
-                else
-                {
-                    $this->_login = $_POST['email'];
-                    $this->_password = md5($_POST['password']);
-                    $this->_status = 1;
-                    $this->_userKey = mt_rand();
-
-                    if($this->model->inscriptionUser($this->_login, $this->_password, $this->_status, $this->_userKey))
+                    if(!$this->coreCheckEmail($_POST['email']))
                     {
-                        // Si ok (true) alors on renvoi sur la page d'accueil
-                        //$messageFlash = 'Your account has been created. Please confirm your email through the one we sent you.';
-                        //$this->coreSetFlashMessage('sucess', $messageFlash, 6);
-                        header("location:".PATH_HOME."admin/userlist");
+                        define("TITLE_HEAD", "An error occur.");
+                        $messageFlash = 'Your email is wrong. Please try again.';
+                        $this->coreSetFlashMessage('error', $messageFlash, 3);
+                        header("location:".PATH_HOME."admin/registeruser");
                         exit();
                     }
                     else
                     {
-                        define("TITLE_HEAD", "An error occurred.");
-                        //$messageFlash = 'An error has occurred. Please try again.';
-                        //$this->coreSetFlashMessage('error', $messageFlash, 3);
-                        header("location:".PATH_HOME."admin/registeruser");
-                        exit();
+                        $this->_login = $_POST['email'];
+                        $this->_password = md5($_POST['password']);
+                        $this->_status = 1;
+                        $this->_userKey = mt_rand();
+
+                        if($this->model->inscriptionUser($this->_login, $this->_password, $this->_status, $this->_userKey))
+                        {
+                            // Si ok (true) alors on renvoi sur la page d'accueil
+                            $messageFlash = 'The account has been created';
+                            $this->coreSetFlashMessage('sucess', $messageFlash, 6);
+                            header("location:".PATH_HOME."admin/userlist");
+                            exit();
+                        }
+                        else
+                        {
+                            define("TITLE_HEAD", "An error occurred.");
+                            $messageFlash = 'An error has occurred. Please try again.';
+                            $this->coreSetFlashMessage('error', $messageFlash, 3);
+                            header("location:".PATH_HOME."admin/registeruser");
+                            exit();
+                        }
                     }
+                }
+                else
+                {
+                    // Si false on renvoi sur une page erreur
+                    define("TITLE_HEAD", "An error occur.");
+                    $messageFlash = 'An error has occurred. Please try again.';
+                    $this->coreSetFlashMessage('error', $messageFlash, 3);
+                    header("location:".PATH_HOME."admin/registeruser");
+                    exit();
                 }
             }
             else
             {
-                // Si false on renvoi sur une page erreur
                 define("TITLE_HEAD", "An error occur.");
                 $messageFlash = 'An error has occurred. Please try again.';
                 $this->coreSetFlashMessage('error', $messageFlash, 3);
-                header('Location:?signup=nok');
+                header("location:".PATH_HOME."admin/registeruser");
                 exit();
             }
-        }
-        else
-        {
-            define("TITLE_HEAD", "An error occur.");
-            $messageFlash = 'An error has occurred. Please try again.';
-            $this->coreSetFlashMessage('error', $messageFlash, 3);
-            header('Location:?signup=nok');
-            exit();
         }
     }
 
@@ -1186,20 +1242,35 @@ class AdminController extends AppController
     {
         if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
 
-            if(isset($_GET['id'])) {
-
+            if(isset($_GET['id']))
+            {
                 $idUser = $_GET['id'];
 
                 if($this->model->activateUser($idUser)) {
+                    $messageFlash = 'User activated !';
+                    $this->coreSetFlashMessage('sucess', $messageFlash, 3);
                     header("location:".PATH_HOME."admin/userlist");
+                    exit();
                 } else {
-                    //header("location:".PATH_HOME."admin/userlist");
-                    die('nok');
+                    $messageFlash = 'An error has occurred. Please try again.';
+                    $this->coreSetFlashMessage('error', $messageFlash, 3);
+                    header("location:".PATH_HOME."admin/userlist");
+                    exit();
                 }
+            }
+            else
+            {
+                $messageFlash = 'An error has occurred. Please try again.';
+                $this->coreSetFlashMessage('error', $messageFlash, 3);
+                header("location:".PATH_HOME."admin/userlist");
+                exit();
             }
 
         } else {
+            $messageFlash = 'You are not logged in.';
+            $this->coreSetFlashMessage('error', $messageFlash, 3);
             header("location:".PATH_HOME."admin/signin");
+            exit();
         }
     }
 
@@ -1207,20 +1278,354 @@ class AdminController extends AppController
     {
         if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
 
-            if(isset($_GET['id'])) {
-
+            if(isset($_GET['id']))
+            {
                 $idUser = $_GET['id'];
 
                 if($this->model->disableUser($idUser)) {
+                    $messageFlash = 'User disabled.';
+                    $this->coreSetFlashMessage('sucess', $messageFlash, 3);
                     header("location:".PATH_HOME."admin/userlist");
+                    exit();
                 } else {
-                    //header("location:".PATH_HOME."admin/userlist");
-                    die('nok');
+                    $messageFlash = 'An error has occurred. Please try again.';
+                    $this->coreSetFlashMessage('sucess', $messageFlash, 3);
+                    header("location:".PATH_HOME."admin/userlist");
+                    exit();
                 }
+            }
+            else
+            {
+                $messageFlash = 'An error has occurred. Please try again.';
+                $this->coreSetFlashMessage('error', $messageFlash, 3);
+                header("location:".PATH_HOME."admin/userlist");
+                exit();
             }
 
         } else {
             header("location:".PATH_HOME."admin/signin");
+            exit();
+        }
+    }
+
+    public function edituseradmin()
+    {
+        if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2)
+        {
+            if (isset($_POST))
+            {
+                if(isset($_POST['idUser']))
+                {
+                    if (isset($_POST['first_name'])) {
+                        $first_name = $_POST['first_name'];
+                    } else {
+                        $first_name = null;
+                    }
+
+                    if (isset($_POST['last_name'])) {
+                        $last_name = $_POST['last_name'];
+                    } else {
+                        $last_name = null;
+                    }
+
+                    if (isset($_POST['email'])) {
+                        if($this->coreCheckEmail($_POST['email'])) {
+                            $email = $_POST['email'];
+                        }
+                        else {
+                            $messageFlash = 'Wrong email adress. Please try again.';
+                            $this->coreSetFlashMessage('error', $messageFlash, 4);
+                            header("location:".PATH_HOME."admin/edituser/".$_POST['idUser']);
+                            exit();
+                        }
+                    }
+
+                    if(isset($_POST['BirthDateSaved'])) {
+                        $birth_date = $_POST['BirthDateSaved'];
+                    }
+                    elseif(isset($_POST['birth_day']) && isset($_POST['birth_month']) && isset($_POST['birth_year'])) {
+                        $birth_date = $_POST['birth_day'] . "/" . $_POST['birth_month'] . "/" . $_POST['birth_year'];
+                    }
+                    else {
+                        $birth_date = null;
+                    }
+
+                    if (isset($_POST['location'])) {
+                        $location = $_POST['location'];
+                    } else {
+                        $location = null;
+                    }
+
+                    if (isset($_POST['skills'])) {
+                        $skills = $_POST['skills'];
+                    } else {
+                        $skills = null;
+                    }
+
+                    if (isset($_POST['description'])) {
+                        $description = $_POST['description'];
+                    } else {
+                        $description = null;
+                    }
+
+                    if (isset($_POST['school'])) {
+                        $school = $_POST['school'];
+                    } else {
+                        $school = null;
+                    }
+
+                    if (isset($_POST['work'])) {
+                        $work = $_POST['work'];
+                    } else {
+                        $work = null;
+                    }
+
+                    $id = $_POST['idUser'];
+
+                    if (!empty($_FILES['userPicture']['name'])) {
+                        $file = new Upload($_FILES['userPicture']['name'], $_FILES["userPicture"]["tmp_name"], 'assets/img/user_pp/', '');
+
+                        if ($file->extControl()) {
+                            if ($file->moveFile()) {
+                                $userPicture = $file->setNom();
+                                $lastId = $this->model->insertUserPicture($userPicture);
+                            } else {
+                                // fichier non déplacé
+                                define("TITLE_HEAD", "An error occur.");
+                                $messageFlash = 'An error occur. Please try again.';
+                                $this->coreSetFlashMessage('error', $messageFlash, 3);
+                                header("location:".PATH_HOME."admin/edituser/".$id);
+                                exit();
+                            }
+                        } else {
+                            // Extension non autorisée
+                            define("TITLE_HEAD", "An error occur.");
+                            $messageFlash = 'Invalid file extension. Please try again.';
+                            $this->coreSetFlashMessage('error', $messageFlash, 3);
+                            header("location:".PATH_HOME."admin/edituser/".$id);
+                            exit();
+                        }
+                    } else {
+                        if (isset($_POST['userPictureSaved'])) {
+                            // TODO
+                            // Supprimer l'ancienne photo
+                            $userPicture = $_POST['userPictureSaved'];
+                            $lastId = $this->model->insertUserPicture($userPicture);
+                        } else {
+                            $lastId = null;
+                        }
+                    }
+
+                    if (!$this->model->update_profile($id, $first_name, $last_name, $birth_date, $email, $location, $description, $skills, $school, $work, $lastId)) {
+                        // Si pas de données updaté
+                        define("TITLE_HEAD", "An error occur.");
+                        $messageFlash = 'An error occur. Please try again.';
+                        $this->coreSetFlashMessage('error', $messageFlash, 3);
+                        header("location:".PATH_HOME."admin/edituser/".$id);
+                        exit();
+                    } else {
+                        // Si données updaté
+                        define("TITLE_HEAD", "Volunteers Admin");
+                        $messageFlash = 'Informations updated.';
+                        $this->coreSetFlashMessage('sucess', $messageFlash, 3);
+                        header("location:".PATH_HOME."admin/edituser/".$id);
+                        exit();
+                    }
+                }
+                else
+                {
+                    // Pas d'id
+                    $messageFlash = 'An error has occurred. Please try again.';
+                    $this->coreSetFlashMessage('sucess', $messageFlash, 3);
+                    header("location:".PATH_HOME."admin/userlist");
+                    exit();
+                }
+            }
+            else
+            {
+                // Pas de post
+                $messageFlash = 'An error has occurred. Please try again.';
+                $this->coreSetFlashMessage('sucess', $messageFlash, 3);
+                header("location:".PATH_HOME."admin/userlist");
+                exit();
+            }
+        }
+        else
+        {
+            header("location:".PATH_HOME."admin/signin");
+            exit();
+        }
+    }
+
+    public function editStatus()
+    {
+        if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2)
+        {
+            if(isset($_GET['id']))
+            {
+                $id = $_GET['id'];
+            }
+            elseif(isset($_POST['idStatus']))
+            {
+                $id = $_POST['idStatus'];
+            }
+
+            $data = $this->model->readOne(array(
+                "table" => "user_status",
+                "column_id" => "idStatus",
+                "id" => $id
+            ));
+
+            if(!empty($data))
+            {
+                // Chargement de la home
+                define("TITLE_HEAD", "Volunteers | Admin");
+                $this->load->view('admin/edit_status.php', $data);
+            }
+            else
+            {
+                // Chargement de la page erreur
+                define("TITLE_HEAD", "Volunteers | Admin");
+                $this->load->view('user/view_error.php');
+            }
+        } else {
+            header("location:".PATH_HOME."admin/signin");
+            exit();
+        }
+    }
+
+    public function editStatusAdmin()
+    {
+        if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2)
+        {
+            if(isset($_POST['idStatus']) && isset($_POST['status']))
+            {
+                $id = $_POST['idStatus'];
+                $status = $_POST['status'];
+
+                if($this->model->editStatus($id, $status))
+                {
+                    // Si données updaté
+                    define("TITLE_HEAD", "Volunteers Admin");
+                    $messageFlash = 'Status updated.';
+                    $this->coreSetFlashMessage('sucess', $messageFlash, 3);
+                    header("location:".PATH_HOME."admin/editstatus/".$id);
+                    exit();
+                }
+                else
+                {
+                    // Si pas de données updaté
+                    define("TITLE_HEAD", "Volunteers Admin");
+                    $messageFlash = 'An error occur. Please try again. no update';
+                    $this->coreSetFlashMessage('error', $messageFlash, 3);
+                    header("location:".PATH_HOME."admin/editstatus/".$id);
+                    exit();
+                }
+            }
+            else
+            {
+                // Si pas de POST
+                define("TITLE_HEAD", "Volunteers Admin");
+                $messageFlash = 'An error occur. Please try again.';
+                $this->coreSetFlashMessage('error', $messageFlash, 3);
+                header("location:".PATH_HOME."admin/userstatus");
+                exit();
+            }
+        }
+        else
+        {
+            header("location:".PATH_HOME."admin/signin");
+            exit();
+        }
+    }
+
+    public function deleteStatus()
+    {
+        if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2)
+        {
+            if(isset($_GET['id']))
+            {
+                $id = $_GET['id'];
+
+                if($this->model->deleteOne(array(
+                    'table' => 'user_status',
+                    'column' => 'idStatus',
+                    'id' => $id
+                )))
+                {
+                    // OK : Chargement de la page
+                    $messageFlash = 'Status deleted.';
+                    $this->coreSetFlashMessage('sucess', $messageFlash, 3);
+                    define("TITLE_HEAD", "Volunteers | Admin");
+                    header("location:".PATH_HOME."admin/userstatus");
+                    exit();
+                }
+                else
+                {
+                    // Non supprimé
+                    define("TITLE_HEAD", "Volunteers Admin");
+                    $messageFlash = 'An error occur. Please try again.';
+                    $this->coreSetFlashMessage('error', $messageFlash, 3);
+                    header("location:".PATH_HOME."admin/userstatus");
+                    exit();
+                }
+            }
+            else
+            {
+                // Si pas d'id
+                define("TITLE_HEAD", "Volunteers Admin");
+                $messageFlash = 'An error occur. Please try again.';
+                $this->coreSetFlashMessage('error', $messageFlash, 3);
+                header("location:".PATH_HOME."admin/userstatus");
+                exit();
+            }
+        } else {
+            header("location:".PATH_HOME."admin/signin");
+            exit();
+        }
+    }
+
+    public function addStatus()
+    {
+        if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2)
+        {
+            if(isset($_POST['status']))
+            {
+                $status = $_POST['status'];
+
+                if($this->model->addStatus($status))
+                {
+                    // OK : Chargement de la page
+                    $messageFlash = 'Status added.';
+                    $this->coreSetFlashMessage('sucess', $messageFlash, 3);
+                    define("TITLE_HEAD", "Volunteers | Admin");
+                    header("location:".PATH_HOME."admin/userstatus");
+                    exit();
+                }
+                else
+                {
+                    // Si pas d'ajout
+                    define("TITLE_HEAD", "Volunteers Admin");
+                    $messageFlash = 'An error occur. Please try again.';
+                    $this->coreSetFlashMessage('error', $messageFlash, 3);
+                    header("location:".PATH_HOME."admin/userstatus");
+                    exit();
+                }
+            }
+            else
+            {
+                // Si pas d'id
+                define("TITLE_HEAD", "Volunteers Admin");
+                $messageFlash = 'An error occur. Please try again.';
+                $this->coreSetFlashMessage('error', $messageFlash, 3);
+                header("location:".PATH_HOME."admin/userstatus");
+                exit();
+            }
+        }
+        else
+        {
+            header("location:".PATH_HOME."admin/signin");
+            exit();
         }
     }
 }
