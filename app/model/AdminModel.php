@@ -87,36 +87,41 @@ class AdminModel extends AppModel
 	 * @return bool|string
 	 */
 	public function createEvent($event_name, $event_location, $event_start, $event_hour_start, $event_end,
-	                            $event_hour_end, $event_description, $status, $user)
+								$event_hour_end, $event_description, $status, $facebook, $instagram, $youtube, $twitter, $user)
 	{
-	    try {
-	        $query = $this->connexion->prepare("INSERT INTO vol_events
-	                                    (nameEvent, startEvent, hourStartEvent, endEvent, hourEndEvent,
-	                                    locationEvent, descriptionEvent, vol_event_status_idEventStatus, vol_users_idUser)
-	                                    VALUES (:name, :start, :hourStart, :end, :hourEnd,
-	                                    :location, :description, :status, :user)");
+		try {
+			$query = $this->connexion->prepare("INSERT INTO vol_events
+                                        (nameEvent, startEvent, hourStartEvent, endEvent, hourEndEvent,
+                                        locationEvent, descriptionEvent, facebookEvent, twitterEvent, instagramEvent, youtubeEvent, vol_event_status_idEventStatus, vol_users_idUser)
+                                        VALUES (:name, :start, :hourStart, :end, :hourEnd,
+                                        :location, :description, :facebook, :twitter, :instagram, :youtube, :status, :user)");
 
-	        $query->bindValue(':name', $event_name, PDO::PARAM_STR);
-	        $query->bindValue(':location', $event_location, PDO::PARAM_STR);
-	        $query->bindValue(':start', $event_start, PDO::PARAM_STR);
-	        $query->bindValue(':hourStart', $event_hour_start, PDO::PARAM_STR);
-	        $query->bindValue(':end', $event_end, PDO::PARAM_STR);
-	        $query->bindValue(':hourEnd', $event_hour_end, PDO::PARAM_STR);
-	        $query->bindValue(':description', $event_description, PDO::PARAM_STR);
-	        $query->bindValue(':status', $status, PDO::PARAM_STR);
-	        $query->bindValue(':user', $user, PDO::PARAM_STR);
-	        $query->execute();
-	        $query->closeCursor();
+			$query->bindValue(':name', $event_name, PDO::PARAM_STR);
+			$query->bindValue(':location', $event_location, PDO::PARAM_STR);
+			$query->bindValue(':start', $event_start, PDO::PARAM_STR);
+			$query->bindValue(':hourStart', $event_hour_start, PDO::PARAM_STR);
+			$query->bindValue(':end', $event_end, PDO::PARAM_STR);
+			$query->bindValue(':hourEnd', $event_hour_end, PDO::PARAM_STR);
+			$query->bindValue(':description', $event_description, PDO::PARAM_STR);
+			$query->bindValue(':facebook', $facebook, PDO::PARAM_STR);
+			$query->bindValue(':twitter', $twitter, PDO::PARAM_STR);
+			$query->bindValue(':instagram', $instagram, PDO::PARAM_STR);
+			$query->bindValue(':youtube', $youtube, PDO::PARAM_STR);
+			$query->bindValue(':status', $status, PDO::PARAM_STR);
+			$query->bindValue(':user', $user, PDO::PARAM_STR);
+			$query->execute();
+			$query->closeCursor();
 
-	        //On récupère l'id de l'insertion
-	        $lastId = $this->connexion->lastInsertId();
+			//On récupère l'id de l'insertion
+			$lastId = $this->connexion->lastInsertId();
 
-	        return $lastId;
-	        //return true;
+			return $lastId;
+			//return true;
 
-	    } catch (Exception $e) {
-	        return false;
-	    }
+		} catch (Exception $e) {
+			die($e);
+			return false;
+		}
 	}
 
 	/**
@@ -348,6 +353,30 @@ class AdminModel extends AppModel
 	}
 
 	/**
+	 * @param $idCategory
+	 * @param $idEvent
+	 * @return bool
+	 */
+	public function insertCategories($idCategory, $idEvent)
+	{
+		try {
+			$query = $this->connexion->prepare("INSERT INTO vol_events_categories_has_vol_events
+            (vol_events_categories_idCategorie, vol_events_idEvent) VALUES
+            (:idCategory, :idEvent)");
+
+			$query->bindValue(':idCategory', $idCategory, PDO::PARAM_INT);
+			$query->bindValue(':idEvent', $idEvent, PDO::PARAM_INT);
+
+			$query->execute();
+
+			return true;
+
+		} catch (Exception $e) {
+			return false;
+		}
+	}
+
+	/**
 	 * @return array|bool
 	 */
 	public function getUsers()
@@ -529,4 +558,78 @@ class AdminModel extends AppModel
 			return false;
 		}
 	}
+
+	/**
+	 * @param $idEvent
+	 * @param $missions
+	 * @param $nbVolunteer
+	 * @return bool
+	 */
+	public function insertMissions($idEvent, $missions, $nbVolunteer)
+	{
+		try {
+			$query = $this->connexion->prepare("INSERT INTO vol_event_missions
+            (missionName, nbVolunteer, vol_events_idEvent) VALUES
+            (:mission, :nbVol, :idEvent)");
+
+			$query->bindValue(':mission', $missions, PDO::PARAM_STR);
+			$query->bindValue(':nbVol', $nbVolunteer, PDO::PARAM_INT);
+			$query->bindValue(':idEvent', $idEvent, PDO::PARAM_INT);
+
+			$query->execute();
+
+			return true;
+
+		} catch (Exception $e) {
+			return false;
+		}
+	}
+
+	/**
+	 * @param $idEvent
+	 * @param $coverPicture
+	 * @return bool
+	 */
+	public function insertCoverPicture($idEvent, $coverPicture)
+	{
+		try {
+			$query = $this->connexion->prepare("UPDATE vol_events
+            SET coverPicture = :cover
+            WHERE idEvent = :idEvent");
+
+			$query->bindValue(':cover', $coverPicture, PDO::PARAM_STR);
+			$query->bindValue(':idEvent', $idEvent, PDO::PARAM_INT);
+
+			$query->execute();
+
+			return true;
+
+		} catch (Exception $e) {
+			return false;
+		}
+	}
+
+	/**
+	 * @param $idEvent
+	 * @param $media
+	 * @return bool
+	 */
+	public function insertMediaPicture($idEvent, $media)
+	{
+		try {
+			$query = $this->connexion->prepare("INSERT INTO vol_event_pictures
+             (eventPicture, vol_events_idEvent) VALUES (:media, :idEvent)");
+
+			$query->bindValue(':media', $media, PDO::PARAM_INT);
+			$query->bindValue(':idEvent', $idEvent, PDO::PARAM_INT);
+
+			$query->execute();
+
+			return true;
+
+		} catch (Exception $e) {
+			return false;
+		}
+	}
+
 }

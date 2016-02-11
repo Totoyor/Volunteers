@@ -10,7 +10,7 @@
             </div>
         </div>
         <!-- /Breadcrumb -->
-        <form method="post" action="#">
+        <form method="post" action="create">
             <div class="card">
                 <div class="title">
                     <h5>Description</h5>
@@ -31,7 +31,7 @@
 
                     <div class="row">
                         <div class="input-field col s9">
-                            <input id="input_email" name="event_location" type="text" class="validate" required>
+                            <input id="input_email" name="event_location" type="text" class="validate" >
                             <label for="input_email">Location</label>
                         </div>
                     </div>
@@ -201,19 +201,19 @@
 
                     <div class="row">
                         <div class="input-field col s3">
-                            <input id="input_email" name="facebook" type="text" class="validate" required>
+                            <input id="input_email" name="facebook" type="text" class="validate" >
                             <label for="input_email">Facebook</label>
                         </div>
                         <div class="input-field col s3">
-                            <input id="input_email" name="instagram" type="text" class="validate" required>
+                            <input id="input_email" name="instagram" type="text" class="validate" >
                             <label for="input_email">Instagram</label>
                         </div>
                         <div class="input-field col s3">
-                            <input id="input_email" name="youtube" type="text" class="validate" required>
+                            <input id="input_email" name="youtube" type="text" class="validate" >
                             <label for="input_email">Youtube</label>
                         </div>
                         <div class="input-field col s3">
-                            <input id="input_email" name="twitter" type="text" class="validate" required>
+                            <input id="input_email" name="twitter" type="text" class="validate" >
                             <label for="input_email">Twitter</label>
                         </div>
                     </div>
@@ -307,7 +307,7 @@
                 <div class="center-align">
                     <button class="btn red">Cancel</button>
                     <button type="submit" name="save" class="btn orange">Save</button>
-                    <button type="submit" name="publish" class="btn green">Publish</button>
+                    <button type="submit" name="submit" class="btn green">Publish</button>
                 </div>
             </div>
             <br>
