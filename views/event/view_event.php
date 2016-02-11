@@ -61,8 +61,17 @@
 
                     <div class="leftmargin">
                         <?php foreach ($data['medias'] as $media) { ?>
+
+                            <?php
+                            $picture = $media['eventPicture'];
+                            $search = array('.jpg', '.png', '.gif', '.jpeg');
+                            $replace = array('.min.jpg', '.min.png', '.min.gif', '.min.jpeg');
+                            $result = str_replace($search,$replace,$picture);
+                            ?>
+
                             <img class="event_media materialboxed"
-                                 src="assets/img/events/uploads/<?= $media['eventPicture']; ?>" alt=""/>
+                                 src="assets/img/events/uploads/<?= $result; ?>" />
+
                         <?php } ?>
                     </div>
 

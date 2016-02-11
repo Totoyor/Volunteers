@@ -26,6 +26,7 @@
                         <th>Image</th>
                         <th>Name</th>
                         <th style="width: 80px;">Status</th>
+                        <th style="width: 80px;">View Vol</th>
                         <th style="width: 50px;">View</th>
                         <th style="width: 50px;">Edit</th>
                         <th style="width: 50px;">Delete</th>
@@ -72,14 +73,18 @@
                                         echo("Premium");
                                     } ?>
                                 </td>
-                                <td><a href="<?php echo PATH_HOME ?>admin/singleevent/<?= $event['idEvent']; ?>"
-                                       class="btn btn-small z-depth-0"><i class="mdi mdi-action-visibility"></i></a>
+                                <td>
+                                    <a href="<?php echo PATH_HOME ?>admin/singleevent/<?= $event['idEvent']; ?>"
+                                       class="btn z-depth-0"><i class="mdi-action-face-unlock"></i></a>
                                 </td>
                                 <td><a href="<?php echo PATH_HOME ?>admin/singleevent/<?= $event['idEvent']; ?>"
-                                       class="btn btn-small z-depth-0"><i class="mdi mdi-editor-mode-edit"></i></a>
+                                       class="btn z-depth-0 green"><i class="mdi mdi-action-visibility"></i></a>
+                                </td>
+                                <td><a href="<?php echo PATH_HOME ?>admin/singleevent/<?= $event['idEvent']; ?>"
+                                       class="btn z-depth-0 orange"><i class="mdi mdi-editor-mode-edit"></i></a>
                                 </td>
                                 <td><a href="<?php echo PATH_HOME ?>admin/deleteevent/<?= $event['idEvent']; ?>"
-                                       class="btn btn-small z-depth-0 red darken-1"
+                                       class="btn z-depth-0 red darken-1"
                                        onclick="return confirm('Are you sure you want to delete this item?');"><i
                                             class="mdi mdi-action-delete"></i></a>
                                 </td>

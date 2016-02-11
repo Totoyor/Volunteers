@@ -161,7 +161,7 @@ class EventController extends AppController
                                 $name = $_FILES['media']['name'][$i];
                                 $tmp_name = $_FILES["media"]["tmp_name"][$i];
 
-                                $media = new Upload($name, $tmp_name, 'assets/img/events/uploads/', '');
+                                $media = new Upload($name, $tmp_name, 'assets/img/events/uploads/', 1200);
 
                                 if ($media->extControl()) {
                                     if ($media->moveFile()) {
@@ -348,7 +348,7 @@ class EventController extends AppController
                                 $name = $_FILES['media']['name'][$i];
                                 $tmp_name = $_FILES["media"]["tmp_name"][$i];
 
-                                $media = new Upload($name, $tmp_name, 'assets/img/events/uploads/', '');
+                                $media = new Upload($name, $tmp_name, 'assets/img/events/uploads/', 1200);
 
                                 if ($media->extControl()) {
                                     if ($media->moveFile()) {

@@ -125,10 +125,10 @@
           <li class="label">Menu</li>
             <!-- <li class="active"> -->
             <li class="">
-              <a href="<?= PATH_HOME ?>admin/dashboard" class="waves-effect waves-blue"><i class="fa fa-dashboard"></i> Dashboard</a>
+              <a href="<?= PATH_HOME ?>admin/dashboard" class="waves-effect waves-blue"><i class="mdi-action-assessment"></i> Dashboard</a>
             </li>
             <li>
-              <a class="yay-sub-toggle waves-effect waves-blue"><i class="fa fa-users"></i> Users<span class="yay-collapse-icon mdi-navigation-expand-more"></span></a>
+              <a class="yay-sub-toggle waves-effect waves-blue"><i class="mdi-action-assignment-ind"></i> Users<span class="yay-collapse-icon mdi-navigation-expand-more"></span></a>
               <ul>
                 <li><a href="<?php echo PATH_HOME ?>admin/registeruser" class="waves-effect waves-blue"><i class="mdi-content-add-circle"></i> Register</a>
                 </li>
@@ -150,7 +150,7 @@
               </ul>
             </li>
             <li>
-              <a class="yay-sub-toggle waves-effect waves-blue"><i class="fa fa-envelope"></i> Mailbox<span class="yay-collapse-icon mdi-navigation-expand-more"></span></a>
+              <a class="yay-sub-toggle waves-effect waves-blue"><i class="mdi-action-markunread-mailbox"></i> Mailbox<span class="yay-collapse-icon mdi-navigation-expand-more"></span></a>
               <ul>
                 <li><a href="<?php echo PATH_HOME ?>admin/inbox" class="waves-effect waves-blue"><i class="mdi-content-inbox"></i>Inbox</a>
                 </li>

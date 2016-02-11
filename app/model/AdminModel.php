@@ -58,11 +58,9 @@ class AdminModel extends AppModel
 	        ON vol_events.idEvent = vol_events_categories_has_vol_events.vol_events_idEvent
 	        LEFT JOIN vol_events_categories
 	        ON vol_events_categories_has_vol_events.vol_events_categories_idCategorie = vol_events_categories.idCategorie
-	        WHERE vol_events.vol_event_status_idEventStatus = :status
 	        GROUP BY idEvent
 	        ");
-
-	        $query->bindValue(':status', 1, PDO::PARAM_INT);
+			
 	        $query->execute();
 	        $data = $query->fetchAll(PDO::FETCH_ASSOC);
 	        $query->closeCursor();
