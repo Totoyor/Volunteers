@@ -15,7 +15,10 @@
 
   <!-- Custom script -->
   <script type="text/javascript" src="<?php echo PATH_HOME ?>assets/admin/script.js"></script>
-  </script>
+
+  <script type="text/javascript" src="<?php echo PATH_HOME ?>assets/js/monjs.js"></script>
+
+  <script type="text/javascript" src="<?php echo PATH_HOME ?>assets/js/dropify.js"></script>
 </body>
 
 </html>

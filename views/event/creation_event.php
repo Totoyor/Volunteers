@@ -315,8 +315,6 @@
                                    class="dropify tooltipped" data-tooltip="Choose media pictures" data-delay="50"
                                    data-position="right"/>
                         </div>
-
-
                     </div>
 
 

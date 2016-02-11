@@ -480,7 +480,10 @@ class AdminController extends AppController
         if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
             // Chargement de la home
             define("TITLE_HEAD", "Volunteers | Admin");
-            $this->load->view('admin/event.php');
+            $data = array(
+              'categories' => $this->model->getCategories()
+            );
+            $this->load->view('admin/event.php', $data);
         } else {
             header("location:".PATH_HOME."admin/signin");
         }

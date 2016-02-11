@@ -35,6 +35,9 @@
   <!-- Custom -->
   <link rel="stylesheet" type="text/css" href="<?php echo PATH_HOME ?>assets/admin/style.css" />
 
+  <!-- Dropify -->
+  <link rel="stylesheet" type="text/css" href="<?php echo PATH_HOME ?>assets/css/dropify.css">
+
   </script>
 </head>
 <body>
