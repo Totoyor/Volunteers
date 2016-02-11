@@ -47,7 +47,7 @@
                             <?php endforeach; ?>
                         <?php } else { ?>
                             <tr>
-                                <td>Vous n'avez postulez pour aucun évènements pour le moment</td>
+                                <td>It seems like you don't join any event.</td>
                             </tr>
                         <?php } ?>
                         </tbody>
@@ -85,7 +85,7 @@
                             <?php endforeach; ?>
                         <?php } else { ?>
                             <tr>
-                                <td>Vous ne participez à aucun évènement pour le moment</td>
+                                <td>It seems like you don't have join any event.</td>
                             </tr>
                         <?php } ?>
                         </tbody>

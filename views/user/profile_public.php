@@ -8,7 +8,7 @@
                         <?php if($data['infos']['Picture'] !== null) { ?>
                             <img height="100" class="circle" src="assets/img/user_pp/<?= $data['infos']['Picture']; ?>">
                         <?php } else { ?>
-                            <img class="circle" src="assets/img/square_face.png">
+                            <img height="100" class="circle" src="assets/img/square_face.png">
                         <?php } ?>
 
                         <h2 class="name-profile white-text nospace">
@@ -62,7 +62,7 @@
                         <ul class="nospace">
                             <li><i class="tiny material-icons orange-icon">email</i><?= $data['infos']['Email']; ?></li>
                             <li><i class="tiny material-icons orange-icon">room</i>
-                                <?php if ($data['infos']['Location'] !== null) {
+                                <?php if (!empty($data['infos']['Location'])) {
                                     echo $data['infos']['Location'];
                                 } else {
                                     echo "unspecified";
@@ -79,20 +79,20 @@
                         <hr class="fancy-hr">
                         <ul class="nospace">
                             <li><strong>Work :</strong>
-                                <?php if ($data['infos']['Work'] !== null) {
+                                <?php if (!empty($data['infos']['Work'])) {
                                     echo $data['infos']['Work'];
                                 } else {
                                     echo "unspecified";
                                 } ?>
                             </li>
                             <li><strong>School : </strong>
-                                <?php if ($data['infos']['School'] !== null) {
+                                <?php if (!empty($data['infos']['School'])) {
                                     echo $data['infos']['School'];
                                 } else {
                                     echo "unspecified";
                                 } ?>
                             </li>
-                            <li><strong>Speaks : </strong> English, French</li>
+                            <li><strong>Speaks : </strong> English</li>
                         </ul>
                     </div>
                 </div>
@@ -133,15 +133,15 @@
                 <div class="card panel panel-text" id="test1">
                     <h4 class="nospace">Description</h4>
                     <p>
-                        <?php if ($data['infos']['Description'] !== null) {
+                        <?php if (!empty($data['infos']['Description'])) {
                             echo $data['infos']['Description'];
                         } else {
-                            echo "No description yet.";
+                            echo "No descriptions yet.";
                         } ?>
                     </p>
                     <h4 class="nospace">Skills</h4>
                     <p>
-                        <?php if ($data['infos']['Skills'] !== null) {
+                        <?php if (!empty($data['infos']['Skills'])) {
                             echo $data['infos']['Skills'];
                         } else {
                             echo "No skills yet.";
@@ -153,12 +153,12 @@
                         <div class="col s12">
                             <h4 class="space1">Comments</h4>
                         </div>
-                        <?php if(isset($data['reviews'])): ?>
+                        <?php if(!empty($data['reviews'])) { ?>
                             <?php foreach ($data['reviews'] as $review): ?>
                                 <div class="row">
                                     <div class="col s12 l2 m12 center">
-                                        <img src="assets/img/square_face.png" height="75" width="75" alt=""
-                                             class="img-comment circle responsive-img"> <!-- notice the "circle" class -->
+                                        <img src="assets/img/square_face.png" height="100" width="100" alt=""
+                                             class="img-comment circle"> <!-- notice the "circle" class -->
                                         <p class="center name-comment">
                                             <?php if ($review['FirstName'] !== null) {
                                                 echo $review['FirstName'];
@@ -170,7 +170,7 @@
                                     <div class="col s12 l10 m12">
                                       <span class="grey-text">
                                           <?= $review['review']; ?>
-                                          <!--<p class="date-comment">January 19 2015</p>-->
+                                          <p class="date-comment">January 19 2015</p>
                                       </span>
 
                                         <div class="row">
@@ -181,13 +181,15 @@
                                     </div>
                                 </div>
                             <?php endforeach; ?>
-                        <?php endif; ?>
+                        <?php } else { ?>
+                            <p>No comments yet.</p>
+                        <?php } ?>
                         <div class="col s12 l2 m12 center padding4">
                             <?php if (isset($data['infos']['Picture'])) { ?>
                                 <img class="circle" src="assets/img/user_pp/<?php echo $data['infos']['Picture']; ?>" width="100"
                                      height="100">
                             <?php } else { ?>
-                                <img class="circle" src="assets/img/square_face.png">
+                                <img height="100" class="circle" src="assets/img/square_face.png">
                             <?php } ?>
 
                             <p class="center name-comment"><?= $data['infos']['FirstName'] ?></p>

@@ -283,6 +283,7 @@ class ProfileController extends AppController
             $idUser = $_SESSION['user_id'];
             $data = array(
                 'missions' => $this->model->getUserMissions($idUser, 1),
+                'reviews' => $this->model->getReview($idUser),
                 'user' => $this->model->getProfile($_SESSION['user_id'])
             );
 
