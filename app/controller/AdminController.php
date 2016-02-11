@@ -1639,6 +1639,97 @@ class AdminController extends AppController
             $this->load->view("admin/review_list.php", $data);
         } else {
             header("location:".PATH_HOME."admin/signin");
+            exit();
+        }
+    }
+
+    public function showComments()
+    {
+        if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2)
+        {
+            if(isset($_GET['id']))
+            {
+                $idUser = $_GET['id'];
+
+                $data = array(
+                    'infos' => $this->model->getProfile($idUser),
+                    'reviews' => $this->model->getReview($idUser)
+                );
+
+                if(!empty($data))
+                {
+                    // Chargement de la vue
+                    define("TITLE_HEAD", "Volunteers | Admin");
+                    $this->load->view("admin/show_comments.php", $data);
+                }
+                else
+                {
+                    // Chargement de la page erreur
+                    define("TITLE_HEAD", "Volunteers | Error");
+                    $this->load->view("view_error.php");
+                }
+            }
+            else
+            {
+                // Si pas d'id
+                define("TITLE_HEAD", "Volunteers Admin");
+                $messageFlash = 'An error occur. Please try again.';
+                $this->coreSetFlashMessage('error', $messageFlash, 3);
+                header("location:".PATH_HOME."admin/usersreview");
+                exit();
+            }
+        }
+        else
+        {
+            header("location:".PATH_HOME."admin/signin");
+            exit();
+        }
+    }
+
+    public function deleteComment()
+    {
+        if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2)
+        {
+            if(isset($_GET['id']))
+            {
+                $id = $_GET['id'];
+
+                if($this->model->deleteOne(array(
+                    'table' => 'users_review',
+                    'column' => 'idVolunteersReview',
+                    'id' => $id
+                )))
+                {
+                    // Message de confirmation et redirection
+                    define("TITLE_HEAD", "Volunteers Admin");
+                    $messageFlash = 'Review deleted.';
+                    $this->coreSetFlashMessage('sucess', $messageFlash, 3);
+                    header("location:".PATH_HOME."admin/usersreview");
+                    exit();
+                }
+                else
+                {
+                    // pas de suppression
+                    $messageFlash = 'An error has occurred. Please try again.';
+                    $this->coreSetFlashMessage('error', $messageFlash, 3);
+                    header("location:".PATH_HOME."admin/usersreview");
+                    exit();
+                }
+            }
+            else
+            {
+                // Si pas d'id
+                define("TITLE_HEAD", "Volunteers Admin");
+                $messageFlash = 'An error occur. Please try again.';
+                $this->coreSetFlashMessage('error', $messageFlash, 3);
+                header("location:".PATH_HOME."admin/usersreview");
+                exit();
+            }
+        }
+        else
+        {
+            header("location:".PATH_HOME."admin/signin");
+            exit();
         }
     }
 }

@@ -694,4 +694,50 @@ class AdminModel extends AppModel
 			return false;
 		}
 	}
+
+	public function getProfile($id)
+	{
+		try {
+			$query = $this->connexion->prepare("SELECT *
+                                                FROM vol_users
+                                                LEFT JOIN vol_users_pictures
+                                                ON idPictures = vol_users_pictures_idPictures
+                                                WHERE idUser = :id
+                                                GROUP BY idUser");
+
+			$query->bindValue(':id', $id, PDO::PARAM_INT);
+			$query->execute();
+
+			$data = $query->fetch();
+			$query->closeCursor();
+
+			return $data;
+
+		} catch (Exception $e) {
+			echo "Connexion à MYSQL impossible : ".$e->getMessage();
+		}
+	}
+
+    public function getReview($idVolunteer)
+    {
+        try {
+            $query = $this->connexion->prepare("SELECT * FROM vol_users_review
+            LEFT JOIN vol_users
+            ON vol_users_review.id_user_review = vol_users.idUser
+            WHERE vol_event_volunteers_idEventVolunteer = :idVolunteer");
+
+            $query->bindValue(':idVolunteer', $idVolunteer, PDO::PARAM_INT);
+
+            $query->execute();
+
+            $data = $query->fetchAll(PDO::FETCH_ASSOC);
+
+            $query->closeCursor();
+
+            return $data;
+
+        } catch (Exception $e) {
+            return false;
+        }
+    }
 }

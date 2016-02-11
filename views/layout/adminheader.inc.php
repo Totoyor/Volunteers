@@ -1,11 +1,10 @@
 <!DOCTYPE>
+<html>
 <!--[if lt IE 7]>  <html class="lt-ie7"> <![endif]-->
 <!--[if IE 7]>     <html class="lt-ie8"> <![endif]-->
 <!--[if IE 8]>     <html class="lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html>
 <!--<![endif]-->
-
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,19 +15,14 @@
   <link rel="icon" type="image/png" href="<?php echo PATH_HOME ?>assets/admin/_con/images/icon.png">
   <!-- nanoScroller -->
   <link rel="stylesheet" type="text/css" href="<?php echo PATH_HOME ?>assets/admin/nanoScroller/nanoscroller.css" />
-
   <!-- FontAwesome -->
   <link rel="stylesheet" type="text/css" href="<?php echo PATH_HOME ?>assets/admin/font-awesome/css/font-awesome.min.css" />
-
   <!-- Material Design Icons -->
   <link rel="stylesheet" type="text/css" href="<?php echo PATH_HOME ?>assets/admin/material-design-icons/css/material-design-icons.min.css" />
-
   <!-- Main -->
   <link rel="stylesheet" type="text/css" href="<?php echo PATH_HOME ?>assets/admin/_con/css/_con.min.css" />
-
   <!-- Custom -->
   <link rel="stylesheet" type="text/css" href="<?php echo PATH_HOME ?>assets/admin/style.css" />
-
   <!-- Dropify -->
   <link rel="stylesheet" type="text/css" href="<?php echo PATH_HOME ?>assets/css/dropify.css">
 </head>
@@ -45,25 +39,23 @@
       <!-- Sidebar toggle -->
 
       <!-- Logo -->
-      <a href="#!" class="brand-logo">
-        <img src="<?php echo PATH_HOME ?>assets/img/logo_volonteers3.svg" alt="Con">
+      <a href="<?php echo PATH_HOME ?>admin/dashboard" class="brand-logo">
+        <img src="<?php echo PATH_HOME ?>assets/img/logo_volonteers3.svg" alt="Volunteers">
       </a>
       <!-- /Logo -->
 
       <!-- Menu -->
       <ul>
-        <li><a href="#!" class="search-bar-toggle"><i class="mdi-action-search"></i></a>
-        </li>
         <li class="user">
           <a class="dropdown-button" href="#!" data-activates="user-dropdown">
-            <img src="<?php echo PATH_HOME ?>assets/img/square_face.png" alt="John Doe" class="circle">Admin<i class="mdi-navigation-expand-more right"></i>
+            <img src="<?php echo PATH_HOME ?>assets/img/square_face.png" alt="John Doe" class="circle">Hello Admin<i class="mdi-navigation-expand-more right"></i>
           </a>
 
           <ul id="user-dropdown" class="dropdown-content">
             <!--<li><a href="page-profile.html"><i class="fa fa-user"></i> Profile</a>
             </li>-->
             <li class="divider"></li>
-            <li><a href="logout"><i class="fa fa-sign-out"></i> Logout</a>
+            <li><a href="logout"><i class="fa fa-sign-out black"></i>Logout</a>
             </li>
           </ul>
         </li>
@@ -102,8 +94,8 @@
         <!-- Sidebar toggle -->
 
         <!-- Logo -->
-        <a href="#!" class="brand-logo">
-          <img src="<?php echo PATH_HOME ?>assets/img/logo_volonteers3.svg" alt="Con">
+        <a href="<?php echo PATH_HOME ?>admin/dashboard" class="brand-logo">
+          <img src="<?php echo PATH_HOME ?>assets/img/logo_volonteers3.svg" alt="Volunteers">
         </a>
         <!-- /Logo -->
       </div>

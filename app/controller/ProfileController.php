@@ -309,6 +309,8 @@ class ProfileController extends AppController
         }
     }
 
+    //TODO
+    // Vérifier qu'il y ai un get id
     public function show()
     {
         $idUser = $_GET['id'];

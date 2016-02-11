@@ -31,7 +31,7 @@
                             <td><?= $status['Status']; ?></td>
                             <td><a href="editstatus/<?= $status['idStatus']; ?>" class="btn"><i class="mdi-editor-mode-edit"></i>Edit</a>
                             </td>
-                            <td><a href="deletestatus/<?= $status['idStatus']; ?>" class="btn red darken-1"><i class="mdi-action-delete"></i>Delete</a>
+                            <td><a onclick="return confirm('Are you sure you want to delete this ?');" href="deletestatus/<?= $status['idStatus']; ?>" class="btn red darken-1"><i class="mdi-action-delete"></i>Delete</a>
                             </td>
                         </tr>
                         <?php } ?>
