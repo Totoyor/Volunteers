@@ -8,14 +8,14 @@
                         <div class="row">
                             <div class="input-field col s6">
                                 <input placeholder="Last Password" id="password1" type="password" class="validate" name="LastPassword"
-                                       required="required" value="">
+                                       required="required" value="" pattern=".{5,10}" title="5 to 10 characters">
                                 <label for="password1" class="center-align"></label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s6">
                                 <input placeholder="New Password" id="password2" type="password" class="validate" name="NewPassword"
-                                       required="required" value="">
+                                       required="required" value="" pattern=".{5,10}" title="5 to 10 characters">
                                 <label for="password2" class="center-align"></label>
                             </div>
                         </div>

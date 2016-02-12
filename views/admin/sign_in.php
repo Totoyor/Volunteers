@@ -45,10 +45,6 @@
 
       <div class="card-panel clearfix">
 
-        <div class="row">
-          <div class="col"></div>
-        </div>
-
         <!-- Username -->
         <div class="input-field">
           <i class="mdi-action-account-circle prefix"></i>

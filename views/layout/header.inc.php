@@ -169,7 +169,7 @@
                     <div class="input-field col s12">
                         <i class="material-icons prefix">https</i>
                         <input placeholder="Your Password" id="password" type="password" name="password"
-                               required="required">
+                               required="required" pattern=".{5,10}" title="5 to 10 characters">
                         <label for="password" class="center-align"></label>
                     </div>
                 </div>
