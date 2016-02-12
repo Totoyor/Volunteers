@@ -1097,8 +1097,16 @@ class AdminController extends AppController
     {
         if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
             define("TITLE_HEAD", "Event Name | Volunteers Admin");
+
+            // Charger les contacts
+            $data = $this->model->readAll(array(
+                "table" => "contact",
+                "orderBy" => "id",
+                "sort" => "ASC"
+            ));
+
             // Chargement de la vue
-            $this->load->view('admin/inbox.php');
+            $this->load->view('admin/inbox.php', $data);
         } else {
             header("location:".PATH_HOME."admin/signin");
             exit();
