@@ -63,7 +63,7 @@
                             <h6 class="truncate black-text"><?= $premium['locationEvent']; ?></h6>
                         </div>
                         <div class="card-action">
-                          <a href="#"><?= $premium['nameCategorie']; ?></a>
+                          <a href="event/sort/<?= $premium['idCategorie']; ?>/<?= strtolower($premium['nameCategorie']); ?>"><?= $premium['nameCategorie']; ?></a>
                           <a class="viewmore btn btn-blue" href="event/show/<?= $premium['idEvent']; ?>">See more</a>
                         </div>
                     </div>
@@ -81,6 +81,7 @@
             <div class="col s12 m6 l4">
                 <div class="card small event popevent left">
                     <div class="card-image">
+                        <a href="event/show/<?= $event['idEvent']; ?>">
                         <?php if(!empty($event['coverPicture'])) { ?>
                             <img class="responsive-img"
                                  src="assets/img/events/uploads/<?= $event['coverPicture']; ?>"
@@ -90,14 +91,15 @@
                                  src="assets/img/couv_default.jpg"
                                  alt="image-event">
                         <?php } ?>
+                        </a>
                     </div>
                     <div class="card-content">
-                        <h4 class="titre-cards truncate"><?= $event['nameEvent']; ?></h4>
+                        <a href="event/show/<?= $event['idEvent']; ?>"><h4 class="titre-cards truncate"><?= $event['nameEvent']; ?></h4></a>
                         <h6 class="truncate location-cards"><?= $event['locationEvent']; ?>
                             , <?= $event['startEvent']; ?></h6>
                     </div>
                     <div class="card-action">
-                        <a class="card-categorie" href="event/show/<?= $event['idEvent']; ?>"><?= $event['nameCategorie']; ?></a>
+                        <a class="card-categorie" href="event/sort/<?= $event['idCategorie']; ?>/<?= strtolower($event['nameCategorie']); ?>"><?= $event['nameCategorie']; ?></a>
                         <a class="viewmore btn btn-blue" href="event/show/<?= $event['idEvent']; ?>">See
                             more</a>
                     </div>

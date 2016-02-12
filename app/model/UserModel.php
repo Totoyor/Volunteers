@@ -2,39 +2,10 @@
 
 class UserModel extends AppModel
 {
-    public function connexionUser($email, $password)
-    {
-        try
-        {
-            $query = $this->connexion->prepare('SELECT * FROM vol_users
-                                                WHERE Email = :email
-                                                 AND Password = :password');
-
-            $query->bindParam(':email', $email, PDO::PARAM_STR);
-            $query->bindParam(':password', $password, PDO::PARAM_STR);
-            $query->execute();
-            $user = $query->fetch();
-
-            $nbrRow = $query->rowCount();
-            if ($nbrRow === 1)
-            {
-                return $user;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        catch (Exception $e)
-        {
-            return false;
-        }
-    }
 
     public function inscriptionUser($email, $password, $status, $key)
     {
-        try
-        {
+        try {
             $query = $this->connexion->prepare('INSERT INTO vol_users (Password, Email, vol_user_status_idStatus, UserKey)
                                                 VALUES (:password, :email, :status, :key)');
 
@@ -44,11 +15,9 @@ class UserModel extends AppModel
             $query->bindParam(':key', $key, PDO::PARAM_INT);
             $query->execute();
             $query->closeCursor();
-            
+
             return true;
-        }
-        catch (Exception $e)
-        {
+        } catch (Exception $e) {
             return false;
         }
     }
@@ -72,11 +41,10 @@ class UserModel extends AppModel
             return false;
         }
     }
-    
+
     public function checkKey($key)
     {
-        try
-        {
+        try {
             $query = $this->connexion->prepare('SELECT * FROM vol_users
                                                 WHERE UserKey = :key');
 
@@ -85,21 +53,16 @@ class UserModel extends AppModel
             $user = $query->fetch();
 
             $nbrRow = $query->rowCount();
-            if ($nbrRow === 1)
-            {
+            if ($nbrRow === 1) {
                 return $user;
-            }
-            else
-            {
+            } else {
                 return false;
             }
-        }
-        catch (Exception $e)
-        {
+        } catch (Exception $e) {
             return false;
         }
     }
-    
+
     public function validateUser($key, $active)
     {
         try {
@@ -113,16 +76,14 @@ class UserModel extends AppModel
 
             return true;
 
-        }
-        catch (Exception $e) {
-            echo "Erreur MYSQL, impossible : ".$e->getMessage();
+        } catch (Exception $e) {
+            echo "Erreur MYSQL, impossible : " . $e->getMessage();
         }
     }
 
     public function checkEmail($email)
     {
-        try
-        {
+        try {
             $query = $this->connexion->prepare('SELECT * FROM vol_users
                                                 WHERE Email = :email');
 
@@ -131,17 +92,12 @@ class UserModel extends AppModel
             $user = $query->fetch();
 
             $nbrRow = $query->rowCount();
-            if ($nbrRow === 1)
-            {
+            if ($nbrRow === 1) {
                 return $user;
-            }
-            else
-            {
+            } else {
                 return false;
             }
-        }
-        catch (Exception $e)
-        {
+        } catch (Exception $e) {
             return false;
         }
     }
@@ -159,16 +115,14 @@ class UserModel extends AppModel
 
             return true;
 
-        }
-        catch (Exception $e) {
-            echo "Erreur MYSQL, impossible : ".$e->getMessage();
+        } catch (Exception $e) {
+            echo "Erreur MYSQL, impossible : " . $e->getMessage();
         }
     }
 
     public function checkPassword($id)
     {
-        try
-        {
+        try {
             $query = $this->connexion->prepare('SELECT * FROM vol_users
                                                 WHERE idUser = :id');
 
@@ -177,9 +131,52 @@ class UserModel extends AppModel
             $user = $query->fetch();
 
             return $user;
+
+        } catch (Exception $e) {
+            return false;
         }
-        catch (Exception $e)
-        {
+    }
+
+    public function cancelJoin($idVolunteer, $idEvent)
+    {
+        try {
+            $query = $this->connexion->prepare("DELETE FROM event_has_volunteers
+            WHERE vol_events_idEvent = :idEvent
+            AND vol_event_volunteers_idEventVolunteer = :idVolunteer");
+
+            $query->bindParam(':idEvent', $idEvent, PDO::PARAM_INT);
+            $query->bindParam(':idVolunteer', $idVolunteer, PDO::PARAM_INT);
+
+            $query->execute();
+
+            $query->closeCursor();
+
+            return true;
+
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
+    public function connexionUser($email, $password)
+    {
+        try {
+            $query = $this->connexion->prepare('SELECT * FROM vol_users
+                                                WHERE Email = :email
+                                                 AND Password = :password');
+
+            $query->bindParam(':email', $email, PDO::PARAM_STR);
+            $query->bindParam(':password', $password, PDO::PARAM_STR);
+            $query->execute();
+            $user = $query->fetch();
+
+            $nbrRow = $query->rowCount();
+            if ($nbrRow === 1) {
+                return $user;
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
             return false;
         }
     }

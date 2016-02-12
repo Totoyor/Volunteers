@@ -97,6 +97,7 @@
                         <div id="divList" class="col s12 m6 l4">
                             <div class="card small event popevent left">
                                 <div class="card-image">
+                                    <a href="event/show/<?= $event['idEvent']; ?>">
                                     <?php if(!empty($event['coverPicture'])) { ?>
                                         <a href="event/show/<?= $event['idEvent']; ?>"><img class="responsive-img"
                                          src="assets/img/events/uploads/<?= $event['coverPicture']; ?>"
@@ -106,14 +107,17 @@
                                              src="assets/img/couv_default.jpg"
                                              alt="<?= $event['nameEvent']; ?>"></a>
                                     <?php } ?>
+                                    </a>
                                 </div>
                                 <div class="card-content">
+
                                     <a href="event/show/<?= $event['idEvent']; ?>"><h4 class="titre-cards truncate black-text"><?= $event['nameEvent']; ?></h4></a>
+
                                     <h6 class="truncate location-cards"><?= $event['locationEvent']; ?>
                                         , <?= $event['startEvent']; ?></h6>
                                 </div>
                                 <div class="card-action">
-                                    <a class="card-categorie" href="#"><?= $event['nameCategorie']; ?></a>
+                                    <a class="card-categorie" href="event/sort/<?= $event['idCategorie']; ?>/<?= strtolower($event['nameCategorie']); ?>"><?= $event['nameCategorie']; ?></a>
                                     <a class="viewmore btn btn-blue" href="event/show/<?= $event['idEvent']; ?>">See
                                         more</a>
                                 </div>
@@ -125,20 +129,24 @@
         </div>
     </div>
 </div><!-- fin container-->
+
 </div>
+
 <?php if (!empty($data)): ?>
     <div class="bloc_search col s12 m6 l4">
         <div class="card small event popevent left">
             <div class="card-image">
+                <a href="event/show/<?= $event['idEvent']; ?>">
                 <img class="responsive-img" src="assets/img/events/uploads/<?= $event['coverPicture']; ?>"
                      alt="image-event">
+                </a>
             </div>
             <div class="card-content">
-                <h4 class="titre-cards truncate"><?= $event['nameEvent']; ?></h4>
+                <a href="event/show/<?= $event['idEvent']; ?>"><h4 class="titre-cards truncate"><?= $event['nameEvent']; ?></h4></a>
                 <h6 class="truncate location-cards"><?= $event['locationEvent']; ?>, <?= $event['startEvent']; ?></h6>
             </div>
             <div class="card-action">
-                <a class="card-categorie" href="#"><?= $event['nameCategorie']; ?></a>
+                <a class="card-categorie" href="event/sort/<?= $event['idCategorie']; ?>/<?= strtolower($event['nameCategorie']); ?>"><?= $event['nameCategorie']; ?></a>
                 <a class="viewmore btn btn-blue" href="event/show/<?= $event['idEvent']; ?>">See more</a>
             </div>
         </div>
@@ -146,4 +154,4 @@
 <?php endif; ?>
 
 <?php include_once('views/layout/footer.inc.php'); ?>
-
+    

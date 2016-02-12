@@ -26,7 +26,6 @@ Temporary Items
 src/
 config/constant.php
 composer.phar
-assets/img/events/uploads/
 
 ### Example user template
 
@@ -37,6 +36,7 @@ assets/img/events/uploads/
 .idea/workspace.xml
 out
 gen
+
 # Created by .ignore support plugin (hsz.mobi)
 assets/admin/_con/Iconr
 assets/admin/_con/css/Iconr

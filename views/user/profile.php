@@ -181,10 +181,12 @@
                                 </div>
                                 <div class="row">
                                     <div class="col s12">
+
                                         
-                                            <a class="btn btn-bleu" href="?module=profile&action=delete" class="red-text" title=""><i class="material-icons">delete</i>Delete my
-                                                account &nbsp; &nbsp;</a>
-                                    -
+                                            <a onclick="return confirm('Are you sure you want to delete your account ?');" href="?module=profile&action=delete" class="red-text" title="">Delete my
+                                                account :(</a>
+                                        
+
                                     </div>
                                 </div>
                             </div>
