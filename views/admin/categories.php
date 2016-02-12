@@ -32,10 +32,10 @@
                                 <?= $category['nameCategorie']; ?>
                             </td>
                             <td class="center-align">
-                                <a class="btn"><i class="mdi-editor-mode-edit"></i>Edit</a>
+                                <a href="<?= PATH_HOME ?>admin/categories/<?= $category['idCategorie']; ?>/edit" class="btn"><i class="mdi-editor-mode-edit"></i>Edit</a>
                             </td>
                             <td class="center-align">
-                                <a href="categories/<?= $category['idCategorie']; ?>"
+                                <a href="<?= PATH_HOME ?>admin/categories/<?= $category['idCategorie']; ?>/suppr"
                                    class="btn red darken-1"
                                    onclick="return confirm('Are you sure you want to delete this item?');">
                                     <i class="mdi-action-delete"></i>Delete
@@ -51,27 +51,64 @@
 
     <div class="card">
         <div class="title">
-            <h5>Add a category</h5>
+            <?php if(isset($data['edit'])) { ?>
+                <h5>Edit a category</h5>
+            <?php } else { ?>
+                <h5>Add a category</h5>
+            <?php } ?>
             <a class="minimize" href="#">
                 <i class="mdi-navigation-expand-less"></i>
             </a>
         </div>
         <div class="content">
-            <form action="categories" method="post" enctype="multipart/form-data">
+            <?php if(isset($data['edit'])) { ?>
+                <form action="<?= PATH_HOME ?>admin/editcategories" method="post" enctype="multipart/form-data">
+            <?php } else { ?>
+                <form action="<?= PATH_HOME ?>admin/insertcategories" method="post" enctype="multipart/form-data">
+            <?php } ?>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="category" type="text" class="validate" name='category'>
+                        <input id="category"
+                               type="text"
+                               class="validate"
+                               name='category'
+                               value="<?php if (isset($data['edit'])) {
+                                   if (!empty($data['edit'][0]['nameCategorie'])) {
+                                       echo $data['edit'][0]['nameCategorie'];
+                                   }
+                               } ?>"
+                               required />
                         <label for="category">Category name</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input name="catPicture" type="file" data-height="200" class="dropify"/>
+                        <input name="catPicture"
+                               type="file"
+                               data-height="200"
+                               class="dropify"
+                                <?php if (isset($data['edit'])) {
+                                    if (!empty($data['edit'][0]['imageCategorie'])) { ?>
+                                        data-default-file="<?= PATH_HOME ?>assets/img/categories/uploads/<?= $data['edit'][0]['imageCategorie']; ?>"
+                                    <?php }
+                                } ?>
+                                />
+                        <?php if(isset($data['edit'])) {
+                            if(!empty($data['edit'][0]['imageCategorie'])) { ?>
+                                <input type="hidden" name="catPictureSave" value="<?= $data['edit'][0]['imageCategorie']; ?>">
+                                <input type="hidden" name="idCategory" value="<?= $data['edit'][0]['idCategorie']; ?>">
+                            <?php }
+                        } ?>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field center-align">
-                        <button type="submit" class="btn orange lighten-1">ADD</button>
+                        <?php if(isset($data['edit'])) { ?>
+                            <button type="submit" class="btn orange lighten-1">EDIT</button>
+                        <?php } else { ?>
+                            <button type="submit" class="btn orange lighten-1">ADD</button>
+                        <?php } ?>
+
                     </div>
                 </div>
             </form>
