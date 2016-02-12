@@ -1054,23 +1054,182 @@ class AdminController extends AppController
     public function categories()
     {
         if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
-            define("TITLE_HEAD", "Event Name | Volunteers Admin");
-            if (isset($_POST['category'])) {
-                $this->model->insertCategory($_POST['category']);
-            }
+
             if (isset($_GET['id'])) {
-                $this->model->deleteCategory($_GET['id']);
+
+                if(isset($_GET['message']) && $_GET['message'] == 'edit') {
+
+                    $id = $_GET['id'];
+
+                    $data = array(
+                        'categories' => $this->model->getCategories(),
+                        'edit' => $this->model->getCategory($id)
+                    );
+
+                } else if(isset($_GET['message']) && $_GET['message'] == 'suppr') {
+
+                    $this->model->deleteCategory($_GET['id']);
+
+                    $data = array(
+                        'categories' => $this->model->getCategories()
+                    );
+                }
+
+            } else {
+                $data = array(
+                    'categories' => $this->model->getCategories()
+                );
             }
-            $data = array(
-                'categories' => $this->model->getCategories()
-            );
+
             // Chargement de la vue
+            define("TITLE_HEAD", "Event Name | Volunteers Admin");
             $this->load->view('admin/categories.php', $data);
+
         } else {
             header("location:".PATH_HOME."admin/signin");
             exit();
         }
+    }
 
+    public function insertcategories()
+    {
+        if (isset($_POST['category'])) {
+
+            if (!empty($_FILES['catPicture']['name'])) {
+
+                $picture = new Upload($_FILES['catPicture']['name'], $_FILES['catPicture']['tmp_name'], 'assets/img/categories/uploads/', '');
+
+                if($picture->extControl()) {
+                    if($picture->moveFile()) {
+                        if($picture->resizeFile()) {
+
+                            $catPicture = $picture->setNom();
+
+                            if($this->model->insertCategory($_POST['category'], $catPicture)){
+                                $messageFlash = 'Insert ok';
+                                $this->coreSetFlashMessage('sucess', $messageFlash, 4);
+                                header("location:".PATH_HOME."admin/categories");
+                            } else {
+                                $messageFlash = 'Insert nok';
+                                $this->coreSetFlashMessage('sucess', $messageFlash, 4);
+                                header("location:".PATH_HOME."admin/categories");
+                            }
+
+                        } else {
+
+                            $catPicture = $picture->setNom();
+
+                            if($this->model->insertCategory($_POST['category'], $catPicture)){
+                                $messageFlash = 'Insert ok';
+                                $this->coreSetFlashMessage('sucess', $messageFlash, 4);
+                                header("location:".PATH_HOME."admin/categories");
+                            } else {
+                                $messageFlash = 'Insert nok';
+                                $this->coreSetFlashMessage('sucess', $messageFlash, 4);
+                                header("location:".PATH_HOME."admin/categories");
+                            }
+
+                        }
+                    } else {
+                        $messageFlash = 'Move file nok';
+                        $this->coreSetFlashMessage('error', $messageFlash, 4);
+                        header("location:".PATH_HOME."admin/categories");
+                    }
+                } else {
+                    $messageFlash = 'Ext nok';
+                    $this->coreSetFlashMessage('error', $messageFlash, 4);
+                    header("location:".PATH_HOME."admin/categories");
+                }
+
+            } else {
+                $messageFlash = 'Picture nok';
+                $this->coreSetFlashMessage('error', $messageFlash, 4);
+                header("location:".PATH_HOME."admin/categories");
+            }
+        } else {
+            $messageFlash = 'Input nok';
+            $this->coreSetFlashMessage('error', $messageFlash, 4);
+            header("location:".PATH_HOME."admin/categories");
+        }
+    }
+
+    public function editcategories()
+    {
+        if (isset($_POST['category']))
+        {
+            if (!empty($_FILES['catPicture']['name'])) {
+
+                $picture = new Upload($_FILES['catPicture']['name'], $_FILES['catPicture']['tmp_name'], 'assets/img/categories/uploads/', '');
+
+                $idCategory = $_POST['idCategory'];
+
+                if($picture->extControl()) {
+                    if($picture->moveFile()) {
+                        if($picture->resizeFile()) {
+
+                            $catPicture = $picture->setNom();
+
+                            if($this->model->editCategory($_POST['category'], $catPicture, $idCategory)){
+                                $messageFlash = 'Edit ok';
+                                $this->coreSetFlashMessage('sucess', $messageFlash, 4);
+                                header("location:".PATH_HOME."admin/categories");
+                            } else {
+                                $messageFlash = 'Edit nok';
+                                $this->coreSetFlashMessage('sucess', $messageFlash, 4);
+                                header("location:".PATH_HOME."admin/categories");
+                            }
+
+                        } else {
+
+                            $catPicture = $picture->setNom();
+
+                            if($this->model->editCategory($_POST['category'], $catPicture, $idCategory)){
+                                $messageFlash = 'Edit ok';
+                                $this->coreSetFlashMessage('sucess', $messageFlash, 4);
+                                header("location:".PATH_HOME."admin/categories");
+                            } else {
+                                $messageFlash = 'Edit nok';
+                                $this->coreSetFlashMessage('sucess', $messageFlash, 4);
+                                header("location:".PATH_HOME."admin/categories");
+                            }
+
+                        }
+                    } else {
+                        $messageFlash = 'Move file nok';
+                        $this->coreSetFlashMessage('error', $messageFlash, 4);
+                        header("location:".PATH_HOME."admin/categories");
+                    }
+                } else {
+                    $messageFlash = 'Ext nok';
+                    $this->coreSetFlashMessage('error', $messageFlash, 4);
+                    header("location:".PATH_HOME."admin/categories");
+                }
+
+            } else if (!empty($_POST['catPictureSave'])) {
+
+                $catPicture = $_POST['catPictureSave'];
+                $idCategory = $_POST['idCategory'];
+
+                if($this->model->editCategory($_POST['category'], $catPicture, $idCategory)){
+                    $messageFlash = 'Edit ok';
+                    $this->coreSetFlashMessage('sucess', $messageFlash, 4);
+                    header("location:".PATH_HOME."admin/categories");
+                } else {
+                    $messageFlash = 'Edit nok';
+                    $this->coreSetFlashMessage('sucess', $messageFlash, 4);
+                    header("location:".PATH_HOME."admin/categories");
+                }
+
+            } else {
+                $messageFlash = 'Picture nok';
+                $this->coreSetFlashMessage('error', $messageFlash, 4);
+                header("location:".PATH_HOME."admin/categories");
+            }
+        } else {
+            $messageFlash = 'Input nok';
+            $this->coreSetFlashMessage('error', $messageFlash, 4);
+            header("location:".PATH_HOME."admin/categories");
+        }
     }
 
     public function deleteCategory()

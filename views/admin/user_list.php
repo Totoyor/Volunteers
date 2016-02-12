@@ -13,7 +13,6 @@
   <table id="table1" class="display table table-bordered table-striped table-hover table-responsive">
     <thead>
     <tr>
-      <th>ID User</th>
       <th>Nom / Email</th>
       <th>Status</th>
       <th>Active</th>
@@ -27,9 +26,6 @@
       <?php if (isset($data)): ?>
         <?php foreach ($data['users'] as $user) : ?>
           <tr>
-          <td class="center-align">
-              <?= $user['idUser']; ?>
-          </td>
             <td class="center-align">
               <?= $user['Email']; ?>
             </td>
