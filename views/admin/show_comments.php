@@ -17,6 +17,7 @@
             <th>ID User</th>
             <th>Name</th>
             <th>Comment</th>
+            <th>Date</th>
             <th>View</th>
             <th>Delete</th>
         </tr>
@@ -33,6 +34,9 @@
                     </td>
                     <td class="center-align">
                         <?= $review['review'] ?>
+                    </td>
+                    <td class="center-align">
+                        <?= $review['date'] ?>
                     </td>
                     <td class="center-align">
                         <a href="<?= PATH_HOME ?>profile/show/<?= $review['vol_event_volunteers_idEventVolunteer']; ?>" class="btn blue">

@@ -102,7 +102,7 @@
             <div class="col s12 m3 footer-elements">
                 <h5 class="title-list white-text">Company</h5>
                 <ul>
-                    <li><a class="grey-text text-lighten-3" href="page/aboutus">About us</a></li>
+                    <li><a class="grey-text text-lighten-3" href="home/about">About us</a></li>
                     <li><a class="grey-text text-lighten-3" href="contact/home">Contact</a></li>
                     <li><a class="grey-text text-lighten-3" href="blog/home">Blog</a></li>
                     <li><a class="grey-text text-lighten-3" href="home/terms">Terms and privacy</a></li>

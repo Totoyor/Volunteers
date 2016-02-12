@@ -121,7 +121,7 @@
                   <td class="mail-subject">
                     <a href="mail-view.html"><?= $mail['message'] ?></a>
                   </td>
-                  <td class="mail-date">3:12 PM</td>
+                  <td class="mail-date"><?= $mail['date'] ?></td>
                     <td class="mail-date">
                         <a onclick="return confirm('Are you sure you want to delete this message ?');" href="deletemail/<?= $mail['id']; ?>" class="btn red">
                             <i class="mdi-content-clear"></i> delete
