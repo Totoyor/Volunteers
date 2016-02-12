@@ -229,26 +229,4 @@ class ProfileModel extends AppModel
             return false;
         }
     }
-
-    public function getAverage($idVolunteer)
-    {
-        try {
-            $query = $this->connexion->prepare("SELECT AVG(rating) FROM vol_users_rating
-            WHERE vol_event_volunteers_idEventVolunteer = :idVolunteer
-            GROUP BY vol_event_volunteers_idEventVolunteer");
-
-            $query->bindValue(':idVolunteer', $idVolunteer, PDO::PARAM_INT);
-
-            $query->execute();
-
-            $data = $query->fetchAll(PDO::FETCH_ASSOC);
-
-            $query->closeCursor();
-
-            return $data;
-
-        } catch (Exception $e) {
-            return false;
-        }
-    }
 }

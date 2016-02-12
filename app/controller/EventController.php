@@ -69,30 +69,6 @@ class EventController extends AppController
                         $event_categories = NULL;
                     }
 
-                    if(isset($_POST['facebook'])) {
-                        $facebook = $_POST['facebook'];
-                    } else {
-                        $facebook = null;
-                    }
-
-                    if(isset($_POST['instagram'])) {
-                        $instagram = $_POST['instagram'];
-                    } else {
-                        $instagram = null;
-                    }
-
-                    if(isset($_POST['youtube'])) {
-                        $youtube = $_POST['youtube'];
-                    } else {
-                        $youtube = null;
-                    }
-
-                    if(isset($_POST['twitter'])) {
-                        $twitter = $_POST['twitter'];
-                    } else {
-                        $twitter = null;
-                    }
-
                     if (isset($_POST['event_description'])) {
                         $event_description = $_POST['event_description'];
                     } else {
@@ -115,7 +91,7 @@ class EventController extends AppController
                     $user = $_SESSION['user_id'];
 
                     $lastId = $this->model->createEvent($event_name, $event_location, $event_start, $event_hour_start, $event_end,
-                        $event_hour_end, $event_description, $status, $facebook, $instagram, $youtube, $twitter, $user);
+                        $event_hour_end, $event_description, $status, $user);
 
                     if ($lastId !== null) {
 
@@ -161,7 +137,7 @@ class EventController extends AppController
                                 $name = $_FILES['media']['name'][$i];
                                 $tmp_name = $_FILES["media"]["tmp_name"][$i];
 
-                                $media = new Upload($name, $tmp_name, 'assets/img/events/uploads/', 1200);
+                                $media = new Upload($name, $tmp_name, 'assets/img/events/uploads/', '');
 
                                 if ($media->extControl()) {
                                     if ($media->moveFile()) {
@@ -177,10 +153,17 @@ class EventController extends AppController
                             }
                         }
 
-                        //Chargement de la page des gestions des évènements pour l'utilisateur
-                        $messageFlash = 'Your event has been saved';
-                        $this->coreSetFlashMessage('sucess', $messageFlash, 5);
-                        header("location:".PATH_HOME."/profile/events");
+                        //Chargement de la vue de l'évènement
+                        //$data = $this->model->getEvent($lastId);
+                        $data = array(
+                            'event' => $this->model->getEvent($lastId),
+                            'missions' => $this->model->getMissions($lastId),
+                            'nbVolunteer' => $this->model->getNbVolunteers($lastId),
+                            'medias' => $this->model->getMedias($lastId),
+                            'volunteers' => $this->model->getVolunteers($lastId)
+                        );
+                        define("TITLE_HEAD", "Event Save | Volunteers");
+                        $this->load->view('event/view_event.php', $data);
                         exit();
 
                     } else {
@@ -262,22 +245,6 @@ class EventController extends AppController
                         $event_description = NULL;
                     }
 
-                    if (!empty($_POST['facebook'])) {
-                        $facebook = $_POST['facebook'];
-                    } else {
-                        $facebook = null;
-                    }
-
-                    if (!empty($_POST['instagram'])) {
-                        $instagram = $_POST['instagram'];
-                    } else {
-                        $instagram = null;
-                    }
-
-                    $youtube = !empty($_POST['youtube']) ? $_POST['youtube'] : null;
-
-                    $twitter = !empty($_POST['twitter']) ? $_POST['twitter'] : null;
-
                     if (!empty($_POST['missions'])) {
                         $event_missions = $_POST['missions'];
                     } else {
@@ -301,7 +268,7 @@ class EventController extends AppController
                     $user = $_SESSION['user_id'];
 
                     $lastId = $this->model->createEvent($event_name, $event_location, $event_start, $event_hour_start, $event_end,
-                        $event_hour_end, $event_description, $status, $facebook, $instagram, $youtube, $twitter, $user);
+                        $event_hour_end, $event_description, $status, $user);
 
                     if ($lastId !== null) {
 
@@ -348,7 +315,7 @@ class EventController extends AppController
                                 $name = $_FILES['media']['name'][$i];
                                 $tmp_name = $_FILES["media"]["tmp_name"][$i];
 
-                                $media = new Upload($name, $tmp_name, 'assets/img/events/uploads/', 1200);
+                                $media = new Upload($name, $tmp_name, 'assets/img/events/uploads/', '');
 
                                 if ($media->extControl()) {
                                     if ($media->moveFile()) {
@@ -582,7 +549,7 @@ class EventController extends AppController
         $idEvent = $_GET['id'];
         $data = array(
             'event' => $this->model->getEvent($idEvent),
-            'volunteers' => $this->model->getVolunteers($idEvent),
+            'volunteers' => $this->model->getVolunteers($idEvent)
         );
         $this->load->view("event/list_volunteers.php", $data);
     }
@@ -686,30 +653,6 @@ class EventController extends AppController
                         $event_categories = NULL;
                     }
 
-                    if(isset($_POST['facebook'])) {
-                        $facebook = $_POST['facebook'];
-                    } else {
-                        $facebook = null;
-                    }
-
-                    if(isset($_POST['instagram'])) {
-                        $instagram = $_POST['instagram'];
-                    } else {
-                        $instagram = null;
-                    }
-
-                    if(isset($_POST['youtube'])) {
-                        $youtube = $_POST['youtube'];
-                    } else {
-                        $youtube = null;
-                    }
-
-                    if(isset($_POST['twitter'])) {
-                        $twitter = $_POST['twitter'];
-                    } else {
-                        $twitter = null;
-                    }
-
                     if (isset($_POST['event_description'])) {
                         $event_description = $_POST['event_description'];
                     } else {
@@ -733,7 +676,7 @@ class EventController extends AppController
                     $user = $_SESSION['user_id'];
 
                     if($this->model->editEvent($event_name, $event_location, $event_start, $event_hour_start, $event_end,
-                        $event_hour_end, $event_description, $facebook, $instagram, $youtube, $twitter, $status, $user, $idEvent)) {
+                        $event_hour_end, $event_description, $status, $user, $idEvent)) {
 
                         if (isset($_POST['event_categories'])) {
                             for ($i = 0; $i < count($event_categories); $i++) {
@@ -907,22 +850,6 @@ class EventController extends AppController
                         $event_description = NULL;
                     }
 
-                    if (!empty($_POST['facebook'])) {
-                        $facebook = $_POST['facebook'];
-                    } else {
-                        $facebook = null;
-                    }
-
-                    if (!empty($_POST['instagram'])) {
-                        $instagram = $_POST['instagram'];
-                    } else {
-                        $instagram = null;
-                    }
-
-                    $youtube = !empty($_POST['youtube']) ? $_POST['youtube'] : null;
-
-                    $twitter = !empty($_POST['twitter']) ? $_POST['twitter'] : null;
-
                     if (!empty($_POST['missions'])) {
                         $event_missions = $_POST['missions'];
                     } else {
@@ -946,7 +873,7 @@ class EventController extends AppController
                     $user = $_SESSION['user_id'];
 
                     if($this->model->editEvent($event_name, $event_location, $event_start, $event_hour_start, $event_end,
-                        $event_hour_end, $event_description, $facebook, $instagram, $youtube, $twitter, $status, $user, $idEvent)) {
+                        $event_hour_end, $event_description, $status, $user, $idEvent)) {
 
                         if (isset($_POST['event_categories'])) {
                             for ($i = 0; $i < count($event_categories); $i++) {

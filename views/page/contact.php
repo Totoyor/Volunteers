@@ -11,7 +11,7 @@
                     <input name="contact_name" type="text" placeholder="Your name" required />
                     <input name="contact_email" type="text" placeholder="Email adress" required />
                     <textarea name="contact_message" type="text" placeholder="Your message" required ></textarea>
-                    <button type="submit" class="btn btn-blue left margtop20 margbottom50">Send your message</button>
+                    <button type="submit" class="btn btn-bleu left margtop20 margbottom50">Send your message</button>
                 </form>
             </div>
             <div class="col l6 m12 s12 center margtop-responsive">

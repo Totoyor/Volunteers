@@ -16,7 +16,6 @@
                             <th>Name</th>
                             <th>Mail</th>
                             <th data-field="name">Rating</th>
-                            <th>View</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -39,10 +38,7 @@
                                         <?= $volunteer['Email']; ?>
                                     </td>
                                     <td>
-                                        <?= $volunteer['AVG(vol_users_rating.rating)']." / 6"; ?>
-                                    </td>
-                                    <td>
-                                        <a href="profile/show/<?= $volunteer['idUser']; ?>" class="btn btn-blue">view</a>
+                                        5/5
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -53,10 +49,10 @@
                         <?php } ?>
                         </tbody>
                     </table>
-                    <?php if($data['event']['hireSession'] == 1) { ?>
+                    <?php if($data['event']['hireSession']) { ?>
                         <button type="submit" class="btn btn-orange" disabled>Hire already done</button>
                     <?php } else if(!empty($data['volunteers'])) { ?>
-                        <button type="submit" class="btn btn-orange">Hire selected</button>
+                        <button type="submit" class="btn btn-orange" disabled>Hire selected</button>
                     <?php } else { ?>
                         <button type="submit" class="btn btn-orange" disabled>Hire selected</button>
                     <?php } ?>

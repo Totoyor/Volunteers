@@ -15,14 +15,14 @@ Class EventModel extends AppModel
      * @return bool|string
      */
     public function createEvent($event_name, $event_location, $event_start, $event_hour_start, $event_end,
-                                $event_hour_end, $event_description, $status, $facebook, $instagram, $youtube, $twitter, $user)
+                                $event_hour_end, $event_description, $status, $user)
     {
         try {
             $query = $this->connexion->prepare("INSERT INTO vol_events
                                         (nameEvent, startEvent, hourStartEvent, endEvent, hourEndEvent,
-                                        locationEvent, descriptionEvent, facebookEvent, twitterEvent, instagramEvent, youtubeEvent, vol_event_status_idEventStatus, vol_users_idUser)
+                                        locationEvent, descriptionEvent, vol_event_status_idEventStatus, vol_users_idUser)
                                         VALUES (:name, :start, :hourStart, :end, :hourEnd,
-                                        :location, :description, :facebook, :twitter, :instagram, :youtube, :status, :user)");
+                                        :location, :description, :status, :user)");
 
             $query->bindValue(':name', $event_name, PDO::PARAM_STR);
             $query->bindValue(':location', $event_location, PDO::PARAM_STR);
@@ -31,10 +31,6 @@ Class EventModel extends AppModel
             $query->bindValue(':end', $event_end, PDO::PARAM_STR);
             $query->bindValue(':hourEnd', $event_hour_end, PDO::PARAM_STR);
             $query->bindValue(':description', $event_description, PDO::PARAM_STR);
-            $query->bindValue(':facebook', $facebook, PDO::PARAM_STR);
-            $query->bindValue(':twitter', $twitter, PDO::PARAM_STR);
-            $query->bindValue(':instagram', $instagram, PDO::PARAM_STR);
-            $query->bindValue(':youtube', $youtube, PDO::PARAM_STR);
             $query->bindValue(':status', $status, PDO::PARAM_STR);
             $query->bindValue(':user', $user, PDO::PARAM_STR);
             $query->execute();
@@ -47,13 +43,12 @@ Class EventModel extends AppModel
             //return true;
 
         } catch (Exception $e) {
-            die($e);
             return false;
         }
     }
 
     public function editEvent($event_name, $event_location, $event_start, $event_hour_start, $event_end,
-                              $event_hour_end, $event_description, $facebook, $instagram, $youtube, $twitter, $status, $user, $idEvent)
+                              $event_hour_end, $event_description, $status, $user, $idEvent)
     {
         try {
             $query = $this->connexion->prepare("UPDATE vol_events SET
@@ -64,10 +59,6 @@ Class EventModel extends AppModel
                                                 hourEndEvent = :hourEnd,
                                                 locationEvent = :location,
                                                 descriptionEvent = :description,
-                                                facebookEvent = :facebook,
-                                                instagramEvent = :instagram,
-                                                youtubeEvent = :youtube,
-                                                twitterEvent = :twitter,
                                                 vol_event_status_idEventStatus = :status,
                                                 vol_users_idUser = :user
                                                 WHERE idEvent = :idEvent");
@@ -79,10 +70,6 @@ Class EventModel extends AppModel
             $query->bindValue(':end', $event_end, PDO::PARAM_STR);
             $query->bindValue(':hourEnd', $event_hour_end, PDO::PARAM_STR);
             $query->bindValue(':description', $event_description, PDO::PARAM_STR);
-            $query->bindValue(':facebook', $facebook, PDO::PARAM_STR);
-            $query->bindValue(':instagram', $instagram, PDO::PARAM_STR);
-            $query->bindValue(':youtube', $youtube, PDO::PARAM_STR);
-            $query->bindValue(':twitter', $twitter, PDO::PARAM_STR);
             $query->bindValue(':status', $status, PDO::PARAM_STR);
             $query->bindValue(':user', $user, PDO::PARAM_STR);
             $query->bindValue(':idEvent', $idEvent, PDO::PARAM_INT);
@@ -431,26 +418,11 @@ Class EventModel extends AppModel
     public function getVolunteers($idEvent) {
         try {
 
-            $query = $this->connexion->prepare("SELECT
-                event_has_volunteers.vol_events_idEvent,
-                event_has_volunteers.vol_event_volunteers_idEventVolunteer,
-                event_has_volunteers.vol_event_volunteer_status,
-                vol_users.idUser,
-                vol_users.Email,
-                vol_users.FirstName,
-                vol_users.LastName,
-                vol_users_rating.idVolunteerRating,
-                AVG(vol_users_rating.rating),
-                vol_users_rating.vol_event_volunteers_idEventVolunteer,
-                vol_users_rating.id_user_rating
-
+            $query = $this->connexion->prepare("SELECT *
             FROM event_has_volunteers
             LEFT JOIN vol_users
             ON event_has_volunteers.vol_event_volunteers_idEventVolunteer = vol_users.idUser
-            LEFT JOIN vol_users_rating
-            ON event_has_volunteers.vol_event_volunteers_idEventVolunteer = vol_users_rating.vol_event_volunteers_idEventVolunteer
             WHERE event_has_volunteers.vol_events_idEvent = :idEvent
-
             GROUP BY idUser
             ");
 
@@ -463,7 +435,6 @@ Class EventModel extends AppModel
             return $data;
 
         } catch (Exception $e) {
-            die($e);
             return false;
         }
     }

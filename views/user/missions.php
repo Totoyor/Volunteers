@@ -17,77 +17,57 @@
                     <table id="test4" class="striped responsive-table table-missions">
                         <thead>
                         <tr>
-                            <th data-field="id">Date
-                                <!--<i class="tiny material-icons right rotate">play_arrow</i>--></th>
+                            <th data-field="id">Date<!--<i class="tiny material-icons right rotate">play_arrow</i>--></th>
                             <th data-field="name">Event</th>
                             <th data-field="price">Status</th>
-                            <th data-field="cancel">Cancel</th>
                         </tr>
                         </thead>
 
                         <tbody>
-                        <?php if (!empty($data['missionsNok'])) { ?>
-                            <?php foreach ($data['missionsNok'] as $missionsNok): ?>
-                                <tr>
-                                    <form method="post" action="user/cancel">
+                            <?php if(!empty($data['missionsNok'])){ ?>
+                                <?php foreach($data['missionsNok'] as $missionsNok): ?>
+                                    <tr>
                                         <td><?= $missionsNok['startEvent']; ?></td>
                                         <td>
                                             <a href="event/show/<?= $missionsNok['idEvent']; ?>"><?= $missionsNok['nameEvent']; ?></a>
                                         </td>
                                         <td>Request has been send</td>
-                                        <td>
-                                            <input type="hidden" name="idEvent" value="<?= $missionsNok['idEvent']; ?>">
-                                            <button type="submit" class="btn btn-red"
-                                                    onclick="return(confirm('Are you sure ?'));">
-                                                cancel
-                                            </button>
-                                        </td>
-                                    </form>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php } else { ?>
+                                <tr>
+                                    <td>Vous n'avez postulez pour aucun évènements pour le moment</td>
                                 </tr>
-                            <?php endforeach; ?>
-                        <?php } else { ?>
-                            <tr>
-                                <td>It seems like you don't join any event.</td>
-                            </tr>
-                        <?php } ?>
+                            <?php } ?>
                         </tbody>
                     </table>
+
+
                     <table id="test5" class="striped responsive-table table-missions">
                         <thead>
                         <tr>
-                            <th data-field="id">Date
-                                <!--<i class="tiny material-icons right rotate">play_arrow</i>--></th>
+                            <th data-field="id">Date<!--<i class="tiny material-icons right rotate">play_arrow</i>--></th>
                             <th data-field="name">Event</th>
                             <th data-field="price">Status</th>
-                            <th data-field="cancel">Cancel</th>
                         </tr>
                         </thead>
 
                         <tbody>
-                        <?php if (!empty($data['missionsOk'])) { ?>
-                            <?php foreach ($data['missionsOk'] as $missionsOk): ?>
-                                <tr>
-                                    <form method="post" action="user/cancel">
+                            <?php if(!empty($data['missionsOk'])){ ?>
+                                <?php foreach($data['missionsOk'] as $missionsOk): ?>
+                                    <tr>
                                         <td><?= $missionsOk['startEvent']; ?></td>
                                         <td>
                                             <a href="event/show/<?= $missionsOk['idEvent']; ?>"><?= $missionsOk['nameEvent']; ?></a>
                                         </td>
                                         <td>Hired</td>
-                                        <td>
-                                            <input type="hidden" name="idEvent" value="<?= $missionsOk['idEvent']; ?>">
-                                            <button type="submit" class="btn btn-red"
-                                                    onclick="return(confirm('Are you sure ?'));">
-                                                cancel
-                                            </button>
-                                        </td>
-                                    </form>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php } else { ?>
+                                <tr>
+                                    <td>Vous ne participez à aucun évènement pour le moment</td>
                                 </tr>
-                            <?php endforeach; ?>
-                        <?php } else { ?>
-                            <tr>
-                                <td>It seems like you don't have join any event.</td>
-                            </tr>
-                        <?php } ?>
+                            <?php } ?>
                         </tbody>
                     </table>
 

@@ -26,7 +26,6 @@ $(document).ready(function(){
                         copie.find('.titre-cards').text(value.nameEvent);
                         copie.find('.location-cards').text(value.locationEvent + ', ' + value.startEvent);
                         copie.find('.card-categorie').text(value.nameCategorie);
-                        copie.find('.viewmore').attr('href', "event/show/"+value.idEvent);
                     })
                 }
 

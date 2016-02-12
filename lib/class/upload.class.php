@@ -148,7 +148,7 @@ Class Upload
                 try {
                     $thumb = imagecreatetruecolor($new_width, $new_height);
                     imagecopyresized($thumb, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
-                    imagejpeg($thumb, "assets/img/events/uploads/".$this->_fileName.".min".$this->_fileExt, 90);
+                    imagejpeg($thumb, "uploads/".$this->_fileName.".min".$this->_fileExt, 90);
                     imagedestroy($image);
                     return true;
                 } catch (Exception $e) {
@@ -174,7 +174,7 @@ Class Upload
                 try {
                     $thumb = imagecreatetruecolor($new_width, $new_height);
                     imagecopyresized($thumb, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
-                    imagejpeg($thumb, "assets/img/events/uploads/".$this->_fileName.".min".$this->_fileExt, 90);
+                    imagejpeg($thumb, "uploads/".$this->_fileName.".min".$this->_fileExt, 90);
                     imagedestroy($image);
                     return true;
                 } catch (Exception $e) {
@@ -200,7 +200,7 @@ Class Upload
                 try {
                     $thumb = imagecreatetruecolor($new_width, $new_height);
                     imagecopyresized($thumb, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
-                    imagejpeg($thumb, "assets/img/events/uploads/".$this->_fileName.".min".$this->_fileExt, 90);
+                    imagejpeg($thumb, "uploads/".$this->_fileName.".min".$this->_fileExt, 90);
                     imagedestroy($image);
                     return true;
                 } catch (Exception $e) {
@@ -215,7 +215,6 @@ Class Upload
         $file_name = $this->_newFile;
         return $file_name;
     }
-
 
     public function setMaxFileSize($value){
         if (!$value)

@@ -2335,7 +2335,7 @@ td, th {
     .collection .collection-item:last-child {
       border-bottom: none; }
     .collection .collection-item.active {
-      background-color: #5498d4;
+      background-color: #26a69a;
       color: #eafaf9; }
       .collection .collection-item.active .secondary-content {
         color: #fff; }
@@ -2346,7 +2346,7 @@ td, th {
     -o-transition: 0.25s;
     -ms-transition: 0.25s;
     transition: 0.25s;
-    color: #5498d4; }
+    color: #26a69a; }
     .collection a.collection-item:not(.active):hover {
       background-color: #ddd; }
   .collection.with-header .collection-header {
@@ -2419,14 +2419,14 @@ nav ul a span.badge {
     top: 0;
     left: 0;
     bottom: 0;
-    background-color: #5498d4;
+    background-color: #26a69a;
     -webkit-transition: width .3s linear;
     -moz-transition: width .3s linear;
     -o-transition: width .3s linear;
     -ms-transition: width .3s linear;
     transition: width .3s linear; }
   .progress .indeterminate {
-    background-color: #5498d4; }
+    background-color: #26a69a; }
     .progress .indeterminate:before {
       content: '';
       position: absolute;
@@ -5855,7 +5855,7 @@ small {
 .btn, .btn-large {
   text-decoration: none;
   color: #fff;
-  background-color: #5498d4;
+  background-color: #26a69a;
   text-align: center;
   letter-spacing: .5px;
   -webkit-transition: .2s ease-out;
@@ -5865,7 +5865,7 @@ small {
   transition: .2s ease-out;
   cursor: pointer; }
   .btn:hover, .btn-large:hover {
-    background-color: #5498d4; }
+    background-color: #2bbbad; }
 
 .btn-floating {
   display: inline-block;
@@ -5877,7 +5877,7 @@ small {
   height: 37px;
   line-height: 37px;
   padding: 0;
-  background-color: #5498d4;
+  background-color: #26a69a;
   border-radius: 50%;
   transition: .3s;
   cursor: pointer;
@@ -6408,7 +6408,7 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
     -ms-transition: color .2s;
     transition: color .2s; }
     .input-field .prefix.active {
-      color: #5498d4; }
+      color: #26a69a; }
   .input-field .prefix ~ input, .input-field .prefix ~ textarea {
     margin-left: 3rem;
     width: 92%;
@@ -6538,8 +6538,8 @@ textarea {
 
 [type="radio"]:checked + label:after {
   border-radius: 50%;
-  border: 2px solid #5498d4;
-  background-color: #5498d4;
+  border: 2px solid #26a69a;
+  background-color: #26a69a;
   z-index: 0;
   -webkit-transform: scale(1.02);
   -moz-transform: scale(1.02);
@@ -6550,12 +6550,12 @@ textarea {
 /* Radio With gap */
 [type="radio"].with-gap:checked + label:before {
   border-radius: 50%;
-  border: 2px solid #5498d4; }
+  border: 2px solid #26a69a; }
 
 [type="radio"].with-gap:checked + label:after {
   border-radius: 50%;
-  border: 2px solid #5498d4;
-  background-color: #5498d4;
+  border: 2px solid #26a69a;
+  background-color: #26a69a;
   z-index: 0;
   -webkit-transform: scale(.5);
   -moz-transform: scale(.5);
@@ -6648,8 +6648,8 @@ form p:last-child {
   height: 22px;
   border-top: 2px solid transparent;
   border-left: 2px solid transparent;
-  border-right: 2px solid #5498d4;
-  border-bottom: 2px solid #5498d4;
+  border-right: 2px solid #26a69a;
+  border-bottom: 2px solid #26a69a;
   -webkit-transform: rotate(40deg);
   -moz-transform: rotate(40deg);
   -ms-transform: rotate(40deg);
@@ -6673,7 +6673,7 @@ form p:last-child {
   height: 22px;
   border-top: none;
   border-left: none;
-  border-right: 2px solid #5498d4;
+  border-right: 2px solid #26a69a;
   border-bottom: none;
   -webkit-transform: rotate(90deg);
   -moz-transform: rotate(90deg);
@@ -6733,8 +6733,8 @@ form p:last-child {
   top: 0px;
   width: 20px;
   height: 20px;
-  border: 2px solid #5498d4;
-  background-color: #5498d4;
+  border: 2px solid #26a69a;
+  background-color: #26a69a;
   z-index: 0; }
 [type="checkbox"].filled-in:disabled:not(:checked) + label:before {
   background-color: transparent;
@@ -6766,10 +6766,10 @@ form p:last-child {
   height: 0; }
 
 .switch label input[type=checkbox]:checked + .lever {
-  background-color: #5498d4; }
+  background-color: #84c7c1; }
 
 .switch label input[type=checkbox]:checked + .lever:after {
-  background-color: #5498d4; }
+  background-color: #26a69a; }
 
 .switch label .lever {
   content: "";
@@ -6943,7 +6943,7 @@ input[type=range] + .thumb {
   height: 0;
   width: 0;
   border-radius: 50%;
-  background-color: #5498d4;
+  background-color: #26a69a;
   top: 10px;
   margin-left: -6px;
   -webkit-transform-origin: 50% 50%;
@@ -6960,7 +6960,7 @@ input[type=range] + .thumb {
     display: block;
     width: 30px;
     text-align: center;
-    color: #5498d4;
+    color: #26a69a;
     font-size: 0;
     -webkit-transform: rotate(45deg);
     -moz-transform: rotate(45deg);
@@ -6992,7 +6992,7 @@ input[type=range]::-webkit-slider-thumb {
   height: 14px;
   width: 14px;
   border-radius: 50%;
-  background-color: #5498d4;
+  background-color: #26a69a;
   transform-origin: 50% 50%;
   margin: -5px 0 0 0;
   -webkit-transition: 0.3s;
@@ -7019,7 +7019,7 @@ input[type=range]::-moz-range-thumb {
   height: 14px;
   width: 14px;
   border-radius: 50%;
-  background: #5498d4;
+  background: #26a69a;
   margin-top: -5px; }
 
 /*hide the outline behind the border*/
@@ -7051,7 +7051,7 @@ input[type=range]::-ms-thumb {
   height: 14px;
   width: 14px;
   border-radius: 50%;
-  background: #5498d4; }
+  background: #26a69a; }
 
 input[type=range]:focus::-ms-fill-lower {
   background: #888; }
@@ -7223,7 +7223,7 @@ select {
   width: 100%;
   height: 100%;
   opacity: 0;
-  border-color: #5498d4; }
+  border-color: #26a69a; }
 
 .spinner-blue, .spinner-blue-only {
   border-color: #4285f4; }
@@ -8117,7 +8117,7 @@ select {
   border: 1px solid transparent; }
 
 .picker__day.picker__day--today {
-  color: #5498d4; }
+  color: #26a69a; }
 
 .picker__day.picker__day--today.picker__day--selected {
   color: #fff; }
@@ -8132,7 +8132,7 @@ select {
   -ms-transform: scale(.9);
   -o-transform: scale(.9);
   transform: scale(.9);
-  background-color: #5498d4;
+  background-color: #26a69a;
   color: #ffffff; }
   .picker__day--selected.picker__day--outfocus, .picker__day--selected:hover.picker__day--outfocus, .picker--focused .picker__day--selected.picker__day--outfocus {
     background-color: #a1ded8; }
@@ -8144,7 +8144,7 @@ select {
 .picker__close, .picker__today {
   font-size: 1.1rem;
   padding: 0 1rem;
-  color: #5498d4; }
+  color: #26a69a; }
 
 .picker__nav--prev:before, .picker__nav--next:before {
   content: " ";

@@ -15,7 +15,6 @@
                         </div>
                     </div><!-- fin row-->
                     <div id="saved">
-                        <?php if (!empty($data['eventSaved'])) { ?>
                         <?php foreach($data['eventSaved'] as $saved): ?>
                         <div class="card panel panel2 space1">
                             <div class="upcoming-event">
@@ -23,13 +22,13 @@
                                     <div class="row valign-wrapper margin-cat-bottom">
                                         <div class="hide-on-small-only col l3 m3 s3">
                                             <?php if(!empty($saved['coverPicture'])) { ?>
-                                                <a href="event/editshow/<?= $saved['idEvent']; ?>"><img src="assets/img/events/uploads/<?= $saved['coverPicture']; ?>" class="responsive-img"></a>
+                                                <a href="#"><img src="assets/img/events/uploads/<?= $saved['coverPicture']; ?>" class="responsive-img"></a>
                                             <?php } else { ?>
-                                                <a href="event/editshow/<?= $saved['idEvent']; ?>"><img src="assets/img/couv_default.jpg" class="responsive-img"></a>
+                                                <a href="#"><img src="assets/img/couv_default.jpg" class="responsive-img"></a>
                                             <?php } ?>
                                         </div>
                                         <div class="col l6 s6">
-                                            <a href="event/editshow/<?= $saved['idEvent']; ?>"><h5 class="blue-title"><?= $saved['nameEvent']; ?></h5></a>
+                                            <a href="#"><h5 class="blue-title"><?= $saved['nameEvent']; ?></h5></a>
                                             <h6>
                                                 <?php if(!empty($saved['locationEvent'])) { ?>
                                                     <?= $saved['locationEvent']; ?>
@@ -57,12 +56,8 @@
                             </div>
                         </div>
                         <?php endforeach; ?>
-                        <?php } else { ?>
-                            <p>0 events have been saved.</p>
-                        <?php } ?>
                     </div><!-- fin onglet1-->
                     <div id="published">
-                        <?php if (!empty($data['eventsPulished'])) { ?>
                         <?php foreach($data['eventsPulished'] as $published): ?>
                         <div class="card panel panel2 space1">
                             <div class="upcoming-event">
@@ -70,13 +65,13 @@
                                     <div class="row valign-wrapper margin-cat-bottom">
                                         <div class="hide-on-small-only col l3 m3 s3">
                                             <?php if(!empty($published['coverPicture'])) { ?>
-                                                <a href="event/show/<?= $published['idEvent']; ?>"><img src="assets/img/events/uploads/<?= $published['coverPicture'] ?>" class="responsive-img"></a>
+                                                <a href="#"><img src="assets/img/events/uploads/<?= $published['coverPicture'] ?>" class="responsive-img"></a>
                                             <?php } else { ?>
-                                                <a href="event/show/<?= $published['idEvent']; ?>"><img src="assets/img/couv_default.jpg" class="responsive-img"></a>
+                                                <a href="#"><img src="assets/img/couv_default.jpg" class="responsive-img"></a>
                                             <?php } ?>
                                         </div>
                                         <div class="col l6 s6">
-                                            <a href="event/show/<?= $published['idEvent']; ?>"><h5 class="blue-title"><?= $published['nameEvent']; ?></h5></a>
+                                            <a href="#"><h5 class="blue-title"><?= $published['nameEvent']; ?></h5></a>
                                             <h6><?= $published['locationEvent']; ?></h6>
                                             <p><i class="material-icons">schedule</i><?= $published['startEvent']; ?></p>
                                         </div>
@@ -93,9 +88,6 @@
                             </div>
                         </div>
                         <?php endforeach; ?>
-                        <?php } else { ?>
-                            <p>0 events have been published.</p>
-                        <?php } ?>
                     </div><!-- fin onglet2-->
                 </div><!-- fin col-->
             </div><!-- fin row-->

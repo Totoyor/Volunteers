@@ -182,7 +182,7 @@
                                 <div class="row">
                                     <div class="col s12">
                                         <blockquote>
-                                            <a onclick="return confirm('Are you sure you want to delete your account ?');" href="?module=profile&action=delete" class="red-text" title="">Delete my
+                                            <a href="?module=profile&action=delete" class="red-text" title="">Delete my
                                                 account :(</a>
                                         </blockquote>
                                     </div>

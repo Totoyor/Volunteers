@@ -2,25 +2,26 @@
     <div class="big-img">
         <div class="row">
             <div class="col s6 blocprincipal white-text bgblue valign-wrapper">
-                <div class="content-bloc center">
+                <div class="content-bloc left">
                     <h1 class="titre_left">I want to volunteer at events</h1>
                     <ul class="hidden-content-leftside">
-                        <li><i class="material-icons">input</i>Join events for free</li>
-                        <li><i class="material-icons">thumb_up</i>Live new work exepriences</li>
-                        <li><i class="material-icons">person_pin</i>Meet awesome people</li>
+                        <li><i class="material-icons">check</i>Join events for free</li>
+                        <li><i class="material-icons">check</i>Live new work exepriences</li>
+                        <li><i class="material-icons">check</i>Meet awesome people</li>
                     </ul>
-                    <a href="event/lists" class="btn btn_left">Join events now</a>
+                    <a href="event/lists" class="btn btn-bleu btn_left">Join events now</a>
                 </div>
             </div>
             <div class="col s6 blocprincipal white-text bgorange valign-wrapper">
-                <div class="content-bloc center">
+                <div class="content-bloc left">
                     <h1 class="titre_right">I need volunteers for my event</h1>
                     <ul class="hidden-content-rightside">
-                        <li><i class="material-icons">done</i>Easiest way to hire volunteers</li>
-                        <li><i class="material-icons">schedule</i>Save time</li>
-                        <li><i class="material-icons">visibility</i>Better visibility for your event</li>
+                        <li><i class="material-icons">check</i>Easiest way to hire volunteers</li>
+                        <li><i class="material-icons">check</i>Save time</li>
+                        <li><i class="material-icons">check</i>Better visibility for your event</li>
                     </ul>
                     <a href="event/home" class="btn btn-orange btn_right">Tell us about your event</a>
+
                 </div>
                 <!-- content bloc-->
             </div>
@@ -61,7 +62,7 @@
                             <h6 class="truncate black-text"><?= $premium['locationEvent']; ?></h6>
                         </div>
                         <div class="card-action">
-                          <a href="event/sort/<?= $premium['idCategorie']; ?>/<?= strtolower($premium['nameCategorie']); ?>"><?= $premium['nameCategorie']; ?></a>
+                          <a href="#"><?= $premium['nameCategorie']; ?></a>
                           <a class="viewmore btn btn-blue" href="event/show/<?= $premium['idEvent']; ?>">See more</a>
                         </div>
                     </div>
@@ -78,7 +79,6 @@
             <div class="col s12 m6 l4">
                 <div class="card small event popevent left">
                     <div class="card-image">
-                        <a href="event/show/<?= $event['idEvent']; ?>">
                         <?php if(!empty($event['coverPicture'])) { ?>
                             <img class="responsive-img"
                                  src="assets/img/events/uploads/<?= $event['coverPicture']; ?>"
@@ -88,15 +88,14 @@
                                  src="assets/img/couv_default.jpg"
                                  alt="image-event">
                         <?php } ?>
-                        </a>
                     </div>
                     <div class="card-content">
-                        <a href="event/show/<?= $event['idEvent']; ?>"><h4 class="titre-cards truncate"><?= $event['nameEvent']; ?></h4></a>
+                        <h4 class="titre-cards truncate"><?= $event['nameEvent']; ?></h4>
                         <h6 class="truncate location-cards"><?= $event['locationEvent']; ?>
                             , <?= $event['startEvent']; ?></h6>
                     </div>
                     <div class="card-action">
-                        <a class="card-categorie" href="event/sort/<?= $event['idCategorie']; ?>/<?= strtolower($event['nameCategorie']); ?>"><?= $event['nameCategorie']; ?></a>
+                        <a class="card-categorie" href="event/show/<?= $event['idEvent']; ?>"><?= $event['nameCategorie']; ?></a>
                         <a class="viewmore btn btn-blue" href="event/show/<?= $event['idEvent']; ?>">See
                             more</a>
                     </div>
@@ -108,7 +107,7 @@
 
             <div class="row">
                 <div class="col s12 center">
-                    <a href="event/lists" class="btn btn-blue">more exciting events</a>
+                    <a href="event/lists" class="btn btn-bleu">more exciting events</a>
                 </div>
             </div>
 

@@ -11,7 +11,7 @@
                     <p class="validate_green">   <i class="material-icons">done</i>Your account has been activated successfully</p>
                    
                     <div class="more_margin"></div>
-                    <a class="btn btn-blue" href="?"><i class="material-icons">home</i>Return Back home</a>
+                    <a class="btn btn-bleu" href="#"><i class="material-icons">home</i>Return Back home</a>
 
                 </div>
             </div>
