@@ -1005,17 +1005,26 @@ class AdminController extends AppController
     public function categories()
     {
         if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
-            define("TITLE_HEAD", "Event Name | Volunteers Admin");
+
             if (isset($_POST['category'])) {
                 $this->model->insertCategory($_POST['category']);
             }
+
             if (isset($_GET['id'])) {
+
                 $this->model->deleteCategory($_GET['id']);
+
+                $data = array(
+                    'categories' => $this->model->getCategories()
+                );
+            } else {
+                $data = array(
+                    'categories' => $this->model->getCategories()
+                );
             }
-            $data = array(
-                'categories' => $this->model->getCategories()
-            );
+
             // Chargement de la vue
+            define("TITLE_HEAD", "Event Name | Volunteers Admin");
             $this->load->view('admin/categories.php', $data);
         } else {
             header("location:".PATH_HOME."admin/signin");
