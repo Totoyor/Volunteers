@@ -399,31 +399,6 @@
                 <!--content-->
             </div>
             <!-- fin formulaire-->
-<<<<<<< HEAD
-            <div class="col l4 yo">
-                <div class="right btn_fix_crea">
-                    <?php if (isset($_SESSION['user_id'])) { ?>
-                       <button data-position="bottom" data-delay="50" data-tooltip="Save" name="save"
-                           class="btn btn-menu modal-trigger tooltipped" href="#login"><i
-                                class="material-icons secure_btn_crea">save</i></button>
-
-                        <button name="submit" href="#login" data-position="bottom" data-delay="50" data-tooltip="Publish"
-                           class="btn btn-orange modal-trigger tooltipped"><i class="material-icons">publish</i></button>
-                    <?php } else { ?>
-                        <button data-position="bottom" name="save"
-                           class="btn btn-menu modal-trigger" disabled>
-                           <i class="material-icons secure_btn_crea">save</i>
-                        </button>
-
-                        <button name="submit"
-                           class="btn btn-orange modal-trigger" disabled>
-                           <i class="material-icons">publish</i>
-                        </button>
-                    <?php } ?>
-                </div>
-            </div>
-=======
->>>>>>> aa214bc04edd363026ff55669f5bbf42b2484af8
         </div>
     </form>
     <!--//// END FOM ****/////-->
