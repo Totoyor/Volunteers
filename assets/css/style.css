@@ -43,7 +43,7 @@ nav ul li a:hover {
 
 .big-img {
     height: 85vh;
-    background-image: url(../../assets/img/about-hero.jpg);
+    background-image: url(../../assets/img/couv_par.jpg);
     background-position: center;
     background-size: cover;
 }
@@ -121,11 +121,6 @@ btn-blue:focus {
     border-bottom: 1px solid #e27e00;
 }
 
-.btn-bleu {
-    background-color:#5498D4;
-    border-bottom:1px solid #3b80bd;
-}
-
 .btn-blue:hover {
     background-color: #FFF;
     box-shadow: none;
@@ -139,11 +134,6 @@ a.viewmore.btn.btn-blue:hover {
 
 .btn-orange:hover {
     background-color: #f8a133;
-    box-shadow: none;
-}
-
-.btn-bleu:hover {
-    background-color:#77a5cd;
     box-shadow: none;
 }
 
@@ -281,22 +271,24 @@ a.viewmore.btn-vue {
 }
 
 .bgorange {
-    background-color: rgba(255, 139, 2, 0.6);
+    background: linear-gradient(to left, rgba(240, 152, 25, 0.4), rgba(163, 152, 206, 0.4));
+    transition: 0.3s;
 }
 
-.bgorange:hover {
-    background-color: rgba(255, 139, 2, 0.6);
-    background: linear-gradient(120deg, rgba(255, 153, 0, 0.8), rgba(213, 94, 58, 0.8));
- }   
+/*.bgorange:hover {
+    background: linear-gradient(to left, rgba(204, 81, 10, 0.4), rgba(173, 109, 30, 0.4));
+    transition: 0.3s;
+}*/
 
 .bgblue {
-    background: rgba(84, 152, 212, 0.6);
+    background: linear-gradient(to left, rgba(163, 152, 206, 0.4), rgba(80, 88, 187, 0.4));
+    transition: 0.3s;
 }
 
-.bgblue:hover {
-    background-color: rgba(84, 152, 212, 0.8);
-    background: linear-gradient(230deg, rgba(0, 187, 224, 0.8), rgba(58, 123, 213, 0.8));
-}
+/*.bgblue:hover {
+    background: linear-gradient(to left, rgba(80, 98, 187, 0.4) , rgba(72, 80, 170, 0.4));
+    transition: 0.3s;
+}*/
 
 /*** FOOTER ***/
 
@@ -1008,8 +1000,7 @@ left: 0;
 }
 
 .collapsible a {
-    color: #5498d4;
-    font-size: 0.8rem;
+    color:#AAA;
 }
 
 .collapsible a:hover {
@@ -2201,7 +2192,7 @@ input[type=range] + .thumb {
 }
 
 .img-team {
-    width:100%;
+    width:50%;
 }
 
 .no-marg h1{
@@ -2225,11 +2216,6 @@ input[type=range] + .thumb {
     margin-top:20px;
 }
 
-.margtop15 {
-    margin-top:15px;
-}
-
-
 .bloc-contact {
     background-color: #ff8b02;
     height:200px;
@@ -2246,7 +2232,7 @@ input[type=range] + .thumb {
 
 .form-contact input[type="text"] {
     border: 1px solid #d1d1d1;
-    color: #808080;
+    color: #bebebe;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
@@ -2266,7 +2252,7 @@ input[type=range] + .thumb {
 
 .form-contact textarea[type="text"] {
     border: 1px solid #d1d1d1;
-    color: #808080;
+    color: #bebebe;
     height:150px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;

@@ -1,447 +1,317 @@
 <?php include_once('views/layout/adminheader.inc.php'); ?>
-<!-- Main Content -->
-  <section class="content-wrap ecommerce-product-single">
-
-
-<!-- Breadcrumb -->
-    <div class="page-title">
-
-      <div class="row">
-        <div class="col s12 m9 l10">
-          <?php if ($_GET['action'] == "createevent") {?>
-            <h1>Create Event</h1>
-          <?php } else { ?>
-            <h1>Edit Event</h1>
-          <?php } ?>
-        </div>
-      </div>
-
-    </div>
-    <!-- /Breadcrumb -->
-
-    <?php if ($_GET['action'] == "createevent") { ?>
-      <form method="post" action="admin/create" enctype="multipart/form-data">
-    <?php } else { ?>
-      <form method="post" action="admin/edit" enctype="multipart/form-data">
-    <?php } ?>
-      <!-- Save and Cancel buttons -->
-      <p class="right-align">
-        <button class="btn" type="submit">Save</button>
-        <a class="btn" href="dashboard">Cancel</a>
-      </p>
-      <!-- /Save and Cancel buttons -->
-
-      <!-- General -->
-      <div class="card">
-        <div class="title">
-          <h5>General Info</h5>
-          <a class="minimize" href="#">
-            <i class="mdi-navigation-expand-less"></i>
-          </a>
-        </div>
-        <div class="content" style="overflow: visible">
-          <!-- Product Name -->
-          <div class="row no-margin-top">
-            <div class="col s12 l3">
-              <label for="ecommerce-product-name" class="setting-title">
-                Event Name
-              </label>
-            </div>
-            <div class="col s12 l9">
-              <div class="input-field no-margin-top">
-                <input id="ecommerce-product-name" type="text" placeholder="Event Name" value="<?= $data['event']['nameEvent']; ?>" name="product-name">
-              </div>
-            </div>
-          </div>
-          <!-- /Product Name -->
-
-          <!-- Product Photos -->
-          <div class="row product-photos">
-            <div class="col s12 l3">
-              <label for="ecommerce-product-photos" class="setting-title">
-                Event Photos
-              </label>
-            </div>
-            <div class="col s12 l9">
-              <div class="file-field input-field">
-                <div class="btn">
-                  <span>File</span>
-                  <input id="ecommerce-product-photos" type="file" name="product-photos" />
+    <!-- Main Content -->
+    <section class="content-wrap ecommerce-product-single">
+        <!-- Breadcrumb -->
+        <div class="page-title">
+            <div class="row">
+                <div class="col s12 m9 l10">
+                    <h1>Create Event</h1>
                 </div>
-                <div class="file-path-wrapper">
-                  <input class="file-path" type="text" />
-                </div>
-              </div>
-              <div class="photos">
-                <div class="main-photo">
-                  <img class="materialboxed" width="150" src="">
-                </div>
-                <div class="small-photo">
-                  <img class="materialboxed" width="50" src="">
-                  <img class="materialboxed" width="50" src="">
-                  <img class="materialboxed" width="50" src="">
-                  <img class="materialboxed" width="50" src="">
-                  <img class="materialboxed" width="50" src="">
-                  <img class="materialboxed" width="50" src="">
-                </div>
-              </div>
             </div>
-          </div>
-          <!-- /Product Photos -->
-
-
-          <!-- Product Description -->
-          <div class="row no-margin-top">
-            <div class="col s12 l3">
-              <label class="setting-title">
-                Event Description
-              </label>
-            </div>
-            <div class="col s12 l9">
-
-              <textarea id="ckeditor1" name="product-description"><?= $data['event']['descriptionEvent']; ?></textarea>
-
-            </div>
-          </div>
-          <!-- /Product Description -->
         </div>
-      </div>
-      <!-- /General -->
-
-      <!-- Details -->
-      <div class="card">
-        <div class="title">
-          <h5>Details</h5>
-          <a class="minimize" href="#">
-            <i class="mdi-navigation-expand-less"></i>
-          </a>
-        </div>
-        <div class="content">
-
-          <!-- Location -->
-          <div class="row no-margin-top">
-            <div class="col s12 l3">
-              <label for="location" class="setting-title">
-                Location
-              </label>
-            </div>
-            <div class="col s12 l9">
-              <div class="input-field no-margin-top">
-                <textarea name="product-keywords" id="location" placeholder="Event Location" class="materialize-textarea"><?= $data['event']['locationEvent']; ?></textarea>
-              </div>
-            </div>
-          </div>
-          <!-- /Location -->
-
-          <!-- Start date -->
-          <div class="row no-margin-top">
-            <div class="col s12 l3">
-              <label for="start date" class="setting-title">
-                Start date
-              </label>
-            </div>
-            <div class="col s12 l9">
-              <div class="input-field no-margin-top">
-                <input class="datepicker" id="input_end_date" type="date">
-                <label for="input_end_date">Start date</label>
-                <?= $data['event']['startEvent']; ?>
-              </div>
-            </div>
-          </div>
-          <!-- /Start date -->
-
-          <!-- End date -->
-          <div class="row no-margin-top">
-            <div class="col s12 l3">
-              <label for="end date" class="setting-title">
-                End date
-              </label>
-            </div>
-            <div class="col s12 l9">
-              <div class="input-field no-margin-top">
-                <input class="datepicker" id="input_end_date" type="date">
-                <label for="input_end_date">End date</label>
-                <?= $data['event']['endEvent']; ?>
-              </div>
-            </div>
-          </div>
-          <!-- /End date -->
-
-          <!-- Start time -->
-          <div class="row no-margin-top">
-            <div class="col s12 l3">
-              <label for="start time" class="setting-title">
-                Start time
-              </label>
-            </div>
-            <div class="col s12 l9">
-              <div class="input-field col s6 m3">
-                  <div class="select-wrapper">
-                    <span class="caret">▼</span>
-                    <ul id="select-options-e936197d-61df-0ed5-b873-b77e7ee28397" class="dropdown-content select-dropdown "><li class="disabled "><span>Hours</span></li><li class=""><span>00</span></li><li class=""><span>01</span></li><li class=""><span>02</span></li><li class=""><span>03</span></li><li class=""><span>04</span></li><li class=""><span>05</span></li><li class=""><span>06</span></li><li class=""><span>07</span></li><li class=""><span>08</span></li><li class=""><span>09</span></li><li class=""><span>10</span></li><li class=""><span>11</span></li><li class=""><span>12</span></li></ul><select name="event_hour_start" class="initialized">
-                      <option value="" disabled="" selected="">Hours</option>
-                      <option value="0">00</option>
-                      <option value="1">01</option>
-                      <option value="2">02</option>
-                      <option value="3">03</option>
-                      <option value="4">04</option>
-                      <option value="5">05</option>
-                      <option value="6">06</option>
-                      <option value="7">07</option>
-                      <option value="8">08</option>
-                      <option value="9">09</option>
-                      <option value="10">10</option>
-                      <option value="11">11</option>
-                      <option value="12">12</option>
-                  </select></div>
-                  <label>Starting</label>
-              </div>
-
-              <div class="input-field col s6 m3">
-                  <div class="select-wrapper"><span class="caret">▼</span><ul id="select-options-f7cad8ff-3bbd-94e9-c28d-4f8df21cc5ea" class="dropdown-content select-dropdown "><li class="disabled "><span>Minutes</span></li><li class=""><span>00</span></li><li class=""><span>05</span></li><li class=""><span>10</span></li><li class=""><span>15</span></li><li class=""><span>20</span></li><li class=""><span>25</span></li><li class=""><span>30</span></li><li class=""><span>35</span></li><li class=""><span>40</span></li><li class=""><span>45</span></li><li class=""><span>50</span></li><li class=""><span>55</span></li></ul><select name="event_min_start" class="initialized">
-                      <option value="" disabled="" selected="">Minutes</option>
-                      <option value="00">00</option>
-                      <option value="05">05</option>
-                      <option value="10">10</option>
-                      <option value="15">15</option>
-                      <option value="20">20</option>
-                      <option value="25">25</option>
-                      <option value="30">30</option>
-                      <option value="35">35</option>
-                      <option value="40">40</option>
-                      <option value="45">45</option>
-                      <option value="50">50</option>
-                      <option value="55">55</option>
-                  </select></div>
-                  <label></label>
-              </div>
-              <?= $data['event']['hourStartEvent']; ?>
-            </div>
-          </div>
-          <!-- /Start time -->
-
-          <!-- End time -->
-          <div class="row no-margin-top">
-            <div class="col s12 l3">
-              <label for="end time" class="setting-title">
-                End time
-              </label>
-            </div>
-              <div class="col s12 l9">
-                <div class="input-field col s6 m3">
-                    <div class="select-wrapper"><span class="caret">▼</span><ul id="select-options-e936197d-61df-0ed5-b873-b77e7ee28397" class="dropdown-content select-dropdown "><li class="disabled "><span>Hours</span></li><li class=""><span>00</span></li><li class=""><span>01</span></li><li class=""><span>02</span></li><li class=""><span>03</span></li><li class=""><span>04</span></li><li class=""><span>05</span></li><li class=""><span>06</span></li><li class=""><span>07</span></li><li class=""><span>08</span></li><li class=""><span>09</span></li><li class=""><span>10</span></li><li class=""><span>11</span></li><li class=""><span>12</span></li></ul><select name="event_hour_start" class="initialized">
-                        <option value="" disabled="" selected="">Hours</option>
-                        <option value="0">00</option>
-                        <option value="1">01</option>
-                        <option value="2">02</option>
-                        <option value="3">03</option>
-                        <option value="4">04</option>
-                        <option value="5">05</option>
-                        <option value="6">06</option>
-                        <option value="7">07</option>
-                        <option value="8">08</option>
-                        <option value="9">09</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                    </select></div>
-                    <label>Starting</label>
+        <!-- /Breadcrumb -->
+        <form method="post" action="create">
+            <div class="card">
+                <div class="title">
+                    <h5>Description</h5>
+                    <a class="minimize" href="#">
+                        <i class="mdi-navigation-expand-less"></i>
+                    </a>
                 </div>
-
-                <div class="input-field col s6 m3">
-                    <div class="select-wrapper"><span class="caret">▼</span><ul id="select-options-f7cad8ff-3bbd-94e9-c28d-4f8df21cc5ea" class="dropdown-content select-dropdown "><li class="disabled "><span>Minutes</span></li><li class=""><span>00</span></li><li class=""><span>05</span></li><li class=""><span>10</span></li><li class=""><span>15</span></li><li class=""><span>20</span></li><li class=""><span>25</span></li><li class=""><span>30</span></li><li class=""><span>35</span></li><li class=""><span>40</span></li><li class=""><span>45</span></li><li class=""><span>50</span></li><li class=""><span>55</span></li></ul><select name="event_min_start" class="initialized">
-                        <option value="" disabled="" selected="">Minutes</option>
-                        <option value="00">00</option>
-                        <option value="05">05</option>
-                        <option value="10">10</option>
-                        <option value="15">15</option>
-                        <option value="20">20</option>
-                        <option value="25">25</option>
-                        <option value="30">30</option>
-                        <option value="35">35</option>
-                        <option value="40">40</option>
-                        <option value="45">45</option>
-                        <option value="50">50</option>
-                        <option value="55">55</option>
-                    </select></div>
-                    <label></label>
-                </div>
-                <?= $data['event']['hourEndEvent']; ?>
-              </div>
-            </div>
-          <!-- /End time -->
-
-          <!-- categories -->
-          <div class="row no-margin-top">
-            <div class="col s12 l3">
-              <label for="categories" class="setting-title">
-                Category
-              </label>
-            </div>
-            <div class="col s3 l3">
-              <div class="select-wrapper icons"><span class="caret">▼</span>
-                <ul class="dropdown-content select-dropdown multiple-select-dropdown active" >
-                  <li class="disabled">
-                    <span>
-                      <input type="checkbox" disabled="">
-                      <label>Category</label>
-                    </span>
-                  </li>
-                  <li class="">
-                    <span>
-                      <input type="checkbox">
-                      <label>Festival</label>
-                    </span>
-                  </li>
-                  <li class="">
-                    <span>
-                      <input type="checkbox">
-                      <label>Rock</label>
-                    </span>
-                  </li>
-                  <li class="">
-                    <span>
-                      <input type="checkbox">
-                      <label>Pop</label>
-                    </span>
-                  </li>
-                  <li class="">
-                    <span>
-                      <input type="checkbox">
-                      <label>
-                        Techno
-                      </label>
-                    </span>
-                  </li>
-                </ul>
-                <select name="event_categories[]" class="icons initialized" multiple="">
-                  <option value="" disabled="" selected="">Category</option>
-                  <option value="1" class="left circle">Festival</option>
-                  <option value="2" class="left circle">Rock</option>
-                  <option value="4" class="left circle">Pop</option>
-                  <option value="5" class="left circle">Techno</option>
-              </select>
-            </div>
-            </div>
-            <?= $data['event']['nameCategorie']; ?>
-          </div>
-          <!-- /End time -->
-
-        </div>
-      </div>
-      <!-- /Details -->
-
-      <!-- Missions -->
-      <div class="card">
-        <div class="title">
-          <h5>Missions</h5>
-          <a class="minimize" href="#">
-            <i class="mdi-navigation-expand-less"></i>
-          </a>
-        </div>
-        <div class="content">
-
-          <!-- Description -->
-          <div class="row no-margin-top">
-            <div class="col s12 l3">
-              <label for="ecommerce-product-keywords" class="setting-title">
-                Missions
-              </label>
-            </div>
-            <div class="col s12 l9">
-              <div class="input-field no-margin-top">
-
-                <?php if (isset($data['missions'])): ?>
-                  <?php foreach ($data['missions'] as $mission) {?>
-                  <div class="top-space">
-                      <div class="input-field col s5 secure-mission">
-                          <input name="missions[]" id="icon_prefix" placeholder="Barman" type="text" class="validate" value="<?php echo ($mission['missionName']); ?>">
-                          <label for="icon_prefix">Mission</label>
-                      </div>
-                      <div class="input-field col secure-mission">
-                          <input name="nbVolunteer[]" placeholder="1" type="number" min="0" class="validate" value="<?php echo ($mission['nbVolunteer']); ?>">
-                          <label>Number</label>
-                      </div>
-                  </div>
-                  <?php } ?>
-                <?php endif ?>
-
-
-                <div id="first-mission-field" class="top-space">
-                    <div class="input-field col s5 secure-mission">
-                        <input name="missions[]" id="icon_prefix" placeholder="Barman" type="text" class="validate">
-                        <label for="icon_prefix">Mission</label>
+                <div class="content">
+                    <div class="row">
+                        <div class="input-field col s9">
+                            <input id="input_email" name="event_name" type="text" class="validate" required>
+                            <label for="input_email">Event name</label>
+                        </div>
                     </div>
-                      <div class="input-field col secure-mission">
-                          <input name="nbVolunteer[]" placeholder="1" type="number" min="0" class="validate">
-                          <label>Number</label>
-                      </div>
-                </div>
 
-                <div id="mission-field" class="mission hide">
-                    <div class="input-field col s5 secure-mission">
-                        <input name="missions[]" id="icon_prefix" placeholder="Barman" type="text" class="validate">
-                        <label for="icon_prefix">Mission</label>
+                    <div class="more_margin"></div>
+                    <div class="more_margin"></div>
+
+                    <div class="row">
+                        <div class="input-field col s9">
+                            <input id="input_email" name="event_location" type="text" class="validate" >
+                            <label for="input_email">Location</label>
+                        </div>
                     </div>
-                      <div class="input-field col secure-mission">
-                          <input name="nbVolunteer[]" placeholder="1" type="number" min="0" class="validate">
-                          <label>Number</label>
-                      </div>
+
+                    <div class="more_margin"></div>
+                    <div class="more_margin"></div>
+
+                    <div class="row">
+                        <div class="input-field col s9">
+                            <i class="mdi-action-event prefix"></i>
+                            <input name="event_start" class="datepicker" id="input_date" type="date">
+                            <label for="input_date">Beginning</label>
+                        </div>
+                        <br>
+                        <div class="col s3 l3 m3">
+                            <p><a class="showend">+ Add End Date</a></p>
+                        </div>
+                    </div>
+
+                    <div class="more_margin"></div>
+                    <div class="more_margin"></div>
+
+                    <div class="row">
+                        <div class="input-field newdate col s9">
+                            <i class="mdi-action-event prefix"></i>
+                            <input name="event_end" id="icon_prefix" type="date" class="datepicker">
+                            <label for="input_date">End</label>
+                        </div>
+                    </div>
+
+                    <div class="more_margin"></div>
+                    <div class="more_margin"></div>
+
+                    <div class="row">
+                        <div class="input-field col s6 m3">
+                            <select name="event_hour_start">
+                                <option value="" disabled selected>Hour</option>
+                                <option value="0">00</option>
+                                <option value="1">01</option>
+                                <option value="2">02</option>
+                                <option value="3">03</option>
+                                <option value="4">04</option>
+                                <option value="5">05</option>
+                                <option value="6">06</option>
+                                <option value="7">07</option>
+                                <option value="8">08</option>
+                                <option value="9">09</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                            <label>Starting</label>
+                        </div>
+
+                        <div class="input-field col s6 m3">
+                            <select name="event_min_start">
+                                <option value="" disabled selected>Min</option>
+                                <option value="00">00</option>
+                                <option value="05">05</option>
+                                <option value="10">10</option>
+                                <option value="15">15</option>
+                                <option value="20">20</option>
+                                <option value="25">25</option>
+                                <option value="30">30</option>
+                                <option value="35">35</option>
+                                <option value="40">40</option>
+                                <option value="45">45</option>
+                                <option value="50">50</option>
+                                <option value="55">55</option>
+                            </select>
+                            <label></label>
+                        </div>
+
+                        <div class="input-field col s6 m3 tooltipped" data-position="right" data-delay="50"
+                             data-tooltip="When?">
+                            <select name="event_start_mode">
+                                <option value="" disabled selected>AM - PM</option>
+                                <option value="am">AM</option>
+                                <option value="pm">PM</option>
+                            </select>
+                            <label></label>
+                        </div>
+                    </div>
+
+                    <div class="more_margin"></div>
+                    <div class="more_margin"></div>
+
+                    <div class="row">
+                        <div class="input-field col s6 m3 ">
+                            <select name="event_hour_end">
+                                <option value="" disabled selected>Hour</option>
+                                <option value="0">00</option>
+                                <option value="1">01</option>
+                                <option value="2">02</option>
+                                <option value="3">03</option>
+                                <option value="4">04</option>
+                                <option value="5">05</option>
+                                <option value="6">06</option>
+                                <option value="7">07</option>
+                                <option value="8">08</option>
+                                <option value="9">09</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                            <label>Ending</label>
+                        </div>
+
+                        <div class="input-field col s6 m3">
+                            <select name="event_min_end">
+                                <option value="" disabled selected>Min</option>
+                                <option value="00">00</option>
+                                <option value="05">05</option>
+                                <option value="10">10</option>
+                                <option value="15">15</option>
+                                <option value="20">20</option>
+                                <option value="25">25</option>
+                                <option value="30">30</option>
+                                <option value="35">35</option>
+                                <option value="40">40</option>
+                                <option value="45">45</option>
+                                <option value="50">50</option>
+                                <option value="55">55</option>
+                            </select>
+                            <label></label>
+                        </div>
+
+                        <div class="input-field col s6 m3 ">
+                            <select name="event_end_mode">
+                                <option value="" disabled selected>AM - PM</option>
+                                <option value="am">AM</option>
+                                <option value="pm">PM</option>
+                            </select>
+                            <label></label>
+                        </div>
+                    </div>
+
+                    <div class="more_margin"></div>
+                    <div class="more_margin"></div>
+
+                    <div class="row">
+                        <div class="input-field col s9">
+                            <textarea name="event_description" id="textarea1" class="materialize-textarea"></textarea>
+                            <label for="textarea1">Textarea</label>
+                        </div>
+                    </div>
+
+                    <div class="more_margin"></div>
+                    <div class="more_margin"></div>
+
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <select name="event_categories[]" class="icons" multiple>
+                                <option value="" disabled selected>Categories</option>
+                                <?php foreach ($data['categories'] as $category) {
+                                    ?>
+                                    <option value="<?= $category['idCategorie']; ?>"><?= $category['nameCategorie']; ?></option>
+                                    <?php
+                                } ?>
+                            </select>
+                            <label>Choose your categories</label>
+                        </div>
+                    </div>
+
+                    <div class="more_margin"></div>
+                    <div class="more_margin"></div>
+
+                    <div class="row">
+                        <div class="input-field col s3">
+                            <input id="input_email" name="facebook" type="text" class="validate" >
+                            <label for="input_email">Facebook</label>
+                        </div>
+                        <div class="input-field col s3">
+                            <input id="input_email" name="instagram" type="text" class="validate" >
+                            <label for="input_email">Instagram</label>
+                        </div>
+                        <div class="input-field col s3">
+                            <input id="input_email" name="youtube" type="text" class="validate" >
+                            <label for="input_email">Youtube</label>
+                        </div>
+                        <div class="input-field col s3">
+                            <input id="input_email" name="twitter" type="text" class="validate" >
+                            <label for="input_email">Twitter</label>
+                        </div>
+                    </div>
+
                 </div>
+            </div>
 
-                <div id="new-mission"></div>
+            <div class="card">
+                <div class="title">
+                    <h5>Medias</h5>
+                    <a class="minimize" href="#">
+                        <i class="mdi-navigation-expand-less"></i>
+                    </a>
+                </div>
+                <div class="content">
 
-                <div class="row">
-                    <div class="left col">
-                        <a class="btn btn-bleu addmiss">+ Add </a>
+                    <div class="row">
+                        <div class="input-field col s12 l12 m12">
+                            <input name="coverPicture" type="file" id="input-file-now" data-height="200" class="dropify" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s3">
+                            <input name="media[]" type="file" id="input-file-now" data-height="90" class="dropify"/>
+                        </div>
+                        <div class="input-field col s3">
+                            <input name="media[]" type="file" id="input-file-now" data-height="90" class="dropify"/>
+                        </div>
+                        <div class="input-field col s3">
+                            <input name="media[]" type="file" id="input-file-now" data-height="90" class="dropify"/>
+                        </div>
+                        <div class="input-field col s3">
+                            <input name="media[]" type="file" id="input-file-now" data-height="90" class="dropify"/>
+                        </div>
                     </div>
                 </div>
-              </div>
             </div>
-          </div>
-          <!-- /Description -->
 
-        </div>
-      </div>
-      <!-- /Missions -->
+            <div class="card">
+                <div class="title">
+                    <h5>Volunteers</h5>
+                    <a class="minimize" href="#">
+                        <i class="mdi-navigation-expand-less"></i>
+                    </a>
+                </div>
+                <div class="content">
+                    <div class="row">
 
-      <!-- Meta -->
-      <div class="card">
-        <div class="title">
-          <h5>Meta</h5>
-          <a class="minimize" href="#">
-            <i class="mdi-navigation-expand-less"></i>
-          </a>
-        </div>
-        <div class="content">
+                        <div id="first-mission-field">
+                            <div class="input-field col s9">
+                                <i class="mdi-action-face-unlock prefix"></i>
+                                <input name="missions[]" id="icon_prefix" placeholder="Barman" type="text">
+                                <label for="icon_prefix">Mission</label>
+                            </div>
+                            <div class="input-field col s3 ">
+                                <div class="input-field col">
+                                    <input name="nbVolunteer[]" placeholder="1" type="number" min="0">
+                                    <label>Number</label>
+                                </div>
+                            </div>
+                        </div>
 
-          <!-- Description -->
-          <div class="row no-margin-top">
-            <div class="col s12 l3">
-              <label for="ecommerce-product-keywords" class="setting-title">
-                Meta Description
-              </label>
+                        <div id="mission-field" class="mission hide">
+                            <div class="input-field col s9">
+                                <i class="mdi-action-face-unlock prefix"></i>
+                                <input name="missions[]" id="icon_prefix" placeholder="Barman" type="text">
+                                <label for="icon_prefix">Mission</label>
+                            </div>
+                            <div class="input-field col s3 ">
+                                <div class="input-field col secure-mission">
+                                    <input name="nbVolunteer[]" placeholder="1" type="number" min="0" class="validate">
+                                    <label>Number</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="new-mission"></div>
+
+                        <div class="row">
+                            <div class="left col">
+                                <a class="btn btn-bleu addmiss">+ Add </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
-            <div class="col s12 l9">
-              <div class="input-field no-margin-top">
-                <textarea name="product-keywords" id="ecommerce-product-keywords" placeholder="Event meta description" class="materialize-textarea"></textarea>
-              </div>
+
+            <div class="row">
+                <div class="center-align">
+                    <button class="btn red">Cancel</button>
+                    <button type="submit" name="save" class="btn orange">Save</button>
+                    <button type="submit" name="submit" class="btn green">Publish</button>
+                </div>
             </div>
-          </div>
-          <!-- /Description -->
-
-        </div>
-      </div>
-      <!-- /Meta -->
-
-      <!-- Save and Cancel buttons -->
-      <p class="right-align">
-        <button class="btn" type="submit">Save</button>
-        <a class="btn" href="dashboard">Cancel</a>
-      </p>
-      <!-- /Save and Cancel buttons -->
-    </form>
-
-  </section>
-  <!-- /Main Content -->
+            <br>
+        </form>
+    </section>
+    <!-- /Main Content -->
 <?php include_once('views/layout/adminfooter.inc.php'); ?>

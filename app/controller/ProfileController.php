@@ -35,9 +35,9 @@ class ProfileController extends AppController
         {
             // Pas de session
             $messageFlash = 'Error ! You are not logged in !';
-            $this->coreSetFlashMessage('error', $messageFlash, 4);
-            header('Location:?');
-            exit();
+            $this->coreSetFlashMessage('error', $messageFlash, 5);
+            define("TITLE_HEAD", "Error | Volunteers");
+            $this->load->view('view_error.php');
 
         }
     }
@@ -160,6 +160,22 @@ class ProfileController extends AppController
                     exit();
                 }
             }
+            else
+            {
+                // Pas de post
+                $messageFlash = 'Error !';
+                $this->coreSetFlashMessage('error', $messageFlash, 5);
+                define("TITLE_HEAD", "Error | Volunteers");
+                $this->load->view('view_error.php');
+            }
+        }
+        else
+        {
+            // Pas de session
+            $messageFlash = 'Error ! You are not logged in !';
+            $this->coreSetFlashMessage('error', $messageFlash, 5);
+            define("TITLE_HEAD", "Error | Volunteers");
+            $this->load->view('view_error.php');
         }
     }
 
@@ -168,91 +184,201 @@ class ProfileController extends AppController
         if(isset($_SESSION['user_id']) && isset($_SESSION['user_email']))
         {
             // Suppresion du user
-            $this->model->deleteOne(array(
+            if($this->model->deleteOne(array(
                 'table' => 'users',
                 'column' => 'idUser',
                 'id' => $_SESSION['user_id']
-            ));
+            )))
+            {
+                // Détruire la session
+                session_unset();
+                session_destroy();
+                unset($_COOKIE['fbsr_941553679268599']);
 
-            // Détruire la session
-            session_unset();
-            session_destroy();
-            unset($_COOKIE['fbsr_941553679268599']);
-
-            // Message de confirmation et redirection
-            session_start();
-            $messageFlash = 'Done ! Your information has been deleted !';
-            $this->coreSetFlashMessage('sucess', $messageFlash, 4);
-            header('Location:?');
-            exit();
+                // Message de confirmation et redirection
+                session_start();
+                $messageFlash = 'Done ! Your information has been deleted !';
+                $this->coreSetFlashMessage('sucess', $messageFlash, 4);
+                header('Location:?');
+                exit();
+            }
+            else
+            {
+                // User non supprimé
+                $messageFlash = 'Error ! An error occur !';
+                $this->coreSetFlashMessage('error', $messageFlash, 5);
+                define("TITLE_HEAD", "Error | Volunteers");
+                $this->load->view('view_error.php');
+            }
         }
         else
         {
             // Pas de session
             $messageFlash = 'Error ! You are not logged in !';
-            $this->coreSetFlashMessage('error', $messageFlash, 4);
-            header('Location:?');
-            exit();
+            $this->coreSetFlashMessage('error', $messageFlash, 5);
+            define("TITLE_HEAD", "Error | Volunteers");
+            $this->load->view('view_error.php');
         }
     }
 
     public function missions()
     {
-        $idUser = $_SESSION['user_id'];
-        $data = array(
-            'missionsNok' => $this->model->getUserMissions($idUser, 0),
-            'missionsOk' => $this->model->getUserMissions($idUser, 1),
-            'user' => $this->model->getProfile($_SESSION['user_id'])
-        );
-        define("TITLE_HEAD", "Volunteers | Profile");
-        $this->load->view("user/missions.php", $data);
+        if(isset($_SESSION['user_id']) && isset($_SESSION['user_email']))
+        {
+            $idUser = $_SESSION['user_id'];
+            $data = array(
+                'missionsNok' => $this->model->getUserMissions($idUser, 0),
+                'missionsOk' => $this->model->getUserMissions($idUser, 1),
+                'user' => $this->model->getProfile($_SESSION['user_id'])
+            );
+            define("TITLE_HEAD", "Volunteers | Profile");
+            $this->load->view("user/missions.php", $data);
+        }
+        else
+        {
+            // Pas de session
+            $messageFlash = 'Error ! You are not logged in !';
+            $this->coreSetFlashMessage('error', $messageFlash, 5);
+            define("TITLE_HEAD", "Error | Volunteers");
+            $this->load->view('view_error.php');
+        }
     }
 
     public function events()
     {
+        if(isset($_SESSION['user_id']) && isset($_SESSION['user_email']))
+        {
+            $data = array(
+                'eventsPulished' => $this->model->selectEventsUserPublished($_SESSION['user_id']),
+                'eventSaved' => $this->model->selectEventsUserSaved($_SESSION['user_id']),
+                'user' => $this->model->getProfile($_SESSION['user_id'])
+            );
 
-        $data = array(
-            'eventsPulished' => $this->model->selectEventsUserPublished($_SESSION['user_id']),
-            'eventSaved' => $this->model->selectEventsUserSaved($_SESSION['user_id']),
-            'user' => $this->model->getProfile($_SESSION['user_id'])
-        );
-        define("TITLE_HEAD", "Volunteers | Profile");
-        $this->load->view("user/my_events.php", $data);
+            if(!$data)
+            {
+                // Pas de data
+                define("TITLE_HEAD", "Error | Volunteers");
+                $this->load->view('view_error.php');
+            }
+            else
+            {
+                define("TITLE_HEAD", "Volunteers | Profile");
+                $this->load->view("user/my_events.php", $data);
+            }
+        }
+        else
+        {
+            // Pas de session
+            $messageFlash = 'Error ! You are not logged in !';
+            $this->coreSetFlashMessage('error', $messageFlash, 5);
+            define("TITLE_HEAD", "Error | Volunteers");
+            $this->load->view('view_error.php');
+        }
     }
 
     public function dashboard()
     {
-        define("TITLE_HEAD", "Volunteers | Profile");
-        $idUser = $_SESSION['user_id'];
-        $data = array(
-            'missions' => $this->model->getUserMissions($idUser, 1),
-            'user' => $this->model->getProfile($_SESSION['user_id'])
-        );
-        $this->load->view("user/dashboard.php", $data);
+        if(isset($_SESSION['user_id']) && isset($_SESSION['user_email']))
+        {
+            $idUser = $_SESSION['user_id'];
+            $data = array(
+                'missions' => $this->model->getUserMissions($idUser, 1),
+                'reviews' => $this->model->getReview($idUser),
+                'user' => $this->model->getProfile($_SESSION['user_id'])
+            );
+
+            if(!$data)
+            {
+                // Pas de data
+                define("TITLE_HEAD", "Error | Volunteers");
+                $this->load->view('view_error.php');
+            }
+            else
+            {
+                define("TITLE_HEAD", "Volunteers | Profile");
+                $this->load->view("user/dashboard.php", $data);
+            }
+        }
+        else
+        {
+            // Pas de session
+            $messageFlash = 'Error ! You are not logged in !';
+            $this->coreSetFlashMessage('error', $messageFlash, 5);
+            define("TITLE_HEAD", "Error | Volunteers");
+            $this->load->view('view_error.php');
+        }
     }
 
+    //TODO
+    // Vérifier qu'il y ai un get id
     public function show()
     {
-        define("TITLE_HEAD", "Volunteers | Public Profile");
         $idUser = $_GET['id'];
         $data = array(
             'infos' => $this->model->getProfile($idUser),
-            'reviews' => $this->model->getReview($idUser)
+            'reviews' => $this->model->getReview($idUser),
+            'rating' => $this->model->getAverage($idUser)
         );
-        $this->load->view("user/profile_public.php", $data);
+
+        if(!$data)
+        {
+            // Pas de data
+            define("TITLE_HEAD", "Error | Volunteers");
+            $this->load->view('view_error.php');
+        }
+        else
+        {
+            define("TITLE_HEAD", "Volunteers | Public Profile");
+            $this->load->view("user/profile_public.php", $data);
+        }
     }
 
     public function comment()
     {
-        $idVolunteer = $_POST['idvolunteer'];
-        $idUser = $_SESSION['user_id'];
+        if(isset($_SESSION['user_id']) && isset($_SESSION['user_email']))
+        {
+            $idVolunteer = $_POST['idvolunteer'];
+            $idUser = $_SESSION['user_id'];
 
-        if(isset($_POST['profile_comment']) && !empty($_POST['profile_comment'])) {
+            if(isset($_POST['profile_comment']) && !empty($_POST['profile_comment']))
+            {
+                $comment = $_POST['profile_comment'];
 
-            $comment = $_POST['profile_comment'];
+                if($this->model->insertComment($idVolunteer, $idUser, $comment)) {
+                    $messageFlash = 'Your comment has been published';
+                    $this->coreSetFlashMessage('sucess', $messageFlash, 4);
+                    header('Location:show/'.$idVolunteer);
+                } else {
+                    $messageFlash = 'A problem occured';
+                    $this->coreSetFlashMessage('error', $messageFlash, 4);
+                    header('Location:show/'.$idVolunteer);
+                }
+            }
+            else {
+                header('Location:show/'.$idVolunteer);
+            }
+        }
+        else
+        {
+            // Pas de session
+            $messageFlash = 'Error ! You are not logged in !';
+            $this->coreSetFlashMessage('error', $messageFlash, 5);
+            define("TITLE_HEAD", "Error | Volunteers");
+            $this->load->view('view_error.php');
+        }
+    }
 
-            if($this->model->insertComment($idVolunteer, $idUser, $comment)) {
-                $messageFlash = 'Your comment has been published';
+    public function rate()
+    {
+        if(isset($_SESSION['user_id']) && isset($_SESSION['user_email']))
+        {
+            $idVolunteer = $_POST['idVolunteer'];
+            $idUser = $_SESSION['user_id'];
+            $rate = $_POST['rate'];
+
+            if($this->model->insertRate($idVolunteer, $idUser, $rate))
+            {
+                $messageFlash = 'Your rate has been sent';
                 $this->coreSetFlashMessage('sucess', $messageFlash, 4);
                 header('Location:show/'.$idVolunteer);
             } else {
@@ -260,27 +386,14 @@ class ProfileController extends AppController
                 $this->coreSetFlashMessage('error', $messageFlash, 4);
                 header('Location:show/'.$idVolunteer);
             }
-
-        } else {
-            header('Location:show/'.$idVolunteer);
         }
-    }
-
-    public function rate()
-    {
-        $idVolunteer = $_POST['idVolunteer'];
-        $idUser = $_SESSION['user_id'];
-        $rate = $_POST['rate'];
-
-        if($this->model->insertRate($idVolunteer, $idUser, $rate))
+        else
         {
-            $messageFlash = 'Your rate has been sent';
-            $this->coreSetFlashMessage('sucess', $messageFlash, 4);
-            header('Location:show/'.$idVolunteer);
-        } else {
-            $messageFlash = 'A problem occured';
-            $this->coreSetFlashMessage('error', $messageFlash, 4);
-            header('Location:show/'.$idVolunteer);
+            // Pas de session
+            $messageFlash = 'Error ! You are not logged in !';
+            $this->coreSetFlashMessage('error', $messageFlash, 5);
+            define("TITLE_HEAD", "Error | Volunteers");
+            $this->load->view('view_error.php');
         }
     }
 }

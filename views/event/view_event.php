@@ -1,10 +1,10 @@
 <?php include_once('views/layout/header.inc.php'); ?>
     <div class="container content-event">
         <div class="row" id="secure_row">
-            <?php if(!empty($data['event']['coverPicture'])) { ?>
+            <?php if (!empty($data['event']['coverPicture'])) { ?>
                 <img src="assets/img/events/uploads/<?= $data['event']['coverPicture']; ?>" class="event_couv"/>
             <?php } else { ?>
-                <img src="assets/img/couv_par.jpg" class="event_couv"/>
+                <img src="assets/img/couv_default.jpg" class="event_couv"/>
             <?php } ?>
         </div>
         <div class="row" id="secure_row">
@@ -18,17 +18,15 @@
                         </div>
                     </li>
                     <li>
-                        <div class="collapsible-header"><i class="material-icons">place</i>
+                        <div class="collapsible-header active"><i class="material-icons">place</i>
                             <?= $data['event']['locationEvent']; ?>
                             <input type="hidden" id="adress" value="<?= $data['event']['locationEvent']; ?>">
                             <span class="reply right">View map</span>
                         </div>
-                        <div class="collapsible-body" onload="initMap()">
+                        <div class="collapsible-body">
                             <div>
-                                <div id="map" style="width: 96%; height: 300px;">
-
+                                <div id="map" style="width: 100%; height: 300px;">
                                 </div>
-
                             </div>
                         </div>
                     </li>
@@ -63,8 +61,17 @@
 
                     <div class="leftmargin">
                         <?php foreach ($data['medias'] as $media) { ?>
+
+                            <?php
+                            $picture = $media['eventPicture'];
+                            $search = array('.jpg', '.png', '.gif', '.jpeg');
+                            $replace = array('.min.jpg', '.min.png', '.min.gif', '.min.jpeg');
+                            $result = str_replace($search,$replace,$picture);
+                            ?>
+
                             <img class="event_media materialboxed"
-                                 src="assets/img/events/uploads/<?= $media['eventPicture']; ?>" alt=""/>
+                                 src="assets/img/events/uploads/<?= $result; ?>" />
+
                         <?php } ?>
                     </div>
 
@@ -234,27 +241,35 @@
 
                 <div class="clear blued encar">
                     <div class="secure_hover_picto">
-                        <a href="#">
-                            <div class="event_picto_soc event_fb"></div>
-                        </a>
-                        <a href="#">
-                            <div class="event_picto_soc event_ins"></div>
-                        </a>
-                        <a href="#">
-                            <div class="event_picto_soc event_yout"></div>
-                        </a>
-                        <a href="#">
-                            <div class="event_picto_soc event_tw"></div>
-                        </a>
-                        <a href="#">
-                            <div class="event_picto_soc"></div>
-                        </a>
+                        <?php if($data['event']['facebookEvent'] !== null) { ?>
+                            <a href="<?= $data['event']['facebookEvent']; ?>">
+                                <div class="event_picto_soc event_fb"></div>
+                            </a>
+                        <?php } ?>
+
+                        <?php if($data['event']['instagramEvent'] !== null) { ?>
+                            <a href="<?= $data['event']['instagramEvent']; ?>">
+                                <div class="event_picto_soc event_ins"></div>
+                            </a>
+                        <?php } ?>
+
+                        <?php if($data['event']['youtubeEvent'] !== null) { ?>
+                            <a href="<?= $data['event']['youtubeEvent']; ?>">
+                                <div class="event_picto_soc event_yout"></div>
+                            </a>
+                        <?php } ?>
+
+                        <?php if($data['event']['twitterEvent'] !== null) { ?>
+                            <a href="<?= $data['event']['twitterEvent']; ?>">
+                                <div class="event_picto_soc event_tw"></div>
+                            </a>
+                        <?php } ?>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-<script type="text/javascript" src="assets/js/google.map.js"></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAocp77VtGx4z5aZ2v4CTU_ZmljNFMGqX8&callback=initMap"
-        type="text/javascript"></script>
+    <script type="text/javascript" src="assets/js/google.map.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAocp77VtGx4z5aZ2v4CTU_ZmljNFMGqX8&callback=initMap" type="text/javascript"></script>
 <?php include_once('views/layout/footer.inc.php'); ?>

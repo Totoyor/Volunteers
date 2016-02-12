@@ -14,44 +14,47 @@
                             </ul>
                         </div>
                     </div>
-                    <?php if(!empty($data['missions'])) { ?>
-                        <?php foreach($data['missions'] as $mission): ?>
-                            <div id="test1" class="card panel panel2 space1">
-                                <div class="upcoming-event">
-                                    <div class="content-upcoming-event">
-                                        <h5 class="blue-title"><?= $mission['nameEvent']; ?></h5>
-                                        <h6><?= $mission['locationEvent']; ?></h6>
-                                        <p><i class="material-icons">schedule</i><?= $mission['startEvent']; ?></p>
-                                    </div>
-                                    <div class="show-missions">
-                                        <a href="event/show/<?= $mission['idEvent']; ?>">
-                                            <p>
-                                                View event
-                                                <i class="hide-on-med-and-down material-icons view-missions right">visibility</i>
-                                            </p>
-                                        </a>
+                    <div id="test1">
+                        <?php if(!empty($data['missions'])) { ?>
+                            <?php foreach($data['missions'] as $mission): ?>
+                                <div class="card panel panel2 space1">
+                                    <div class="upcoming-event">
+                                        <div class="content-upcoming-event">
+                                            <h5 class="blue-title"><?= $mission['nameEvent']; ?></h5>
+                                            <h6><?= $mission['locationEvent']; ?></h6>
+                                            <p><i class="material-icons">schedule</i><?= $mission['startEvent']; ?></p>
+                                        </div>
+                                        <div class="show-missions">
+                                            <a href="event/show/<?= $mission['idEvent']; ?>">
+                                                <p>
+                                                    View event
+                                                    <i class="hide-on-med-and-down material-icons view-missions right">visibility</i>
+                                                </p>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div><!-- fin onglet1-->
-                        <?php endforeach; ?>
-                    <?php } else { ?>
-                        No upcoming event
-                    <?php } ?>
+                            <?php endforeach; ?>
+                        <?php } else { ?>
+                            No upcoming event(s).
+                        <?php } ?>
+                    </div><!-- fin onglet1-->
                     <div id="test2" class="reviews card panel panel2 space1 bordernone padding1">
+                    <?php if(!empty($data['reviews'])) { ?>
+                        <?php foreach($data['reviews'] as $comment): ?>
                         <div class="row">
                             <div class="col l12 center">
                                 <h4 class="title-profile">Comments from volunteers and organizers</h4>
                             </div>
                         </div>
-
                         <div class="row">
                             <div class="col s12 l2 m12 center">
                                 <img src="assets/img/square_face.png" height="75" width="75" alt="" class="img-comment circle responsive-img"> <!-- notice the "circle" class -->
-                                <p class="center name-comment">Johnny</p>
+                                <p class="center name-comment"><?= $comment['FirstName']; ?></p>
                             </div>
                             <div class="col s12 l10 m12">
                                   <span class="black-text">
-                                    Nam neque ante, consequat quis enim nec, dictum consequat turpis. Duis sem mi, ultricies ut purus vitae, varius semper nisi. In in arcu eu felis feugiat vulputate vitae sit amet sem. Nullam egestas felis nec lacus ullamcorper tempor sed ut lectus. Aenean congue risus ipsum, sit amet varius tortor malesuada eu.
+                                   <?= $comment['review']; ?>
                                     <p class="date-comment">January 19 2015</p>
                                   </span>
                                 <div class="row">
@@ -61,24 +64,10 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="row">
-                            <div class="col s12 l2 m12 center">
-                                <img src="assets/img/square_face.png" height="75" width="75" alt="" class="img-comment circle responsive-img"><!-- notice the "circle" class -->
-                                <p class="center name-comment">Johnny</p>
-                            </div>
-                            <div class="col s12 l10 m12">
-                                  <span class="black-text">
-                                    Nam neque ante, consequat quis enim nec, dictum consequat turpis. Duis sem mi, ultricies ut purus vitae, varius semper nisi. In in arcu eu felis feugiat vulputate vitae sit amet sem. Nullam egestas felis nec lacus ullamcorper tempor sed ut lectus. Aenean congue risus ipsum, sit amet varius tortor malesuada eu.
-                                    <p class="date-comment">January 19 2015</p>
-                                  </span>
-                                <div class="row">
-                                    <div class="col s12">
-                                        <hr class="fancy-hr">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <?php endforeach; ?>
+                    <?php } else { ?>
+                        No comments yet.
+                    <?php } ?>
                     </div><!-- fin onglet1-->
                 </div><!-- fin col-->
             </div><!-- fin row-->

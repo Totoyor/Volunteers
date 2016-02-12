@@ -38,13 +38,6 @@ class HomeController extends AppController
         $this->load->view('page/terms.php');
     }
 
-    public function about()
-    {
-        // Chargement de la page terms
-        define("TITLE_HEAD", "Volunteers | About us");
-        $this->load->view('page/about.php');
-    }
-
     public function newsletter()
     {
         if(isset($_POST['newsletter']))
