@@ -24,6 +24,7 @@ $(document).ready(function(){
                         var copie = blocSearch.clone().show().appendTo('.div_results');
                         copie.find('.responsive-img').attr('src', 'assets/img/events/uploads/' + value.coverPicture);
                         copie.find('.titre-cards').text(value.nameEvent);
+                        copie.find('.lien-titre').attr('href', 'event/show/'+value.idEvent);
                         copie.find('.location-cards').text(value.locationEvent + ', ' + value.startEvent);
                         copie.find('.card-categorie').text(value.nameCategorie);
                         copie.find('.viewmore').attr('href', "event/show/"+value.idEvent);

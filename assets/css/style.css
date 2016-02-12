@@ -2398,3 +2398,11 @@ textarea {
     margin-top: 0;
     margin-bottom: 0;
 }
+
+.margtop15 {
+    margin-top:15px;
+}
+
+.img-team {
+    width:100%;
+}
