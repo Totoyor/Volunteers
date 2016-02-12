@@ -46,7 +46,7 @@
                                     <?php } ?>
 
                                 <?php } else { ?>
-                                    <img height="100" class="responsive-img"
+                                    <img width="200" class="responsive-img"
                                          src="<?= PATH_HOME ?>assets/img/couv_default.jpg"
                                          alt="image-event">
                                 <?php } ?>
