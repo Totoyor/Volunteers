@@ -18,7 +18,7 @@
                         </div>
                     </li>
                     <li>
-                        <div class="collapsible-header active"><i class="material-icons">place</i>
+                        <div class="collapsible-header active"><i class="material-icons blue-icon">place</i>
                             <?= $data['event']['locationEvent']; ?>
                             <input type="hidden" id="adress" value="<?= $data['event']['locationEvent']; ?>">
                             <span class="reply right">View map</span>

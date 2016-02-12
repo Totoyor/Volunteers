@@ -1,5 +1,4 @@
 <?php include_once('views/layout/header.inc.php'); ?>
-
     <div class="container content-blog">
         <div class="row">
             <div class="col s12 m12">
@@ -31,5 +30,4 @@
             </div>
         </div>
     </div>
-
 <?php include_once('views/layout/footer.inc.php'); ?>

@@ -39,7 +39,7 @@
         <div class="col s6 logo">
           <img src="../assets/img/logo_volonteers3.svg" alt="logo">
         </div>
-        <div class="col s6 right-align"><a href="<?= PATH_HOME ?>">Back</a>
+        <div class="col s6 right-align"><a href="<?= PATH_HOME ?>">Back to the website</a>
         </div>
       </div>
 
@@ -51,7 +51,7 @@
 
         <!-- Username -->
         <div class="input-field">
-          <i class="fa fa-user prefix"></i>
+          <i class="mdi-action-account-circle prefix"></i>
           <input name="username" id="username-input" type="email" class="validate" required>
           <label for="username-input">Username</label>
         </div>
@@ -59,7 +59,7 @@
 
         <!-- Password -->
         <div class="input-field">
-          <i class="fa fa-unlock-alt prefix"></i>
+          <i class="mdi-action-lock-outline prefix"></i>
           <input name="password" id="password-input" type="password" class="validate" required>
           <label for="password-input">Password</label>
         </div>

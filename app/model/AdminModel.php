@@ -269,7 +269,8 @@ class AdminModel extends AppModel
 	        DELETE FROM vol_event_questions
 	        WHERE vol_events_idEvent = ".$options.";
 
-
+			DELETE FROM event_has_volunteers
+			WHERE vol_events_idEvent = ".$options.";
 
 	        DELETE FROM vol_events
 	        WHERE idEvent = ".$options.";
@@ -310,6 +311,27 @@ class AdminModel extends AppModel
 	    }
 	}
 
+	public function getCategory($id)
+	{
+		try {
+			$query = $this->connexion->prepare("SELECT * FROM vol_events_categories WHERE idCategorie = :id");
+
+			$query->bindValue(':id', $id, PDO::PARAM_INT);
+
+			$query->execute();
+
+			$data = $query->fetchAll(PDO::FETCH_ASSOC);
+
+			$query->closeCursor();
+
+			return $data;
+
+		} catch (Exception $e) {
+			die($e);
+			return false;
+		}
+	}
+
 	/**
 	 * @return array|bool
 	 */
@@ -335,13 +357,14 @@ class AdminModel extends AppModel
 	 * @param $category
 	 * @return bool
 	 */
-	public function insertCategory($category)
+	public function insertCategory($category, $picture)
 	{
 	    try {
 	    	$query = $this->connexion->prepare("INSERT INTO vol_events_categories
-	    	(nameCategorie) VALUES (:category)");
+	    	(nameCategorie, imageCategorie) VALUES (:category, :picture)");
 
-	    	$query->bindValue(':category', $category, PDO::PARAM_STR);
+			$query->bindValue(':category', $category, PDO::PARAM_STR);
+			$query->bindValue(':picture', $picture, PDO::PARAM_STR);
 
 	        $query->execute();
 
@@ -350,6 +373,25 @@ class AdminModel extends AppModel
 	    } catch (Exception $e) {
 	        return false;
 	    }
+	}
+
+	public function editCategory($category, $picture, $idCategory)
+	{
+		try {
+			$query = $this->connexion->prepare("UPDATE vol_events_categories
+	    	SET nameCategorie = :category, imageCategorie = :picture WHERE idCategorie = :id");
+
+			$query->bindValue(':category', $category, PDO::PARAM_STR);
+			$query->bindValue(':picture', $picture, PDO::PARAM_STR);
+			$query->bindValue(':id', $idCategory, PDO::PARAM_INT);
+
+			$query->execute();
+
+			return true;
+
+		} catch (Exception $e) {
+			return false;
+		}
 	}
 
 	/**
