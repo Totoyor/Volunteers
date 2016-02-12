@@ -294,6 +294,11 @@
 
                             </div>
                         </div>
+                         <div class="clear">
+                            <p class="margin_left">
+                                We advise you to download a 1290 x 480 cover
+                            </p>
+                        </div>
 
                         <div class="row">
                             <div class="input-field col s12 l12 m12">
@@ -305,7 +310,7 @@
 
                         <div class="clear">
                             <p class="margin_left">
-                                Aliqua instituendarum appellat elit singulis. Officia ipsum voluptate.
+                                Let's add some other medias to make your event appealing
                             </p>
                         </div>
 
@@ -408,7 +413,7 @@
                 <!--content-->
             </div>
             <!-- fin formulaire-->
-            <div class="col l4 col_fix">
+            <div class="col l4 yo">
                 <div class="right btn_fix_crea">
                     <?php if (isset($_SESSION['user_id'])) { ?>
                        <button data-position="bottom" data-delay="50" data-tooltip="Save" name="save"

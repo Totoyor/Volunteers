@@ -21,7 +21,6 @@
                         <li><i class="material-icons">visibility</i>Better visibility for your event</li>
                     </ul>
                     <a href="event/home" class="btn btn-orange btn_right">Tell us about your event</a>
-
                 </div>
                 <!-- content bloc-->
             </div>
@@ -58,7 +57,9 @@
                             <?php } ?>
                         </div>
                         <div class="card-content">
-                            <a href="event/show/<?= $premium['idEvent']; ?>"><h4 class="titre-cards truncate black-text"><?= $premium['nameEvent']; ?></h4></a>
+                            <a href="event/show/<?= $premium['idEvent']; ?>">
+                                <h4 class="titre-cards truncate black-text"><?= $premium['nameEvent']; ?></h4>
+                            </a>
                             <h6 class="truncate black-text"><?= $premium['locationEvent']; ?></h6>
                         </div>
                         <div class="card-action">
@@ -75,6 +76,7 @@
 
         <div class="row">
         <?php if (isset($data)): ?>
+        <div class="cat-row">
             <?php foreach ($data['events'] as $event) : ?>
             <div class="col s12 m6 l4">
                 <div class="card small event popevent left">
@@ -102,6 +104,7 @@
                 </div>
             </div>
             <?php endforeach; ?>
+        </div>
         <?php endif; ?>
         </div><!-- fin row (events) -->
 

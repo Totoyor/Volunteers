@@ -154,6 +154,7 @@ a.viewmore.btn.btn-blue:hover {
     font-size: 2.2em;
     text-transform: uppercase;
     color: #4a4a4a;
+    letter-spacing: 1px;
 }
 
 
@@ -722,7 +723,7 @@ p {
 
 .creabody {
     background: url(../../assets/img/summerfest.jpg);
-    background-size: cover;
+    background-size: contain;
     background-position: left top;
     background-repeat: no-repeat;
     margin-bottom: 0px;
@@ -770,11 +771,11 @@ p {
 @media screen and (min-width: 0px) and (max-width: 480px) {
     .blocprincipal {
         width: 100% !important;
-        height: 55vh;
+     
     }
     .bgblue,
     .bgorange {
-        height: 55vh;
+        height: 300px;
     }
     .big-img {
         height: 110vh;
@@ -972,7 +973,8 @@ left: 0;
 }
 
 #input-search {
-    background: white url(../img/search.png) left no-repeat; !important
+    background: white url(../img/search.png) left no-repeat!important;
+    margin: 0px!important;
 }
 
 #search-event input[type="text"] {
@@ -1556,15 +1558,16 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
 }
 
 .titre_right {
-    top : 180px;
+    top : 250px;
     width: 47%;
     transition: top 0.4s;
-    transition-timing-function: ease-in-out;;
+    transition-timing-function: ease-in-out;
+    font-size: 4em;
 }
 
 
 .active_titre {
-    top : 110px;
+    top : 180px;
      transition: top 0.4s;
     transition-timing-function: ease-in-out;
 
@@ -1572,7 +1575,7 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
 
 .hidden_show {
     opacity: 1;
-    top: 260px;
+    top: 330px;
    transition: opacity 0.8s;
     transition-timing-function: ease-in-out;
 
@@ -1583,7 +1586,7 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
 
 .hidden-content-rightside {
 		position : absolute;
-        padding-left: 15%;
+        padding-left: 16%;
 }
 
     .titre_right{
@@ -1598,7 +1601,7 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
 		position : absolute;
         margin-left : 15%;
 
-        top : 380px!important;
+        top : 450px!important;
 
 
     }
@@ -1610,16 +1613,17 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
 .hidden-content-rightside {
 
     opacity: 1;
-    top: 390px!important;
-    margin-left: 14%;
+    top: 400px!important;
+    margin-left: 16%;
 
 }
 
     .titre_right{
 
         text-align : center;
-        top: 340px!important;
+        top: 320px!important;
         padding-left: 10%;
+        width: 80%;
 
 
 		}
@@ -1627,7 +1631,7 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
     .btn_right {
 
         margin-left: 15%;
-        top : 500px!important;
+        top : 510px!important;
 
 
     }
@@ -1641,7 +1645,7 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
 		position : absolute;
         padding-left: 5%;
         opacity: 1;
-        top: 250px;
+        top: 320px;
 }
 
     .titre_right{
@@ -1655,7 +1659,7 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
 		position : absolute;
         margin-left : 5%;
 
-        top : 380px!important;
+        top : 450px!important;
 
 
     }
@@ -1672,15 +1676,16 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
 }
 
 .titre_left {
-    top : 190px;
+    top : 260px;
     width: 48%;
     transition: top 0.4s;
     transition-timing-function: ease-in-out;
+    font-size: 4em;
 }
 
 
 .active_titre {
-    top : 110px;
+    top : 180px;
      transition: top 0.4s;
     transition-timing-function: ease-in-out;
 
@@ -1688,7 +1693,7 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
 
 .hidden_show {
     opacity: 1;
-    top: 260px;
+    top: 330px;
    transition: opacity 0.8s;
     transition-timing-function: ease-in-out;
 
@@ -1713,7 +1718,7 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
 		position : absolute;
         margin-left : 15%;
 
-        top : 380px!important;
+        top : 450px!important;
 
 
     }
@@ -1726,7 +1731,7 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
 
     opacity: 1!important;
     top: 120px!important;
-        margin-left: 15%;
+        margin-left: 20%;
 }
 
     .titre_left{
@@ -1740,7 +1745,7 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
 
     .btn_left {
 
-        margin-left: 15%;
+        margin-left: 25%;
         top : 220px!important;
 
     }
@@ -1753,7 +1758,7 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
 		position : absolute;
         padding-left: 5%;
         opacity: 1;
-         top: 250px;
+         top: 320px;
 }
 
     .titre_left{
@@ -1767,7 +1772,7 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
 		position : absolute;
         margin-left : 5%;
 
-        top : 380px!important;
+        top : 450px!important;
 
 
     }
@@ -2316,4 +2321,49 @@ textarea {
 .decal li {
     padding-bottom:10px;
 }
+
+.cat-row:first-child {
+    padding-left: 0;
+}
+
+.cat-row:last-child {
+    padding-right: 0;
+}
+
+
+
+
+/*****************************/
+
+
+@media only screen and (min-width: 600px) and (max-width: 992px) {
+
+    .center_content {
+        margin-left: 25%!important;
+
+    }
+    
+}
+
+#search-event {
+    margin: 0px!important;
+}
+
+.border {
+    border: solid #ccc 1px;
+    border-radius: 3px!important;
+    color: #ccc;
+    background-color: #fff;
+}
+
+.secure_date {
+    margin: 0px!important;
+    border-bottom: none!important;
+}
+
+.secure_height_input {
+    height: 50px!important;
+    border-radius: 5px!important;
+}
+
 

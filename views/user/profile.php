@@ -173,18 +173,18 @@
                                 </div>
                                 <div class="row">
                                     <div class="col s12">
-                                        <blockquote>
-                                            <a href="?module=password&action=change" class="blue-text" title="">Change
+                                    
+                                            <a class="btn btn-bleu" href="?module=password&action=change" class="blue-text" title=""><i class="material-icons">cached</i>Change
                                                 my password</a>
-                                        </blockquote>
-                                    </div>
+                                   
+                                 </div>
                                 </div>
                                 <div class="row">
                                     <div class="col s12">
-                                        <blockquote>
-                                            <a href="?module=profile&action=delete" class="red-text" title="">Delete my
-                                                account :(</a>
-                                        </blockquote>
+                                        
+                                            <a class="btn btn-bleu" href="?module=profile&action=delete" class="red-text" title=""><i class="material-icons">delete</i>Delete my
+                                                account &nbsp; &nbsp;</a>
+                                    -
                                     </div>
                                 </div>
                             </div>
