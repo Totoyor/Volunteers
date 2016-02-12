@@ -335,13 +335,14 @@ class AdminModel extends AppModel
 	 * @param $category
 	 * @return bool
 	 */
-	public function insertCategory($category)
+	public function insertCategory($category, $picture)
 	{
 	    try {
 	    	$query = $this->connexion->prepare("INSERT INTO vol_events_categories
-	    	(nameCategorie) VALUES (:category)");
+	    	(nameCategorie, imageCategorie) VALUES (:category, :picture)");
 
-	    	$query->bindValue(':category', $category, PDO::PARAM_STR);
+			$query->bindValue(':category', $category, PDO::PARAM_STR);
+			$query->bindValue(':picture', $picture, PDO::PARAM_STR);
 
 	        $query->execute();
 

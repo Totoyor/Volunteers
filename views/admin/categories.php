@@ -57,7 +57,7 @@
             </a>
         </div>
         <div class="content">
-            <form action="?module=admin&action=categories" method="post">
+            <form action="categories" method="post" enctype="multipart/form-data">
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="category" type="text" class="validate" name='category'>
@@ -66,7 +66,7 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input name="catPicture" type="file" data-height="200" class="dropify" />
+                        <input name="catPicture" type="file" data-height="200" class="dropify"/>
                     </div>
                 </div>
                 <div class="row">

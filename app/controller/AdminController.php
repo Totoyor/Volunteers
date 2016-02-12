@@ -1007,7 +1007,58 @@ class AdminController extends AppController
         if(isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
 
             if (isset($_POST['category'])) {
-                $this->model->insertCategory($_POST['category']);
+
+                if (!empty($_FILES['catPicture']['name'])) {
+
+                    $picture = new Upload($_FILES['catPicture']['name'], $_FILES['catPicture']['tmp_name'], PATH_HOME.'assets/img/categories/uploads/', '');
+
+                    if($picture->extControl()) {
+                        if($picture->moveFile()) {
+                            if($picture->resizeFile()) {
+
+                                $catPicture = $picture->setNom();
+
+                                if($this->model->insertCategory($_POST['category'], $catPicture)){
+                                    $messageFlash = 'Insert ok';
+                                    $this->coreSetFlashMessage('sucess', $messageFlash, 4);
+                                    header("location:".PATH_HOME."admin/categories");
+                                } else {
+                                    $messageFlash = 'Insert nok';
+                                    $this->coreSetFlashMessage('sucess', $messageFlash, 4);
+                                    header("location:".PATH_HOME."admin/categories");
+                                }
+
+                            } else {
+
+                                $catPicture = $picture->setNom();
+
+                                if($this->model->insertCategory($_POST['category'], $catPicture)){
+                                    $messageFlash = 'Insert ok';
+                                    $this->coreSetFlashMessage('sucess', $messageFlash, 4);
+                                    header("location:".PATH_HOME."admin/categories");
+                                } else {
+                                    $messageFlash = 'Insert nok';
+                                    $this->coreSetFlashMessage('sucess', $messageFlash, 4);
+                                    header("location:".PATH_HOME."admin/categories");
+                                }
+
+                            }
+                        } else {
+                            $messageFlash = 'Move file nok';
+                            $this->coreSetFlashMessage('error', $messageFlash, 4);
+                            header("location:".PATH_HOME."admin/categories");
+                        }
+                    } else {
+                        $messageFlash = 'Ext nok';
+                        $this->coreSetFlashMessage('error', $messageFlash, 4);
+                        header("location:".PATH_HOME."admin/categories");
+                    }
+
+                } else {
+                    $messageFlash = 'Picture nok';
+                    $this->coreSetFlashMessage('error', $messageFlash, 4);
+                    header("location:".PATH_HOME."admin/categories");
+                }
             }
 
             if (isset($_GET['id'])) {
