@@ -1105,9 +1105,18 @@ class AdminController extends AppController
                 "sort" => "ASC"
             ));
 
-            // Chargement de la vue
-            $this->load->view('admin/inbox.php', $data);
-        } else {
+            if(!empty($data))
+            {
+                // Chargement de la vue
+                $this->load->view('admin/inbox.php', $data);
+            }
+            else
+            {
+
+            }
+        }
+        else
+        {
             header("location:".PATH_HOME."admin/signin");
             exit();
         }

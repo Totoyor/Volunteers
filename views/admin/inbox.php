@@ -99,6 +99,15 @@
         <div class="card-panel">
           <div class="table-responsive">
             <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th></th>
+                    <th>Nom / Email</th>
+                    <th>Message</th>
+                    <th>Date</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
               <tbody>
               <?php foreach($data as $mail) { ?>
                 <tr class="read">
@@ -113,6 +122,11 @@
                     <a href="mail-view.html"><?= $mail['message'] ?></a>
                   </td>
                   <td class="mail-date">3:12 PM</td>
+                    <td class="mail-date">
+                        <a onclick="return confirm('Are you sure you want to delete this message ?');" href="deletemail/<?= $mail['id']; ?>" class="btn red">
+                            <i class="mdi-content-clear"></i> delete
+                        </a>
+                    </td>
                 </tr>
                 <?php } ?>
               </tbody>
