@@ -5,7 +5,7 @@
 
             <div class="row">
                 <div class="col s12 m9 l10">
-                    <h1>User statuses</h1>
+                    <h1>User status</h1>
                 </div>
             </div>
         </div>
@@ -25,14 +25,16 @@
                         </tr>
                         </thead>
                         <tbody>
+                        <?php foreach($data as $status) { ?>
                         <tr>
-                            <th>1</th>
-                            <td>Admin</td>
-                            <td><a class="btn"><i class="mdi-editor-mode-edit"></i>Edit</a>
+                            <th><?= $status['idStatus']; ?></th>
+                            <td><?= $status['Status']; ?></td>
+                            <td><a href="editstatus/<?= $status['idStatus']; ?>" class="btn"><i class="mdi-editor-mode-edit"></i>Edit</a>
                             </td>
-                            <td><a class="btn red darken-1"><i class="mdi-action-delete"></i>Delete</a>
+                            <td><a onclick="return confirm('Are you sure you want to delete this ?');" href="deletestatus/<?= $status['idStatus']; ?>" class="btn red darken-1"><i class="mdi-action-delete"></i>Delete</a>
                             </td>
                         </tr>
+                        <?php } ?>
                         </tbody>
                     </table>
                 </div>
@@ -40,12 +42,12 @@
             <div class="col s12 l6">
                 <div class="card-panel">
                     <h2>Add Status</h2>
-                    <form action="#!">
+                    <form action="<?= PATH_HOME ?>admin/addstatus" method="post">
                         <div class="input-field">
-                            <input id="add_category" type="text" class="validate">
+                            <input id="add_category" type="text" class="validate" name="status" required>
                             <label for="add_category">Add status</label>
                         </div>
-                        <button name="submit" href="#" class="btn orange lighten-1">SEND</button>
+                        <button type="submit" class="btn orange lighten-1">add</button>
                     </form>
                 </div>
             </div>

@@ -6,7 +6,7 @@
 
         <div class="row">
             <div class="col s12 m9 l10">
-                <h1>Reviews / Rates</h1>
+                <h1>Moderate Reviews</h1>
             </div>
         </div>
     </div>
@@ -15,29 +15,33 @@
         <thead>
         <tr>
             <th>ID User</th>
-            <th>Mail</th>
-            <th>Comments</th>
-            <th>Rates</th>
+            <th>Name</th>
+            <th>Comment</th>
+            <th>View</th>
+            <th>Delete</th>
         </tr>
         </thead>
         <tbody>
         <?php if (isset($data)): ?>
-            <?php foreach ($data['users'] as $user) : ?>
+            <?php foreach ($data['reviews'] as $review) : ?>
                 <tr>
                     <td class="center-align">
-                        <a href="<?= PATH_HOME ?>admin/edituser/<?= $user['idUser']; ?>"><?= $user['idUser']; ?></a>
+                        <a href="<?= PATH_HOME ?>admin/edituser/<?= $review['idUser']; ?>"><?= $review['idUser']; ?></a>
                     </td>
                     <td class="center-align">
-                        <?= $user['Email']; ?>
+                        <?= $review['FirstName']; ?>
                     </td>
                     <td class="center-align">
-                        <a href="<?= PATH_HOME ?>admin/showcomments/<?= $user['idUser']; ?>" class="btn green">
-                            <i class="mdi-action-search"></i> comments
+                        <?= $review['review'] ?>
+                    </td>
+                    <td class="center-align">
+                        <a href="<?= PATH_HOME ?>profile/show/<?= $review['vol_event_volunteers_idEventVolunteer']; ?>" class="btn blue">
+                            <i class="mdi-action-search"></i> view
                         </a>
                     </td>
                     <td class="center-align">
-                        <a class="btn red">
-                            <i class="mdi-action-search"></i> rates
+                        <a onclick="return confirm('Are you sure you want to delete this ?');" href="<?= PATH_HOME ?>admin/deletecomment/<?= $review['idVolunteersReview']; ?>" class="btn red">
+                            <i class="mdi-content-clear"></i> delete
                         </a>
                     </td>
                 </tr>

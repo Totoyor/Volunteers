@@ -12,9 +12,8 @@
 
           <ul>
             <li>
-              <a href="#"><i class="fa fa-home"></i> Home</a>  <i class="fa fa-angle-right"></i>
+              <a href="#"><i class="fa fa-home"></i> Home</a>
             </li>
-
             <li><a href='#!'>Mail</a><i class='fa fa-angle-right'></i>
             </li>
             <li><a href='mail-inbox.html'>Inbox</a>
@@ -41,10 +40,9 @@
     </div>
 
     <div class="row">
-      <div class="col s12 m3 l2">
+      <!--<div class="col s12 m3 l2">
         <div class="card-panel">
 
-          <!-- Mail Sidebar -->
           <ul class="mail-sidebar">
             <li class="active">
               <a href="mail-inbox.html"><i class="mdi-content-inbox"></i> Inbox</a>
@@ -92,11 +90,12 @@
               <a href="mail-inbox.html"><i class="mdi-communication-forum"></i> Forums</a>
             </li>
           </ul>
-          <!-- /Mail Sidebar -->
 
         </div>
       </div>
-      <div class="col s12 m9 l10">
+      <!-- /Mail Sidebar -->
+
+      <div class="col s12 m9 l12">
         <div class="card-panel">
           <div class="table-responsive">
             <table class="table table-bordered">
