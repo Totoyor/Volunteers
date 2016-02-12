@@ -138,16 +138,14 @@
             <li>
               <a class="yay-sub-toggle waves-effect waves-blue"><i class="mdi-action-markunread-mailbox"></i> Mailbox<span class="yay-collapse-icon mdi-navigation-expand-more"></span></a>
               <ul>
-                <li><a href="<?php echo PATH_HOME ?>admin/inbox" class="waves-effect waves-blue"><i class="mdi-content-inbox"></i>Inbox</a>
+                <li><a href="<?php echo PATH_HOME ?>admin/inbox" class="waves-effect waves-blue"><i class="mdi-content-inbox"></i>Contact</a>
                 </li>
                 <li><a href="<?php echo PATH_HOME ?>admin/compose" class="waves-effect waves-blue"><i class="mdi-content-add-circle"></i> Compose</a>
                 </li>
               </ul>
             </li>
-
           </li>
         </ul>
-
       </div>
     </div>
   </aside>
