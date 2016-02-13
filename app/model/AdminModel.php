@@ -896,4 +896,44 @@ class AdminModel extends AppModel
 			return false;
 		}
 	}
+
+	public function getRates($idVolunteer)
+	{
+		try {
+			$query = $this->connexion->prepare("SELECT * FROM vol_users_rating
+												LEFT JOIN vol_users
+												ON vol_users_rating.id_user_rating = vol_users.idUser
+												WHERE vol_event_volunteers_idEventVolunteer = :id");
+
+			$query->bindValue(':id', $idVolunteer, PDO::PARAM_STR);
+
+			$query->execute();
+
+			$data = $query->fetchAll(PDO::FETCH_ASSOC);
+
+			$query->closeCursor();
+
+			return $data;
+
+		} catch (Exception $e) {
+			return false;
+		}
+	}
+
+	public function deleteRate($idRate)
+	{
+		try {
+			$query = $this->connexion->prepare("DELETE FROM vol_users_rating
+												WHERE idVolunteerRating = :id");
+
+			$query->bindValue(':id', $idRate, PDO::PARAM_STR);
+
+			$query->execute();
+
+			return true;
+
+		} catch (Exception $e) {
+			return false;
+		}
+	}
 }
