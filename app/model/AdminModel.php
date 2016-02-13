@@ -229,27 +229,42 @@ class AdminModel extends AppModel
 	 * @return array|bool
 	 */
 	public function getVolunteers($idEvent) {
-	    try {
+		try {
 
-	        $query = $this->connexion->prepare("SELECT *
-	        FROM event_has_volunteers
-	        LEFT JOIN vol_users
-	        ON event_has_volunteers.vol_event_volunteers_idEventVolunteer = vol_users.idUser
-	        WHERE event_has_volunteers.vol_events_idEvent = :idEvent
-	        GROUP BY idUser
-	        ");
+			$query = $this->connexion->prepare("SELECT
+                event_has_volunteers.vol_events_idEvent,
+                event_has_volunteers.vol_event_volunteers_idEventVolunteer,
+                event_has_volunteers.vol_event_volunteer_status,
+                vol_users.idUser,
+                vol_users.Email,
+                vol_users.FirstName,
+                vol_users.LastName,
+                vol_users_rating.idVolunteerRating,
+                AVG(vol_users_rating.rating),
+                vol_users_rating.vol_event_volunteers_idEventVolunteer,
+                vol_users_rating.id_user_rating
 
-	        $query->bindValue(':idEvent', $idEvent, PDO::PARAM_INT);
-	        $query->execute();
-	        $data = $query->fetchAll(PDO::FETCH_ASSOC);
+            FROM event_has_volunteers
+            LEFT JOIN vol_users
+            ON event_has_volunteers.vol_event_volunteers_idEventVolunteer = vol_users.idUser
+            LEFT JOIN vol_users_rating
+            ON event_has_volunteers.vol_event_volunteers_idEventVolunteer = vol_users_rating.vol_event_volunteers_idEventVolunteer
+            WHERE event_has_volunteers.vol_events_idEvent = :idEvent
 
-	        $query->closeCursor();
+            GROUP BY idUser
+            ");
 
-	        return $data;
+			$query->bindValue(':idEvent', $idEvent, PDO::PARAM_INT);
+			$query->execute();
+			$data = $query->fetchAll(PDO::FETCH_ASSOC);
 
-	    } catch (Exception $e) {
-	        return false;
-	    }
+			$query->closeCursor();
+
+			return $data;
+
+		} catch (Exception $e) {
+			return false;
+		}
 	}
 
 	public function deleteEvent($options) // à checker

@@ -1906,4 +1906,15 @@ class AdminController extends AppController
             exit();
         }
     }
+
+    public function listvolunteers()
+    {
+        define("TITLE_HEAD", "Volunteers | List Volunteers");
+        $idEvent = $_GET['id'];
+        $data = array(
+            'event' => $this->model->getEvent($idEvent),
+            'volunteers' => $this->model->getVolunteers($idEvent),
+        );
+        $this->load->view("admin/volunteers_list.php", $data);
+    }
 }

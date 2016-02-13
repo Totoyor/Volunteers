@@ -66,7 +66,7 @@
                                 } ?>
                             </td>
                             <td>
-                                <a href="<?php echo PATH_HOME ?>admin/singleevent/<?= $event['idEvent']; ?>"
+                                <a href="<?php echo PATH_HOME ?>admin/listvolunteers/<?= $event['idEvent']; ?>"
                                    class="btn z-depth-0"><i class="mdi-action-face-unlock"></i></a>
                             </td>
                             <td><a href="<?php echo PATH_HOME ?>admin/singleevent/<?= $event['idEvent']; ?>"
