@@ -161,7 +161,7 @@ class AdminModel extends AppModel
 	        ON vol_event_questions.idEventQuestions = vol_events_answers.vol_event_questions_idEventQuestions
 	        LEFT JOIN vol_users
 	        ON vol_event_questions.vol_users_idUser = vol_users.idUser
-	        WHERE vol_events_idEvent = :id");
+	        WHERE vol_event_questions.vol_events_idEvent = :id");
 
 	        $query->bindValue(':id', $idEvent, PDO::PARAM_INT);
 	        $query->execute();
@@ -267,6 +267,9 @@ class AdminModel extends AppModel
 	        WHERE vol_events_idEvent = ".$options.";
 
 	        DELETE FROM vol_event_pictures
+	        WHERE vol_events_idEvent = ".$options.";
+
+	        DELETE FROM vol_events_answers
 	        WHERE vol_events_idEvent = ".$options.";
 
 	        DELETE FROM vol_event_questions

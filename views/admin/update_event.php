@@ -339,7 +339,7 @@
                                        data-height="90"
                                        class="dropify"
                                     <?php if (!empty($data['medias'][$i]['eventPicture'])) { ?>
-                                       data-default-file="assets/img/events/uploads/<?= $data['medias'][$i]['eventPicture']; ?>"/>
+                                       data-default-file="<?= PATH_HOME ?>assets/img/events/uploads/<?= $data['medias'][$i]['eventPicture']; ?>"/>
                                 <?php } ?>
 
                                 <input type="hidden" name="mediasSave[]"

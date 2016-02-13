@@ -361,7 +361,8 @@ Class EventModel extends AppModel
             ON vol_event_questions.idEventQuestions = vol_events_answers.vol_event_questions_idEventQuestions
             LEFT JOIN vol_users
             ON vol_event_questions.vol_users_idUser = vol_users.idUser
-            WHERE vol_events_idEvent = :id");
+            WHERE vol_event_questions.vol_events_idEvent = :id");
+
 
             $query->bindValue(':id', $idEvent, PDO::PARAM_INT);
             $query->execute();
@@ -583,15 +584,16 @@ Class EventModel extends AppModel
      * @param $answer
      * @return bool
      */
-    public function insertAnswer($user, $question, $answer) {
+    public function insertAnswer($user, $question, $answer, $event) {
         try {
             $query = $this->connexion->prepare("INSERT INTO vol_events_answers
-                                                (eventAnswer, vol_event_questions_idEventQuestions, vol_users_idUser)
-                                                VALUES (:answer, :question , :user)");
+                                                (eventAnswer, vol_event_questions_idEventQuestions, vol_users_idUser, vol_events_idEvent)
+                                                VALUES (:answer, :question , :user, :event)");
 
             $query->bindValue(':answer', $answer, PDO::PARAM_STR);
             $query->bindValue(':question', $question, PDO::PARAM_INT);
             $query->bindValue(':user', $user, PDO::PARAM_INT);
+            $query->bindValue(':event', $event, PDO::PARAM_INT);
 
             $query->execute();
             $query->closeCursor();

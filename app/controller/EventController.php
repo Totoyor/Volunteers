@@ -507,7 +507,7 @@ class EventController extends AppController
 
                 $answer = $_POST['answer'];
 
-                if ($this->model->insertAnswer($user, $question, $answer)) {
+                if ($this->model->insertAnswer($user, $question, $answer, $event)) {
                     $messageFlash = 'Your answer has been published with success';
                     $this->coreSetFlashMessage('sucess', $messageFlash, 1);
                     header("location:show/" . $event . "/answerok");
