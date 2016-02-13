@@ -567,7 +567,7 @@ class AdminController extends AppController
                     }
 
                     if (isset($_POST['event_hour_start']) && isset($_POST['event_min_start'])) {
-                        $event_hour_start = $_POST['event_hour_start'] . ":" . $_POST['event_min_start'] . " " . $_POST['event_start_mode'];
+                        $event_hour_start = $_POST['event_hour_start'] . ":" . $_POST['event_min_start']." ".$_POST['event_start_mode'];
                     } else if (isset($_POST['hourStartSave']) && !empty($_POST['hourStartSave'])) {
                         $event_hour_start = $_POST['hourStartSave'];
                     } else {
@@ -584,7 +584,7 @@ class AdminController extends AppController
                     }
 
                     if (isset($_POST['event_hour_end']) && isset($_POST['event_min_end'])) {
-                        $event_hour_end = $_POST['event_hour_end'] . ":" . $_POST['event_min_end'] . " " . $_POST['event_end_mode'];
+                        $event_hour_end = $_POST['event_hour_end'] . ":" . $_POST['event_min_end']." ".$_POST['event_end_mode'];
                     } else if (isset($_POST['hourEndSave']) && !empty($_POST['hourEndSave'])) {
                         $event_hour_end = $_POST['hourEndSave'];
                     } else {
@@ -599,25 +599,25 @@ class AdminController extends AppController
                         $event_categories = NULL;
                     }
 
-                    if (isset($_POST['facebook'])) {
+                    if(isset($_POST['facebook'])) {
                         $facebook = $_POST['facebook'];
                     } else {
                         $facebook = null;
                     }
 
-                    if (isset($_POST['instagram'])) {
+                    if(isset($_POST['instagram'])) {
                         $instagram = $_POST['instagram'];
                     } else {
                         $instagram = null;
                     }
 
-                    if (isset($_POST['youtube'])) {
+                    if(isset($_POST['youtube'])) {
                         $youtube = $_POST['youtube'];
                     } else {
                         $youtube = null;
                     }
 
-                    if (isset($_POST['twitter'])) {
+                    if(isset($_POST['twitter'])) {
                         $twitter = $_POST['twitter'];
                     } else {
                         $twitter = null;
@@ -643,11 +643,10 @@ class AdminController extends AppController
 
                     $status = 0;
 
-                    $user = $_SESSION['user_id'];
+                    $user = $_POST['userCreator'];
 
-                    if ($this->model->editEvent($event_name, $event_location, $event_start, $event_hour_start, $event_end,
-                        $event_hour_end, $event_description, $facebook, $instagram, $youtube, $twitter, $status, $user, $idEvent)
-                    ) {
+                    if($this->model->editEvent($event_name, $event_location, $event_start, $event_hour_start, $event_end,
+                        $event_hour_end, $event_description, $facebook, $instagram, $youtube, $twitter, $status, $user, $idEvent)) {
 
                         if (isset($_POST['event_categories'])) {
                             for ($i = 0; $i < count($event_categories); $i++) {
@@ -657,7 +656,7 @@ class AdminController extends AppController
                             }
                         } else if (isset($_POST['categoriesSave']) && !empty($_POST['categoriesSave'])) {
                             $idCategory = $_POST['categoriesSave'];
-                            $this->model->editCategories($idCategory, $idEvent);
+                            $this->model->editCategories($idCategory,$idEvent);
                         }
 
                         if (isset($_POST['missions'])) {
@@ -670,7 +669,7 @@ class AdminController extends AppController
                             }
                         }
 
-                        if (!empty($_POST['missionsSave'])) {
+                        if(!empty($_POST['missionsSave'])) {
                             for ($i = 0; $i < count($_POST['missionsSave']); $i++) {
                                 if ($_POST['missionsSave'][$i] !== '') {
                                     $idMission = $_POST['idMissionsSave'][$i];
@@ -695,7 +694,7 @@ class AdminController extends AppController
                                     }
                                 }
                             }
-                        } else if (isset($_POST['coverPictureSave']) && !empty($_POST['coverPictureSave'])) {
+                        } else if(isset($_POST['coverPictureSave']) && !empty($_POST['coverPictureSave'])) {
                             $coverPicture = $_POST['coverPictureSave'];
                             $this->model->insertCoverPicture($idEvent, $coverPicture);
                         }
@@ -724,8 +723,8 @@ class AdminController extends AppController
                             }
                         }
 
-                        if (isset($_POST['mediasSave']) && !empty($_POST['mediasSave'])) {
-                            for ($i = 0; $i < count($_POST['mediasSave']); $i++) {
+                        if(isset($_POST['mediasSave']) && !empty($_POST['mediasSave'])) {
+                            for ($i=0; $i<count($_POST['mediasSave']); $i++) {
                                 $picture = $_POST['mediasSave'][$i];
                                 //Fonction update
                             }
@@ -754,7 +753,7 @@ class AdminController extends AppController
                     } else {
                         $messageFlash = 'Please set up the location';
                         $this->coreSetFlashMessage('error', $messageFlash, 3);
-                        header("location:editshow/" . $idEvent);
+                        header("location:".PATH_HOME."admin/singleevent/".$idEvent);
                         exit();
                     }
 
@@ -766,7 +765,7 @@ class AdminController extends AppController
                     } else {
                         $messageFlash = 'Please set up the beginning of the event';
                         $this->coreSetFlashMessage('error', $messageFlash, 3);
-                        header("location:editshow/" . $idEvent);
+                        header("location:".PATH_HOME."admin/singleevent/".$idEvent);
                         exit();
                     }
 
@@ -777,7 +776,7 @@ class AdminController extends AppController
                     } else {
                         $messageFlash = 'Please set up the start time of the event';
                         $this->coreSetFlashMessage('error', $messageFlash, 3);
-                        header("location:editshow/" . $idEvent);
+                        header("location:".PATH_HOME."admin/singleevent/".$idEvent);
                         exit();
                     }
 
@@ -798,7 +797,7 @@ class AdminController extends AppController
                     } else {
                         $messageFlash = 'Please set up the end time of the event';
                         $this->coreSetFlashMessage('error', $messageFlash, 3);
-                        header("location:editshow/" . $idEvent);
+                        header("location:".PATH_HOME."admin/singleevent/".$idEvent);
                         exit();
                     }
 
@@ -807,9 +806,9 @@ class AdminController extends AppController
                     } else if (isset($_POST['categorieSave']) && !empty($_POST['categorieSave'])) {
                         $event_categories = $_POST['categorieSave'];
                     } else {
-                        $messageFlash = 'Please set up the categories';
+                        $messageFlash = 'Please set up the categori';
                         $this->coreSetFlashMessage('error', $messageFlash, 3);
-                        header("location:editshow/" . $idEvent);
+                        header("location:".PATH_HOME."admin/singleevent/".$idEvent);
                         exit();
                     }
 
@@ -842,7 +841,7 @@ class AdminController extends AppController
                     } else {
                         $messageFlash = 'Please set up the different missions';
                         $this->coreSetFlashMessage('error', $messageFlash, 3);
-                        header("location:editshow/" . $idEvent);
+                        header("location:".PATH_HOME."admin/singleevent/".$idEvent);
                         exit();
                     }
 
@@ -851,17 +850,16 @@ class AdminController extends AppController
                     } else {
                         $messageFlash = 'Please set up the number of volunteers';
                         $this->coreSetFlashMessage('error', $messageFlash, 3);
-                        header("location:editshow/" . $idEvent);
+                        header("location:".PATH_HOME."admin/singleevent/".$idEvent);
                         exit();
                     }
 
 
                     $status = 1;
-                    $user = $_SESSION['user_id'];
+                    $user = $_POST['userCreator'];
 
-                    if ($this->model->editEvent($event_name, $event_location, $event_start, $event_hour_start, $event_end,
-                        $event_hour_end, $event_description, $facebook, $instagram, $youtube, $twitter, $status, $user, $idEvent)
-                    ) {
+                    if($this->model->editEvent($event_name, $event_location, $event_start, $event_hour_start, $event_end,
+                        $event_hour_end, $event_description, $facebook, $instagram, $youtube, $twitter, $status, $user, $idEvent)) {
 
                         if (isset($_POST['event_categories'])) {
                             for ($i = 0; $i < count($event_categories); $i++) {
@@ -871,7 +869,7 @@ class AdminController extends AppController
                             }
                         } else if (isset($_POST['categoriesSave']) && !empty($_POST['categoriesSave'])) {
                             $idCategory = $_POST['categoriesSave'];
-                            $this->model->editCategories($idCategory, $idEvent);
+                            $this->model->editCategories($idCategory,$idEvent);
                         }
 
                         if (isset($_POST['missions'])) {
@@ -886,7 +884,7 @@ class AdminController extends AppController
 
                         }
 
-                        if (!empty($_POST['missionsSave'])) {
+                        if(!empty($_POST['missionsSave'])) {
                             for ($i = 0; $i < count($_POST['missionsSave']); $i++) {
                                 if ($_POST['missionsSave'][$i] !== '') {
                                     $idMission = $_POST['idMissionsSave'][$i];
@@ -911,7 +909,7 @@ class AdminController extends AppController
                                     }
                                 }
                             }
-                        } else if (isset($_POST['coverPictureSave']) && !empty($_POST['coverPictureSave'])) {
+                        } else if(isset($_POST['coverPictureSave']) && !empty($_POST['coverPictureSave'])) {
                             $coverPicture = $_POST['coverPictureSave'];
                             $this->model->insertCoverPicture($idEvent, $coverPicture);
                         }
@@ -940,8 +938,8 @@ class AdminController extends AppController
                             }
                         }
 
-                        if (isset($_POST['mediasSave']) && !empty($_POST['mediasSave'])) {
-                            for ($i = 0; $i < count($_POST['mediasSave']); $i++) {
+                        if(isset($_POST['mediasSave']) && !empty($_POST['mediasSave'])) {
+                            for ($i=0; $i<count($_POST['mediasSave']); $i++) {
                                 $picture = $_POST['mediasSave'][$i];
                                 //Fonction update
                             }
@@ -950,7 +948,7 @@ class AdminController extends AppController
                         //Chargement de la vue de l'évènement
                         $messageFlash = 'Your event has been published';
                         $this->coreSetFlashMessage('sucess', $messageFlash, 3);
-                        header("location:show/" . $idEvent);
+                        header("location:".PATH_HOME."admin/eventlist");
                         exit();
 
                     } else {
@@ -970,7 +968,7 @@ class AdminController extends AppController
         } else {
             $messageFlash = 'Please log in';
             $this->coreSetFlashMessage('error', $messageFlash, 3);
-            header("location:../home/home");
+            header("location:".PATH_HOME."admin/signin");
             exit();
         }
     }
@@ -1021,7 +1019,7 @@ class AdminController extends AppController
                     'questions' => $this->model->getQuestions($id)
                 );
                 // Chargement de la vue
-                $this->load->view('admin/event.php', $data);
+                $this->load->view('admin/update_event.php', $data);
             } else {
                 $this->load->view('view_error.php');
             }

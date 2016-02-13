@@ -9,37 +9,40 @@ class AdminModel extends AppModel
 	 */
 	public function getEvent($id)
 	{
-	    try {
-	        $query = $this->connexion->prepare("SELECT *
-	        FROM vol_events
-	        LEFT JOIN vol_event_pictures
-	        ON vol_events.idEvent = vol_event_pictures.vol_events_idEvent
-	        LEFT JOIN vol_event_missions
-	        ON vol_events.idEvent = vol_event_missions.vol_events_idEvent
-	        LEFT JOIN vol_events_categories_has_vol_events
-	        ON vol_events.idEvent = vol_events_categories_has_vol_events.vol_events_idEvent
-	        LEFT JOIN vol_events_categories
-	        ON vol_events_categories_has_vol_events.vol_events_categories_idCategorie = vol_events_categories.idCategorie
-	        LEFT JOIN vol_event_questions
-	        ON vol_events.idEvent = vol_event_questions.vol_events_idEvent
-	        LEFT JOIN vol_users
-	        ON vol_events.vol_users_idUser = vol_users.idUser
-	        WHERE vol_events.idEvent = :id
-	        AND vol_events.vol_event_status_idEventStatus = :status
-	        GROUP BY idEvent
-	        ");
+		try {
+			$query = $this->connexion->prepare("SELECT *
+            FROM vol_events
+            LEFT JOIN vol_event_pictures
+            ON vol_events.idEvent = vol_event_pictures.vol_events_idEvent
+            LEFT JOIN vol_event_missions
+            ON vol_events.idEvent = vol_event_missions.vol_events_idEvent
+            LEFT JOIN vol_events_categories_has_vol_events
+            ON vol_events.idEvent = vol_events_categories_has_vol_events.vol_events_idEvent
+            LEFT JOIN vol_events_categories
+            ON vol_events_categories_has_vol_events.vol_events_categories_idCategorie = vol_events_categories.idCategorie
+            LEFT JOIN vol_event_questions
+            ON vol_events.idEvent = vol_event_questions.vol_events_idEvent
+            LEFT JOIN vol_users
+            ON vol_events.vol_users_idUser = vol_users.idUser
+            WHERE vol_events.idEvent = :id
+            AND (vol_events.vol_event_status_idEventStatus = :status
+            OR vol_events.vol_event_status_idEventStatus = :premium)
+            GROUP BY idEvent
+            ");
 
-	        $query->bindValue(':id', $id, PDO::PARAM_INT);
-	        $query->bindValue(':status', 1, PDO::PARAM_INT);
-	        $query->execute();
+			$query->bindValue(':id', $id, PDO::PARAM_INT);
+			$query->bindValue(':status', 1, PDO::PARAM_INT);
+			$query->bindValue(':premium', 2, PDO::PARAM_INT);
+			$query->execute();
 
-	        $data = $query->fetch(PDO::FETCH_ASSOC);
-	        $query->closeCursor();
-	        return $data;
+			$data = $query->fetch(PDO::FETCH_ASSOC);
+			$query->closeCursor();
+			return $data;
 
-	    } catch (Exception $e) {
-	        return false;
-	    }
+		} catch (Exception $e) {
+			die($e);
+			return false;
+		}
 	}
 
 	/**
@@ -782,4 +785,97 @@ class AdminModel extends AppModel
             return false;
         }
     }
+
+	public function editEvent($event_name, $event_location, $event_start, $event_hour_start, $event_end,
+							  $event_hour_end, $event_description, $facebook, $instagram, $youtube, $twitter, $status, $user, $idEvent)
+	{
+		try {
+			$query = $this->connexion->prepare("UPDATE vol_events SET
+                                                nameEvent = :name,
+                                                startEvent = :start,
+                                                hourStartEvent = :hourStart,
+                                                endEvent = :end,
+                                                hourEndEvent = :hourEnd,
+                                                locationEvent = :location,
+                                                descriptionEvent = :description,
+                                                facebookEvent = :facebook,
+                                                instagramEvent = :instagram,
+                                                youtubeEvent = :youtube,
+                                                twitterEvent = :twitter,
+                                                vol_event_status_idEventStatus = :status,
+                                                vol_users_idUser = :user
+                                                WHERE idEvent = :idEvent");
+
+			$query->bindValue(':name', $event_name, PDO::PARAM_STR);
+			$query->bindValue(':location', $event_location, PDO::PARAM_STR);
+			$query->bindValue(':start', $event_start, PDO::PARAM_STR);
+			$query->bindValue(':hourStart', $event_hour_start, PDO::PARAM_STR);
+			$query->bindValue(':end', $event_end, PDO::PARAM_STR);
+			$query->bindValue(':hourEnd', $event_hour_end, PDO::PARAM_STR);
+			$query->bindValue(':description', $event_description, PDO::PARAM_STR);
+			$query->bindValue(':facebook', $facebook, PDO::PARAM_STR);
+			$query->bindValue(':instagram', $instagram, PDO::PARAM_STR);
+			$query->bindValue(':youtube', $youtube, PDO::PARAM_STR);
+			$query->bindValue(':twitter', $twitter, PDO::PARAM_STR);
+			$query->bindValue(':status', $status, PDO::PARAM_STR);
+			$query->bindValue(':user', $user, PDO::PARAM_STR);
+			$query->bindValue(':idEvent', $idEvent, PDO::PARAM_INT);
+			$query->execute();
+			$query->closeCursor();
+
+			//On récupère l'id de l'insertion
+			//$lastId = $this->connexion->lastInsertId();
+
+			//return $lastId;
+			return true;
+
+		} catch (Exception $e) {
+			return false;
+		}
+	}
+
+	public function editCategories($idCategory, $idEvent)
+	{
+		try {
+			$query = $this->connexion->prepare("UPDATE vol_events_categories_has_vol_events SET
+                                                vol_events_categories_idCategorie = :idCategory,
+                                                vol_events_idEvent = :idEvent
+                                                WHERE vol_events_idEvent = :idEvent");
+
+
+			$query->bindValue(':idCategory', $idCategory, PDO::PARAM_INT);
+			$query->bindValue(':idEvent', $idEvent, PDO::PARAM_INT);
+
+			$query->execute();
+
+			return true;
+
+		} catch (Exception $e) {
+			return false;
+		}
+	}
+
+	public function editMissions($idEvent, $missions, $nbVolunteer, $idMission)
+	{
+		try {
+			$query = $this->connexion->prepare("UPDATE vol_event_missions SET
+                                                missionName = :mission,
+                                                nbVolunteer = :nbVol,
+                                                vol_events_idEvent = :idEvent
+                                                WHERE vol_events_idEvent = :idEvent
+                                                AND idEventMission = :idMission");
+
+			$query->bindValue(':mission', $missions, PDO::PARAM_STR);
+			$query->bindValue(':nbVol', $nbVolunteer, PDO::PARAM_INT);
+			$query->bindValue(':idEvent', $idEvent, PDO::PARAM_INT);
+			$query->bindValue(':idMission', $idMission, PDO::PARAM_INT);
+
+			$query->execute();
+
+			return true;
+
+		} catch (Exception $e) {
+			return false;
+		}
+	}
 }

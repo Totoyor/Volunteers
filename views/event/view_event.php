@@ -13,7 +13,7 @@
                 <ul class="collapsible clear event_apog dshadow radius" data-collapsible="accordion">
                     <li>
                         <div class="collapsible-header">
-                            <i class="material-icons">query_builder</i>
+                            <i class="material-icons blue-icon">query_builder</i>
                             <?= $data['event']['startEvent'] . '<em> ' . $data['event']['hourStartEvent'] . '</em>  -  ' . $data['event']['endEvent'] . '<em> ' . $data['event']['hourEndEvent'] . '</em>'; ?>
                         </div>
                     </li>
@@ -32,7 +32,7 @@
                     </li>
                     <li>
                         <div class="collapsible-header">
-                            <i class="material-icons">person_pin</i>
+                            <i class="material-icons blue-icon">person_pin</i>
                             <?php foreach ($data['nbVolunteer'] as $nbVolunteer) { ?>
                                 <?= $nbVolunteer['SUM(nbVolunteer)'] ?> volunteers needed
                             <?php } ?>
