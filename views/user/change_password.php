@@ -12,7 +12,7 @@
                         <div class="row">
                             <div class="input-field col s12">
                                 <input placeholder="Last Password" id="password1" type="password" class="validate" name="LastPassword"
-                                       required="required" value="" pattern=".{5,10}" title="5 to 10 characters">
+                                       required="required" value="" pattern=".{2,10}" title="2 to 10 characters">
                                 <label for="password1" class="center-align"></label>
                             </div>
                         </div>

@@ -2321,7 +2321,6 @@ textarea {
     padding-bottom:10px;
 }
 
-<<<<<<< HEAD
 .cat-row:first-child {
     padding-left: 0;
 }
@@ -2329,9 +2328,6 @@ textarea {
 .cat-row:last-child {
     padding-right: 0;
 }
-
-
-
 
 /*****************************/
 
@@ -2366,8 +2362,6 @@ textarea {
     border-radius: 5px!important;
 }
 
-
-=======
 /*** HELP ***/
 
 .bghelp
@@ -2460,4 +2454,3 @@ textarea {
 .img-team {
     width:100%;
 }
->>>>>>> 05feda4084ea4fdf66fba4b1553660321e7fd964
