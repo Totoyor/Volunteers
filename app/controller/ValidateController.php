@@ -5,6 +5,9 @@ class ValidateController extends AppController
     private $_key;
     private $_active;
 
+    /**
+     * ValidateController constructor.
+     */
     public function __construct()
     {
         require 'app/model/UserModel.php';
@@ -12,6 +15,9 @@ class ValidateController extends AppController
         parent::__construct();
     }
 
+    /** Fonciton de confirmation du profil de l'utilisateur via une key unique
+     *
+     */
     public function home()
     {
         if(isset($_GET['key']))

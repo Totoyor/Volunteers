@@ -2,7 +2,7 @@
 
 class HomeModel extends AppModel
 {
-    /**
+    /** Modèle de récupération des 6 derniers évènements pour la homepage
      * @return array|bool
      */
     public function getHomeEvents()
@@ -36,7 +36,7 @@ class HomeModel extends AppModel
         }
     }
 
-    /**
+    /** Modèle de récupération des 2 évènements premium pour les afficher sur la homepage
      * @return array|bool
      */
     public function getPremiumEvents()
@@ -70,7 +70,7 @@ class HomeModel extends AppModel
         }
     }
 
-    /**
+    /** Modèle de récupération de 5 catégories pour la homepage
      * @return array|bool
      */
     public function getHomeCategories()
@@ -89,6 +89,10 @@ class HomeModel extends AppModel
         }
     }
 
+    /** Modèle d'insertion de l'email de l'utilisateur dans la base de donnée
+     * @param $email
+     * @return bool
+     */
     public function insertNewsletter($email)
     {
         try {

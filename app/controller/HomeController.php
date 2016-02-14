@@ -2,6 +2,9 @@
 
 class HomeController extends AppController
 {
+    /**
+     * HomeController constructor.
+     */
     public function __construct()
     {
         require 'app/model/HomeModel.php';
@@ -9,6 +12,9 @@ class HomeController extends AppController
         parent::__construct();
     }
 
+    /** Fonction d'affichage de la homepage
+     *
+     */
     public function home()
     {
         $data = array(
@@ -45,6 +51,9 @@ class HomeController extends AppController
         $this->load->view('page/about.php');
     }
 
+    /** Fonction d'inscription de l'utilisateur à la newsletter
+     *  Envoi d'un email de confirmation
+     */
     public function newsletter()
     {
         if(isset($_POST['newsletter']))

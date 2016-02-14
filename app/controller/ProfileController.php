@@ -2,6 +2,9 @@
 
 class ProfileController extends AppController
 {
+    /**
+     * ProfileController constructor.
+     */
     public function __construct()
     {
         require 'app/model/ProfileModel.php';
@@ -9,6 +12,9 @@ class ProfileController extends AppController
         parent::__construct();
     }
 
+    /** Fonction d'affichage de la page du profil utilisateur
+     *
+     */
     public function home()
     {
         if(isset($_SESSION['user_id']) && isset($_SESSION['user_email']))
@@ -42,6 +48,9 @@ class ProfileController extends AppController
         }
     }
 
+    /** Fonction de modification des informations de l'utilisateur via son profil
+     *
+     */
     public function edit()
     {
         if(isset($_SESSION['user_id']) && isset($_SESSION['user_email'])) {
@@ -179,6 +188,9 @@ class ProfileController extends AppController
         }
     }
 
+    /** Fonction de suppression du compte utilisateur
+     *
+     */
     public function delete()
     {
         if(isset($_SESSION['user_id']) && isset($_SESSION['user_email']))
@@ -221,6 +233,9 @@ class ProfileController extends AppController
         }
     }
 
+    /** Fonction d'affichage des missions de l'utilisateur dans sa page profil
+     *
+     */
     public function missions()
     {
         if(isset($_SESSION['user_id']) && isset($_SESSION['user_email']))
@@ -244,6 +259,9 @@ class ProfileController extends AppController
         }
     }
 
+    /** Fonction d'affichage des évènements crée et sauvegardé par l'utilisateur dans son profil
+     *
+     */
     public function events()
     {
         if(isset($_SESSION['user_id']) && isset($_SESSION['user_email']))
@@ -276,6 +294,9 @@ class ProfileController extends AppController
         }
     }
 
+    /** Fonction d'affichage du dashboard de l'utilisateur dans son profil
+     *
+     */
     public function dashboard()
     {
         if(isset($_SESSION['user_id']) && isset($_SESSION['user_email']))
@@ -309,30 +330,45 @@ class ProfileController extends AppController
         }
     }
 
-    //TODO
-    // Vérifier qu'il y ai un get id
+    /** Fonction d'affichage de la page de profil public de l'utilisateur
+     *
+     */
     public function show()
     {
-        $idUser = $_GET['id'];
-        $data = array(
-            'infos' => $this->model->getProfile($idUser),
-            'reviews' => $this->model->getReview($idUser),
-            'rating' => $this->model->getAverage($idUser)
-        );
-
-        if(!$data)
+        if(isset($_GET['id']))
         {
-            // Pas de data
-            define("TITLE_HEAD", "Error | Volunteers");
-            $this->load->view('view_error.php');
+            $idUser = $_GET['id'];
+            $data = array(
+                'infos' => $this->model->getProfile($idUser),
+                'reviews' => $this->model->getReview($idUser),
+                'rating' => $this->model->getAverage($idUser)
+            );
+
+            if(!$data)
+            {
+                // Pas de data
+                define("TITLE_HEAD", "Error | Volunteers");
+                $this->load->view('view_error.php');
+            }
+            else
+            {
+                define("TITLE_HEAD", "Volunteers | Public Profile");
+                $this->load->view("user/profile_public.php", $data);
+            }
         }
         else
         {
-            define("TITLE_HEAD", "Volunteers | Public Profile");
-            $this->load->view("user/profile_public.php", $data);
+            // Pas d'id
+            $messageFlash = 'Error !';
+            $this->coreSetFlashMessage('error', $messageFlash, 5);
+            define("TITLE_HEAD", "Error | Volunteers");
+            $this->load->view('view_error.php');
         }
     }
 
+    /** Fonction d'ajout de commentaire sur un profil public d'un utilisateur
+     *
+     */
     public function comment()
     {
         if(isset($_SESSION['user_id']) && isset($_SESSION['user_email']))
@@ -368,6 +404,9 @@ class ProfileController extends AppController
         }
     }
 
+    /** Fonction de notation d'un utilisateur sur son profil public
+     *
+     */
     public function rate()
     {
         if(isset($_SESSION['user_id']) && isset($_SESSION['user_email']))

@@ -2,6 +2,10 @@
 
 class ProfileModel extends AppModel
 {
+    /** Modèle de récupération du profil de l'utilisateur
+     * @param $id
+     * @return mixed
+     */
     public function getProfile($id)
     {
         try {
@@ -25,6 +29,20 @@ class ProfileModel extends AppModel
         }
     }
 
+    /** Modèle de modification des informations de l'utilisateur
+     * @param $id
+     * @param $first_name
+     * @param $last_name
+     * @param $birth_date
+     * @param $email
+     * @param $location
+     * @param $description
+     * @param $skills
+     * @param $school
+     * @param $work
+     * @param $idpicture
+     * @return bool
+     */
     public function update_profile($id, $first_name, $last_name, $birth_date, $email, $location, $description, $skills, $school, $work, $idpicture)
     {
         try {
@@ -53,6 +71,10 @@ class ProfileModel extends AppModel
         }
     }
 
+    /** Modèle d'insertion de la photo de profil de l'utilisateur
+     * @param $imageUser
+     * @return string
+     */
     public function insertUserPicture($imageUser)
     {
         try {
@@ -70,9 +92,9 @@ class ProfileModel extends AppModel
         }
     }
 
-    /**
-     * Selectionne les évènements propres à un utilisateur
+    /** Modèle de sélection des évènements propres à un utilisateur
      * @param $idUser
+     * @return array|bool
      */
     public function selectEventsUserPublished($idUser)
     {
@@ -105,9 +127,9 @@ class ProfileModel extends AppModel
         }
     }
 
-    /**
-     * Selectionne les évènements propres à un utilisateur
+    /** Modèle d'affichage des évenements sauvegardés de l'utilisateur
      * @param $idUser
+     * @return array|bool
      */
     public function selectEventsUserSaved($idUser)
     {
@@ -140,6 +162,11 @@ class ProfileModel extends AppModel
         }
     }
 
+    /** Modèle d'affichage des missions de l'utilisateur dans sa page profil
+     * @param $idUser
+     * @param $status
+     * @return array|bool
+     */
     public function getUserMissions($idUser, $status)
     {
         try {
@@ -167,6 +194,12 @@ class ProfileModel extends AppModel
         }
     }
 
+    /** Modèle d'insertion d'un commentaire sur un profil utilisateur
+     * @param $idVolunteer
+     * @param $idUser
+     * @param $comment
+     * @return bool
+     */
     public function insertComment($idVolunteer, $idUser, $comment)
     {
         try {
@@ -187,6 +220,10 @@ class ProfileModel extends AppModel
         }
     }
 
+    /** Modèle d'affichage des commentaire des utiisateur sur son profil
+     * @param $idVolunteer
+     * @return array|bool
+     */
     public function getReview($idVolunteer)
     {
         try {
@@ -210,6 +247,12 @@ class ProfileModel extends AppModel
         }
     }
 
+    /** Modèle de notation de l'utilisateur
+     * @param $idVolunteer
+     * @param $idUser
+     * @param $rate
+     * @return bool
+     */
     public function insertRate($idVolunteer, $idUser, $rate)
     {
         try {
@@ -230,6 +273,10 @@ class ProfileModel extends AppModel
         }
     }
 
+    /** Modèle pour récupérer la note moyenne de l'utilisateur
+     * @param $idVolunteer
+     * @return array|bool
+     */
     public function getAverage($idVolunteer)
     {
         try {

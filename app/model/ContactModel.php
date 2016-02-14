@@ -2,6 +2,12 @@
 
 class ContactModel extends AppModel
 {
+    /** Modèle d'insertion du message de contact dans la base de donnée
+     * @param $name
+     * @param $email
+     * @param $message
+     * @return bool
+     */
     public function contactUs($name, $email, $message)
     {
         try{

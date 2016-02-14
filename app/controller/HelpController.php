@@ -4,6 +4,9 @@
 class HelpController extends AppController
 
 {
+    /**
+     * HelpController constructor.
+     */
     public function __construct()
     {
         require 'app/model/EventModel.php';
@@ -11,6 +14,9 @@ class HelpController extends AppController
         parent::__construct();
     }
 
+    /** Fonction d'affichage de la page Help
+     *
+     */
     public function home()
     {
         define("TITLE_HEAD", "How can we help you ? | Volunteers");

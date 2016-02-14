@@ -2,7 +2,13 @@
 
 class UserModel extends AppModel
 {
-
+    /** Modèle d'inscription de l'utilisateur dans la base de donnée
+     * @param $email
+     * @param $password
+     * @param $status
+     * @param $key
+     * @return bool
+     */
     public function inscriptionUser($email, $password, $status, $key)
     {
         try {
@@ -22,6 +28,12 @@ class UserModel extends AppModel
         }
     }
 
+    /** Modèle de participation d'un utilisateur à un evenement
+     * @param $idEvent
+     * @param $idUser
+     * @param $status
+     * @return bool
+     */
     public function join($idEvent, $idUser, $status)
     {
         try {
@@ -42,6 +54,10 @@ class UserModel extends AppModel
         }
     }
 
+    /** Modèle de vérification de la clé unique de l'utilisateur
+     * @param $key
+     * @return bool|mixed
+     */
     public function checkKey($key)
     {
         try {
@@ -63,6 +79,11 @@ class UserModel extends AppModel
         }
     }
 
+    /** Modèle de validation du compte de l'utilisateur
+     * @param $key
+     * @param $active
+     * @return bool
+     */
     public function validateUser($key, $active)
     {
         try {
@@ -81,6 +102,10 @@ class UserModel extends AppModel
         }
     }
 
+    /** Modèle de verification de l'email de l'utilisateur
+     * @param $email
+     * @return bool|mixed
+     */
     public function checkEmail($email)
     {
         try {
@@ -102,6 +127,11 @@ class UserModel extends AppModel
         }
     }
 
+    /** Modèle de changement du mot de passe de l'utilisateur
+     * @param $email
+     * @param $newpass
+     * @return bool
+     */
     public function changePassword($email, $newpass)
     {
         try {
@@ -120,6 +150,10 @@ class UserModel extends AppModel
         }
     }
 
+    /** Modele de verification du mot de passe utilisateur
+     * @param $id
+     * @return bool|mixed
+     */
     public function checkPassword($id)
     {
         try {
@@ -137,6 +171,11 @@ class UserModel extends AppModel
         }
     }
 
+    /** Modèle d'annulation de la participation à l'évènement
+     * @param $idVolunteer
+     * @param $idEvent
+     * @return bool
+     */
     public function cancelJoin($idVolunteer, $idEvent)
     {
         try {
@@ -158,6 +197,11 @@ class UserModel extends AppModel
         }
     }
 
+    /** Modèle de connexion de l'utilisateur a son compte
+     * @param $email
+     * @param $password
+     * @return bool|mixed
+     */
     public function connexionUser($email, $password)
     {
         try {

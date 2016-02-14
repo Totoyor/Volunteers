@@ -3,6 +3,9 @@
 class SearchController extends AppController
 {
 
+    /**
+     * SearchController constructor.
+     */
     public function __construct()
     {
 
@@ -12,12 +15,18 @@ class SearchController extends AppController
 
     }
 
+    /** Fonction d'affichage de la recherche d'articles du blog
+     *
+     */
     public function home()
     {
         define("TITLE_HEAD", "Recherche d'articles");
         $this->load->view('blog/search.php');
     }
 
+    /** Fonction de recherche d'articles via le formulaire
+     *
+     */
     public function find()
     {
         if(isset($_POST['find']))

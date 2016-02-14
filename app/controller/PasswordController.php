@@ -8,6 +8,9 @@ class PasswordController extends AppController
     private $_newPassMD5;
     private $_oldPass;
 
+    /**
+     * PasswordController constructor.
+     */
     public function __construct()
     {
         require 'app/model/UserModel.php';
@@ -15,6 +18,9 @@ class PasswordController extends AppController
         parent::__construct();
     }
 
+    /** Fonction d'affichage de la page d'oubli du mot de passe
+     *
+     */
     public function home()
     {
         // Page de validation du compte
@@ -22,6 +28,9 @@ class PasswordController extends AppController
         $this->load->view('user/forgot_password.php');
     }
 
+    /** Fonction d'envoi du mot de passe par email quand l'utilisateur à rentré son email.
+     *
+     */
     public function forgot()
     {
         if(isset($_POST['email'])) {
@@ -114,6 +123,9 @@ class PasswordController extends AppController
         }
     }
 
+    /** Fonction d'affichage de la page de changement du mot de passe.
+     *
+     */
     public function change()
     {
         // Page de changement de mdp
@@ -121,6 +133,9 @@ class PasswordController extends AppController
         $this->load->view('user/change_password.php');
     }
 
+    /** Fonction de changement du mot de passe de l'utilisateur via le formulaire
+     *
+     */
     public function newpass()
     {
         if(isset($_POST['LastPassword']) && isset($_POST['NewPassword']))

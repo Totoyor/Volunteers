@@ -4,6 +4,9 @@
 class ContactController extends AppController
 
 {
+    /**
+     * ContactController constructor.
+     */
     public function __construct()
     {
         require 'app/model/ContactModel.php';
@@ -11,6 +14,9 @@ class ContactController extends AppController
         parent::__construct();
     }
 
+    /** Fonction d'affichage de la page contact
+     *
+     */
     public function home()
     {
         define("TITLE_HEAD", "Contact | Volunteers");
@@ -18,6 +24,9 @@ class ContactController extends AppController
         $this->load->view('page/contact.php');
     }
 
+    /** Fonction d'envoi du message du formulaire de la page contact
+     *
+     */
     public function send()
     {
         if(isset($_POST['contact_name']) && isset($_POST['contact_email']) && isset($_POST['contact_message'])){

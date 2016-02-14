@@ -10,6 +10,9 @@ class UserController extends AppController
     private $_nom;
     private $_prenom;
 
+    /**
+     * UserController constructor.
+     */
     public function __construct()
     {
         require 'app/model/UserModel.php';
@@ -17,6 +20,9 @@ class UserController extends AppController
         parent::__construct();
     }
 
+    /** Fonction de connexion de l'utilisateur à son compte
+     *
+     */
     public function connect()
     {
         if(isset($_POST['email']) && $_POST['password'])
@@ -85,6 +91,9 @@ class UserController extends AppController
         }
     }
 
+    /** Fonction d'inscription de l'uilisateur via son email et envoi d'un email de confirmation
+     *
+     */
     public function signup()
     {
         if(isset($_POST['email']) && $_POST['password'])
@@ -178,6 +187,9 @@ class UserController extends AppController
         }
     }
 
+    /** Fonction de déconnexion de l'utilisateur de son compte
+     *
+     */
     public function disconnect()
     {
         session_unset();
@@ -187,6 +199,9 @@ class UserController extends AppController
         exit();
     }
 
+    /** Fonction de candidature à un évènement
+     *
+     */
     public function join()
     {
         if (isset($_SESSION['user_id'])) {
@@ -206,6 +221,9 @@ class UserController extends AppController
         }
     }
 
+    /** Fonction d'annulation de candidature à un évènement
+     *
+     */
     public function cancel()
     {
         if(isset($_SESSION['user_id'])) {
