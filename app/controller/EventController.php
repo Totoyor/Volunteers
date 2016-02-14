@@ -531,14 +531,14 @@ class EventController extends AppController
 
     public function sort()
     {
-        if (!empty($_POST['category']) || !empty($_POST['sortDate']) || isset($_GET['message'])) {
+        if (!empty($_POST['category']) || !empty($_POST['sortDate']) || isset($_GET['id'])) {
 
             if (!empty($_POST['category'])) {
                 $category = $_POST['category'];
             }
-            elseif(isset($_GET['message'])) {
+            elseif(isset($_GET['id'])) {
 
-                $category = $_GET['message'];
+                $category = $_GET['id'];
             }
             else {
                 $category = '';
@@ -567,7 +567,7 @@ class EventController extends AppController
             } else {
                 $messageFlash = 'Nothing correspond to your search';
                 $this->coreSetFlashMessage('error', $messageFlash, 3);
-                header("location:lists");
+                header("location:".PATH_HOME."event/lists");
             }
         } else {
             $messageFlash = 'Please select an option';

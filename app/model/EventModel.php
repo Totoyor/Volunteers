@@ -625,7 +625,7 @@ Class EventModel extends AppModel
                         ";
 
             if ($category !== '') {
-                $query .= "AND vol_events_categories.nameCategorie = '".$category."'";
+                $query .= "AND vol_events_categories.idCategorie = '".$category."'";
             }
 
             if ($date !== '') {

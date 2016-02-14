@@ -129,10 +129,10 @@
                     <?php if($category['nameCategorie'] == 'Festival') { ?>
                         <div class="row">
                         <div class="col s12 m8">
-                            <a href="event/sort/<?= $category['idCategorie']; ?>/<?= strtolower($category['nameCategorie']); ?>">
+                            <a href="event/sort/<?= $category['idCategorie']; ?>">
                                 <div class="card margin-cat-bottom festival_responsive">
                                     <div class="card-image item">
-                                        <img class="responsive-img" alt="festival" src="assets/img/<?= $category['imageCategorie']; ?>">
+                                        <img class="responsive-img" alt="festival" src="assets/img/categories/uploads/<?= $category['imageCategorie']; ?>">
                                         <div class="text-wrapper">
                                             <h6 class="white-text"><?= $category['nameCategorie']; ?></h6>
                                         </div>
@@ -142,10 +142,10 @@
                         </div>
                     <?php } elseif($category['nameCategorie'] == 'Rock') { ?>
                         <div class="col s12 m4">
-                            <a href="event/sort/<?= $category['idCategorie']; ?>/<?= strtolower($category['nameCategorie']); ?>">
+                            <a href="event/sort/<?= $category['idCategorie']; ?>">
                                 <div class="card margin-cat-bottom">
                                     <div class="card-image item">
-                                        <img class="responsive-img" alt="party" src="assets/img/<?= $category['imageCategorie']; ?>">
+                                        <img class="responsive-img" alt="party" src="assets/img/categories/uploads/<?= $category['imageCategorie']; ?>">
                                         <div class="text-wrapper">
                                             <h6 class="white-text"><?= $category['nameCategorie']; ?></h6>
                                         </div>
@@ -156,10 +156,10 @@
                         </div>
                     <?php } else { ?>
                             <div class="col s12 m4">
-                                <a href="event/sort/<?= $category['idCategorie']; ?>/<?= strtolower($category['nameCategorie']); ?>">
+                                <a href="event/sort/<?= $category['idCategorie']; ?>">
                                     <div class="card margin-cat-bottom">
                                         <div class="card-image item">
-                                            <img class="responsive-img" alt="party" src="assets/img/<?= $category['imageCategorie']; ?>">
+                                            <img class="responsive-img" alt="party" src="assets/img/categories/uploads/<?= $category['imageCategorie']; ?>">
                                             <div class="text-wrapper">
                                                 <h6 class="white-text"><?= $category['nameCategorie']; ?></h6>
                                             </div>
