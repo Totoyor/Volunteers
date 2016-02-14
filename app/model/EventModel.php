@@ -689,4 +689,47 @@ Class EventModel extends AppModel
         }
     }
 
+    public function deleteEvent($options)
+    {
+        try
+        {
+
+            // Requête DELETE
+            $query = "BEGIN;
+
+	        DELETE FROM vol_events_categories_has_vol_events
+	        WHERE vol_events_idEvent = ".$options.";
+
+	        DELETE FROM vol_event_missions
+	        WHERE vol_events_idEvent = ".$options.";
+
+	        DELETE FROM vol_event_pictures
+	        WHERE vol_events_idEvent = ".$options.";
+
+	        DELETE FROM vol_events_answers
+	        WHERE vol_events_idEvent = ".$options.";
+
+	        DELETE FROM vol_event_questions
+	        WHERE vol_events_idEvent = ".$options.";
+
+			DELETE FROM event_has_volunteers
+			WHERE vol_events_idEvent = ".$options.";
+
+	        DELETE FROM vol_events
+	        WHERE idEvent = ".$options.";
+
+	        COMMIT;";
+
+            // Traitement de la requete
+            $cursor = $this->connexion->query($query);
+            $cursor->closeCursor();
+
+            return true;
+        }
+        catch (Exception $e)
+        {
+            return false;
+        }
+    }
+
 }

@@ -21,12 +21,7 @@
 
                         <p class="white-text">Rating :</p>
                         <span class="stars">
-                             <i class="material-icons noleft orange-icon">grade</i>
-                             <i class="material-icons noleft orange-icon">grade</i>
-                             <i class="material-icons noleft orange-icon">grade</i>
-                             <i class="material-icons noleft">grade</i>
-                             <i class="material-icons noleft">grade</i>
-                             <i class="material-icons noleft">grade</i>
+                            <?= "<h4 class='white-text'>".$data['rating'][0]['AVG(rating)']." / 6 </h4>"; ?>
                         </span>
 
                         <form action="profile/rate" method="post">
@@ -170,7 +165,12 @@
                                     <div class="col s12 l10 m12">
                                       <span class="grey-text">
                                           <?= $review['review']; ?>
-                                          <p class="date-comment">January 19 2015</p>
+                                          <p class="date-comment">
+                                              <?php
+                                              $dateReview = date("F j, Y", strtotime($review['date']));
+                                              echo $dateReview;
+                                              ?>
+                                          </p>
                                       </span>
 
                                         <div class="row">
