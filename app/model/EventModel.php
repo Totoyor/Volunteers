@@ -676,7 +676,8 @@ Class EventModel extends AppModel
                         ON vol_events.idEvent = vol_events_categories_has_vol_events.vol_events_idEvent
                         LEFT JOIN vol_events_categories
                         ON vol_events_categories_has_vol_events.vol_events_categories_idCategorie = vol_events_categories.idCategorie
-                        WHERE vol_events.vol_event_status_idEventStatus = 1
+                        WHERE (vol_events.vol_event_status_idEventStatus = 1
+                        OR vol_events.vol_event_status_idEventStatus = 2)
                         ";
 
             if ($category !== '') {
