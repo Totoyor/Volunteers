@@ -78,6 +78,11 @@ else if(SERVER === 'PROD') {
 define('MODULE_DEFAUT', 'Home');
 define('ACTION_DEFAUT', 'home');
 
+// Durée des messages flash
+define('SHORT_FLASH', '3');
+define('MEDIUM_FLASH', '5');
+define('LONG_FLASH', '8');
+
 // PATH (Chemins)
 define('PATH_1', 'path/');
 define('PATH_2', 'path/');
