@@ -50,7 +50,7 @@
                                         <div class="col l3 m3 s6">
                                             <a href="event/editshow/<?= $saved['idEvent']; ?>" class="space3 btn btn-orange fullwidth"><i
                                                     class="material-icons">create</i>Edit</a>
-                                            <a href="#" class="btn btn-red fullwidth space3"><i class="material-icons">delete</i>Delete</a>
+                                            <a onclick="return confirm('Are you sure you want to delete this event?');" href="event/deleteevent/<?= $saved['idEvent']; ?>" class="btn btn-red fullwidth space3"><i class="material-icons">delete</i>Delete</a>
                                         </div>
                                     </div>
                                 </div>
@@ -84,7 +84,7 @@
                                         <div class="col l3 m3 s6">
                                             <a href="event/editshow/<?= $published['idEvent']; ?>" class="space3 btn btn-orange fullwidth"><i
                                                     class="material-icons">create</i>Edit</a>
-                                            <a href="#" class="btn btn-red fullwidth space3"><i class="material-icons">delete</i>Delete</a>
+                                            <a onclick="return confirm('Are you sure you want to delete this event?');" href="event/deleteevent/<?= $published['idEvent']; ?>" class="btn btn-red fullwidth space3"><i class="material-icons">delete</i>Delete</a>
                                             <a href="event/listvolunteers/<?= $published['idEvent']; ?>" class="btn btn-block fullwidth"><i
                                                     class="material-icons">people</i>Volunteers</a>
                                         </div>

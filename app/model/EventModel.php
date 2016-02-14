@@ -52,6 +52,24 @@ Class EventModel extends AppModel
         }
     }
 
+    /**
+     * Modification d'un évènement
+     * @param $event_name
+     * @param $event_location
+     * @param $event_start
+     * @param $event_hour_start
+     * @param $event_end
+     * @param $event_hour_end
+     * @param $event_description
+     * @param $facebook
+     * @param $instagram
+     * @param $youtube
+     * @param $twitter
+     * @param $status
+     * @param $user
+     * @param $idEvent
+     * @return bool
+     */
     public function editEvent($event_name, $event_location, $event_start, $event_hour_start, $event_end,
                               $event_hour_end, $event_description, $facebook, $instagram, $youtube, $twitter, $status, $user, $idEvent)
     {
@@ -100,7 +118,9 @@ Class EventModel extends AppModel
         }
     }
 
+
     /**
+     * Retourne un tableau contenant les différentes catégories
      * @return array|bool
      */
     public function getCategories()
@@ -111,6 +131,7 @@ Class EventModel extends AppModel
 
             $data = $query->fetchAll(PDO::FETCH_ASSOC);
             $query->closeCursor();
+
             return $data;
 
         } catch (Exception $e) {
@@ -118,7 +139,9 @@ Class EventModel extends AppModel
         }
     }
 
+
     /**
+     * Permet de récupérer toutes les informations relatif à un évènements
      * @param $id
      * @return bool|mixed
      */
@@ -199,6 +222,7 @@ Class EventModel extends AppModel
     }
 
     /**
+     * Récupère tout les évènement présent dans la base
      * @return array|bool
      */
     public function getEvents()
@@ -214,11 +238,13 @@ Class EventModel extends AppModel
             ON vol_events.idEvent = vol_events_categories_has_vol_events.vol_events_idEvent
             LEFT JOIN vol_events_categories
             ON vol_events_categories_has_vol_events.vol_events_categories_idCategorie = vol_events_categories.idCategorie
-            WHERE vol_events.vol_event_status_idEventStatus = :status
+            WHERE (vol_events.vol_event_status_idEventStatus = :status
+            OR vol_events.vol_event_status_idEventStatus = :premium)
             GROUP BY idEvent
             ");
 
             $query->bindValue(':status', 1, PDO::PARAM_INT);
+            $query->bindValue(':premium', 2, PDO::PARAM_INT);
             $query->execute();
             $data = $query->fetchAll(PDO::FETCH_ASSOC);
             $query->closeCursor();
@@ -231,6 +257,7 @@ Class EventModel extends AppModel
     }
 
     /**
+     * Insertion des différents catégories d'un évènement
      * @param $idCategory
      * @param $idEvent
      * @return bool
@@ -254,6 +281,12 @@ Class EventModel extends AppModel
         }
     }
 
+    /**
+     * Modification de la catégorie d'un event
+     * @param $idCategory
+     * @param $idEvent
+     * @return bool
+     */
     public function editCategories($idCategory, $idEvent)
     {
         try {
@@ -276,6 +309,7 @@ Class EventModel extends AppModel
     }
 
     /**
+     * Insertion d'une mission dans la base
      * @param $idEvent
      * @param $missions
      * @param $nbVolunteer
@@ -301,6 +335,14 @@ Class EventModel extends AppModel
         }
     }
 
+    /**
+     * Modification d'une mission dans la base
+     * @param $idEvent
+     * @param $missions
+     * @param $nbVolunteer
+     * @param $idMission
+     * @return bool
+     */
     public function editMissions($idEvent, $missions, $nbVolunteer, $idMission)
     {
         try {
@@ -326,6 +368,7 @@ Class EventModel extends AppModel
     }
 
     /**
+     * Permet de récupérer les missions
      * @param $idEvent
      * @return array|bool
      */
@@ -349,6 +392,7 @@ Class EventModel extends AppModel
     }
 
     /**
+     * Permet de récupérer les questions liés à un event
      * @param $idEvent
      * @return array|bool
      */
@@ -361,7 +405,8 @@ Class EventModel extends AppModel
             ON vol_event_questions.idEventQuestions = vol_events_answers.vol_event_questions_idEventQuestions
             LEFT JOIN vol_users
             ON vol_event_questions.vol_users_idUser = vol_users.idUser
-            WHERE vol_events_idEvent = :id");
+            WHERE vol_event_questions.vol_events_idEvent = :id");
+
 
             $query->bindValue(':id', $idEvent, PDO::PARAM_INT);
             $query->execute();
@@ -378,6 +423,7 @@ Class EventModel extends AppModel
     }
 
     /**
+     * Retourne le nombre de volontaires d'un event
      * @param $idEvent
      * @return array|bool
      */
@@ -402,6 +448,7 @@ Class EventModel extends AppModel
     }
 
     /**
+     * Récupère les photos d'un event
      * @param $idEvent
      * @return array|bool
      */
@@ -425,6 +472,7 @@ Class EventModel extends AppModel
     }
 
     /**
+     * Récupère les informations des différents volontaires participant à un event
      * @param $idEvent
      * @return array|bool
      */
@@ -469,6 +517,7 @@ Class EventModel extends AppModel
     }
 
     /**
+     * Insertion de l'image de couverture d'un event
      * @param $idEvent
      * @param $coverPicture
      * @return bool
@@ -493,6 +542,7 @@ Class EventModel extends AppModel
     }
 
     /**
+     * Insertion des images de medias d'un event
      * @param $idEvent
      * @param $media
      * @return bool
@@ -516,6 +566,7 @@ Class EventModel extends AppModel
     }
 
     /**
+     * Recherche parmis les différents évènements
      * @param $recherche
      * @return array|bool
      */
@@ -532,7 +583,8 @@ Class EventModel extends AppModel
                                                 ON vol_events.idEvent = vol_events_categories_has_vol_events.vol_events_idEvent
                                                 LEFT JOIN vol_events_categories
                                                 ON vol_events_categories_has_vol_events.vol_events_categories_idCategorie = vol_events_categories.idCategorie
-                                                WHERE vol_events.vol_event_status_idEventStatus = :status
+                                                WHERE (vol_events.vol_event_status_idEventStatus = :status
+                                                OR vol_events.vol_event_status_idEventStatus = :premium)
                                                 AND vol_events.nameEvent LIKE '%$recherche%'
                                                 OR vol_events.locationEvent LIKE '%$recherche%'
                                                 OR vol_events.startEvent LIKE '%$recherche%'
@@ -540,6 +592,7 @@ Class EventModel extends AppModel
                                                 GROUP BY idEvent ");
 
             $query->bindValue(':status', 1, PDO::PARAM_INT);
+            $query->bindValue(':premium', 2, PDO::PARAM_INT);
             $query->execute();
             $data = $query->fetchAll(PDO::FETCH_ASSOC);
             $query->closeCursor();
@@ -553,6 +606,7 @@ Class EventModel extends AppModel
     }
 
     /**
+     * Insertion d'une question relatif à un event
      * @param $user
      * @param $event
      * @param $question
@@ -578,20 +632,22 @@ Class EventModel extends AppModel
     }
 
     /**
+     * Insertion d'une réponse reliatif à une question et un event
      * @param $user
      * @param $question
      * @param $answer
      * @return bool
      */
-    public function insertAnswer($user, $question, $answer) {
+    public function insertAnswer($user, $question, $answer, $event) {
         try {
             $query = $this->connexion->prepare("INSERT INTO vol_events_answers
-                                                (eventAnswer, vol_event_questions_idEventQuestions, vol_users_idUser)
-                                                VALUES (:answer, :question , :user)");
+                                                (eventAnswer, vol_event_questions_idEventQuestions, vol_users_idUser, vol_events_idEvent)
+                                                VALUES (:answer, :question , :user, :event)");
 
             $query->bindValue(':answer', $answer, PDO::PARAM_STR);
             $query->bindValue(':question', $question, PDO::PARAM_INT);
             $query->bindValue(':user', $user, PDO::PARAM_INT);
+            $query->bindValue(':event', $event, PDO::PARAM_INT);
 
             $query->execute();
             $query->closeCursor();
@@ -603,6 +659,7 @@ Class EventModel extends AppModel
     }
 
     /**
+     * Tri des events
      * @param $category
      * @param $date
      * @return array|bool
@@ -623,7 +680,7 @@ Class EventModel extends AppModel
                         ";
 
             if ($category !== '') {
-                $query .= "AND vol_events_categories.nameCategorie = '".$category."'";
+                $query .= "AND vol_events_categories.idCategorie = '".$category."'";
             }
 
             if ($date !== '') {
@@ -645,6 +702,12 @@ Class EventModel extends AppModel
         }
     }
 
+    /**
+     * Permet de passez le status des volontaires de 0 à 1, 1 veut dire qu'il à été engager pour l'évènement
+     * @param $idEvent
+     * @param $volunteer
+     * @return bool
+     */
     public function hireVolunteers($idEvent, $volunteer)
     {
         try {
@@ -667,6 +730,10 @@ Class EventModel extends AppModel
         }
     }
 
+    /**
+     * @param $idEvent
+     * @return bool
+     */
     public function hireSession($idEvent)
     {
         try {
@@ -683,6 +750,54 @@ Class EventModel extends AppModel
             return true;
 
         } catch (Exception $e) {
+            return false;
+        }
+    }
+
+    /**
+     * Supression d'un event
+     * @param $options
+     * @return bool
+     */
+    public function deleteEvent($options)
+    {
+        try
+        {
+
+            // Requête DELETE
+            $query = "BEGIN;
+
+	        DELETE FROM vol_events_categories_has_vol_events
+	        WHERE vol_events_idEvent = ".$options.";
+
+	        DELETE FROM vol_event_missions
+	        WHERE vol_events_idEvent = ".$options.";
+
+	        DELETE FROM vol_event_pictures
+	        WHERE vol_events_idEvent = ".$options.";
+
+	        DELETE FROM vol_events_answers
+	        WHERE vol_events_idEvent = ".$options.";
+
+	        DELETE FROM vol_event_questions
+	        WHERE vol_events_idEvent = ".$options.";
+
+			DELETE FROM event_has_volunteers
+			WHERE vol_events_idEvent = ".$options.";
+
+	        DELETE FROM vol_events
+	        WHERE idEvent = ".$options.";
+
+	        COMMIT;";
+
+            // Traitement de la requete
+            $cursor = $this->connexion->query($query);
+            $cursor->closeCursor();
+
+            return true;
+        }
+        catch (Exception $e)
+        {
             return false;
         }
     }

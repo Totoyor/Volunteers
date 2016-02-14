@@ -27,56 +27,18 @@
             </div>
           
         </div>
-        
             <form method="post" action="event/sort">
-                
-                    <!--<form method="get" action="/search" id="search">
-                        <input type="text" placeholder="Location" id="location-search" class="no-border-input"/>
-                    </form>-->
-                    <!--<div id="div-cat-chip" >
-                        <div id="chip-bulle" class="chip">
-                            <i id="cat-chip" class="material-icons categories">close</i>
-                            Techno
-                        </div>
-                    </div>-->
-                    
-                            
-                            <!-- <div class="collapsible-body decal">
-                                <ul id="genre-categories">
-                                    <?php //foreach($data['categories'] as $category): ?>
-                                        <li class="categories"><a><?php //$category['nameCategorie']; ?></a></li>
-                                    <?php //endforeach; ?>
-                                </ul>
-                            </div> -->
                 <div class="col s12 m4 l2 ">
                             <select name="category" class="browser-default border secure_height_input">
                                 <option disabled selected>Choose a category</option>
                                 <?php foreach ($data['categories'] as $category): ?>
-                                    <option value="<?= $category['nameCategorie']; ?>">
+                                    <option value="<?= $category['idCategorie']; ?>">
                                         <?= $category['nameCategorie']; ?>
                                     </option>
                                 <?php endforeach; ?>
                             </select>
                     </div>
-                       
-                           
-                            <!-- <div class="collapsible-body decal">
-                                <ul>
-                                    <li class="categories"><a>Next week</a></li>
-                                    <li class="categories"><a>Next month</a></li>
-                                    <li class="categories"><a>Next 2 months</a></li>
-                                    <li class="categories"><a>Next semester</a></li>
-                                    <li class="categories"><a>Custom Date</a></li>
-                                </ul>
-                            </div> -->
-                            <!--<select class="browser-default">
-                                <option>select a date</option>
-                                <option>Next week</option>
-                                <option>Next month</option>
-                            </select>-->
-                
                  <div class="col s12 m4 l2 border secure_height_input">
-                     
                             <input type="text" placeholder="Pick a date" name="sortDate" class="datepicker input-date secure_date">
                 </div>
                 
@@ -86,8 +48,6 @@
             </form>
           <hr class="fancy-hr">
         </div>
-        
-    
     <div class="row">
         
         <div class="">
@@ -142,7 +102,7 @@
                 </a>
             </div>
             <div class="card-content">
-                <a class="lien-titre" href="event/show/<?= $event['idEvent']; ?>"><h4 class="titre-cards truncate"><?= $event['nameEvent']; ?></h4></a>
+                <a class="lien-titre" href="event/show/<?= $event['idEvent']; ?>"><h4 class="titre-cards truncate black-text"><?= $event['nameEvent']; ?></h4></a>
                 <h6 class="truncate location-cards"><?= $event['locationEvent']; ?>, <?= $event['startEvent']; ?></h6>
             </div>
             <div class="card-action">

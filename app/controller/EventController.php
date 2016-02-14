@@ -4,6 +4,9 @@ class EventController extends AppController
 {
     protected $_date;
 
+    /**
+     * EventController constructor.
+     */
     public function __construct()
     {
         require 'app/model/EventModel.php';
@@ -14,6 +17,11 @@ class EventController extends AppController
 
     }
 
+    /**
+     *Création d'un event
+     * Cette fonction permet la création d'un évènement
+     * Elle permet de sauvegarder ou de publier un event
+     */
     public function create()
     {
         if (isset($_SESSION['user_email'])) {
@@ -399,6 +407,9 @@ class EventController extends AppController
         }
     }
 
+    /**
+     *Permet l'affichage de la page creation_event.php
+     */
     public function home()
     {
         $data = $this->model->getCategories();
@@ -414,6 +425,9 @@ class EventController extends AppController
         }
     }
 
+    /**
+     *Permet l'affichage de la liste des évènements
+     */
     public function lists()
     {
         define("TITLE_HEAD", "List of events | Volunteers");
@@ -425,6 +439,9 @@ class EventController extends AppController
         $this->load->view('event/view_events.php', $data);
     }
 
+    /**
+     *Permet l'affichage d'un évènement en particulier avec tout les éléments qui le compose
+     */
     public function show()
     {
         if(isset($_GET['id']))
@@ -459,6 +476,9 @@ class EventController extends AppController
         }
     }
 
+    /**
+     *Fonction pour la barre de recherche en ajax, elle permet de décoder le fichier json renvoyer par l'ajax
+     */
     public function search()
     {
 
@@ -469,6 +489,9 @@ class EventController extends AppController
         //echo(json_encode($this->model->search($recherche)));
     }
 
+    /**
+     *Permet l'insetion d'une question dans la base
+     */
     public function question()
     {
 
@@ -495,6 +518,9 @@ class EventController extends AppController
         }
     }
 
+    /**
+     *Permet l'insertion d'une réponse dans la base
+     */
     public function answer()
     {
         $event = $_POST['idEvent'];
@@ -507,7 +533,7 @@ class EventController extends AppController
 
                 $answer = $_POST['answer'];
 
-                if ($this->model->insertAnswer($user, $question, $answer)) {
+                if ($this->model->insertAnswer($user, $question, $answer, $event)) {
                     $messageFlash = 'Your answer has been published with success';
                     $this->coreSetFlashMessage('sucess', $messageFlash, 1);
                     header("location:show/" . $event . "/answerok");
@@ -529,16 +555,19 @@ class EventController extends AppController
         }
     }
 
+    /**
+     *Fonction de tri des évènements
+     */
     public function sort()
     {
-        if (!empty($_POST['category']) || !empty($_POST['sortDate']) || isset($_GET['message'])) {
+        if (!empty($_POST['category']) || !empty($_POST['sortDate']) || isset($_GET['id'])) {
 
             if (!empty($_POST['category'])) {
                 $category = $_POST['category'];
             }
-            elseif(isset($_GET['message'])) {
+            elseif(isset($_GET['id'])) {
 
-                $category = $_GET['message'];
+                $category = $_GET['id'];
             }
             else {
                 $category = '';
@@ -567,7 +596,7 @@ class EventController extends AppController
             } else {
                 $messageFlash = 'Nothing correspond to your search';
                 $this->coreSetFlashMessage('error', $messageFlash, 3);
-                header("location:lists");
+                header("location:".PATH_HOME."event/lists");
             }
         } else {
             $messageFlash = 'Please select an option';
@@ -576,6 +605,9 @@ class EventController extends AppController
         }
     }
 
+    /**
+     *Fonction permettant l'affichage des différents volontaires qui participent à un évènement
+     */
     public function listvolunteers()
     {
         define("TITLE_HEAD", "Volunteers | List Volunteers");
@@ -587,6 +619,10 @@ class EventController extends AppController
         $this->load->view("event/list_volunteers.php", $data);
     }
 
+
+    /**
+     *Permet l'édition d'un évènement
+     */
     public function editshow()
     {
         define("TITLE_HEAD", "Volunteers | Edit");
@@ -600,6 +636,9 @@ class EventController extends AppController
         $this->load->view("event/update_event.php", $data);
     }
 
+    /**
+     *Fonction permettant le recrutement des volontaires
+     */
     public function hire()
     {
         if(!empty($_POST['hire'])) {
@@ -624,6 +663,9 @@ class EventController extends AppController
         }
     }
 
+    /**
+     *Permet la modification d'un évènement, semblale à la fonction create() mais avec des updates
+     */
     public function edit()
     {
         if (isset($_SESSION['user_email'])) {
@@ -1058,5 +1100,33 @@ class EventController extends AppController
             header("location:../home/home");
             exit();
         }
+    }
+
+    /**
+     *Permet de supprimer un event
+     */
+    public function deleteevent()
+    {
+        if(isset($_GET['id']))
+        {
+            if($this->model->deleteEvent($_GET['id'])){
+                $messageFlash = 'Done ! The information has been deleted !';
+                $this->coreSetFlashMessage('sucess', $messageFlash, 4);
+                header("location:" . PATH_HOME . "profile/events");
+                exit();
+            } else {
+                $messageFlash = 'Error, a probleme as occured';
+                $this->coreSetFlashMessage('error', $messageFlash, 4);
+                header("location:" . PATH_HOME . "profile/events");
+                exit();
+            }
+
+        } else {
+            $messageFlash = 'ID is missing';
+            $this->coreSetFlashMessage('error', $messageFlash, 4);
+            header("location:" . PATH_HOME . "profile/events");
+            exit();
+        }
+
     }
 }
