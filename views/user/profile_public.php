@@ -21,7 +21,11 @@
 
                         <p class="white-text">Rating :</p>
                         <span class="stars">
-                            <?= "<h4 class='white-text'>".$data['rating'][0]['AVG(rating)']." / 6 </h4>"; ?>
+                            <?php if (!empty($data['rating'])){ ?>
+                                <?= "<h4 class='white-text'>".$data['rating'][0]['AVG(rating)']." / 6 </h4>"; ?>
+                            <?php } else {
+                                echo "No rating yet";
+                            } ?>
                         </span>
 
                         <form action="profile/rate" method="post">
