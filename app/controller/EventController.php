@@ -1102,6 +1102,9 @@ class EventController extends AppController
         }
     }
 
+    /**
+     *Permet de supprimer un event
+     */
     public function deleteevent()
     {
         if(isset($_GET['id']))

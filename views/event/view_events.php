@@ -102,7 +102,7 @@
                 </a>
             </div>
             <div class="card-content">
-                <a class="lien-titre" href="event/show/<?= $event['idEvent']; ?>"><h4 class="titre-cards truncate"><?= $event['nameEvent']; ?></h4></a>
+                <a class="lien-titre" href="event/show/<?= $event['idEvent']; ?>"><h4 class="titre-cards truncate black-text"><?= $event['nameEvent']; ?></h4></a>
                 <h6 class="truncate location-cards"><?= $event['locationEvent']; ?>, <?= $event['startEvent']; ?></h6>
             </div>
             <div class="card-action">

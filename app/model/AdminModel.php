@@ -3,10 +3,11 @@
 class AdminModel extends AppModel
 {
 
+
 	/**
 	 * @param $id
 	 * @return bool|mixed
-	 */
+     */
 	public function getEvent($id)
 	{
 		try {
@@ -267,6 +268,10 @@ class AdminModel extends AppModel
 		}
 	}
 
+	/**
+	 * @param $options
+	 * @return bool
+     */
 	public function deleteEvent($options) // à checker
 	{
 	    try
@@ -332,6 +337,10 @@ class AdminModel extends AppModel
 	    }
 	}
 
+	/**
+	 * @param $id
+	 * @return array|bool
+     */
 	public function getCategory($id)
 	{
 		try {
@@ -396,6 +405,12 @@ class AdminModel extends AppModel
 	    }
 	}
 
+	/**
+	 * @param $category
+	 * @param $picture
+	 * @param $idCategory
+	 * @return bool
+     */
 	public function editCategory($category, $picture, $idCategory)
 	{
 		try {
@@ -488,6 +503,13 @@ class AdminModel extends AppModel
 	    }
 	}
 
+	/**
+	 * @param $email
+	 * @param $password
+	 * @param $status
+	 * @param $key
+	 * @return bool
+     */
 	public function inscriptionUser($email, $password, $status, $key)
 	{
 	    try
@@ -510,6 +532,9 @@ class AdminModel extends AppModel
 	    }
 	}
 
+	/**
+	 *
+     */
 	public function disconnect()
 	{
 	    session_unset();
@@ -519,6 +544,11 @@ class AdminModel extends AppModel
 	    exit();
 	}
 
+	/**
+	 * @param $key
+	 * @param $active
+	 * @return bool
+     */
 	public function validateUser($key, $active)
 	{
 	    try {
@@ -538,6 +568,10 @@ class AdminModel extends AppModel
 	    }
 	}
 
+	/**
+	 * @param $email
+	 * @return bool|mixed
+     */
 	public function checkEmail($email)
 	{
 	    try
@@ -565,6 +599,11 @@ class AdminModel extends AppModel
 	    }
 	}
 
+	/**
+	 * @param $email
+	 * @param $password
+	 * @return bool|mixed
+     */
 	public function connexionUser($email, $password)
 	{
 		try {
@@ -588,6 +627,10 @@ class AdminModel extends AppModel
 		}
 	}
 
+	/**
+	 * @param $iduser
+	 * @return bool
+     */
 	public function activateUser($iduser)
 	{
 		try {
@@ -605,6 +648,10 @@ class AdminModel extends AppModel
 		}
 	}
 
+	/**
+	 * @param $iduser
+	 * @return bool
+     */
 	public function disableUser($iduser)
 	{
 		try {
@@ -695,6 +742,20 @@ class AdminModel extends AppModel
 		}
 	}
 
+	/**
+	 * @param $id
+	 * @param $first_name
+	 * @param $last_name
+	 * @param $birth_date
+	 * @param $email
+	 * @param $location
+	 * @param $description
+	 * @param $skills
+	 * @param $school
+	 * @param $work
+	 * @param $idpicture
+     * @return bool
+     */
 	public function update_profile($id, $first_name, $last_name, $birth_date, $email, $location, $description, $skills, $school, $work, $idpicture)
 	{
 		try {
@@ -723,6 +784,11 @@ class AdminModel extends AppModel
 		}
 	}
 
+	/**
+	 * @param $id
+	 * @param $status
+	 * @return bool
+     */
 	public function editStatus($id, $status)
 	{
 		try {
@@ -741,6 +807,10 @@ class AdminModel extends AppModel
 		}
 	}
 
+	/**
+	 * @param $status
+	 * @return bool
+     */
 	public function addStatus($status)
 	{
 		try {
@@ -758,6 +828,10 @@ class AdminModel extends AppModel
 		}
 	}
 
+	/**
+	 * @param $id
+	 * @return mixed
+     */
 	public function getProfile($id)
 	{
 		try {
@@ -781,7 +855,11 @@ class AdminModel extends AppModel
 		}
 	}
 
-    public function getReview($idVolunteer)
+	/**
+	 * @param $idVolunteer
+	 * @return array|bool
+     */
+	public function getReview($idVolunteer)
     {
         try {
             $query = $this->connexion->prepare("SELECT * FROM vol_users_review
@@ -804,6 +882,23 @@ class AdminModel extends AppModel
         }
     }
 
+	/**
+	 * @param $event_name
+	 * @param $event_location
+	 * @param $event_start
+	 * @param $event_hour_start
+	 * @param $event_end
+	 * @param $event_hour_end
+	 * @param $event_description
+	 * @param $facebook
+	 * @param $instagram
+	 * @param $youtube
+	 * @param $twitter
+	 * @param $status
+	 * @param $user
+     * @param $idEvent
+     * @return bool
+     */
 	public function editEvent($event_name, $event_location, $event_start, $event_hour_start, $event_end,
 							  $event_hour_end, $event_description, $facebook, $instagram, $youtube, $twitter, $status, $user, $idEvent)
 	{
@@ -852,6 +947,11 @@ class AdminModel extends AppModel
 		}
 	}
 
+	/**
+	 * @param $idCategory
+	 * @param $idEvent
+	 * @return bool
+     */
 	public function editCategories($idCategory, $idEvent)
 	{
 		try {
@@ -873,6 +973,13 @@ class AdminModel extends AppModel
 		}
 	}
 
+	/**
+	 * @param $idEvent
+	 * @param $missions
+	 * @param $nbVolunteer
+	 * @param $idMission
+	 * @return bool
+     */
 	public function editMissions($idEvent, $missions, $nbVolunteer, $idMission)
 	{
 		try {
@@ -897,6 +1004,10 @@ class AdminModel extends AppModel
 		}
 	}
 
+	/**
+	 * @param $idVolunteer
+	 * @return array|bool
+     */
 	public function getRates($idVolunteer)
 	{
 		try {
@@ -920,6 +1031,10 @@ class AdminModel extends AppModel
 		}
 	}
 
+	/**
+	 * @param $idRate
+	 * @return bool
+     */
 	public function deleteRate($idRate)
 	{
 		try {

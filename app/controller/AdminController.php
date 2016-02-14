@@ -7,6 +7,9 @@ class AdminController extends AppController
     private $_loginAdmin;
     private $_passwordAdmin;
 
+    /**
+     * AdminController constructor.
+     */
     public function __construct()
     {
         require 'app/model/AdminModel.php';
@@ -14,6 +17,9 @@ class AdminController extends AppController
         parent::__construct();
     }
 
+    /**
+     *Affichage du dashboard
+     */
     public function dashboard()
     {
         //Si le user n'est pas connecté ou n'est pas admin il est redirigé vers la page de connexion
@@ -33,6 +39,10 @@ class AdminController extends AppController
         }
     }
 
+
+    /**
+     *Ajout d'un user
+     */
     public function registerUser()
     {
         if (isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
@@ -45,6 +55,9 @@ class AdminController extends AppController
         }
     }
 
+    /**
+     *Modification d'un user
+     */
     public function edituser()
     {
         if (isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
@@ -66,6 +79,9 @@ class AdminController extends AppController
         }
     }
 
+    /**
+     *Liste des users
+     */
     public function userList()
     {
         if (isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
@@ -81,6 +97,9 @@ class AdminController extends AppController
         }
     }
 
+    /**
+     *Affichage des inforamtions d'un utilisateur
+     */
     public function singleUser()
     {
         if (isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
@@ -95,6 +114,9 @@ class AdminController extends AppController
         }
     }
 
+    /**
+     *Affichage des différent status lié aux users
+     */
     public function userStatus()
     {
         if (isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
@@ -115,6 +137,9 @@ class AdminController extends AppController
         }
     }
 
+    /**
+     *Supression d'un utilisateur
+     */
     public function deleteUser()
     {
         if (isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
@@ -151,6 +176,9 @@ class AdminController extends AppController
         }
     }
 
+    /**
+     *Création d'un event
+     */
     public function create()
     {
         if (isset($_SESSION['user_email'])) {
@@ -527,6 +555,9 @@ class AdminController extends AppController
         }
     }
 
+    /**
+     *Modification d'un event
+     */
     public function edit()
     {
         if (isset($_SESSION['user_email'])) {
@@ -965,6 +996,9 @@ class AdminController extends AppController
         }
     }
 
+    /**
+     *Affichage du formulaire de création d'évènement
+     */
     public function createEvent()
     {
         if (isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
@@ -980,6 +1014,9 @@ class AdminController extends AppController
         }
     }
 
+    /**
+     *Liste des events
+     */
     public function eventList()
     {
         if (isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
@@ -995,6 +1032,9 @@ class AdminController extends AppController
         }
     }
 
+    /**
+     *Affichage d'un event
+     */
     public function singleEvent()
     {
         if (isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
@@ -1022,6 +1062,9 @@ class AdminController extends AppController
         }
     }
 
+    /**
+     *Supressions d'un event
+     */
     public function deleteEvent()
     {
         if (isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
@@ -1041,6 +1084,9 @@ class AdminController extends AppController
         }
     }
 
+    /**
+     *Affichae / création et modifcation des différentes catéfories lié aux évènements
+     */
     public function categories()
     {
         if (isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
@@ -1081,6 +1127,9 @@ class AdminController extends AppController
         }
     }
 
+    /**
+     *Ajout d'une catégorie dans la base
+     */
     public function insertcategories()
     {
         if (isset($_POST['category'])) {
@@ -1143,6 +1192,9 @@ class AdminController extends AppController
         }
     }
 
+    /**
+     *Modification d'une catégorie
+     */
     public function editcategories()
     {
         if (isset($_POST['category'])) {
@@ -1221,6 +1273,9 @@ class AdminController extends AppController
         }
     }
 
+    /**
+     *Supression d'une categorie
+     */
     public function deleteCategory()
     {
         if (isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
@@ -1241,6 +1296,9 @@ class AdminController extends AppController
         }
     }
 
+    /**
+     *Affichage des messages contacts
+     */
     public function inbox()
     {
         if (isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
@@ -1265,6 +1323,9 @@ class AdminController extends AppController
         }
     }
 
+    /**
+     *
+     */
     public function compose()
     {
         if (isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
@@ -1277,6 +1338,9 @@ class AdminController extends AppController
         }
     }
 
+    /**
+     *Connexion au back office
+     */
     public function signin()
     {
         if (isset($_POST['username']) && isset($_POST['password'])) {
@@ -1321,6 +1385,9 @@ class AdminController extends AppController
         }
     }
 
+    /**
+     *Deconnexion du back office
+     */
     public function logout()
     {
         session_unset();
@@ -1330,6 +1397,9 @@ class AdminController extends AppController
         exit();
     }
 
+    /**
+     *Enregistrement d'un user
+     */
     public function signup()
     {
         if (isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
@@ -1379,6 +1449,9 @@ class AdminController extends AppController
         }
     }
 
+    /**
+     *Activer un utilisateur
+     */
     public function activateuser()
     {
         if (isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
@@ -1412,6 +1485,9 @@ class AdminController extends AppController
         }
     }
 
+    /**
+     *Desactiver un utilisateur
+     */
     public function disableuser()
     {
         if (isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
@@ -1443,6 +1519,9 @@ class AdminController extends AppController
         }
     }
 
+    /**
+     *Modifier un user
+     */
     public function edituseradmin()
     {
         if (isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
@@ -1580,6 +1659,9 @@ class AdminController extends AppController
         }
     }
 
+    /**
+     *Modifier un status
+     */
     public function editStatus()
     {
         if (isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
@@ -1646,6 +1728,9 @@ class AdminController extends AppController
         }
     }
 
+    /**
+     *Supprimer un status
+     */
     public function deleteStatus()
     {
         if (isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
@@ -1686,6 +1771,9 @@ class AdminController extends AppController
         }
     }
 
+    /**
+     *Ajouter un status
+     */
     public function addStatus()
     {
         if (isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
@@ -1721,6 +1809,9 @@ class AdminController extends AppController
         }
     }
 
+    /**
+     *Affichage des commentaires lié à un user
+     */
     public function usersreview()
     {
         if (isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
@@ -1735,6 +1826,9 @@ class AdminController extends AppController
         }
     }
 
+    /**
+     *Affichage des différents commentaire lié à un user
+     */
     public function showComments()
     {
         if (isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
@@ -1769,6 +1863,9 @@ class AdminController extends AppController
         }
     }
 
+    /**
+     *Supprimer un commentaire
+     */
     public function deleteComment()
     {
         if (isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
@@ -1808,6 +1905,9 @@ class AdminController extends AppController
         }
     }
 
+    /**
+     *Liste des volontaires participant à un event
+     */
     public function listvolunteers()
     {
         if (isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
@@ -1824,6 +1924,9 @@ class AdminController extends AppController
         }
     }
 
+    /**
+     *Afficher les notes d'un user
+     */
     public function showrates()
     {
         if (isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
@@ -1839,6 +1942,9 @@ class AdminController extends AppController
         }
     }
 
+    /**
+     *Supprimer une note
+     */
     public function deleterate()
     {
         if (isset($_SESSION['user_id']) && $_SESSION['user_status'] == 2) {
