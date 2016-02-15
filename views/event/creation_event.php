@@ -10,13 +10,10 @@
                             <hr class="fancy-hr">
                         </div>
                         <p>
-                            <?php if (isset($_SESSION['user_id'])) {
-                                echo "Aliqua instituendarum appellat elit singulis. Officia ipsum voluptate a excepteur a
-                                proident, si malis malis varias mandaremus, minim iis admodum ut esse, admodum enim ubi
-                                nostrud comprehenderit.";
-                            } else {
-                                echo "For save or publish event please log you in";
-                            } ?>
+                            <?php if (!isset($_SESSION['user_id'])) { ?>
+                                <script type='text/javascript' src='assets/js/notie.js'></script>
+                                <script>notie.alert(2, 'Please log in before creating an event!', 4);</script>
+                            <?php } ?>
                         </p>
                     </div>
 

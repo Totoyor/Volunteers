@@ -51,16 +51,16 @@
             <a href="?" class="brand-logo"><img src="assets/img/logo_volonteers3.svg" alt="logo" class="logo_svg"></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a id="create-event" class="btn btn-menu" href="event/home">Create event</a></li>
-                  <?php if(isset($_SESSION['user_email']) || isset($_COOKIE['fbsr_941553679268599'])) { ?>
+                  <?php if(isset($_SESSION['user_email'])) { ?>
                       <li><a href="event/lists">Events</a></li>
                       <li><a href="profile/dashboard">My Profile</a></li>
                       <li><a href="?module=user&action=disconnect">Disconnect</a></li>
                   <?php } else { ?>
                       <li><a href="event/lists">All events</a></li>
+                      <li><a href="?module=help">Help</a></li>
                       <li ><a id="menu_login" class="modal-trigger" href="#login">Log In</a></li>
                       <li ><a id="menu_signup" class="modal-trigger" href="#signup">Sign Up</a></li>
                   <?php } ?>
-                <li><a href="?module=help">Help</a></li>
             </ul>
             <ul id="slide-out" class="side-nav">
                 <li><a href="event/home">Create event</a></li>
@@ -69,10 +69,10 @@
                     <li><a class="modal-trigger" href="#signup">Sign Up</a></li>
                 <?php } else { ?>
                     <li><a href="event/lists">Events</a></li>
+                    <li><a href="?module=help">Help</a></li>
                     <li><a href="profile/dashboard">My Profile</a></li>
                     <li><a href="?module=user&action=disconnect">Disconnect</a></li>
                 <?php } ?>
-                <li><a href="?module=help">Help</a></li>
             </ul>
             <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
         </div>
