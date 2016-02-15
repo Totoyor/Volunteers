@@ -104,7 +104,7 @@
                 <ul>
                     <li><a class="grey-text text-lighten-3" href="home/about">About us</a></li>
                     <li><a class="grey-text text-lighten-3" href="contact/home">Contact</a></li>
-                    <li><a class="grey-text text-lighten-3" href="blog/home">Blog</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#">Blog (Coming Soon)</a></li>
                     <li><a class="grey-text text-lighten-3" href="home/terms">Terms and privacy</a></li>
                 </ul>
             </div>
@@ -169,7 +169,7 @@
     </div>
     <div class="footer-copyright">
         <div class="container footer-wrapper footer-bas center">
-            © 2015 Volunteers - All right reserved
+            © 2016 Volunteers - All right reserved
         </div>
     </div>
 </footer>
