@@ -274,24 +274,19 @@ a.viewmore.btn-vue {
 }
 
 .bgorange {
-    background: linear-gradient(to left, rgba(240, 152, 25, 0.4), rgba(163, 152, 206, 0.4));
-    transition: 0.3s;
+    background-color: rgba(255, 139, 2, 0.6);
 }
-
-/*.bgorange:hover {
-    background: linear-gradient(to left, rgba(204, 81, 10, 0.4), rgba(173, 109, 30, 0.4));
-    transition: 0.3s;
-}*/
-
+.bgorange:hover {
+    background-color: rgba(255, 139, 2, 0.6);
+    background: linear-gradient(120deg, rgba(255, 153, 0, 0.8), rgba(213, 94, 58, 0.8));
+}
 .bgblue {
-    background: linear-gradient(to left, rgba(163, 152, 206, 0.4), rgba(80, 88, 187, 0.4));
-    transition: 0.3s;
+    background: rgba(84, 152, 212, 0.6);
 }
-
-/*.bgblue:hover {
-    background: linear-gradient(to left, rgba(80, 98, 187, 0.4) , rgba(72, 80, 170, 0.4));
-    transition: 0.3s;
-}*/
+.bgblue:hover {
+    background-color: rgba(84, 152, 212, 0.8);
+    background: linear-gradient(230deg, rgba(0, 187, 224, 0.8), rgba(58, 123, 213, 0.8));
+}
 
 /*** FOOTER ***/
 
@@ -1275,7 +1270,7 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
 }
 
 .event_tw {
-    background-image: url(../img/inkedin.png);
+    background-image: url(../img/tw2.svg);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

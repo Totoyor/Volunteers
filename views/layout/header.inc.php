@@ -14,8 +14,6 @@
     <link href="assets/css/dropify.css" rel="stylesheet" type="text/css">
     <!--Import Google Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Scripts-->
-    <script type="text/javascript" src="assets/js/fb_login.js"></script>
     <!--[if lt IE 8]>
     <div id="update-browser" class="error">
         <div class="ub-container">
@@ -53,10 +51,11 @@
                 <li><a id="create-event" class="btn btn-menu" href="event/home">Create event</a></li>
                   <?php if(isset($_SESSION['user_email'])) { ?>
                       <li><a href="event/lists">Events</a></li>
+                      <li><a href="?module=help">Help</a></li>
                       <li><a href="profile/dashboard">My Profile</a></li>
                       <li><a href="?module=user&action=disconnect">Disconnect</a></li>
                   <?php } else { ?>
-                      <li><a href="event/lists">All events</a></li>
+                      <li><a href="event/lists">Events</a></li>
                       <li><a href="?module=help">Help</a></li>
                       <li ><a id="menu_login" class="modal-trigger" href="#login">Log In</a></li>
                       <li ><a id="menu_signup" class="modal-trigger" href="#signup">Sign Up</a></li>
@@ -64,6 +63,7 @@
             </ul>
             <ul id="slide-out" class="side-nav">
                 <li><a href="event/home">Create event</a></li>
+                <li><a href="?module=help">Help</a></li>
                 <?php if (!isset($_SESSION['user_email'])) { ?>
                     <li><a class="modal-trigger" href="#login">Log In</a></li>
                     <li><a class="modal-trigger" href="#signup">Sign Up</a></li>

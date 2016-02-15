@@ -6,7 +6,7 @@
                 <div class="formulaire_crea col l12">
                     <div class="row">
                         <div class="center">
-                            <h1 class="title-section center bleu"><strong>Ready to find volunteers ?</strong></h1>
+                            <h1 class="title-section center"><strong>Ready to find volunteers ?</strong></h1>
                             <hr class="fancy-hr">
                         </div>
                         <p>
@@ -282,6 +282,12 @@
                         </div>
                     </div>
 
+                    <div class="clear">
+                        <p class="margin_left">
+                            Let’s add a cover picture for your event ! A 1200 x 700 image is advise.
+                        </p>
+                    </div>
+
                     <div class="row">
                         <div class="input-field col s12 l12 m12">
                             <input name="coverPicture" type="file" id="input-file-now" data-height="200"
@@ -292,7 +298,7 @@
 
                     <div class="clear">
                         <p class="margin_left">
-                            Aliqua instituendarum appellat elit singulis. Officia ipsum voluptate.
+                            Add photos to make your event more appealing !
                         </p>
                     </div>
 

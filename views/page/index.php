@@ -5,11 +5,11 @@
                 <div class="content-bloc center">
                     <h1 class="titre_left">I want to volunteer at events</h1>
                     <ul class="hidden-content-leftside">
-                        <li><i class="material-icons">input</i>Join events for free</li>
-                        <li><i class="material-icons">thumb_up</i>Live new work exepriences</li>
-                        <li><i class="material-icons">person_pin</i>Meet awesome people</li>
+                        <li><i class="material-icons">done</i>Join events for free</li>
+                        <li><i class="material-icons">done</i>Live new work exepriences</li>
+                        <li><i class="material-icons">done</i>Meet awesome people</li>
                     </ul>
-                    <a href="event/lists" class="btn btn_left">Join events now</a>
+                    <a href="event/lists" class="btn btn_left btn-bleu">Join events now</a>
                 </div>
             </div>
             <div class="col s6 blocprincipal white-text bgorange valign-wrapper">
@@ -17,10 +17,10 @@
                     <h1 class="titre_right">I need volunteers for my event</h1>
                     <ul class="hidden-content-rightside">
                         <li><i class="material-icons">done</i>Easiest way to hire volunteers</li>
-                        <li><i class="material-icons">schedule</i>Save time</li>
-                        <li><i class="material-icons">visibility</i>Better visibility for your event</li>
+                        <li><i class="material-icons">done</i>Save time</li>
+                        <li><i class="material-icons">done</i>Better visibility for your event</li>
                     </ul>
-                    <a href="event/home" class="btn btn-orange btn_right">Tell us about your event</a>
+                    <a href="event/home" class="btn btn-orange btn_right">Create your event</a>
                 </div>
                 <!-- content bloc-->
             </div>
@@ -94,7 +94,7 @@
                         </a>
                     </div>
                     <div class="card-content">
-                        <a href="event/show/<?= $event['idEvent']; ?>"><h4 class="titre-cards truncate"><?= $event['nameEvent']; ?></h4></a>
+                        <a href="event/show/<?= $event['idEvent']; ?>"><h4 class="titre-cards truncate black-text"><?= $event['nameEvent']; ?></h4></a>
                         <h6 class="truncate location-cards"><?= $event['locationEvent']; ?>
                             , <?= $event['startEvent']; ?></h6>
                     </div>
