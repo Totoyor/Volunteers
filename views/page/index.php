@@ -2,25 +2,25 @@
     <div class="big-img">
         <div class="row">
             <div class="col s6 blocprincipal white-text bgblue valign-wrapper">
-                <div class="content-bloc center">
-                    <h1 class="titre_left">I want to volunteer at events</h1>
-                    <ul class="hidden-content-leftside">
+                <div class="content-bloc">
+                    <h1 class="titre_left txtshadow">I want to volunteer at events</h1>
+                    <ul class="hidden-content-leftside txtshadow">
                         <li><i class="material-icons">done</i>Join events for free</li>
                         <li><i class="material-icons">done</i>Live new work exepriences</li>
                         <li><i class="material-icons">done</i>Meet awesome people</li>
                     </ul>
-                    <a href="event/lists" class="btn btn_left btn-bleu">Join events now</a>
+                    <a href="event/lists" class="btn btn_left btn-bleu shadow">Join events now</a>
                 </div>
             </div>
             <div class="col s6 blocprincipal white-text bgorange valign-wrapper">
-                <div class="content-bloc center">
-                    <h1 class="titre_right">I need volunteers for my event</h1>
-                    <ul class="hidden-content-rightside">
+                <div class="content-bloc">
+                    <h1 class="titre_right txtshadow">I need volunteers for my event</h1>
+                    <ul class="hidden-content-rightside txtshadow">
                         <li><i class="material-icons">done</i>Easiest way to hire volunteers</li>
                         <li><i class="material-icons">done</i>Save time</li>
                         <li><i class="material-icons">done</i>Better visibility for your event</li>
                     </ul>
-                    <a href="event/home" class="btn btn-orange btn_right">Create your event</a>
+                    <a href="event/home" class="btn btn-orange btn_right shadow">Create your event</a>
                 </div>
                 <!-- content bloc-->
             </div>
@@ -128,7 +128,7 @@
                 <?php foreach ($data['categories'] as $category) : ?>
                     <?php if($category['nameCategorie'] == 'Festival') { ?>
                         <div class="row">
-                        <div class="col s12 m8">
+                        <div class="col s12 m8 nomargin_left">
                             <a href="event/sort/<?= $category['idCategorie']; ?>">
                                 <div class="card margin-cat-bottom festival_responsive">
                                     <div class="card-image item">

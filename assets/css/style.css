@@ -279,21 +279,21 @@ a.viewmore.btn-vue {
 }
 
 .bgorange {
-    background-color: rgba(255, 139, 2, 0.6);
+    background-color: rgba(255, 139, 2, 0.2);
 }
 
 .bgorange:hover {
-    background-color: rgba(255, 139, 2, 0.6);
-    background: linear-gradient(120deg, rgba(255, 153, 0, 0.8), rgba(213, 94, 58, 0.8));
+    background-color: rgba(255, 139, 2, 0.2);
+    background: linear-gradient(120deg, rgba(255, 153, 0, 0.7), rgba(213, 94, 58, 0.7));
 }
 
 .bgblue {
-    background: rgba(84, 152, 212, 0.6);
+    background: rgba(84, 152, 212, 0.2);
 }
 
 .bgblue:hover {
-    background-color: rgba(84, 152, 212, 0.8);
-    background: linear-gradient(230deg, rgba(0, 187, 224, 0.8), rgba(58, 123, 213, 0.8));
+    background-color: rgba(84, 152, 212, 0.2);
+    background: linear-gradient(230deg, rgba(0, 187, 224, 0.7), rgba(58, 123, 213, 0.7));
 }
 
 /*** FOOTER ***/
@@ -442,7 +442,7 @@ nav ul li:hover {
 }
 
 .txtshadow {
-    text-shadow: 0px 0px 4px black;
+    text-shadow: 0px 0px 10px black;
 }
 
 .hoverdark:hover {
@@ -699,11 +699,11 @@ p {
 /*********TOOLS*******/
 
 .shadow {
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 }
 
 .shadowin {
-    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 1) !important;
+    box-shadow: inset 0px 10px 10px rgba(0, 0, 0, 1) !important;
 }
 
 .bleu {
@@ -1438,10 +1438,6 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
     margin-top: 7px;
 }
 
-#bgvid {
-
-}
-
 .nomargin {
     margin: 0px !important;
     padding: 0px !important;
@@ -1596,7 +1592,7 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
 
     .hidden-content-rightside {
         position: absolute;
-        padding-left: 16%;
+        padding-left: 14%;
     }
 
     .titre_right {
@@ -1623,7 +1619,7 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
 
         opacity: 1;
         top: 400px !important;
-        margin-left: 16%;
+        margin-left: 20%;
 
     }
 
@@ -1638,7 +1634,7 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
 
     .btn_right {
 
-        margin-left: 15%;
+        margin-left: 25%;
         top: 510px !important;
 
     }
@@ -1649,7 +1645,7 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
 
     .hidden-content-rightside {
         position: absolute;
-        padding-left: 5%;
+        padding-left: 8%;
         opacity: 1;
         top: 320px;
     }
@@ -1658,12 +1654,13 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
         position: absolute;
         text-align: center;
         margin: 0px;
+        top: 250px;
 
     }
 
     .btn_right {
         position: absolute;
-        margin-left: 5%;
+        margin-left: 11%;
 
         top: 450px !important;
 
@@ -1696,7 +1693,7 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
 
 .hidden_show {
     opacity: 1;
-    top: 330px;
+    top: 320px;
     transition: opacity 0.8s;
     transition-timing-function: ease-in-out;
 
@@ -1706,7 +1703,7 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
 
     .hidden-content-leftside {
         position: absolute;
-        padding-left: 15%;
+        padding-left: 16%;
     }
 
     .titre_left {
@@ -1717,7 +1714,7 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
 
     .btn_left {
         position: absolute;
-        margin-left: 15%;
+        margin-left: 17%;
         top: 450px !important;
     }
 
@@ -1753,7 +1750,7 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
 
     .hidden-content-leftside {
         position: absolute;
-        padding-left: 5%;
+        padding-left: 10%;
         opacity: 1;
         top: 320px;
     }
@@ -1762,12 +1759,13 @@ a.card-action:focus, .grey-text.text-lighten-3:focus, .btn-blue:focus {
         position: absolute;
         text-align: center;
         margin: 0px;
+        top: 250px;
 
     }
 
     .btn_left {
         position: absolute;
-        margin-left: 5%;
+        margin-left: 11%;
 
         top: 450px !important;
 
